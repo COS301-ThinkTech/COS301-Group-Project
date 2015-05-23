@@ -25,6 +25,20 @@
 
 
 \newpage	
+\section{Use case prioritization}
+\subsection{Critical}
+\begin{itemize}
+  \item createNewFlowchart
+\end{itemize}
+\subsection{Important}
+\begin{itemize}
+  \item addFlowchartComponent
+  \item editFlowchartComponent
+  \item saveFlowchart
+\end{itemize}
+\subsection{Nice-To-Have}
+
+\newpage
 \section{Use cases}
 	
 \subsection{deleteFlowchartProject}
@@ -36,9 +50,26 @@ The deleteFlowchartProject use case serves the purpose of removing a flowchart p
 \subsubsection{Activity diagram}
 \includegraphics[width=500px]{deleteFlowchartProject.jpg}
 
+\subsection{editFlowchartComponent}
+The editFlowchartComponent use case provides functionality for the user to edit each component of the flowchart on a canvas.\newline\newline
+\textbf{Pre Condition:} Component must have been added\newline\newline
+\textbf{Post Condition:} Component has been edited
 
+\subsubsection{Use case diagram}
+\includegraphics[width=500px]{editFlowchartComponentUseCase.jpg}
 
+\subsubsection{Activity diagram}
+\includegraphics[width=500px]{editFowchartComponent.jpg}
 
+\subsection{saveFlowchart}
+The saveFlowchart use case provides functionality for the user to save a flowchart.\newline\newline
+\textbf{Pre Condition:} Canvas is open\newline\newline
+\textbf{Post Condition:} Flowchart has been saved to file
 
+\subsubsection{Use case diagram}
+\includegraphics[width=500px]{saveFlowchartUseCase.jpg}
+
+\subsubsection{Activity diagram}
+\includegraphics[width=500px]{saveFlowchart.jpg}
 	
 \end{document}
