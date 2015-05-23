@@ -1,0 +1,44 @@
+\documentclass[11pt,a4paper,titlepage]{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+%\usepackage{titling}
+\usepackage[hidelinks]{hyperref}
+
+
+
+
+\DeclareGraphicsExtensions{.png}
+\DeclareGraphicsExtensions{.jpg}
+
+\begin{document}
+\input{./titlepage.tex}
+
+\tableofcontents
+\pagebreak
+
+\section{Vision and scope}
+\subsection{Project background}
+\subsection{Project vision}
+\subsection{Project scope}
+
+% Include auxillary files here:  \input{file} 
+
+
+\newpage	
+\section{Use cases}
+	
+\subsection{deleteFlowchartProject}
+The deleteFlowchartProject use case serves the purpose of removing a flowchart project.
+
+\subsubsection{Use case diagram}
+\includegraphics[width=500px]{deleteFlowchartProjectUseCase.jpg}
+
+\subsubsection{Activity diagram}
+\includegraphics[width=500px]{deleteFlowchartProject.jpg}
+
+
+
+
+
+	
+\end{document}
