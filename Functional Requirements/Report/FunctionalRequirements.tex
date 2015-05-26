@@ -87,4 +87,30 @@ loadFlowchart: users load flowcharts from existing files. The file is editable, 
 \subsubsection{Domain mode}
 \includegraphics[width=500px]{loadFlowchart_domain_model.jpg}
 
+\subsection{deleteFlowchartComponent}
+The deleteFlowchartComponent use case enables the functionality to delete individual components from the canvas.
+\newline\newline
+\textbf{Pre Condition:} The canvas has to be available. Component exists in the canvas space and is in the components list.
+\newline\newline
+\textbf{Post Condition:} The canvas is clear of any components that were selected for removal.
+
+\subsubsection{Use case diagram}
+\includegraphics[width=500px]{deleteFlowchartComponentUseCase.eps}
+
+\subsubsection{Activity diagram}
+\includegraphics[width=500px]{deleteFlowchartComponentActivity.eps}
+
+\subsection{runSimulationTool}
+The runSimulation use case enables the functionality to execute the flowchart step-by-step or from start-to-end.
+\newline\newline
+\textbf{Pre Condition:} Canvas has to be available.
+\newline\newline
+\textbf{Post Condition:} Flowchart will return feedback of any errors, warnings or successful execution along with the results of any calculations.
+
+\subsubsection{Use case diagram}
+\includegraphics[width=500px]{runSimulationToolUseCase.eps}
+
+\subsubsection{Activity diagram}
+\includegraphics[width=500px]{runSimulationToolActivity.eps}
+
 \end{document}
