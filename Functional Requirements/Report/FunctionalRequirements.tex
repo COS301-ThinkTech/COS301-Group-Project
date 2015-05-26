@@ -35,6 +35,7 @@
   \item addFlowchartComponent
   \item editFlowchartComponent
   \item saveFlowchart
+  \item loadFlowChart
 \end{itemize}
 \subsection{Nice-To-Have}
 
@@ -71,5 +72,19 @@ The saveFlowchart use case provides functionality for the user to save a flowcha
 
 \subsubsection{Activity diagram}
 \includegraphics[width=500px]{saveFlowchart.jpg}
-	
+
+\subsection{loadFlowchart}
+loadFlowchart: users load flowcharts from existing files. The file is editable, can be modified by the user.\newline\newline
+\textbf{Pre Condition:} file with correct extension already exists.\newline
+\textbf{Post Condition:} open the file and make it editable in the canvas element.
+
+\subsubsection{Use case diagram}
+\includegraphics[width=500px]{loadFlowchart_use_case_diagram.jpg}
+
+\subsubsection{Activity diagram}
+\includegraphics[width=500px]{loadFlowchart_activity_diagram.jpg}
+
+\subsubsection{Domain mode}
+\includegraphics[width=500px]{loadFlowchart_domain_model.jpg}
+
 \end{document}
