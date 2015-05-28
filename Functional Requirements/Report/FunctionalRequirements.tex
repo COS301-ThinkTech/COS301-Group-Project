@@ -5,10 +5,11 @@
 \usepackage[hidelinks]{hyperref}
 
 
-
+\usepackage{epstopdf}
 
 \DeclareGraphicsExtensions{.png}
 \DeclareGraphicsExtensions{.jpg}
+%\DeclareGraphicsExtensions{.eps}
 
 \begin{document}
 \input{./titlepage.tex}
@@ -19,8 +20,42 @@
 \section{Vision and scope}
 \subsection{Project background}
 \subsection{Project vision}
+
+This project sets out to create an application for the planning and simulation of flowcharts, which
+can be used in an education setting for an introductory program logic course. The objective is to
+develop an application that can feasibly be used in such a practical setting. The application must be
+visual in nature, due to the visual nature of flowcharts. The application must facilitate exploration
+and experimentation, while providing clear feedback to the user as to how the program executes.
+
 \subsection{Project scope}
 
+The project consists of the following two components:
+
+\begin{itemize}
+\item A planning canvas, in which a flowchart can be built using an intuitive drag-and-drop editor.
+Flowchart components will be selected and dropped into the canvas, and connected into
+complete flowcharts. The system will also have to do error checking on the constructed
+flowcharts, so that (for example) multiple entry points into a program or certain flowchart
+components are not allowed.
+\item An execution system, in which a flowchart can be run from start to finish. The system
+should allow for one-click execution of the entire program, as well as step-by-step
+execution. At all stages during execution, the currently executing component should be
+highlighted, as well as the connection path being followed. The program's execution should
+be very visually apparent and appealing. The output of the flowchart's execution should also
+be apparent.
+\end{itemize}
+
+The following components are specifically excluded from the scope of the project:
+
+\begin{itemize}
+\item No executable program code generation will be required for this project.
+\item No complex design elements (such as user-defined component assemblies) are required.
+Only the basic components of standard flowcharts are necessary.\\
+
+\end{itemize}
+
+\includegraphics[width=500px]{projectScope.jpg}
+\centerline{High level system modules and their responsibilities.}
 % Include auxillary files here:  \input{file} 
 
 
