@@ -5,24 +5,29 @@
 \contentsline {section}{\numberline {2}Use case prioritization}{4}{section.2}
 \contentsline {subsection}{\numberline {2.1}Critical}{4}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Important}{4}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Nice-To-Have}{4}{subsection.2.3}
 \contentsline {section}{\numberline {3}Use cases}{5}{section.3}
-\contentsline {subsection}{\numberline {3.1}deleteFlowchartProject}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.1}createFlowchartProject}{5}{subsection.3.1}
 \contentsline {subsubsection}{\numberline {3.1.1}Use case diagram}{5}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}Activity diagram}{5}{subsubsection.3.1.2}
-\contentsline {subsection}{\numberline {3.2}editFlowchartComponent}{5}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Use case diagram}{6}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Activity diagram}{6}{subsubsection.3.2.2}
-\contentsline {subsection}{\numberline {3.3}saveFlowchart}{6}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}Use case diagram}{7}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Activity diagram}{6}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}addFlowchartComponent}{6}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Use case diagram}{7}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Activity diagram}{7}{subsubsection.3.2.2}
+\contentsline {subsection}{\numberline {3.3}editFlowchartComponent}{7}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Use case diagram}{8}{subsubsection.3.3.1}
 \contentsline {subsubsection}{\numberline {3.3.2}Activity diagram}{8}{subsubsection.3.3.2}
-\contentsline {subsection}{\numberline {3.4}loadFlowchart}{8}{subsection.3.4}
-\contentsline {subsubsection}{\numberline {3.4.1}Use case diagram}{8}{subsubsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4}deleteFlowchartProject}{9}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Use case diagram}{9}{subsubsection.3.4.1}
 \contentsline {subsubsection}{\numberline {3.4.2}Activity diagram}{9}{subsubsection.3.4.2}
-\contentsline {subsubsection}{\numberline {3.4.3}Domain mode}{9}{subsubsection.3.4.3}
-\contentsline {subsection}{\numberline {3.5}deleteFlowchartComponent}{9}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.5}saveFlowchart}{9}{subsection.3.5}
 \contentsline {subsubsection}{\numberline {3.5.1}Use case diagram}{10}{subsubsection.3.5.1}
 \contentsline {subsubsection}{\numberline {3.5.2}Activity diagram}{10}{subsubsection.3.5.2}
-\contentsline {subsection}{\numberline {3.6}runSimulationTool}{10}{subsection.3.6}
+\contentsline {subsection}{\numberline {3.6}loadFlowchart}{11}{subsection.3.6}
 \contentsline {subsubsection}{\numberline {3.6.1}Use case diagram}{11}{subsubsection.3.6.1}
 \contentsline {subsubsection}{\numberline {3.6.2}Activity diagram}{11}{subsubsection.3.6.2}
+\contentsline {subsection}{\numberline {3.7}deleteFlowchartComponent}{11}{subsection.3.7}
+\contentsline {subsubsection}{\numberline {3.7.1}Use case diagram}{12}{subsubsection.3.7.1}
+\contentsline {subsubsection}{\numberline {3.7.2}Activity diagram}{12}{subsubsection.3.7.2}
+\contentsline {subsection}{\numberline {3.8}runSimulationTool}{12}{subsection.3.8}
+\contentsline {subsubsection}{\numberline {3.8.1}Use case diagram}{13}{subsubsection.3.8.1}
+\contentsline {subsubsection}{\numberline {3.8.2}Activity diagram}{13}{subsubsection.3.8.2}
+\contentsline {section}{\numberline {4}The Domain Model - High-level}{14}{section.4}

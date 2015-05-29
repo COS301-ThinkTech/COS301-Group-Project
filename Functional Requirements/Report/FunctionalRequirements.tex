@@ -14,11 +14,16 @@
 \begin{document}
 \input{./titlepage.tex}
 
+\newpage
 \tableofcontents
+
+
 \pagebreak
 
 \section{Vision and scope}
 \subsection{Project background}
+The flowchart planning and simulation  tool is a visual tool which aims to introduce programming logic to students by providing  a platform to construct  and execute  flowcharts which depict basic programming structures whilst validating whether the flowchart components are valid .
+
 \subsection{Project vision}
 
 This project sets out to create an application for the planning and simulation of flowcharts, which
@@ -63,29 +68,48 @@ Only the basic components of standard flowcharts are necessary.\\
 \section{Use case prioritization}
 \subsection{Critical}
 \begin{itemize}
-  \item createNewFlowchart
+  \item createFlowchartProject
+  \item deleteFlowchartProject
 \end{itemize}
 \subsection{Important}
 \begin{itemize}
   \item addFlowchartComponent
   \item editFlowchartComponent
+  \item deleteFlowchartComponent
   \item saveFlowchart
   \item loadFlowchart
-  \item deleteFlowchartComponent
   \item runSimulationTool
 \end{itemize}
 
 \newpage
 \section{Use cases}
-	
-\subsection{deleteFlowchartProject}
-The deleteFlowchartProject use case serves the purpose of removing a flowchart project.
 
+\subsection{createFlowchartProject}
+Creates an environment to enable users to start building flowcharts.
+\newline\newline
+\textbf{Pre Condition:}
+Planning canvas must be blank.\newline\newline
+\textbf{Post Conditions:}
+New canvas created, flowchart tools ready for use
 \subsubsection{Use case diagram}
-\includegraphics[width=500px]{deleteFlowchartProjectUseCase.jpg}
+\includegraphics[width=500px]{CreateFlowChartProject_Usecase.jpg}
 
 \subsubsection{Activity diagram}
-\includegraphics[width=500px]{deleteFlowchartProject.jpg}
+\includegraphics[width=500px]{CreateFlowChartProject_Activity.jpg}
+
+\subsection{addFlowchartComponent}
+Provides users with functionality to drag and drop flowchart components into the planning canvas.
+\newline\newline
+\textbf{Pre Condition:}
+Canvas is available.\newline\newline
+\textbf{Post Condition:}
+Component has been added to flowchart.
+
+\subsubsection{Use case diagram}
+\includegraphics[width=500px]{AddFlowChartComponent_Usecase.jpg}
+
+\subsubsection{Activity diagram}
+\includegraphics[width=500px]{AddFlowChartComponent_Activity.jpg}
 
 \subsection{editFlowchartComponent}
 The editFlowchartComponent use case provides functionality for the user to edit each component of the flowchart on a canvas.\newline\newline
@@ -97,6 +121,16 @@ The editFlowchartComponent use case provides functionality for the user to edit 
 
 \subsubsection{Activity diagram}
 \includegraphics[width=500px]{editFowchartComponent.jpg}
+
+
+\subsection{deleteFlowchartProject}
+The deleteFlowchartProject use case serves the purpose of removing a flowchart project.
+
+\subsubsection{Use case diagram}
+\includegraphics[width=500px]{deleteFlowchartProjectUseCase.jpg}
+
+\subsubsection{Activity diagram}
+\includegraphics[width=500px]{deleteFlowchartProject.jpg}
 
 \subsection{saveFlowchart}
 The saveFlowchart use case provides functionality for the user to save a flowchart.\newline\newline
@@ -120,8 +154,6 @@ loadFlowchart: users load flowcharts from existing files. The file is editable, 
 \subsubsection{Activity diagram}
 \includegraphics[width=500px]{loadFlowchart_activity_diagram.jpg}
 
-\subsubsection{Domain mode}
-\includegraphics[width=500px]{loadFlowchart_domain_model.jpg}
 
 \subsection{deleteFlowchartComponent}
 The deleteFlowchartComponent use case enables the functionality to delete individual components from the canvas.
@@ -148,5 +180,8 @@ The runSimulation use case enables the functionality to execute the flowchart st
 
 \subsubsection{Activity diagram}
 \includegraphics[width=500px]{runSimulationToolActivity.eps}
+
+\section{The Domain Model - High-level}
+\includegraphics[width=500px]{HighLevelDomainModel.eps}
 
 \end{document}
