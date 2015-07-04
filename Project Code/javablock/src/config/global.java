@@ -215,10 +215,6 @@ public class global {
                 boolean find=false;
                 for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                     if (LaF.equals(info.getName())) {
-                        for(int i = 0; i < UIManager.getInstalledLookAndFeels().length; i++)
-                        {
-                            System.out.println(UIManager.getInstalledLookAndFeels()[i].getName());
-                        }
                         UIManager.setLookAndFeel(info.getClassName());
                         find=true;
                         break;
@@ -226,7 +222,7 @@ public class global {
                 }
                 if(!find)
                     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                //UIManager.put("nimbusBase", new Color(51,140,98));
+                UIManager.put("metal", new Color(51,140,0));
             }
             else
                 UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());

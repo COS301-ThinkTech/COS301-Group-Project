@@ -33,13 +33,13 @@ public final class MainWindow extends javax.swing.JFrame
         }
         inited=true;
 
-        boolean isPython=false;
-        for(String e:misc.getScriptEngines()){
-            if(e.equals("jython"))
-                isPython=true;
-        }
-        if(isPython)
-            engine.addItem("python");
+        //boolean isPython=false;
+        //for(String e:misc.getScriptEngines()){
+         //   if(e.equals("jython"))
+          //      isPython=true;
+        //}
+        //if(isPython)
+            //engine.addItem("python");
         New();
         updateConfig(Manager);
         addWindowListener(new WindowAdapter(){
@@ -70,7 +70,7 @@ public final class MainWindow extends javax.swing.JFrame
     }
 
     void init(){
-        engine.addActionListener(this);
+        //engine.addActionListener(this);
         menuSavePython.setVisible(false);
     }
 
@@ -146,7 +146,6 @@ public final class MainWindow extends javax.swing.JFrame
         toolUndo = new javax.swing.JButton();
         toolRedo = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JToolBar.Separator();
-        engine = new javax.swing.JComboBox();
         scriptTools = new javax.swing.JToolBar();
         scriptStart = new javax.swing.JButton();
         scriptStep = new javax.swing.JButton();
@@ -212,7 +211,7 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem12 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Flowchart Planning And Simulation Tool");
+        setTitle("JavaBlock");
         setMinimumSize(new java.awt.Dimension(900, 550));
 
         FLOW.setLayout(new java.awt.BorderLayout());
@@ -279,12 +278,7 @@ public final class MainWindow extends javax.swing.JFrame
         toolRedo.addActionListener(this);
         toolBar.add(jSeparator6);
 
-        engine.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "JavaScript" }));
-        engine.setLightWeightPopupEnabled(false);
-        engine.setMaximumSize(new java.awt.Dimension(100, 32767));
-        toolBar.add(engine);
-
-        scriptTools.setRollover(true);
+        //scriptTools.setRollover(true);
 
         scriptStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-start.png"))); // NOI18N
         scriptStart.setFocusable(false);
@@ -295,7 +289,7 @@ public final class MainWindow extends javax.swing.JFrame
                 scriptStartActionPerformed(evt);
             }
         });
-        scriptTools.add(scriptStart);
+        toolBar.add(scriptStart);
 
         scriptStep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/step.png"))); // NOI18N
         scriptStep.setFocusable(false);
@@ -306,7 +300,7 @@ public final class MainWindow extends javax.swing.JFrame
                 scriptStepActionPerformed(evt);
             }
         });
-        scriptTools.add(scriptStep);
+        toolBar.add(scriptStep);
 
         scriptRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/system-run.png"))); // NOI18N
         scriptRun.setFocusable(false);
@@ -317,7 +311,7 @@ public final class MainWindow extends javax.swing.JFrame
                 scriptRunActionPerformed(evt);
             }
         });
-        scriptTools.add(scriptRun);
+        toolBar.add(scriptRun);
 
         scriptStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-stop.png"))); // NOI18N
         scriptStop.setFocusable(false);
@@ -328,15 +322,15 @@ public final class MainWindow extends javax.swing.JFrame
                 scriptStopActionPerformed(evt);
             }
         });
-        scriptTools.add(scriptStop);
+        toolBar.add(scriptStop);
 
         scriptInterval.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5000, 50));
         scriptInterval.setMaximumSize(new java.awt.Dimension(100, 32767));
-        scriptTools.add(scriptInterval);
+        toolBar.add(scriptInterval);
 
         jLabel2.setText("run speed");
-        scriptTools.add(jLabel2);
-        scriptTools.add(jSeparator9);
+        toolBar.add(jLabel2);
+        toolBar.add(jSeparator9);
 
         consoleHide.setText(bundle.getString("main.hideConsole")); // NOI18N
         consoleHide.setFocusable(false);
@@ -347,7 +341,7 @@ public final class MainWindow extends javax.swing.JFrame
                 consoleHideActionPerformed(evt);
             }
         });
-        scriptTools.add(consoleHide);
+        toolBar.add(consoleHide);
 
         toolBar.add(scriptTools);
         toolBar.add(jSeparator10);
@@ -872,7 +866,6 @@ Rectangle windowSize;
     private javax.swing.JPanel FLOW;
     private javax.swing.JMenuItem comment;
     private javax.swing.JButton consoleHide;
-    private javax.swing.JComboBox engine;
     private javax.swing.JMenuItem exportPasteBin;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
@@ -954,7 +947,7 @@ Rectangle windowSize;
         this.menuGridBool.setState(global.grid);
         this.menuPascalMode.setState(global.pascalMode);
         this.menuFullConnectorsValues.setState(global.fullConnectorValue);
-        this.engine.setSelectedItem(men.scriptEngine);
+        //this.engine.setSelectedItem(men.scriptEngine);
     }
 
     @Override
@@ -963,9 +956,9 @@ Rectangle windowSize;
             if(this.getFocusOwner() instanceof javax.swing.text.JTextComponent)
                 return ;
         Manager.actionPerformed(e);
-        if(e.getSource()==engine){
-            Manager.scriptEngine=engine.getSelectedItem().toString();
-        }
+        //if(e.getSource()==engine){
+            //Manager.scriptEngine=engine.getSelectedItem().toString();
+        //}
     }
     
     public void updateConfig() {
