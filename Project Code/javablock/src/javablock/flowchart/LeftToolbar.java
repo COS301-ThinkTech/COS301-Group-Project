@@ -8,9 +8,6 @@ import config.global;
 import config.translator;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.event.ActionListener;
-import javablock.Sheet;
-import javablock.flowchart.JBlock;
 import javax.swing.JButton;
 import javax.swing.JToolBar;
 
