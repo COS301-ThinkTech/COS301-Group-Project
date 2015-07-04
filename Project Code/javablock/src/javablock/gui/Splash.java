@@ -57,7 +57,7 @@ public class Splash extends JWindow implements MouseListener {
         setBounds(x,y,width,height);
         
         
-        JLabel copyrt = new JLabel("Author: Jakub Konieczny (razi91@o2.pl)");
+        JLabel copyrt = new JLabel("Author: ThinkTech https://github.com/COS301-ThinkTech/Flowchart-planning-and-simulation-tool");
         //JLabel copyrt = new JLabel
         //        ("<html>Autor: Jakub Konieczny<br/>"
         //        + "Zespół Szkół Zawodowych w Zawadzkiem<br/>"

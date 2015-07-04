@@ -199,7 +199,7 @@ public class Main extends JApplet implements ActionListener, Runnable {
         }
         else{
             if (global.showSplash) {
-                Splash spl = new Splash(4000);
+                Splash spl = new Splash(1000);
                 spl.showSplash();
             }
             MainWindow w=new MainWindow();
