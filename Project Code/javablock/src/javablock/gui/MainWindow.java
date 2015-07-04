@@ -212,7 +212,7 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem12 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("JavaBlock");
+        setTitle("Flowchart Planning And Simulation Tool");
         setMinimumSize(new java.awt.Dimension(900, 550));
 
         FLOW.setLayout(new java.awt.BorderLayout());

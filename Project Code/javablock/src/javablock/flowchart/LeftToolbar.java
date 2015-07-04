@@ -24,7 +24,7 @@ public class LeftToolbar extends JToolBar{
 
         JToolBar blocks = new JToolBar("Blocks");
         blocks.setFloatable(false);
-        blocks.setOrientation(JToolBar.HORIZONTAL);
+        blocks.setOrientation(JToolBar.VERTICAL);
         {
             JToolBar std = new JToolBar("Standard");
             std.setFloatable(false);

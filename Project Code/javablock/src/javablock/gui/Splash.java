@@ -50,7 +50,7 @@ public class Splash extends JWindow implements MouseListener {
         //content.setOpaque(true);
         JLabel label = new JLabel(new ImageIcon(getClass().getResource("/javablock/gui/splash.jpg")));
         int width = label.getIcon().getIconWidth();
-        int height =label.getIcon().getIconHeight()+20;
+        int height =label.getIcon().getIconHeight();
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screen.width-width)/2;
         int y = (screen.height-height)/2;
