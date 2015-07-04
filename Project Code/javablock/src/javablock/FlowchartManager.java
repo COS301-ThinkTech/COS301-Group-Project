@@ -85,14 +85,14 @@ public class FlowchartManager extends JPanel implements ActionListener{
     public int saveExit(){
         try {
             if(global.applet){
-                file=new File(global.confDir+"/last.jbf");
+                file=new File(global.confDir+"/last.flow");
                 Writer fw = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
                 fw.write(saveXml());
                 return 1;
             }
             file=fc.getSelectedFile();
             if(file==null)
-                file=new File(global.confDir+"/last.jbf");
+                file=new File(global.confDir+"/last.flow");
             else{
                 int o=JOptionPane.showConfirmDialog(global.Window, 
                         "Would you like to save your current changes?");
@@ -134,7 +134,7 @@ public class FlowchartManager extends JPanel implements ActionListener{
             if(file.exists()){
                 System.out.println("load: "+global.lastFlow);
                 loadFile(global.lastFlow);
-                if(!global.lastFlow.equals(global.confDir+"/last.jbf"))
+                if(!global.lastFlow.equals(global.confDir+"/last.flow"))
                     fc.setSelectedFile(new File(global.lastFlow));
                 else
                     fc.setSelectedFile(null);
@@ -179,10 +179,10 @@ public class FlowchartManager extends JPanel implements ActionListener{
         fc = new JFileChooser();
         javax.swing.filechooser.FileFilter ff = new javax.swing.filechooser.FileFilter() {
             public boolean accept(File f) {
-                return f.isDirectory() || f.getName().toLowerCase().endsWith(".jbf");
+                return f.isDirectory() || f.getName().toLowerCase().endsWith(".flow");
             }
             public String getDescription() {
-                return "JavaBlock File (*.jbf)";
+                return "JavaBlock File (*.flow)";
             }
         };
         fc.setFileFilter((javax.swing.filechooser.FileFilter) ff);
@@ -410,9 +410,9 @@ public class FlowchartManager extends JPanel implements ActionListener{
                 File f=fc.getSelectedFile();
                 String fname[]=f.getPath().split("\\.");
                 if(fname.length<1)
-                    f=new File(f.getPath()+".jbf");
+                    f=new File(f.getPath()+".flow");
                 else if(!fname[fname.length - 1].equals("jbf"))
-                    f=new File(f.getPath()+".jbf");
+                    f=new File(f.getPath()+".flow");
                 fc.setSelectedFile(f);
                 if(saveAs && f.exists()){
                     int ok=JOptionPane.showConfirmDialog(this,

@@ -111,7 +111,7 @@ public class Main extends JApplet implements ActionListener, Runnable {
             if(ar.equals("-saveImages"))
                 saveImages=true;
             else{
-                if(ar.endsWith(".jbf")){
+                if(ar.endsWith(".flow")){
                     global.lastFlow=ar;
                     list[i]=ar;
                     i++;
@@ -164,7 +164,7 @@ public class Main extends JApplet implements ActionListener, Runnable {
             else if(ar.equals("-uneditable"))
                 global.editable=false;
             else{
-                if(ar.endsWith(".jbf")){
+                if(ar.endsWith(".flow")){
                     global.lastFlow=ar;
                     list[i]=ar;
                     i++;
@@ -186,7 +186,7 @@ public class Main extends JApplet implements ActionListener, Runnable {
                     //global.getManager().saveAsImages(f.getParent(), 
                     //        f.getAbsolutePath()
                     //        .replaceAll(f.getParent(), "")
-                    //        .replaceAll(".jbf", "")
+                    //        .replaceAll(".flow", "")
                     //        );
                     global.getManager().saveAsImages(f.getParent(),
                             f.getName().substring(0, f.getName().length()-4));
