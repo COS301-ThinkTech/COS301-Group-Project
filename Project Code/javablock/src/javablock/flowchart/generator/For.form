@@ -36,8 +36,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="end" pref="193" max="32767" attributes="0"/>
-                          <Component id="iterNum" alignment="0" pref="193" max="32767" attributes="1"/>
+                          <Component id="end" pref="207" max="32767" attributes="0"/>
+                          <Component id="iterNum" alignment="0" pref="207" max="32767" attributes="1"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -50,7 +50,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <Component id="initial" pref="243" max="32767" attributes="0"/>
+                          <Component id="initial" pref="245" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -88,7 +88,6 @@
                   <Component id="useClips" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="declare" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

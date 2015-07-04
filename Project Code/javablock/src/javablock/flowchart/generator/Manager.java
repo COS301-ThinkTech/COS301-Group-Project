@@ -46,6 +46,13 @@ public class Manager extends javax.swing.JPanel {
                 return new For().get(f);
             if(g.equals("Switch"))
                 return new Switch().get(f);
+            if(g.equals("While"))
+                return new While().get(f);
+            if(g.equals("Do While"))
+                return new DoWhile().get(f);
+            if(g.equals("If"))
+                return new If().get(f);
+            
             try{
                 return generators.get(g).newInstance().get(f);
             }catch(Exception e){JOptionPane.showMessageDialog(global.Window,
@@ -70,7 +77,7 @@ public class Manager extends javax.swing.JPanel {
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("config/lang/lang"); // NOI18N
         jLabel1.setText(bundle.getString("manager.generator")); // NOI18N
 
-        gen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "For", "Switch" }));
+        gen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "For", "Switch","While","Do While","If"}));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

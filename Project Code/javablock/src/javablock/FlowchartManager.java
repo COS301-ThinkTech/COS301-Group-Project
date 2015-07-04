@@ -95,7 +95,7 @@ public class FlowchartManager extends JPanel implements ActionListener{
                 file=new File(global.confDir+"/last.jbf");
             else{
                 int o=JOptionPane.showConfirmDialog(global.Window, 
-                        "Czy chcesz zapisać plik przed wyjściem?");
+                        "Would you like to save your current changes?");
                 if(o==JOptionPane.NO_OPTION)
                     return 0;
                 else if(o==JOptionPane.CANCEL_OPTION)
@@ -117,7 +117,7 @@ public class FlowchartManager extends JPanel implements ActionListener{
             return 1;
         }
         int o = JOptionPane.showConfirmDialog(global.Window,
-                "Czy chcesz zapisać zmiany?");
+                "Save project?");
         if (o == JOptionPane.NO_OPTION)
             return 0;
         else if (o == JOptionPane.CANCEL_OPTION)
