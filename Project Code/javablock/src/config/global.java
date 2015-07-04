@@ -156,7 +156,7 @@ public class global {
                     "0xff8888\n"+"0x88ff88\n"+"0x8888ff\n"+
                     "0xfdfdfd\n"+"0xcccccc\n"+"0x888888\n"+
                     "0x444444\n"+"0x000000\n"+"0x000000";
-        colors="0xffff00,0x000000,0x000000,0xffffff".split(",");
+        colors="0xffffff,0x000000,0x000000,0xffffff".split(",");
         colorResolutionX=2; colorResolutionY=2;
         bolderBorder=true;
         antialiasing=true;

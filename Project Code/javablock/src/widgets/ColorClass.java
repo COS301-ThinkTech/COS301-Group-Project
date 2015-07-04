@@ -52,8 +52,8 @@ public class ColorClass extends JPanel implements MouseListener, MouseMotionList
     BufferedImage buf;
     Dimension oldDim=new Dimension(1000,1000);
     Dimension d;
-    Color last=Color.YELLOW;
-    static Color latest[]={Color.YELLOW,Color.YELLOW,Color.YELLOW};
+    Color last=Color.WHITE;
+    static Color latest[]={Color.WHITE,Color.WHITE,Color.WHITE};
     Graphics g2;
     int w, h, ww;
     boolean rotated=false;
