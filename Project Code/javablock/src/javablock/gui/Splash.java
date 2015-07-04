@@ -57,7 +57,7 @@ public class Splash extends JWindow implements MouseListener {
         setBounds(x,y,width,height);
         
         
-        JLabel copyrt = new JLabel("ThinkTech   https://github.com/COS301-ThinkTech");
+        JLabel copyrt = new JLabel("github.com/COS301-ThinkTech");
         //JLabel copyrt = new JLabel
         //        ("<html>Autor: Jakub Konieczny<br/>"
         //        + "Zespół Szkół Zawodowych w Zawadzkiem<br/>"
@@ -116,7 +116,7 @@ class closer extends TimerTask{
     public closer(Splash s){
         this.s=s;
         timer = new java.util.Timer( );
-        timer.schedule(this, 1000, 1000);
+        timer.schedule(this, 2000, 2000);
     }
 
 
