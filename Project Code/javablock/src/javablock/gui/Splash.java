@@ -65,7 +65,7 @@ public class Splash extends JWindow implements MouseListener {
         //copyrt.setOpaque(true);
         copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 12));
         content.add(label, BorderLayout.CENTER);
-        content.add(copyrt, BorderLayout.SOUTH);
+        //content.add(copyrt, BorderLayout.SOUTH);
         setVisible(true);
         this.addMouseListener(this);
 
