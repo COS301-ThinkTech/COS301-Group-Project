@@ -70,34 +70,34 @@ public class LeftToolbar extends JToolBar{
             }
             tools.setFloatable(false);
             tools.setRollover(true);
-            b = new JButton();
+            /*b = new JButton();
             //b.setToolTipText(flow.name);
             b.setActionCommand("align/ver");
             b.setIcon(icons.icons.alignVer);
             b.addActionListener(flow);
-            tools.add(b);
+            //tools.add(b);
 
             b = new JButton();
             b.setActionCommand("align/hor");
             b.setIcon(icons.icons.alignHor);
             b.addActionListener(flow);
-            tools.add(b);
-            if (!global.snapToGrid) {
+            //tools.add(b);
+           /* if (!global.snapToGrid) {
                 b = new JButton();
                 b.setActionCommand("align/grid");
                 b.setIcon(icons.icons.alignGrid);
                 b.addActionListener(flow);
-                tools.add(b);
-            }
+                //tools.add(b);
+            }*/
             add(tools);
-            addSeparator();
+            //addSeparator();
         }
         {
             validate();
             revalidate();
-            widgets.colors c = new widgets.colors(flow);
-            c.setPreferredSize(new Dimension(60, 150));
-            add(c);
+            //widgets.ColorClass c = new widgets.ColorClass(flow);
+            //c.setPreferredSize(new Dimension(60, 150));
+            //add(c);
         }
     }
 }

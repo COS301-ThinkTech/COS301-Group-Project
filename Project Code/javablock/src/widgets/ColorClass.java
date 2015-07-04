@@ -17,7 +17,7 @@ import javablock.FlowchartManager;
 import javax.swing.*;
 import javax.swing.border.*;
 
-public class colors extends JPanel implements MouseListener, MouseMotionListener{
+public class ColorClass extends JPanel implements MouseListener, MouseMotionListener{
     String colors[]={ "0xffff00","0xff00ff","0x00ffff",
                     "0xff8888","0x88ff88","0x8888ff",
                     "0xfdfdfd","0xcccccc","0x888888",
@@ -31,7 +31,7 @@ public class colors extends JPanel implements MouseListener, MouseMotionListener
 
     String col;
     Sheet m;
-    public colors(Sheet m){
+    public ColorClass(Sheet m){
         this.m=m;
         this.setMinimumSize(new Dimension(50, 50));
         this.addMouseListener(this);
