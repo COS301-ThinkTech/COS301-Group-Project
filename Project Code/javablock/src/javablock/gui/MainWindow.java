@@ -146,18 +146,18 @@ public final class MainWindow extends javax.swing.JFrame
         toolUndo = new javax.swing.JButton();
         toolRedo = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JToolBar.Separator();
-        jButton1 = new javax.swing.JButton();
-        jSeparator9 = new javax.swing.JToolBar.Separator();
-        jLabel1 = new javax.swing.JLabel();
         engine = new javax.swing.JComboBox();
         scriptTools = new javax.swing.JToolBar();
-        scriptStop = new javax.swing.JButton();
         scriptStart = new javax.swing.JButton();
         scriptStep = new javax.swing.JButton();
         scriptRun = new javax.swing.JButton();
+        scriptStop = new javax.swing.JButton();
         scriptInterval = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
+        jSeparator9 = new javax.swing.JToolBar.Separator();
         consoleHide = new javax.swing.JButton();
+        jSeparator10 = new javax.swing.JToolBar.Separator();
+        jButton1 = new javax.swing.JButton();
         menu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuNew = new javax.swing.JMenuItem();
@@ -279,37 +279,12 @@ public final class MainWindow extends javax.swing.JFrame
         toolRedo.addActionListener(this);
         toolBar.add(jSeparator6);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/24/help-about.png"))); // NOI18N
-        jButton1.setToolTipText(bundle.getString("main.about")); // NOI18N
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        toolBar.add(jButton1);
-        toolBar.add(jSeparator9);
-
-        jLabel1.setText(bundle.getString("main.engine")); // NOI18N
-        toolBar.add(jLabel1);
-
         engine.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "JavaScript" }));
+        engine.setLightWeightPopupEnabled(false);
+        engine.setMaximumSize(new java.awt.Dimension(100, 32767));
         toolBar.add(engine);
 
         scriptTools.setRollover(true);
-
-        scriptStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-stop.png"))); // NOI18N
-        scriptStop.setFocusable(false);
-        scriptStop.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        scriptStop.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        scriptStop.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                scriptStopActionPerformed(evt);
-            }
-        });
-        scriptTools.add(scriptStop);
 
         scriptStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-start.png"))); // NOI18N
         scriptStart.setFocusable(false);
@@ -344,11 +319,24 @@ public final class MainWindow extends javax.swing.JFrame
         });
         scriptTools.add(scriptRun);
 
+        scriptStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-stop.png"))); // NOI18N
+        scriptStop.setFocusable(false);
+        scriptStop.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        scriptStop.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        scriptStop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                scriptStopActionPerformed(evt);
+            }
+        });
+        scriptTools.add(scriptStop);
+
         scriptInterval.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5000, 50));
+        scriptInterval.setMaximumSize(new java.awt.Dimension(100, 32767));
         scriptTools.add(scriptInterval);
 
-        jLabel2.setText("ms");
+        jLabel2.setText("run speed");
         scriptTools.add(jLabel2);
+        scriptTools.add(jSeparator9);
 
         consoleHide.setText(bundle.getString("main.hideConsole")); // NOI18N
         consoleHide.setFocusable(false);
@@ -362,6 +350,19 @@ public final class MainWindow extends javax.swing.JFrame
         scriptTools.add(consoleHide);
 
         toolBar.add(scriptTools);
+        toolBar.add(jSeparator10);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/24/help-about.png"))); // NOI18N
+        jButton1.setToolTipText(bundle.getString("main.about")); // NOI18N
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        toolBar.add(jButton1);
 
         jMenu1.setText(bundle.getString("main.file")); // NOI18N
 
@@ -689,7 +690,7 @@ public final class MainWindow extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(FLOW, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE))
+                .addComponent(FLOW, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE))
         );
 
         pack();
@@ -699,31 +700,31 @@ public final class MainWindow extends javax.swing.JFrame
         Manager.New("NS");
     }//GEN-LAST:event_newNSActionPerformed
 
+    private void consoleHideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consoleHideActionPerformed
+        //int loc=Manager.flow.split.getDividerLocation();
+        if(Manager.flow.split.getBottomComponent().getBounds().height<50){
+            Manager.flow.split.setDividerLocation(
+                Manager.flow.getSize().height-220);
+        }
+        else
+        Manager.flow.split.setDividerLocation(2000);
+    }//GEN-LAST:event_consoleHideActionPerformed
+
     private void scriptStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scriptStopActionPerformed
         Manager.flow.I.reset();
     }//GEN-LAST:event_scriptStopActionPerformed
-
-    private void scriptStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scriptStartActionPerformed
-        Manager.flow.I.start();
-    }//GEN-LAST:event_scriptStartActionPerformed
-
-    private void scriptStepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scriptStepActionPerformed
-        Manager.flow.I.step();
-    }//GEN-LAST:event_scriptStepActionPerformed
 
     private void scriptRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scriptRunActionPerformed
         Manager.flow.I.run();
     }//GEN-LAST:event_scriptRunActionPerformed
 
-    private void consoleHideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consoleHideActionPerformed
-        //int loc=Manager.flow.split.getDividerLocation();
-        if(Manager.flow.split.getBottomComponent().getBounds().height<50){
-            Manager.flow.split.setDividerLocation(
-                    Manager.flow.getSize().height-220);
-        }
-        else
-            Manager.flow.split.setDividerLocation(2000);
-    }//GEN-LAST:event_consoleHideActionPerformed
+    private void scriptStepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scriptStepActionPerformed
+        Manager.flow.I.step();
+    }//GEN-LAST:event_scriptStepActionPerformed
+
+    private void scriptStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scriptStartActionPerformed
+        Manager.flow.I.start();
+    }//GEN-LAST:event_scriptStartActionPerformed
 
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
@@ -874,7 +875,6 @@ Rectangle windowSize;
     private javax.swing.JComboBox engine;
     private javax.swing.JMenuItem exportPasteBin;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -887,6 +887,7 @@ Rectangle windowSize;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator10;
     private javax.swing.JPopupMenu.Separator jSeparator11;
     private javax.swing.JPopupMenu.Separator jSeparator12;
     private javax.swing.JPopupMenu.Separator jSeparator2;
@@ -927,11 +928,11 @@ Rectangle windowSize;
     private javax.swing.JMenuItem menuSettings;
     private javax.swing.JMenuItem menuUndo;
     private javax.swing.JMenuItem newNS;
-    public javax.swing.JSpinner scriptInterval;
-    public javax.swing.JButton scriptRun;
-    public javax.swing.JButton scriptStart;
-    public javax.swing.JButton scriptStep;
-    public javax.swing.JButton scriptStop;
+    private javax.swing.JSpinner scriptInterval;
+    private javax.swing.JButton scriptRun;
+    private javax.swing.JButton scriptStart;
+    private javax.swing.JButton scriptStep;
+    private javax.swing.JButton scriptStop;
     private javax.swing.JToolBar scriptTools;
     private javax.swing.JPopupMenu.Separator sep;
     private javax.swing.JToolBar toolBar;
