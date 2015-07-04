@@ -411,7 +411,7 @@ public class FlowchartManager extends JPanel implements ActionListener{
                 String fname[]=f.getPath().split("\\.");
                 if(fname.length<1)
                     f=new File(f.getPath()+".flow");
-                else if(!fname[fname.length - 1].equals("jbf"))
+                else if(!fname[fname.length - 1].equals("flow"))
                     f=new File(f.getPath()+".flow");
                 fc.setSelectedFile(f);
                 if(saveAs && f.exists()){
