@@ -92,7 +92,7 @@ public class global {
     public static translator translate;
     public static boolean showToolbar=true;
     public static boolean showToolTips=true;
-    public static String LaF="Nimbus";
+    public static String LaF="Metal";
 
     //STARTUP
     public static boolean showSplash=true;
@@ -175,7 +175,7 @@ public class global {
         //systemFont=true;
         markChanges=true;
         hlight=hlightT.AUTO;
-        LaF="Nimbus";
+        LaF="Metal";
         scriptEngine="JavaScript";
 
         showToolbar=true;
@@ -215,6 +215,10 @@ public class global {
                 boolean find=false;
                 for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                     if (LaF.equals(info.getName())) {
+                        for(int i = 0; i < UIManager.getInstalledLookAndFeels().length; i++)
+                        {
+                            System.out.println(UIManager.getInstalledLookAndFeels()[i].getName());
+                        }
                         UIManager.setLookAndFeel(info.getClassName());
                         find=true;
                         break;

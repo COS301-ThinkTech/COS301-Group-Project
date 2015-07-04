@@ -71,7 +71,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         flow.addKeyListener(this);
         flow.addMouseListener(this);
         flow.addMouseMotionListener(this);
-        flow.addMouseWheelListener(this);
+        //flow.addMouseWheelListener(this);
         flow.addComponentListener(this);
         menus=new popupMenus(action);
         txtLay=null;
