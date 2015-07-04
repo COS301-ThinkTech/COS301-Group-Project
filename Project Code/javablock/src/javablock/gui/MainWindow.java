@@ -278,10 +278,10 @@ public final class MainWindow extends javax.swing.JFrame
         toolRedo.addActionListener(this);
         toolBar.add(jSeparator6);
 
-        //scriptTools.setRollover(true);
+        //toolBar.setRollover(true);
 
         scriptStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-start.png"))); // NOI18N
-	scriptStart.setToolTipText(bundle.getString("scriptPanel.start"));
+	scriptStart.setToolTipText(bundle.getString("main.start"));
         scriptStart.setFocusable(false);
         scriptStart.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         scriptStart.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -293,7 +293,7 @@ public final class MainWindow extends javax.swing.JFrame
         toolBar.add(scriptStart);
 
         scriptStep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/step.png"))); // NOI18N
-	scriptStep.setToolTipText(bundle.getString("scriptPanel.step"));
+	scriptStep.setToolTipText(bundle.getString("main.step"));
         scriptStep.setFocusable(false);
         scriptStep.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         scriptStep.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -305,7 +305,7 @@ public final class MainWindow extends javax.swing.JFrame
         toolBar.add(scriptStep);
 
         scriptRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/system-run.png"))); // NOI18N
-	scriptRun.setToolTipText(bundle.getString("scriptPanel.run"));
+	scriptRun.setToolTipText(bundle.getString("main.run"));
         scriptRun.setFocusable(false);
         scriptRun.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         scriptRun.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -317,7 +317,7 @@ public final class MainWindow extends javax.swing.JFrame
         toolBar.add(scriptRun);
 
         scriptStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-stop.png"))); // NOI18N
-	scriptStop.setToolTipText(bundle.getString("scriptPanel.stop"));
+	scriptStop.setToolTipText(bundle.getString("main.stop"));
         scriptStop.setFocusable(false);
         scriptStop.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         scriptStop.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -332,11 +332,13 @@ public final class MainWindow extends javax.swing.JFrame
         scriptInterval.setMaximumSize(new java.awt.Dimension(100, 32767));
         toolBar.add(scriptInterval);
 
-        jLabel2.setText("run speed");
+        jLabel2.setText("Run speed");
+	jLabel2.setToolTipText(bundle.getString("main.speed"));
         toolBar.add(jLabel2);
         toolBar.add(jSeparator9);
 
         consoleHide.setText(bundle.getString("main.hideConsole")); // NOI18N
+	consoleHide.setToolTipText(bundle.getString("main.hideConsole"));
         consoleHide.setFocusable(false);
         consoleHide.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         consoleHide.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -346,9 +348,9 @@ public final class MainWindow extends javax.swing.JFrame
             }
         });
         toolBar.add(consoleHide);
+        toolBar.add(jSeparator10);
 
         toolBar.add(scriptTools);
-        toolBar.add(jSeparator10);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/24/help-about.png"))); // NOI18N
         jButton1.setToolTipText(bundle.getString("main.about")); // NOI18N
