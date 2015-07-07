@@ -1,0 +1,8 @@
+1. Change the grey tool-bar colour.
+2. Add an about tab, remove icon.
+3. Remove JavaScript tool-bar.
+4. Make a combo box for flowchart components, it should be movable.
+5. Make console movable and minimizable and closable.
+6. Remove hide console option.
+7. Change font face and size
+8. Resize the flowchart components icon.
