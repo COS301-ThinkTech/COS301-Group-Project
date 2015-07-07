@@ -29,11 +29,11 @@ public class Splash extends JWindow implements MouseListener {
         content.setBackground(Color.white);
         // Build the splash screen
         JLabel label = new JLabel(new ImageIcon(getClass().getResource("/gui/splash.jpg")));
-        JLabel copyrt = new JLabel
-                ("Copyright 2011, razi91@o2.pl", JLabel.CENTER);
-        copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 12));
+        JLabel copyright = new JLabel
+                ("Copyright 2015, University of Pretoria", JLabel.CENTER);
+        copyright.setFont(new Font("Sans-Serif", Font.BOLD, 12));
         content.add(label, BorderLayout.CENTER);
-        content.add(copyrt, BorderLayout.SOUTH);
+        content.add(copyright, BorderLayout.SOUTH);
     }
     public void showSplash() {
         content = (JPanel)getContentPane();
@@ -57,13 +57,13 @@ public class Splash extends JWindow implements MouseListener {
         setBounds(x,y,width,height);
         
         
-        JLabel copyrt = new JLabel("github.com/COS301-ThinkTech");
+        JLabel copyright = new JLabel("github.com/COS301-ThinkTech");
         //JLabel copyrt = new JLabel
         //        ("<html>Autor: Jakub Konieczny<br/>"
         //        + "Zespół Szkół Zawodowych w Zawadzkiem<br/>"
         //        + "nauczyciel prowadzący: Piotr Wiatrek", JLabel.CENTER);
         //copyrt.setOpaque(true);
-        copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 12));
+        copyright.setFont(new Font("Sans-Serif", Font.BOLD, 12));
         content.add(label, BorderLayout.CENTER);
         //content.add(copyrt, BorderLayout.SOUTH);
         setVisible(true);
