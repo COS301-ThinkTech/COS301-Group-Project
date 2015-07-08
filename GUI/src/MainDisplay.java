@@ -1,11 +1,18 @@
 
 import java.awt.Color;
+import javax.imageio.ImageIO;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 /**
  *
  * @author Mpumpu
  */
-public class MainDisplay extends javax.swing.JFrame 
-{
+public class MainDisplay extends javax.swing.JFrame {
 
     /**
      * Creates new form MainDisplay
@@ -13,6 +20,15 @@ public class MainDisplay extends javax.swing.JFrame
     public MainDisplay() {
         initComponents();
         getContentPane().setBackground(Color.DARK_GRAY.darker());
+        jToolBar1.setOpaque(false);
+        jToolBar1.setBackground(Color.DARK_GRAY.darker());
+        jButton1.setBackground(Color.DARK_GRAY.darker());
+        
+        try 
+        {
+               this.setIconImage(ImageIO.read(getClass().getResource("/icons/icon.png")));
+         } 
+        catch (Exception ex) {}
         
     }
 
@@ -61,6 +77,9 @@ public class MainDisplay extends javax.swing.JFrame
         jMenuItem7 = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMenuItem13 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem14 = new javax.swing.JMenuItem();
+        jMenuItem15 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem17 = new javax.swing.JMenuItem();
         jMenuItem20 = new javax.swing.JMenuItem();
@@ -158,11 +177,11 @@ public class MainDisplay extends javax.swing.JFrame
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 796, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
+            .addGap(0, 439, Short.MAX_VALUE)
         );
 
         jMenu1.setText("File");
@@ -184,7 +203,7 @@ public class MainDisplay extends javax.swing.JFrame
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/document-saveas.png"))); // NOI18N
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/document-save.png"))); // NOI18N
         jMenuItem4.setText("Save As");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,11 +218,9 @@ public class MainDisplay extends javax.swing.JFrame
         jMenuItem5.setText("Open");
         jMenu1.add(jMenuItem5);
 
-        jMenuItem16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/rename.png"))); // NOI18N
         jMenuItem16.setText("Rename");
         jMenu1.add(jMenuItem16);
 
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/exit.png"))); // NOI18N
         jMenuItem6.setText("Exit");
         jMenu1.add(jMenuItem6);
         jMenu1.add(jSeparator1);
@@ -251,22 +268,38 @@ public class MainDisplay extends javax.swing.JFrame
         jMenu2.add(jSeparator3);
 
         jMenuItem13.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
-        jMenuItem13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/delete.png"))); // NOI18N
         jMenuItem13.setText("Delete");
         jMenu2.add(jMenuItem13);
 
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setText("Component");
+        jMenu3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jMenuItem14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/folder-new.png"))); // NOI18N
+        jMenuItem14.setText("Add");
+        jMenu3.add(jMenuItem14);
+
+        jMenuItem15.setText("Delete");
+        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem15ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem15);
+
+        jMenuBar1.add(jMenu3);
+
         jMenu4.setText("View");
         jMenu4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenuItem17.setText("Toolbar");
+        jMenuItem17.setText("Component Explorer");
         jMenu4.add(jMenuItem17);
 
-        jMenuItem20.setText("Console");
+        jMenuItem20.setText("Output");
         jMenu4.add(jMenuItem20);
 
-        jMenuItem18.setText("Grid");
+        jMenuItem18.setText("Error List");
         jMenu4.add(jMenuItem18);
         jMenu4.add(jSeparator5);
 
@@ -290,20 +323,18 @@ public class MainDisplay extends javax.swing.JFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 806, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -326,6 +357,10 @@ public class MainDisplay extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
+    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem15ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -337,8 +372,7 @@ public class MainDisplay extends javax.swing.JFrame
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) 
-    {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -351,21 +385,29 @@ public class MainDisplay extends javax.swing.JFrame
                     break;
                 }
             }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MainDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MainDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MainDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new MainDisplay().setVisible(true);
+         if (showSplash) {
+                Splash spl = new Splash(10);
+                new MainDisplay().setVisible(false);
+                spl.showSplash();    
             }
-        });
-    }
+              new MainDisplay().setVisible(true);  
 
-    
+         
+                       
+    }
+    public static boolean showSplash=true;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -378,6 +420,7 @@ public class MainDisplay extends javax.swing.JFrame
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
@@ -387,6 +430,8 @@ public class MainDisplay extends javax.swing.JFrame
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem18;
