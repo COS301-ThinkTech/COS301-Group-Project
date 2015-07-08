@@ -263,7 +263,7 @@ public class MainDisplay extends javax.swing.JFrame
         jMenuItem17.setText("Toolbar");
         jMenu4.add(jMenuItem17);
 
-        jMenuItem20.setText("Output");
+        jMenuItem20.setText("Console");
         jMenu4.add(jMenuItem20);
 
         jMenuItem18.setText("Error List");

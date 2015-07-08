@@ -197,7 +197,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem20">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Output"/>
+                <Property name="text" type="java.lang.String" value="Console"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem18">
