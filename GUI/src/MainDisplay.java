@@ -355,7 +355,11 @@ public class MainDisplay extends javax.swing.JFrame
             java.util.logging.Logger.getLogger(MainDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        if(showSplash)
+        {
+            Splash splash = new Splash(10);
+            splash.showSplash();
+        }
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
@@ -364,7 +368,7 @@ public class MainDisplay extends javax.swing.JFrame
             }
         });
     }
-
+public static boolean showSplash=true;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
