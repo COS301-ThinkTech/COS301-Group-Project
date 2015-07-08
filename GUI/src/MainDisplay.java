@@ -266,7 +266,7 @@ public class MainDisplay extends javax.swing.JFrame
         jMenuItem20.setText("Console");
         jMenu4.add(jMenuItem20);
 
-        jMenuItem18.setText("Error List");
+        jMenuItem18.setText("Grid");
         jMenu4.add(jMenuItem18);
         jMenu4.add(jSeparator5);
 
