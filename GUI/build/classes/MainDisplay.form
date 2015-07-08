@@ -78,6 +78,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem16">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/icons/16/rename.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Rename"/>
               </Properties>
             </MenuItem>

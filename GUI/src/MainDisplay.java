@@ -202,6 +202,7 @@ public class MainDisplay extends javax.swing.JFrame
         jMenuItem5.setText("Open");
         jMenu1.add(jMenuItem5);
 
+        jMenuItem16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/rename.png"))); // NOI18N
         jMenuItem16.setText("Rename");
         jMenu1.add(jMenuItem16);
 
