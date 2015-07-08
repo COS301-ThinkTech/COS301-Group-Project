@@ -357,7 +357,7 @@ public class MainDisplay extends javax.swing.JFrame
         //</editor-fold>
         if(showSplash)
         {
-            Splash splash = new Splash(10);
+            Splash splash = new Splash(99999);
             splash.showSplash();
         }
         /* Create and display the form */
