@@ -254,6 +254,7 @@ public class MainDisplay extends javax.swing.JFrame
         jMenu2.add(jSeparator3);
 
         jMenuItem13.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
+        jMenuItem13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/delete.png"))); // NOI18N
         jMenuItem13.setText("Delete");
         jMenu2.add(jMenuItem13);
 
