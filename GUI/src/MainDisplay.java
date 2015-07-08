@@ -1,8 +1,5 @@
 
 import java.awt.Color;
-import javax.swing.UIManager;
-
-
 /**
  *
  * @author Mpumpu
