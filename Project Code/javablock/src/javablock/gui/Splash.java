@@ -116,7 +116,7 @@ class closer extends TimerTask{
     public closer(Splash s){
         this.s=s;
         timer = new java.util.Timer( );
-        timer.schedule(this, 2000, 2000);
+        timer.schedule(this, 1, 1);
     }
 
 
