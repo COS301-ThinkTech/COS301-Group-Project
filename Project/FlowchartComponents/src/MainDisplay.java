@@ -1,5 +1,7 @@
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 /**
@@ -167,11 +169,11 @@ public class MainDisplay extends javax.swing.JFrame
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 796, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 641, Short.MAX_VALUE)
+            .addGap(0, 658, Short.MAX_VALUE)
         );
 
         jMenu1.setText("File");
@@ -308,7 +310,7 @@ public class MainDisplay extends javax.swing.JFrame
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 806, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
         );
@@ -317,7 +319,7 @@ public class MainDisplay extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -351,6 +353,14 @@ public class MainDisplay extends javax.swing.JFrame
     private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
         // TODO add your handling code here:
        // FullScreen fullScreen = new FullScreen();
+        MainDisplay m = new MainDisplay();
+//        m.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        m.setUndecorated(true);
+//        m.setAlwaysOnTop(true);
+//        m.setResizable(false);       
+//        m.setVisible(true);
+//        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+//        m.setSize(screenSize.width, screenSize.height);
     }//GEN-LAST:event_jMenuItem19ActionPerformed
 
     /**
@@ -376,7 +386,7 @@ public class MainDisplay extends javax.swing.JFrame
         //</editor-fold>
         if(showSplash)
         {
-            Splash splash = new Splash(10);
+            Splash splash = new Splash(20);
             splash.showSplash();
         }
         /* Create and display the form */
