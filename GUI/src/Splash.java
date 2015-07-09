@@ -1,4 +1,4 @@
-package javablock.gui;
+//package javablock.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -28,7 +28,7 @@ public class Splash extends JWindow implements MouseListener {
         content = (JPanel)getContentPane();
         content.setBackground(Color.white);
         // Build the splash screen
-        JLabel label = new JLabel(new ImageIcon(getClass().getResource("/gui/splash.jpg")));
+        JLabel label = new JLabel(new ImageIcon(getClass().getResource("icons/splash.jpg")));
         JLabel copyright = new JLabel
                 ("Copyright 2015, University of Pretoria", JLabel.CENTER);
         copyright.setFont(new Font("Sans-Serif", Font.BOLD, 12));
@@ -48,7 +48,7 @@ public class Splash extends JWindow implements MouseListener {
         this.setContentPane(content);*/
         content.setBackground(Color.white);
         //content.setOpaque(true);
-        JLabel label = new JLabel(new ImageIcon(getClass().getResource("/javablock/gui/splash.jpg")));
+        JLabel label = new JLabel(new ImageIcon(getClass().getResource("icons/splash.jpg")));
         int width = label.getIcon().getIconWidth();
         int height =label.getIcon().getIconHeight();
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
@@ -116,7 +116,7 @@ class closer extends TimerTask{
     public closer(Splash s){
         this.s=s;
         timer = new java.util.Timer( );
-        timer.schedule(this, 1, 1);
+        timer.schedule(this, 2000, 2000);
     }
 
 
