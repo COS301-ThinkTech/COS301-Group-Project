@@ -24,3 +24,6 @@
 - Each Sheet has a FlowchartManager
 - The Sheet is the unit on which the user creates the flowchart
 
+*ScriptRunner.java
+- Responsible for the code the Runs And Steps through the flowchart
+
