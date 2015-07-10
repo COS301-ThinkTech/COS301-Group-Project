@@ -472,22 +472,6 @@ public class MainDisplay extends javax.swing.JFrame
     }//GEN-LAST:event_jButton2ActionPerformed
 
     
-    private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
-        // TODO add your handling code here:
-        //FullScreen fullScreen = new FullScreen();
-        
-        MainDisplay m = new MainDisplay();
-//        m.setExtendedState(JFrame.MAXIMIZED_BOTH);
-//        m.setUndecorated(true);
-//        m.setAlwaysOnTop(true);
-//        m.setResizable(false);       
-//        m.setVisible(true);
-//        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-//        m.setSize(screenSize.width, screenSize.height);
-        
-        
-    }//GEN-LAST:event_jMenuItem19ActionPerformed
-
     private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
         // TODO add your handling code here:
         jInternalFrame1.show();
