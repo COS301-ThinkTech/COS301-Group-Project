@@ -1,6 +1,7 @@
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -77,6 +78,7 @@ public class MainDisplay extends javax.swing.JFrame
         jMenuItem18 = new javax.swing.JMenuItem();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
         jMenuItem19 = new javax.swing.JMenuItem();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
 
@@ -184,7 +186,7 @@ public class MainDisplay extends javax.swing.JFrame
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
+            .addGap(0, 490, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -201,7 +203,7 @@ public class MainDisplay extends javax.swing.JFrame
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -316,12 +318,21 @@ public class MainDisplay extends javax.swing.JFrame
 
         jMenuItem19.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ENTER, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
         jMenuItem19.setText("Full Screen");
+        jMenuItem19.setSelected(true);
         jMenuItem19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem19ActionPerformed(evt);
             }
         });
         jMenu4.add(jMenuItem19);
+
+        jCheckBoxMenuItem1.setText("Full Screen");
+        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jCheckBoxMenuItem1);
 
         jMenuBar1.add(jMenu4);
 
@@ -383,9 +394,11 @@ public class MainDisplay extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    
     private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
         // TODO add your handling code here:
-       // FullScreen fullScreen = new FullScreen();
+        //FullScreen fullScreen = new FullScreen();
+        
         MainDisplay m = new MainDisplay();
 //        m.setExtendedState(JFrame.MAXIMIZED_BOTH);
 //        m.setUndecorated(true);
@@ -394,6 +407,8 @@ public class MainDisplay extends javax.swing.JFrame
 //        m.setVisible(true);
 //        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 //        m.setSize(screenSize.width, screenSize.height);
+        
+        
     }//GEN-LAST:event_jMenuItem19ActionPerformed
 
     private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
@@ -401,6 +416,43 @@ public class MainDisplay extends javax.swing.JFrame
         jInternalFrame1.show();
     }//GEN-LAST:event_jMenuItem17ActionPerformed
 
+    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        mainDisplayFullScreen();
+    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
+
+    public void mainDisplayFullScreen()
+    {        
+        if(fullscreen == true)
+            fullscreen = false;        
+        else
+            fullscreen = true;
+        
+        if(fullscreen)
+        {
+            windowSize=this.getBounds();
+            this.setVisible(false);
+            this.dispose();
+            this.setUndecorated(true);
+            Toolkit tk = Toolkit.getDefaultToolkit();
+            this.setBounds(0,0,tk.getScreenSize().width, tk.getScreenSize().height);
+            jToolBar1.setVisible(false);
+            jInternalFrame1.setVisible(false);
+            this.setVisible(true);
+        }
+        else
+        {
+            this.setVisible(false);
+            this.dispose();
+            this.setUndecorated(false);
+            setBounds(windowSize);
+            jToolBar1.setVisible(true);
+            jInternalFrame1.setVisible(true);
+            this.setVisible(true);
+        }
+    }
+    boolean fullscreen=false;
+    Rectangle windowSize;
     /**
      * @param args the command line arguments
      */
@@ -448,6 +500,7 @@ public static boolean showSplash=true;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
