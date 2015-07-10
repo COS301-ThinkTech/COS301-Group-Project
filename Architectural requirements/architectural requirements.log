@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.2.26)  1 JUN 2015 11:52
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.2.26)  10 JUL 2015 19:06
 entering extended mode
 **architectural*requirements.tex
 
-("C:\Users\GreaterThanSolomon\Documents\Academics\COS301\Projects\Main\Flowchar
-t Simulation Tool\Architectural requirements\architectural requirements.tex"
+("C:\Users\GreaterThanSolomon\Documents\Flowchart-planning-and-simulation-tool\
+Architectural requirements\architectural requirements.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -200,8 +200,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 File: bkm-pdftex.def 2011/12/02 v1.24 bookmark driver for pdfTeX (HO)
 \BKM@id=\count98
 ))
-("C:\Users\GreaterThanSolomon\Documents\Academics\COS301\Projects\Main\Flowchar
-t Simulation Tool\Architectural requirements\architectural requirements.aux")
+("C:\Users\GreaterThanSolomon\Documents\Flowchart-planning-and-simulation-tool\
+Architectural requirements\architectural requirements.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
@@ -246,8 +246,8 @@ LaTeX Info: Redefining \ref on input line 5.
 LaTeX Info: Redefining \pageref on input line 5.
 LaTeX Info: Redefining \nameref on input line 5.
 
-("C:\Users\GreaterThanSolomon\Documents\Academics\COS301\Projects\Main\Flowchar
-t Simulation Tool\Architectural requirements\titlepage.tex"
+("C:\Users\GreaterThanSolomon\Documents\Flowchart-planning-and-simulation-tool\
+Architectural requirements\titlepage.tex"
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <20.74> on input line 38.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -258,8 +258,8 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 {C:/Users/GreaterThanSolomon/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 ])
-("C:\Users\GreaterThanSolomon\Documents\Academics\COS301\Projects\Main\Flowchar
-t Simulation Tool\Architectural requirements\architectural requirements.toc"
+("C:\Users\GreaterThanSolomon\Documents\Flowchart-planning-and-simulation-tool\
+Architectural requirements\architectural requirements.toc"
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -281,19 +281,24 @@ Overfull \hbox (9.08157pt too wide) in paragraph at lines 50--51
 []\OT1/cmr/m/n/12 Since the whole sys-tem will be coded us-ing Object-Oriented
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 70.
-[3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 70.
 
-("C:\Users\GreaterThanSolomon\Documents\Academics\COS301\Projects\Main\Flowchar
-t Simulation Tool\Architectural requirements\architectural requirements.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 70.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 70.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 70.
+Underfull \hbox (badness 10000) in paragraph at lines 68--70
+
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 71.
+[3] [4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 71.
+
+("C:\Users\GreaterThanSolomon\Documents\Flowchart-planning-and-simulation-tool\
+Architectural requirements\architectural requirements.aux")
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 71.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 71.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 71.
  ) 
 Here is how much of TeX's memory you used:
- 5239 strings out of 493921
- 80056 string characters out of 3144035
+ 5240 strings out of 493921
+ 79864 string characters out of 3144035
  156233 words of memory out of 3000000
  8494 multiletter control sequences out of 15000+200000
  9899 words of font info for 35 fonts, out of 3000000 for 9000
@@ -304,9 +309,9 @@ b><C:/Program Files (x86)/MiKTeX 2.9 L/fonts/type1/public/amsfonts/cm/cmr12.pfb
 ><C:/Program Files (x86)/MiKTeX 2.9 L/fonts/type1/public/amsfonts/cm/cmr17.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9 L/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
 
-Output written on "architectural requirements.pdf" (4 pages, 64672 bytes).
+Output written on "architectural requirements.pdf" (5 pages, 65582 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 14 named destinations out of 1000 (max. 500000)
+ 93 PDF objects out of 1000 (max. 8388607)
+ 15 named destinations out of 1000 (max. 500000)
  73 words of extra memory for PDF output out of 10000 (max. 10000000)
 
