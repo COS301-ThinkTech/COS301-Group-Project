@@ -93,6 +93,7 @@ public class MainDisplay extends javax.swing.JFrame
         jMenuItem12.setText("jMenuItem12");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Flow");
 
         jToolBar1.setRollover(true);
 
