@@ -85,7 +85,6 @@ public class MainDisplay extends javax.swing.JFrame
         jMenuItem20 = new javax.swing.JMenuItem();
         jMenuItem18 = new javax.swing.JMenuItem();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem19 = new javax.swing.JMenuItem();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
@@ -234,7 +233,11 @@ public class MainDisplay extends javax.swing.JFrame
         jInternalFrame1.setResizable(true);
         jInternalFrame1.setAutoscrolls(true);
         jInternalFrame1.setFocusCycleRoot(false);
+
         jInternalFrame1.setPreferredSize(new java.awt.Dimension(297, 150));
+
+        jInternalFrame1.setPreferredSize(new java.awt.Dimension(91, 150));
+
         jInternalFrame1.setRequestFocusEnabled(false);
         try {
             jInternalFrame1.setSelected(true);
@@ -390,16 +393,7 @@ public class MainDisplay extends javax.swing.JFrame
         jMenu4.add(jMenuItem18);
         jMenu4.add(jSeparator5);
 
-        jMenuItem19.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ENTER, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
-        jMenuItem19.setText("Full Screen");
-        jMenuItem19.setSelected(true);
-        jMenuItem19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem19ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem19);
-
+        jCheckBoxMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ENTER, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
         jCheckBoxMenuItem1.setText("Full Screen");
         jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -603,7 +597,6 @@ public static boolean showSplash=true;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem18;
-    private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem20;
     private javax.swing.JMenuItem jMenuItem3;
