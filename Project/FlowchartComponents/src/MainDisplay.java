@@ -84,7 +84,6 @@ public class MainDisplay extends javax.swing.JFrame
         jMenuItem17 = new javax.swing.JMenuItem();
         jMenuItem20 = new javax.swing.JMenuItem();
         jMenuItem18 = new javax.swing.JMenuItem();
-        jSeparator5 = new javax.swing.JPopupMenu.Separator();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
@@ -177,9 +176,10 @@ public class MainDisplay extends javax.swing.JFrame
         jLabel1.setText("run speed");
         jToolBar1.add(jLabel1);
 
+        jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(567, 500));
 
-        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jScrollBar3.setOrientation(javax.swing.JScrollBar.HORIZONTAL);
 
@@ -233,11 +233,7 @@ public class MainDisplay extends javax.swing.JFrame
         jInternalFrame1.setResizable(true);
         jInternalFrame1.setAutoscrolls(true);
         jInternalFrame1.setFocusCycleRoot(false);
-
         jInternalFrame1.setPreferredSize(new java.awt.Dimension(297, 150));
-
-        jInternalFrame1.setPreferredSize(new java.awt.Dimension(91, 150));
-
         jInternalFrame1.setRequestFocusEnabled(false);
         try {
             jInternalFrame1.setSelected(true);
@@ -387,11 +383,15 @@ public class MainDisplay extends javax.swing.JFrame
         jMenu4.add(jMenuItem17);
 
         jMenuItem20.setText("Console");
+        jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem20ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem20);
 
         jMenuItem18.setText("Grid");
         jMenu4.add(jMenuItem18);
-        jMenu4.add(jSeparator5);
 
         jCheckBoxMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ENTER, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
         jCheckBoxMenuItem1.setText("Full Screen");
@@ -482,6 +482,11 @@ public class MainDisplay extends javax.swing.JFrame
         mainDisplayFullScreen();
     }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
 
+    private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
+        // TODO add your handling code here:
+        jInternalFrame2.setVisible(true);
+    }//GEN-LAST:event_jMenuItem20ActionPerformed
+
     public void mainDisplayFullScreen()
     {        
         if(fullscreen == true)
@@ -499,6 +504,7 @@ public class MainDisplay extends javax.swing.JFrame
             this.setBounds(0,0,tk.getScreenSize().width, tk.getScreenSize().height);
             jToolBar1.setVisible(false);
             jInternalFrame1.setVisible(false);
+            jInternalFrame2.setVisible(false);
             this.setVisible(true);
         }
         else
@@ -509,6 +515,7 @@ public class MainDisplay extends javax.swing.JFrame
             setBounds(windowSize);
             jToolBar1.setVisible(true);
             jInternalFrame1.setVisible(true);
+            jInternalFrame2.setVisible(true);
             this.setVisible(true);
         }
     }
@@ -599,7 +606,6 @@ public static boolean showSplash=true;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
-    private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;
