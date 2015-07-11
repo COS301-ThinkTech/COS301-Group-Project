@@ -58,6 +58,7 @@ public class MainDisplay extends javax.swing.JFrame
         jScrollBar3 = new javax.swing.JScrollBar();
         jLabel2 = new javax.swing.JLabel();
         jInternalFrame1 = new javax.swing.JInternalFrame();
+        jToolBar2 = new javax.swing.JToolBar();
         jInternalFrame2 = new javax.swing.JInternalFrame();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -244,15 +245,18 @@ public class MainDisplay extends javax.swing.JFrame
         jInternalFrame1.setVerifyInputWhenFocusTarget(false);
         jInternalFrame1.setVisible(true);
 
+        jToolBar2.setFloatable(false);
+        jToolBar2.setRollover(true);
+
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
         jInternalFrame1Layout.setHorizontalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(jToolBar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 195, Short.MAX_VALUE)
+            .addComponent(jToolBar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
         );
 
         jInternalFrame2.setBorder(javax.swing.BorderFactory.createTitledBorder("Output"));
@@ -614,5 +618,6 @@ public static boolean showSplash=true;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JToolBar jToolBar2;
     // End of variables declaration//GEN-END:variables
 }
