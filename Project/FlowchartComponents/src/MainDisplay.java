@@ -58,11 +58,12 @@ public class MainDisplay extends javax.swing.JFrame
         jScrollBar3 = new javax.swing.JScrollBar();
         jLabel2 = new javax.swing.JLabel();
         jInternalFrame1 = new javax.swing.JInternalFrame();
+        jToolBar2 = new javax.swing.JToolBar();
         jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
+        jButton18 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
         jInternalFrame2 = new javax.swing.JInternalFrame();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -249,48 +250,41 @@ public class MainDisplay extends javax.swing.JFrame
         jInternalFrame1.setVerifyInputWhenFocusTarget(false);
         jInternalFrame1.setVisible(true);
 
-        jButton15.setText("jButton15");
+        jToolBar2.setFloatable(false);
+        jToolBar2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jToolBar2.setRollover(true);
 
-        jButton16.setText("jButton16");
+        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/24/dialog-ok.png"))); // NOI18N
+        jButton15.setBorderPainted(false);
+        jButton15.setLabel("");
+        jToolBar2.add(jButton15);
 
-        jButton17.setText("jButton17");
+        jButton19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/24/dialog-ok.png"))); // NOI18N
+        jToolBar2.add(jButton19);
 
-        jButton18.setText("jButton18");
+        jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/24/dialog-ok.png"))); // NOI18N
+        jToolBar2.add(jButton18);
 
-        jButton19.setText("jButton19");
+        jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/24/dialog-ok.png"))); // NOI18N
+        jToolBar2.add(jButton17);
+
+        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/24/dialog-ok.png"))); // NOI18N
+        jToolBar2.add(jButton16);
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
         jInternalFrame1Layout.setHorizontalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton17)
-                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton15)
-                            .addComponent(jButton16))
-                        .addGap(41, 41, 41)
-                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton19)
-                            .addComponent(jButton18))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton15)
-                    .addComponent(jButton18))
-                .addGap(18, 18, 18)
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton16)
-                    .addComponent(jButton19))
-                .addGap(18, 18, 18)
-                .addComponent(jButton17)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jInternalFrame2.setBorder(javax.swing.BorderFactory.createTitledBorder("Output"));
@@ -310,7 +304,7 @@ public class MainDisplay extends javax.swing.JFrame
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
         jInternalFrame2Layout.setVerticalGroup(
@@ -657,5 +651,6 @@ public static boolean showSplash=true;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JToolBar jToolBar2;
     // End of variables declaration//GEN-END:variables
 }
