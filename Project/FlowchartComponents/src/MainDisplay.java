@@ -61,7 +61,7 @@ public class MainDisplay extends javax.swing.JFrame
         processingComponent = new javax.swing.JButton();
         returnComponent = new javax.swing.JButton();
         moduleComponent = new javax.swing.JButton();
-        consoleInternalFrame = new javax.swing.JInternalFrame();
+        jInternalFrame2 = new javax.swing.JInternalFrame();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         MenuBar = new javax.swing.JMenuBar();
@@ -73,7 +73,6 @@ public class MainDisplay extends javax.swing.JFrame
         openMenuItem = new javax.swing.JMenuItem();
         renameMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         editMenu = new javax.swing.JMenu();
         undoMenuItem = new javax.swing.JMenuItem();
         redoMenuItem = new javax.swing.JMenuItem();
@@ -256,22 +255,19 @@ public class MainDisplay extends javax.swing.JFrame
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(63, 63, 63)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(processingComponent)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(moduleComponent))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(ioComponent)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(decisionComponent)))
-                        .addGap(82, 82, 82))
+                        .addComponent(processingComponent)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(moduleComponent))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(returnComponent)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(returnComponent)
+                            .addComponent(ioComponent))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(decisionComponent)))
+                .addGap(82, 82, 82))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,12 +277,14 @@ public class MainDisplay extends javax.swing.JFrame
                     .addComponent(processingComponent)
                     .addComponent(moduleComponent))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ioComponent)
-                    .addComponent(decisionComponent))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addComponent(returnComponent)
-                .addGap(32, 32, 32))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(decisionComponent)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(returnComponent)
+                        .addGap(0, 3, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ioComponent)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         ioComponent.getAccessibleContext().setAccessibleName("io");
@@ -303,34 +301,34 @@ public class MainDisplay extends javax.swing.JFrame
             componentsInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(componentsInternalFrameLayout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 20, Short.MAX_VALUE))
         );
 
-        consoleInternalFrame.setBorder(javax.swing.BorderFactory.createTitledBorder("Output"));
-        consoleInternalFrame.setClosable(true);
-        consoleInternalFrame.setIconifiable(true);
-        consoleInternalFrame.setMaximizable(true);
-        consoleInternalFrame.setResizable(true);
-        consoleInternalFrame.setVisible(true);
+        jInternalFrame2.setBorder(javax.swing.BorderFactory.createTitledBorder("Output"));
+        jInternalFrame2.setClosable(true);
+        jInternalFrame2.setIconifiable(true);
+        jInternalFrame2.setMaximizable(true);
+        jInternalFrame2.setResizable(true);
+        jInternalFrame2.setVisible(true);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setText("=A Flowchart Planning and Simulation Tool=\nProudly brought to you by ThinkTech!");
+        jTextArea1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextArea1);
 
-        javax.swing.GroupLayout consoleInternalFrameLayout = new javax.swing.GroupLayout(consoleInternalFrame.getContentPane());
-        consoleInternalFrame.getContentPane().setLayout(consoleInternalFrameLayout);
-        consoleInternalFrameLayout.setHorizontalGroup(
-            consoleInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(consoleInternalFrameLayout.createSequentialGroup()
+        javax.swing.GroupLayout jInternalFrame2Layout = new javax.swing.GroupLayout(jInternalFrame2.getContentPane());
+        jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
+        jInternalFrame2Layout.setHorizontalGroup(
+            jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        consoleInternalFrameLayout.setVerticalGroup(
-            consoleInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(consoleInternalFrameLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 35, Short.MAX_VALUE))
+        jInternalFrame2Layout.setVerticalGroup(
+            jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         fileMenu.setText("File");
@@ -375,7 +373,6 @@ public class MainDisplay extends javax.swing.JFrame
         exitMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/exit.png"))); // NOI18N
         exitMenuItem.setText("Exit");
         fileMenu.add(exitMenuItem);
-        fileMenu.add(jSeparator1);
 
         MenuBar.add(fileMenu);
 
@@ -480,26 +477,24 @@ public class MainDisplay extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(consoleInternalFrame)
+                            .addComponent(jInternalFrame2)
                             .addComponent(componentsInternalFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(6, 6, 6))))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(componentsInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(consoleInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 160, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
         pack();
@@ -545,10 +540,10 @@ public class MainDisplay extends javax.swing.JFrame
 
     private void consoleMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consoleMenuItemActionPerformed
         // TODO add your handling code here:
-       if(consoleInternalFrame.isVisible())
-           consoleInternalFrame.setVisible(false);
+       if(jInternalFrame2.isVisible())
+           jInternalFrame2.setVisible(false);
        else
-           consoleInternalFrame.setVisible(true);
+           jInternalFrame2.setVisible(true);
     }//GEN-LAST:event_consoleMenuItemActionPerformed
 
     private void processingComponentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processingComponentActionPerformed
@@ -572,7 +567,7 @@ public class MainDisplay extends javax.swing.JFrame
             this.setBounds(0,0,tk.getScreenSize().width, tk.getScreenSize().height);
             jToolBar1.setVisible(false);
             componentsInternalFrame.setVisible(false);
-            consoleInternalFrame.setVisible(false);
+            jInternalFrame2.setVisible(false);
             this.setVisible(true);
         }
         else
@@ -583,7 +578,7 @@ public class MainDisplay extends javax.swing.JFrame
             setBounds(windowSize);
             jToolBar1.setVisible(true);
             componentsInternalFrame.setVisible(true);
-            consoleInternalFrame.setVisible(true);
+            jInternalFrame2.setVisible(true);
             this.setVisible(true);
         }
     }
@@ -634,7 +629,6 @@ public static boolean showSplash=true;
     private javax.swing.JButton bin;
     private javax.swing.JInternalFrame componentsInternalFrame;
     private javax.swing.JMenuItem componentsMenuItem;
-    private javax.swing.JInternalFrame consoleInternalFrame;
     private javax.swing.JMenuItem consoleMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
@@ -646,13 +640,13 @@ public static boolean showSplash=true;
     private javax.swing.JCheckBoxMenuItem fullScreenMenuItem;
     private javax.swing.JMenuItem gridMenuItem;
     private javax.swing.JButton ioComponent;
+    private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
