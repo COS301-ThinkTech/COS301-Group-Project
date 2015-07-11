@@ -54,42 +54,42 @@ public class MainDisplay extends javax.swing.JFrame
         jPanel2 = new javax.swing.JPanel();
         jToolBar2 = new javax.swing.JToolBar();
         bin = new javax.swing.JButton();
-        jInternalFrame1 = new javax.swing.JInternalFrame();
+        componentsInternalFrame = new javax.swing.JInternalFrame();
         jPanel3 = new javax.swing.JPanel();
         ioComponent = new javax.swing.JButton();
         decisionComponent = new javax.swing.JButton();
         processingComponent = new javax.swing.JButton();
         returnComponent = new javax.swing.JButton();
         moduleComponent = new javax.swing.JButton();
-        jInternalFrame2 = new javax.swing.JInternalFrame();
+        consoleInternalFrame = new javax.swing.JInternalFrame();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        MenuBar = new javax.swing.JMenuBar();
+        fileMenu = new javax.swing.JMenu();
+        newFileMenuItem = new javax.swing.JMenuItem();
+        saveMenuItem = new javax.swing.JMenuItem();
+        saveAsMenuItem = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem16 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        openMenuItem = new javax.swing.JMenuItem();
+        renameMenuItem = new javax.swing.JMenuItem();
+        exitMenuItem = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        editMenu = new javax.swing.JMenu();
+        undoMenuItem = new javax.swing.JMenuItem();
+        redoMenuItem = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        cutMenuItem = new javax.swing.JMenuItem();
+        copyMenuItem = new javax.swing.JMenuItem();
+        pasteMenuItem = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem13 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem17 = new javax.swing.JMenuItem();
-        jMenuItem20 = new javax.swing.JMenuItem();
-        jMenuItem18 = new javax.swing.JMenuItem();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
+        deleteMenuItem = new javax.swing.JMenuItem();
+        viewMenu = new javax.swing.JMenu();
+        componentsMenuItem = new javax.swing.JMenuItem();
+        consoleMenuItem = new javax.swing.JMenuItem();
+        gridMenuItem = new javax.swing.JMenuItem();
+        fullScreenMenuItem = new javax.swing.JCheckBoxMenuItem();
+        settingsMenu = new javax.swing.JMenu();
+        aboutMenu = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -203,24 +203,24 @@ public class MainDisplay extends javax.swing.JFrame
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jInternalFrame1.setBackground(new java.awt.Color(255, 255, 255));
-        jInternalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder("Components"));
-        jInternalFrame1.setClosable(true);
-        jInternalFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
-        jInternalFrame1.setIconifiable(true);
-        jInternalFrame1.setMaximizable(true);
-        jInternalFrame1.setResizable(true);
-        jInternalFrame1.setAutoscrolls(true);
-        jInternalFrame1.setFocusCycleRoot(false);
-        jInternalFrame1.setPreferredSize(new java.awt.Dimension(297, 150));
-        jInternalFrame1.setRequestFocusEnabled(false);
+        componentsInternalFrame.setBackground(new java.awt.Color(255, 255, 255));
+        componentsInternalFrame.setBorder(javax.swing.BorderFactory.createTitledBorder("Components"));
+        componentsInternalFrame.setClosable(true);
+        componentsInternalFrame.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        componentsInternalFrame.setIconifiable(true);
+        componentsInternalFrame.setMaximizable(true);
+        componentsInternalFrame.setResizable(true);
+        componentsInternalFrame.setAutoscrolls(true);
+        componentsInternalFrame.setFocusCycleRoot(false);
+        componentsInternalFrame.setPreferredSize(new java.awt.Dimension(297, 150));
+        componentsInternalFrame.setRequestFocusEnabled(false);
         try {
-            jInternalFrame1.setSelected(true);
+            componentsInternalFrame.setSelected(true);
         } catch (java.beans.PropertyVetoException e1) {
             e1.printStackTrace();
         }
-        jInternalFrame1.setVerifyInputWhenFocusTarget(false);
-        jInternalFrame1.setVisible(true);
+        componentsInternalFrame.setVerifyInputWhenFocusTarget(false);
+        componentsInternalFrame.setVisible(true);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -293,178 +293,179 @@ public class MainDisplay extends javax.swing.JFrame
         processingComponent.getAccessibleContext().setAccessibleName("processingComponent");
         returnComponent.getAccessibleContext().setAccessibleName("returnComponent");
 
-        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
-        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
-        jInternalFrame1Layout.setHorizontalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout componentsInternalFrameLayout = new javax.swing.GroupLayout(componentsInternalFrame.getContentPane());
+        componentsInternalFrame.getContentPane().setLayout(componentsInternalFrameLayout);
+        componentsInternalFrameLayout.setHorizontalGroup(
+            componentsInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jInternalFrame1Layout.setVerticalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+        componentsInternalFrameLayout.setVerticalGroup(
+            componentsInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(componentsInternalFrameLayout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jInternalFrame2.setBorder(javax.swing.BorderFactory.createTitledBorder("Output"));
-        jInternalFrame2.setClosable(true);
-        jInternalFrame2.setIconifiable(true);
-        jInternalFrame2.setMaximizable(true);
-        jInternalFrame2.setResizable(true);
-        jInternalFrame2.setVisible(true);
+        consoleInternalFrame.setBorder(javax.swing.BorderFactory.createTitledBorder("Output"));
+        consoleInternalFrame.setClosable(true);
+        consoleInternalFrame.setIconifiable(true);
+        consoleInternalFrame.setMaximizable(true);
+        consoleInternalFrame.setResizable(true);
+        consoleInternalFrame.setVisible(true);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        javax.swing.GroupLayout jInternalFrame2Layout = new javax.swing.GroupLayout(jInternalFrame2.getContentPane());
-        jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
-        jInternalFrame2Layout.setHorizontalGroup(
-            jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrame2Layout.createSequentialGroup()
+        javax.swing.GroupLayout consoleInternalFrameLayout = new javax.swing.GroupLayout(consoleInternalFrame.getContentPane());
+        consoleInternalFrame.getContentPane().setLayout(consoleInternalFrameLayout);
+        consoleInternalFrameLayout.setHorizontalGroup(
+            consoleInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(consoleInternalFrameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jInternalFrame2Layout.setVerticalGroup(
-            jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        consoleInternalFrameLayout.setVerticalGroup(
+            consoleInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jMenu1.setText("File");
-        jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fileMenu.setText("File");
+        fileMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/document-new.png"))); // NOI18N
-        jMenuItem2.setText("New");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        newFileMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        newFileMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/document-new.png"))); // NOI18N
+        newFileMenuItem.setText("New");
+        newFileMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                newFileMenuItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        fileMenu.add(newFileMenuItem);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/document-save.png"))); // NOI18N
-        jMenuItem3.setText("Save");
-        jMenu1.add(jMenuItem3);
+        saveMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        saveMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/document-save.png"))); // NOI18N
+        saveMenuItem.setText("Save");
+        fileMenu.add(saveMenuItem);
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/document-saveas.png"))); // NOI18N
-        jMenuItem4.setText("Save As");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        saveAsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        saveAsMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/document-saveas.png"))); // NOI18N
+        saveAsMenuItem.setText("Save As");
+        saveAsMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                saveAsMenuItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem4);
-        jMenu1.add(jSeparator4);
+        fileMenu.add(saveAsMenuItem);
+        fileMenu.add(jSeparator4);
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/document-open.png"))); // NOI18N
-        jMenuItem5.setText("Open");
-        jMenu1.add(jMenuItem5);
+        openMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        openMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/document-open.png"))); // NOI18N
+        openMenuItem.setText("Open");
+        fileMenu.add(openMenuItem);
 
-        jMenuItem16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/rename.png"))); // NOI18N
-        jMenuItem16.setText("Rename");
-        jMenu1.add(jMenuItem16);
+        renameMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/rename.png"))); // NOI18N
+        renameMenuItem.setText("Rename");
+        fileMenu.add(renameMenuItem);
 
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/exit.png"))); // NOI18N
-        jMenuItem6.setText("Exit");
-        jMenu1.add(jMenuItem6);
-        jMenu1.add(jSeparator1);
+        exitMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        exitMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/exit.png"))); // NOI18N
+        exitMenuItem.setText("Exit");
+        fileMenu.add(exitMenuItem);
+        fileMenu.add(jSeparator1);
 
-        jMenuBar1.add(jMenu1);
+        MenuBar.add(fileMenu);
 
-        jMenu2.setText("Edit");
-        jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        editMenu.setText("Edit");
+        editMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/edit-undo.png"))); // NOI18N
-        jMenuItem8.setText("Undo");
-        jMenu2.add(jMenuItem8);
+        undoMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
+        undoMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/edit-undo.png"))); // NOI18N
+        undoMenuItem.setText("Undo");
+        editMenu.add(undoMenuItem);
 
-        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/edit-redo.png"))); // NOI18N
-        jMenuItem9.setText("Redo");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+        redoMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
+        redoMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/edit-redo.png"))); // NOI18N
+        redoMenuItem.setText("Redo");
+        redoMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
+                redoMenuItemActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem9);
-        jMenu2.add(jSeparator2);
+        editMenu.add(redoMenuItem);
+        editMenu.add(jSeparator2);
 
-        jMenuItem10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/edit-cut.png"))); // NOI18N
-        jMenuItem10.setText("Cut");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+        cutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        cutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/edit-cut.png"))); // NOI18N
+        cutMenuItem.setText("Cut");
+        cutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
+                cutMenuItemActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem10);
+        editMenu.add(cutMenuItem);
 
-        jMenuItem11.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/edit-copy.png"))); // NOI18N
-        jMenuItem11.setText("Copy");
-        jMenu2.add(jMenuItem11);
+        copyMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        copyMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/edit-copy.png"))); // NOI18N
+        copyMenuItem.setText("Copy");
+        editMenu.add(copyMenuItem);
 
-        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/edit-paste.png"))); // NOI18N
-        jMenuItem7.setText("Paste");
-        jMenu2.add(jMenuItem7);
-        jMenu2.add(jSeparator3);
+        pasteMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
+        pasteMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/edit-paste.png"))); // NOI18N
+        pasteMenuItem.setText("Paste");
+        editMenu.add(pasteMenuItem);
+        editMenu.add(jSeparator3);
 
-        jMenuItem13.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
-        jMenuItem13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/delete.png"))); // NOI18N
-        jMenuItem13.setText("Delete");
-        jMenu2.add(jMenuItem13);
+        deleteMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
+        deleteMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/delete.png"))); // NOI18N
+        deleteMenuItem.setText("Delete");
+        editMenu.add(deleteMenuItem);
 
-        jMenuBar1.add(jMenu2);
+        MenuBar.add(editMenu);
 
-        jMenu4.setText("View");
-        jMenu4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        viewMenu.setText("View");
+        viewMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenuItem17.setText("Components");
-        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
+        componentsMenuItem.setText("Components");
+        componentsMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem17ActionPerformed(evt);
+                componentsMenuItemActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem17);
+        viewMenu.add(componentsMenuItem);
 
-        jMenuItem20.setText("Console");
-        jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
+        consoleMenuItem.setText("Console");
+        consoleMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem20ActionPerformed(evt);
+                consoleMenuItemActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem20);
+        viewMenu.add(consoleMenuItem);
 
-        jMenuItem18.setText("Grid");
-        jMenu4.add(jMenuItem18);
+        gridMenuItem.setText("Grid");
+        viewMenu.add(gridMenuItem);
 
-        jCheckBoxMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ENTER, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
-        jCheckBoxMenuItem1.setText("Full Screen");
-        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        fullScreenMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ENTER, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
+        fullScreenMenuItem.setText("Full Screen");
+        fullScreenMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem1ActionPerformed(evt);
+                fullScreenMenuItemActionPerformed(evt);
             }
         });
-        jMenu4.add(jCheckBoxMenuItem1);
+        viewMenu.add(fullScreenMenuItem);
 
-        jMenuBar1.add(jMenu4);
+        MenuBar.add(viewMenu);
 
-        jMenu5.setText("Settings");
-        jMenu5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenuBar1.add(jMenu5);
+        settingsMenu.setText("Settings");
+        settingsMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        MenuBar.add(settingsMenu);
 
-        jMenu6.setText("About");
-        jMenu6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenuBar1.add(jMenu6);
+        aboutMenu.setText("About");
+        aboutMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        MenuBar.add(aboutMenu);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(MenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -477,8 +478,8 @@ public class MainDisplay extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jInternalFrame2)
-                            .addComponent(jInternalFrame1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(consoleInternalFrame)
+                            .addComponent(componentsInternalFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
@@ -490,9 +491,9 @@ public class MainDisplay extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(componentsInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(consoleInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -500,21 +501,21 @@ public class MainDisplay extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void newFileMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newFileMenuItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_newFileMenuItemActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_saveAsMenuItemActionPerformed
 
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+    private void redoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoMenuItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    }//GEN-LAST:event_redoMenuItemActionPerformed
 
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+    private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
+    }//GEN-LAST:event_cutMenuItemActionPerformed
 
     private void newFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newFileActionPerformed
         // TODO add your handling code here:
@@ -525,20 +526,26 @@ public class MainDisplay extends javax.swing.JFrame
     }//GEN-LAST:event_openActionPerformed
 
     
-    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+    private void componentsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_componentsMenuItemActionPerformed
         // TODO add your handling code here:
-        jInternalFrame1.show();
-    }//GEN-LAST:event_jMenuItem17ActionPerformed
+        if(componentsInternalFrame.isVisible())
+           componentsInternalFrame.setVisible(false);
+       else
+           componentsInternalFrame.setVisible(true);
+    }//GEN-LAST:event_componentsMenuItemActionPerformed
 
-    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
+    private void fullScreenMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullScreenMenuItemActionPerformed
         // TODO add your handling code here:
         displayFullScreeen();
-    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
+    }//GEN-LAST:event_fullScreenMenuItemActionPerformed
 
-    private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
+    private void consoleMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consoleMenuItemActionPerformed
         // TODO add your handling code here:
-        jInternalFrame2.setVisible(true);
-    }//GEN-LAST:event_jMenuItem20ActionPerformed
+       if(consoleInternalFrame.isVisible())
+           consoleInternalFrame.setVisible(false);
+       else
+           consoleInternalFrame.setVisible(true);
+    }//GEN-LAST:event_consoleMenuItemActionPerformed
 
     private void processingComponentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processingComponentActionPerformed
         // TODO add your handling code here:
@@ -560,8 +567,8 @@ public class MainDisplay extends javax.swing.JFrame
             Toolkit tk = Toolkit.getDefaultToolkit();
             this.setBounds(0,0,tk.getScreenSize().width, tk.getScreenSize().height);
             jToolBar1.setVisible(false);
-            jInternalFrame1.setVisible(false);
-            jInternalFrame2.setVisible(false);
+            componentsInternalFrame.setVisible(false);
+            consoleInternalFrame.setVisible(false);
             this.setVisible(true);
         }
         else
@@ -571,8 +578,8 @@ public class MainDisplay extends javax.swing.JFrame
             this.setUndecorated(false);
             setBounds(windowSize);
             jToolBar1.setVisible(true);
-            jInternalFrame1.setVisible(true);
-            jInternalFrame2.setVisible(true);
+            componentsInternalFrame.setVisible(true);
+            consoleInternalFrame.setVisible(true);
             this.setVisible(true);
         }
     }
@@ -618,36 +625,26 @@ public class MainDisplay extends javax.swing.JFrame
 public static boolean showSplash=true;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar MenuBar;
+    private javax.swing.JMenu aboutMenu;
     private javax.swing.JButton bin;
+    private javax.swing.JInternalFrame componentsInternalFrame;
+    private javax.swing.JMenuItem componentsMenuItem;
+    private javax.swing.JInternalFrame consoleInternalFrame;
+    private javax.swing.JMenuItem consoleMenuItem;
+    private javax.swing.JMenuItem copyMenuItem;
+    private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JButton decisionComponent;
+    private javax.swing.JMenuItem deleteMenuItem;
+    private javax.swing.JMenu editMenu;
+    private javax.swing.JMenuItem exitMenuItem;
+    private javax.swing.JMenu fileMenu;
+    private javax.swing.JCheckBoxMenuItem fullScreenMenuItem;
+    private javax.swing.JMenuItem gridMenuItem;
     private javax.swing.JButton ioComponent;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JInternalFrame jInternalFrame1;
-    private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem17;
-    private javax.swing.JMenuItem jMenuItem18;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem20;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
@@ -664,14 +661,24 @@ public static boolean showSplash=true;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JButton moduleComponent;
     private javax.swing.JButton newFile;
+    private javax.swing.JMenuItem newFileMenuItem;
     private javax.swing.JButton open;
+    private javax.swing.JMenuItem openMenuItem;
+    private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JButton processingComponent;
     private javax.swing.JButton redo;
+    private javax.swing.JMenuItem redoMenuItem;
+    private javax.swing.JMenuItem renameMenuItem;
     private javax.swing.JButton returnComponent;
     private javax.swing.JButton run;
     private javax.swing.JButton save;
+    private javax.swing.JMenuItem saveAsMenuItem;
+    private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JMenu settingsMenu;
     private javax.swing.JButton step;
     private javax.swing.JButton stop;
     private javax.swing.JButton undo;
+    private javax.swing.JMenuItem undoMenuItem;
+    private javax.swing.JMenu viewMenu;
     // End of variables declaration//GEN-END:variables
 }
