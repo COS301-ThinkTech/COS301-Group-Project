@@ -58,14 +58,8 @@ public class Splash extends JWindow implements MouseListener {
         
         
         JLabel copyright = new JLabel("github.com/COS301-ThinkTech");
-        //JLabel copyrt = new JLabel
-        //        ("<html>Autor: Jakub Konieczny<br/>"
-        //        + "Zespół Szkół Zawodowych w Zawadzkiem<br/>"
-        //        + "nauczyciel prowadzący: Piotr Wiatrek", JLabel.CENTER);
-        //copyrt.setOpaque(true);
         copyright.setFont(new Font("Sans-Serif", Font.BOLD, 12));
         content.add(label, BorderLayout.CENTER);
-        //content.add(copyrt, BorderLayout.SOUTH);
         setVisible(true);
         this.addMouseListener(this);
 
