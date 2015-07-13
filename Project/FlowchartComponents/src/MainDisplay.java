@@ -1,10 +1,20 @@
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 /**
  *
  * @author Mpumpu
@@ -20,6 +30,7 @@ public class MainDisplay extends javax.swing.JFrame
         getContentPane().setBackground(Color.DARK_GRAY.darker());
         jPanel2.setBackground(Color.white);
         
+        Tab();
         
         try {
                 this.setIconImage(ImageIO.read(getClass().getResource("icons/icon.png")));
@@ -54,6 +65,7 @@ public class MainDisplay extends javax.swing.JFrame
         jPanel2 = new javax.swing.JPanel();
         jToolBar2 = new javax.swing.JToolBar();
         bin = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         componentsInternalFrame = new javax.swing.JInternalFrame();
         jPanel3 = new javax.swing.JPanel();
         ioComponent = new javax.swing.JButton();
@@ -193,12 +205,20 @@ public class MainDisplay extends javax.swing.JFrame
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(447, 447, 447))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 504, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -443,6 +463,11 @@ public class MainDisplay extends javax.swing.JFrame
         viewMenu.add(consoleMenuItem);
 
         gridMenuItem.setText("Grid");
+        gridMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gridMenuItemActionPerformed(evt);
+            }
+        });
         viewMenu.add(gridMenuItem);
 
         fullScreenMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ENTER, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
@@ -473,28 +498,27 @@ public class MainDisplay extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
+                    .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1295, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jInternalFrame2)
                             .addComponent(componentsInternalFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(6, 6, 6))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(componentsInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(358, Short.MAX_VALUE))
         );
 
         pack();
@@ -550,6 +574,44 @@ public class MainDisplay extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_processingComponentActionPerformed
 
+    private void gridMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gridMenuItemActionPerformed
+        // TODO add your handling code here:
+        JFrame frame = new JFrame();
+        frame.getContentPane().setLayout(new GridLayout(1, 1));
+    }//GEN-LAST:event_gridMenuItemActionPerformed
+    
+    public void Tab()
+    {
+        jTabbedPane1.addTab ("Start", null);
+        FlowLayout f = new FlowLayout (FlowLayout.CENTER, 5, 0);
+
+        // Make a small JPanel with the layout and make it non-opaque
+        JPanel panelTab = new JPanel (f);
+        panelTab.setOpaque (false);
+        
+        // Create a JButton for adding the tabs
+        JButton addTab = new JButton ("+");
+        addTab.setOpaque (false); 
+        addTab.setBorder (null);
+        addTab.setContentAreaFilled (false);
+        addTab.setFocusPainted (false);
+        addTab.setFocusable (true);
+        
+        //Add the button to the panel
+        panelTab.add (addTab);
+
+        jTabbedPane1.setTabComponentAt (jTabbedPane1.getTabCount ()-1, panelTab);
+
+        ActionListener listener = new ActionListener () {
+            @Override
+            public void actionPerformed (ActionEvent e) {
+                String title = "Tab " + String.valueOf (jTabbedPane1.getTabCount());
+                jTabbedPane1.addTab (title, null);
+            }
+        };
+        addTab.setFocusable (false);
+        addTab.addActionListener (listener);
+    }
     public void displayFullScreeen()
     {        
         if(fullscreen == true)
@@ -584,6 +646,8 @@ public class MainDisplay extends javax.swing.JFrame
     }
     boolean fullscreen=false;
     Rectangle windowSize;
+    
+
     /**
      * @param args the command line arguments
      */
@@ -618,6 +682,7 @@ public class MainDisplay extends javax.swing.JFrame
                 MainDisplay m = new MainDisplay();
                 m.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 m.setVisible(true);
+         
             }
         });
     }
@@ -654,6 +719,7 @@ public static boolean showSplash=true;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;
     private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
