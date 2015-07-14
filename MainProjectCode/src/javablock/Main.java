@@ -6,7 +6,10 @@
 package javablock;
 
 import com.jtattoo.plaf.noire.NoireLookAndFeel;
+import java.beans.PropertyVetoException;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javablock.flowchart.editors.StandardEditor;
 import javablock.gui.MainDisplay;
 import javablock.gui.Splash;
@@ -22,7 +25,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) 
+    public static void main(String args[]) throws PropertyVetoException 
     {
         /* Set the Nimbus look and feel */
         
@@ -57,7 +60,12 @@ public class Main {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                MainDisplay m = new MainDisplay();
+                MainDisplay m = null;
+                try {
+                    m = new MainDisplay();
+                } catch (PropertyVetoException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 m.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 m.setVisible(true);
             }
