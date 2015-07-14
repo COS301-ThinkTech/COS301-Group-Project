@@ -294,7 +294,7 @@ public class MainDisplay extends javax.swing.JFrame
                     .addComponent(decisionComponent)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addComponent(returnComponent)
-                        .addGap(0, 3, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ioComponent)
                 .addContainerGap(45, Short.MAX_VALUE))
@@ -314,7 +314,7 @@ public class MainDisplay extends javax.swing.JFrame
             componentsInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(componentsInternalFrameLayout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addGap(0, 23, Short.MAX_VALUE))
         );
 
         jInternalFrame2.setBorder(javax.swing.BorderFactory.createTitledBorder("Output"));
