@@ -51,7 +51,7 @@ public class Main {
         if(mainDisp.showSplash)
         {
             System.out.println("SHOW Splash");
-            Splash splash = new Splash(20);
+            Splash splash = new Splash(30);
             splash.showSplash();
         }
         
