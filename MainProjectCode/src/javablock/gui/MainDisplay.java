@@ -14,8 +14,11 @@ package javablock.gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.beans.PropertyVetoException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 /**
@@ -28,11 +31,10 @@ public class MainDisplay extends javax.swing.JFrame
     /**
      * Creates new form MainDisplay
      */
-    public MainDisplay() {
+    public MainDisplay() throws PropertyVetoException {
         initComponents();
         getContentPane().setBackground(Color.DARK_GRAY.darker());
-        jPanel2.setBackground(Color.white);
-        
+        jPanel2.setBackground(Color.white);       
         
         try {
                 this.setIconImage(ImageIO.read(getClass().getResource("icons/icon.png")));
@@ -62,6 +64,7 @@ public class MainDisplay extends javax.swing.JFrame
         run = new javax.swing.JButton();
         step = new javax.swing.JButton();
         stop = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
         jSpinner1 = new javax.swing.JSpinner();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -186,6 +189,10 @@ public class MainDisplay extends javax.swing.JFrame
         stop.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(stop);
 
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+        jToolBar1.add(jSeparator1);
+
+        jSpinner1.setMaximumSize(new java.awt.Dimension(63, 30));
         jSpinner1.setPreferredSize(new java.awt.Dimension(63, 30));
         jToolBar1.add(jSpinner1);
 
@@ -206,7 +213,7 @@ public class MainDisplay extends javax.swing.JFrame
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,7 +222,6 @@ public class MainDisplay extends javax.swing.JFrame
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        componentsInternalFrame.setBackground(new java.awt.Color(255, 255, 255));
         componentsInternalFrame.setBorder(javax.swing.BorderFactory.createTitledBorder("Components"));
         componentsInternalFrame.setClosable(true);
         componentsInternalFrame.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -224,6 +230,7 @@ public class MainDisplay extends javax.swing.JFrame
         componentsInternalFrame.setResizable(true);
         componentsInternalFrame.setAutoscrolls(true);
         componentsInternalFrame.setFocusCycleRoot(false);
+        componentsInternalFrame.setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/jframeicon.png"))); // NOI18N
         componentsInternalFrame.setPreferredSize(new java.awt.Dimension(297, 150));
         componentsInternalFrame.setRequestFocusEnabled(false);
         try {
@@ -233,8 +240,6 @@ public class MainDisplay extends javax.swing.JFrame
         }
         componentsInternalFrame.setVerifyInputWhenFocusTarget(false);
         componentsInternalFrame.setVisible(true);
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         ioComponent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/tempcomponents/32/io.png"))); // NOI18N
         ioComponent.setToolTipText("");
@@ -297,7 +302,7 @@ public class MainDisplay extends javax.swing.JFrame
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ioComponent)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         ioComponent.getAccessibleContext().setAccessibleName("io");
@@ -314,7 +319,7 @@ public class MainDisplay extends javax.swing.JFrame
             componentsInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(componentsInternalFrameLayout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
+                .addGap(0, 24, Short.MAX_VALUE))
         );
 
         jInternalFrame2.setBorder(javax.swing.BorderFactory.createTitledBorder("Output"));
@@ -322,6 +327,7 @@ public class MainDisplay extends javax.swing.JFrame
         jInternalFrame2.setIconifiable(true);
         jInternalFrame2.setMaximizable(true);
         jInternalFrame2.setResizable(true);
+        jInternalFrame2.setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/jframeicon.png"))); // NOI18N
         jInternalFrame2.setVisible(true);
 
         jTextArea1.setColumns(20);
@@ -341,7 +347,10 @@ public class MainDisplay extends javax.swing.JFrame
         );
         jInternalFrame2Layout.setVerticalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jInternalFrame2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         fileMenu.setText("File");
@@ -484,28 +493,25 @@ public class MainDisplay extends javax.swing.JFrame
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jInternalFrame2)
-                            .addComponent(componentsInternalFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(6, 6, 6))))
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jInternalFrame2)
+                    .addComponent(componentsInternalFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(6, 6, 6))
+            .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(componentsInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jInternalFrame2))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(132, Short.MAX_VALUE))
         );
@@ -627,6 +633,7 @@ public static boolean showSplash=true;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;

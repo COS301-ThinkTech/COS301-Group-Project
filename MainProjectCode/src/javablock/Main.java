@@ -5,10 +5,13 @@
  */
 package javablock;
 
+import com.jtattoo.plaf.noire.NoireLookAndFeel;
+import java.util.Properties;
 import javablock.flowchart.editors.StandardEditor;
 import javablock.gui.MainDisplay;
 import javablock.gui.Splash;
 import javax.swing.JFrame;
+import javax.swing.UIManager;
 
 /**
  *
@@ -28,12 +31,16 @@ public class Main {
         MainDisplay mainDisp = new MainDisplay();
         try {
                         
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            /*for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
-            }
+            }*/
+            Properties props = new Properties();
+            props.put("logoString", "Flow");
+            NoireLookAndFeel.setCurrentTheme(props);
+            UIManager.setLookAndFeel("com.jtattoo.plaf.noire.NoireLookAndFeel");
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
