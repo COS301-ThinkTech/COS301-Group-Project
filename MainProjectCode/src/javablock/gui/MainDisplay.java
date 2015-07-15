@@ -475,7 +475,7 @@ public class MainDisplay extends javax.swing.JFrame
         fileMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         newFileMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
-        newFileMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/document-new.png"))); // NOI18N
+        newFileMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/rsz_actions-document-new-icon.png"))); // NOI18N
         newFileMenuItem.setText("New");
         newFileMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -485,12 +485,12 @@ public class MainDisplay extends javax.swing.JFrame
         fileMenu.add(newFileMenuItem);
 
         saveMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        saveMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/document-save.png"))); // NOI18N
+        saveMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/rsz_actions-document-save-icon.png"))); // NOI18N
         saveMenuItem.setText("Save");
         fileMenu.add(saveMenuItem);
 
         saveAsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        saveAsMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/document-saveas.png"))); // NOI18N
+        saveAsMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/rsz_document-saveas-black.png"))); // NOI18N
         saveAsMenuItem.setText("Save As");
         saveAsMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -501,7 +501,7 @@ public class MainDisplay extends javax.swing.JFrame
         fileMenu.add(jSeparator4);
 
         openMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
-        openMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/document-open.png"))); // NOI18N
+        openMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/rsz_open-folder-icon.png"))); // NOI18N
         openMenuItem.setText("Open");
         fileMenu.add(openMenuItem);
 
@@ -520,12 +520,12 @@ public class MainDisplay extends javax.swing.JFrame
         editMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         undoMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
-        undoMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/edit-undo.png"))); // NOI18N
+        undoMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/rsz_arrows-undo-icon.png"))); // NOI18N
         undoMenuItem.setText("Undo");
         editMenu.add(undoMenuItem);
 
         redoMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
-        redoMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/edit-redo.png"))); // NOI18N
+        redoMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/rsz_arrows-redo-icon.png"))); // NOI18N
         redoMenuItem.setText("Redo");
         redoMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -536,7 +536,7 @@ public class MainDisplay extends javax.swing.JFrame
         editMenu.add(jSeparator2);
 
         cutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
-        cutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/edit-cut.png"))); // NOI18N
+        cutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/rsz_actions-edit-cut-icon.png"))); // NOI18N
         cutMenuItem.setText("Cut");
         cutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -546,18 +546,18 @@ public class MainDisplay extends javax.swing.JFrame
         editMenu.add(cutMenuItem);
 
         copyMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        copyMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/edit-copy.png"))); // NOI18N
+        copyMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/rsz_copy-icon.png"))); // NOI18N
         copyMenuItem.setText("Copy");
         editMenu.add(copyMenuItem);
 
         pasteMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
-        pasteMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/edit-paste.png"))); // NOI18N
+        pasteMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/rsz_actions-edit-paste-icon.png"))); // NOI18N
         pasteMenuItem.setText("Paste");
         editMenu.add(pasteMenuItem);
         editMenu.add(jSeparator3);
 
         deleteMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
-        deleteMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/delete.png"))); // NOI18N
+        deleteMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/16/rsz_bin-empty-icon.png"))); // NOI18N
         deleteMenuItem.setText("Delete");
         editMenu.add(deleteMenuItem);
 

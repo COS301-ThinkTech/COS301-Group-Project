@@ -30,7 +30,7 @@
                   <KeyStroke key="Ctrl+N"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/javablock/gui/icons/16/document-new.png"/>
+                  <Image iconType="3" name="/javablock/gui/icons/16/rsz_actions-document-new-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="New"/>
               </Properties>
@@ -44,7 +44,7 @@
                   <KeyStroke key="Ctrl+S"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/javablock/gui/icons/16/document-save.png"/>
+                  <Image iconType="3" name="/javablock/gui/icons/16/rsz_actions-document-save-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Save"/>
               </Properties>
@@ -55,7 +55,7 @@
                   <KeyStroke key="Shift+Ctrl+S"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/javablock/gui/icons/16/document-saveas.png"/>
+                  <Image iconType="3" name="/javablock/gui/icons/16/rsz_document-saveas-black.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Save As"/>
               </Properties>
@@ -71,7 +71,7 @@
                   <KeyStroke key="Ctrl+O"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/javablock/gui/icons/16/document-open.png"/>
+                  <Image iconType="3" name="/javablock/gui/icons/16/rsz_open-folder-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Open"/>
               </Properties>
@@ -111,7 +111,7 @@
                   <KeyStroke key="Ctrl+Z"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/javablock/gui/icons/16/edit-undo.png"/>
+                  <Image iconType="3" name="/javablock/gui/icons/16/rsz_arrows-undo-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Undo"/>
               </Properties>
@@ -122,7 +122,7 @@
                   <KeyStroke key="Ctrl+Y"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/javablock/gui/icons/16/edit-redo.png"/>
+                  <Image iconType="3" name="/javablock/gui/icons/16/rsz_arrows-redo-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Redo"/>
               </Properties>
@@ -138,7 +138,7 @@
                   <KeyStroke key="Ctrl+X"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/javablock/gui/icons/16/edit-cut.png"/>
+                  <Image iconType="3" name="/javablock/gui/icons/16/rsz_actions-edit-cut-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cut"/>
               </Properties>
@@ -152,7 +152,7 @@
                   <KeyStroke key="Ctrl+C"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/javablock/gui/icons/16/edit-copy.png"/>
+                  <Image iconType="3" name="/javablock/gui/icons/16/rsz_copy-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Copy"/>
               </Properties>
@@ -163,7 +163,7 @@
                   <KeyStroke key="Ctrl+V"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/javablock/gui/icons/16/edit-paste.png"/>
+                  <Image iconType="3" name="/javablock/gui/icons/16/rsz_actions-edit-paste-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Paste"/>
               </Properties>
@@ -176,7 +176,7 @@
                   <KeyStroke key="DELETE"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/javablock/gui/icons/16/delete.png"/>
+                  <Image iconType="3" name="/javablock/gui/icons/16/rsz_bin-empty-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Delete"/>
               </Properties>
