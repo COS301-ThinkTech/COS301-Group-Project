@@ -61,9 +61,7 @@ public class Main {
             @Override
             public void run() {
                 MainDisplay m = null;
-                
-                    m = new MainDisplay();
-                
+                m = new MainDisplay();
                 m.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 m.setVisible(true);
             }
