@@ -719,7 +719,7 @@ public class MainDisplay extends javax.swing.JFrame
    
     public void Tab()
     {
-        jTabbedPane1.addTab ("Start", null);
+        //jTabbedPane1.addTab ("Start", null);
         FlowLayout f = new FlowLayout (FlowLayout.CENTER, 5, 0);
 
         // Make a small JPanel with the layout and make it non-opaque
@@ -742,13 +742,12 @@ public class MainDisplay extends javax.swing.JFrame
         ActionListener listener = new ActionListener () {
             @Override
             public void actionPerformed (ActionEvent e) {
-                String title = "Tab " + String.valueOf (jTabbedPane1.getTabCount());
+                String title = "Tab " + String.valueOf (jTabbedPane1.getTabCount()+1);
                 jTabbedPane1.addTab (title, null);
-                //addTabButton
                 jTabbedPane1.setTabComponentAt (jTabbedPane1.getTabCount ()-1, panelTab);
             }
         };
-        addTabButton.setFocusable (false);
+        addTabButton.setFocusable (true);
         addTabButton.addActionListener (listener);
     }
     
