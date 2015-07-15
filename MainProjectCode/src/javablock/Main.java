@@ -61,11 +61,7 @@ public class Main {
             @Override
             public void run() {
                 MainDisplay m = null;
-                try {
-                    m = new MainDisplay();
-                } catch (PropertyVetoException ex) {
-                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                m = new MainDisplay();
                 m.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 m.setVisible(true);
             }

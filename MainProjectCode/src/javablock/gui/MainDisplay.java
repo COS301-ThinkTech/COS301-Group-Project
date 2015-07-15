@@ -1,9 +1,14 @@
 package javablock.gui;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 /**
  *
  * @author Mpumpu
@@ -18,7 +23,7 @@ public class MainDisplay extends javax.swing.JFrame
         initComponents();
         getContentPane().setBackground(Color.DARK_GRAY.darker());
         jPanel2.setBackground(Color.white);  
-        
+        Tab();
         
         try {
                 this.setIconImage(ImageIO.read(getClass().getResource("icons/icon.png")));
@@ -713,6 +718,38 @@ public class MainDisplay extends javax.swing.JFrame
     boolean fullscreen=false;
     Rectangle windowSize;
    
+    public void Tab()
+    {
+        jTabbedPane1.addTab ("Start", null);
+        FlowLayout f = new FlowLayout (FlowLayout.CENTER, 5, 0);
+
+        // Make a small JPanel with the layout and make it non-opaque
+        JPanel panelTab = new JPanel (f);
+        panelTab.setOpaque (false);
+        
+        // Create a JButton for adding the tabs
+        JButton addTab = new JButton ("+");
+        addTab.setOpaque (false); 
+        addTab.setBorder (null);
+        addTab.setContentAreaFilled (false);
+        addTab.setFocusPainted (false);
+        addTab.setFocusable (true);
+        
+        //Add the button to the panel
+        panelTab.add (addTab);
+
+        jTabbedPane1.setTabComponentAt (jTabbedPane1.getTabCount ()-1, panelTab);
+
+        ActionListener listener = new ActionListener () {
+            @Override
+            public void actionPerformed (ActionEvent e) {
+                String title = "Tab " + String.valueOf (jTabbedPane1.getTabCount());
+                jTabbedPane1.addTab (title, null);
+            }
+        };
+        addTab.setFocusable (false);
+        addTab.addActionListener (listener);
+    }
     
 public static boolean showSplash=true;
     
