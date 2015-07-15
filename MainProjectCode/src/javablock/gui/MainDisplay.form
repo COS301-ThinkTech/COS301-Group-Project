@@ -225,9 +225,9 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="settingsMenu">
+        <Menu class="javax.swing.JMenu" name="optionMenu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Settings"/>
+            <Property name="text" type="java.lang.String" value="Options"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
@@ -307,7 +307,7 @@
         <Component class="javax.swing.JButton" name="newFile">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/javablock/gui/icons/24/document-new.png"/>
+              <Image iconType="3" name="/javablock/gui/icons/24/rsz_actions-document-new-icon.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="New"/>
             <Property name="actionCommand" type="java.lang.String" value="New"/>
@@ -322,7 +322,7 @@
         <Component class="javax.swing.JButton" name="open">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/javablock/gui/icons/24/document-open.png"/>
+              <Image iconType="3" name="/javablock/gui/icons/24/rsz_open-folder-icon.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Open"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -336,7 +336,7 @@
         <Component class="javax.swing.JButton" name="save">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/javablock/gui/icons/24/document-save.png"/>
+              <Image iconType="3" name="/javablock/gui/icons/24/rsz_actions-document-save-icon.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Save"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -349,7 +349,7 @@
         <Component class="javax.swing.JButton" name="undo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/javablock/gui/icons/24/edit-undo.png"/>
+              <Image iconType="3" name="/javablock/gui/icons/24/rsz_arrows-undo-icon.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Undo"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -361,7 +361,7 @@
         <Component class="javax.swing.JButton" name="redo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/javablock/gui/icons/24/edit-redo.png"/>
+              <Image iconType="3" name="/javablock/gui/icons/24/rsz_arrows-redo-icon.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Redo"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -375,7 +375,7 @@
         <Component class="javax.swing.JButton" name="run">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/javablock/gui/icons/media-playback-start.png"/>
+              <Image iconType="3" name="/javablock/gui/icons/rsz_play-icon.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Run"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -386,7 +386,7 @@
         <Component class="javax.swing.JButton" name="step">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/javablock/gui/icons/step.png"/>
+              <Image iconType="3" name="/javablock/gui/icons/rsz_step-forward-pressed-icon.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Step"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -398,7 +398,7 @@
         <Component class="javax.swing.JButton" name="stop">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/javablock/gui/icons/media-playback-stop.png"/>
+              <Image iconType="3" name="/javablock/gui/icons/rsz_stop-icon.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Stop"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -756,7 +756,7 @@
                 <Component class="javax.swing.JButton" name="bin">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/javablock/gui/icons/48/delete.png"/>
+                      <Image iconType="3" name="/javablock/gui/icons/48/rsz_bin-empty-icon.png"/>
                     </Property>
                     <Property name="borderPainted" type="boolean" value="false"/>
                     <Property name="focusable" type="boolean" value="false"/>

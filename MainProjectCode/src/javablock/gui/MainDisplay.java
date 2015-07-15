@@ -101,7 +101,7 @@ public class MainDisplay extends javax.swing.JFrame
         consoleMenuItem = new javax.swing.JMenuItem();
         gridMenuItem = new javax.swing.JMenuItem();
         fullScreenMenuItem = new javax.swing.JCheckBoxMenuItem();
-        settingsMenu = new javax.swing.JMenu();
+        optionMenu = new javax.swing.JMenu();
         helpMenu = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -116,7 +116,7 @@ public class MainDisplay extends javax.swing.JFrame
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        newFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/24/document-new.png"))); // NOI18N
+        newFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/24/rsz_actions-document-new-icon.png"))); // NOI18N
         newFile.setToolTipText("New");
         newFile.setActionCommand("New");
         newFile.setFocusable(false);
@@ -129,7 +129,7 @@ public class MainDisplay extends javax.swing.JFrame
         });
         jToolBar1.add(newFile);
 
-        open.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/24/document-open.png"))); // NOI18N
+        open.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/24/rsz_open-folder-icon.png"))); // NOI18N
         open.setToolTipText("Open");
         open.setFocusable(false);
         open.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -141,7 +141,7 @@ public class MainDisplay extends javax.swing.JFrame
         });
         jToolBar1.add(open);
 
-        save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/24/document-save.png"))); // NOI18N
+        save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/24/rsz_actions-document-save-icon.png"))); // NOI18N
         save.setToolTipText("Save");
         save.setFocusable(false);
         save.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -149,7 +149,7 @@ public class MainDisplay extends javax.swing.JFrame
         jToolBar1.add(save);
         jToolBar1.add(jSeparator6);
 
-        undo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/24/edit-undo.png"))); // NOI18N
+        undo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/24/rsz_arrows-undo-icon.png"))); // NOI18N
         undo.setToolTipText("Undo");
         undo.setEnabled(false);
         undo.setFocusable(false);
@@ -157,7 +157,7 @@ public class MainDisplay extends javax.swing.JFrame
         undo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(undo);
 
-        redo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/24/edit-redo.png"))); // NOI18N
+        redo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/24/rsz_arrows-redo-icon.png"))); // NOI18N
         redo.setToolTipText("Redo");
         redo.setEnabled(false);
         redo.setFocusable(false);
@@ -166,14 +166,14 @@ public class MainDisplay extends javax.swing.JFrame
         jToolBar1.add(redo);
         jToolBar1.add(jSeparator8);
 
-        run.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/media-playback-start.png"))); // NOI18N
+        run.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/rsz_play-icon.png"))); // NOI18N
         run.setToolTipText("Run");
         run.setFocusable(false);
         run.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         run.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(run);
 
-        step.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/step.png"))); // NOI18N
+        step.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/rsz_step-forward-pressed-icon.png"))); // NOI18N
         step.setToolTipText("Step");
         step.setEnabled(false);
         step.setFocusable(false);
@@ -181,7 +181,7 @@ public class MainDisplay extends javax.swing.JFrame
         step.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(step);
 
-        stop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/media-playback-stop.png"))); // NOI18N
+        stop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/rsz_stop-icon.png"))); // NOI18N
         stop.setToolTipText("Stop");
         stop.setEnabled(false);
         stop.setFocusable(false);
@@ -356,7 +356,7 @@ public class MainDisplay extends javax.swing.JFrame
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
-        bin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/48/delete.png"))); // NOI18N
+        bin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/48/rsz_bin-empty-icon.png"))); // NOI18N
         bin.setBorderPainted(false);
         bin.setFocusable(false);
         bin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -592,9 +592,9 @@ public class MainDisplay extends javax.swing.JFrame
 
         MenuBar.add(viewMenu);
 
-        settingsMenu.setText("Settings");
-        settingsMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        MenuBar.add(settingsMenu);
+        optionMenu.setText("Options");
+        optionMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        MenuBar.add(optionMenu);
 
         helpMenu.setText("Help");
         helpMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -772,6 +772,7 @@ public static boolean showSplash=true;
     private javax.swing.JMenuItem newFileMenuItem;
     private javax.swing.JButton open;
     private javax.swing.JMenuItem openMenuItem;
+    private javax.swing.JMenu optionMenu;
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JButton processingComponent;
     private javax.swing.JButton redo;
@@ -782,7 +783,6 @@ public static boolean showSplash=true;
     private javax.swing.JButton save;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
-    private javax.swing.JMenu settingsMenu;
     private javax.swing.JButton step;
     private javax.swing.JButton stop;
     private javax.swing.JButton undo;
