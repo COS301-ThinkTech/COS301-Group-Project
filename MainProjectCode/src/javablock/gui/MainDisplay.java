@@ -267,16 +267,13 @@ public class MainDisplay extends javax.swing.JFrame
                 .addContainerGap()
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                                .addComponent(decisionComponent)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4))
-                            .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                                .addComponent(processingComponent)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(decisionComponent)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4))
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addComponent(processingComponent)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3))
                     .addGroup(jDesktopPane3Layout.createSequentialGroup()
                         .addComponent(ioComponent)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -408,6 +405,8 @@ public class MainDisplay extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jTabbedPane1.getAccessibleContext().setAccessibleName("");
 
         jScrollPane2.setViewportView(jTree1);
 
@@ -728,15 +727,15 @@ public class MainDisplay extends javax.swing.JFrame
         panelTab.setOpaque (false);
         
         // Create a JButton for adding the tabs
-        JButton addTab = new JButton ("+");
-        addTab.setOpaque (false); 
-        addTab.setBorder (null);
-        addTab.setContentAreaFilled (false);
-        addTab.setFocusPainted (false);
-        addTab.setFocusable (true);
+        JButton addTabButton = new JButton ("+");
+        addTabButton.setOpaque (false); 
+        addTabButton.setBorder (null);
+        addTabButton.setContentAreaFilled (false);
+        addTabButton.setFocusPainted (false);
+        addTabButton.setFocusable (true);
         
         //Add the button to the panel
-        panelTab.add (addTab);
+        panelTab.add (addTabButton);
 
         jTabbedPane1.setTabComponentAt (jTabbedPane1.getTabCount ()-1, panelTab);
 
@@ -745,10 +744,12 @@ public class MainDisplay extends javax.swing.JFrame
             public void actionPerformed (ActionEvent e) {
                 String title = "Tab " + String.valueOf (jTabbedPane1.getTabCount());
                 jTabbedPane1.addTab (title, null);
+                //addTabButton
+                jTabbedPane1.setTabComponentAt (jTabbedPane1.getTabCount ()-1, panelTab);
             }
         };
-        addTab.setFocusable (false);
-        addTab.addActionListener (listener);
+        addTabButton.setFocusable (false);
+        addTabButton.addActionListener (listener);
     }
     
 public static boolean showSplash=true;
