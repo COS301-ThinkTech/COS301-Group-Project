@@ -1,26 +1,9 @@
-/*
-
- * To change this license header, choose License Headers in Project Properties.
-
- * To change this template file, choose Tools | Templates
-
- * and open the template in the editor.
-
- */
-
 package javablock.gui;
-
-
-
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
 import java.beans.PropertyVetoException;
 import javax.imageio.ImageIO;
-import javax.swing.JFrame;
 /**
  *
  * @author Mpumpu
@@ -31,10 +14,11 @@ public class MainDisplay extends javax.swing.JFrame
     /**
      * Creates new form MainDisplay
      */
-    public MainDisplay() throws PropertyVetoException {
+    public MainDisplay()  {
         initComponents();
         getContentPane().setBackground(Color.DARK_GRAY.darker());
-        jPanel2.setBackground(Color.white);       
+        jPanel2.setBackground(Color.white);  
+        
         
         try {
                 this.setIconImage(ImageIO.read(getClass().getResource("icons/icon.png")));
@@ -67,16 +51,30 @@ public class MainDisplay extends javax.swing.JFrame
         jSeparator1 = new javax.swing.JToolBar.Separator();
         jSpinner1 = new javax.swing.JSpinner();
         jLabel1 = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        componentsInternalFrame = new javax.swing.JInternalFrame();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jDesktopPane3 = new javax.swing.JDesktopPane();
+        processingComponent = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        decisionComponent = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        ioComponent = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        moduleComponent = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        returnComponent = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jToolBar2 = new javax.swing.JToolBar();
         bin = new javax.swing.JButton();
-        componentsInternalFrame = new javax.swing.JInternalFrame();
-        jPanel3 = new javax.swing.JPanel();
-        ioComponent = new javax.swing.JButton();
-        decisionComponent = new javax.swing.JButton();
-        processingComponent = new javax.swing.JButton();
-        returnComponent = new javax.swing.JButton();
-        moduleComponent = new javax.swing.JButton();
+        jSlider1 = new javax.swing.JSlider();
+        jLabel2 = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jDesktopPane2 = new javax.swing.JDesktopPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
         jInternalFrame2 = new javax.swing.JInternalFrame();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -104,7 +102,9 @@ public class MainDisplay extends javax.swing.JFrame
         gridMenuItem = new javax.swing.JMenuItem();
         fullScreenMenuItem = new javax.swing.JCheckBoxMenuItem();
         settingsMenu = new javax.swing.JMenu();
-        aboutMenu = new javax.swing.JMenu();
+        helpMenu = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -200,34 +200,10 @@ public class MainDisplay extends javax.swing.JFrame
         jLabel1.setText("run speed");
         jToolBar1.add(jLabel1);
 
-        jToolBar2.setFloatable(false);
-        jToolBar2.setRollover(true);
-
-        bin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/48/delete.png"))); // NOI18N
-        bin.setFocusable(false);
-        bin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        bin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar2.add(bin);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 504, Short.MAX_VALUE)
-                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
         componentsInternalFrame.setBorder(javax.swing.BorderFactory.createTitledBorder("Components"));
         componentsInternalFrame.setClosable(true);
         componentsInternalFrame.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         componentsInternalFrame.setIconifiable(true);
-        componentsInternalFrame.setMaximizable(true);
-        componentsInternalFrame.setResizable(true);
         componentsInternalFrame.setAutoscrolls(true);
         componentsInternalFrame.setFocusCycleRoot(false);
         componentsInternalFrame.setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/jframeicon.png"))); // NOI18N
@@ -241,16 +217,6 @@ public class MainDisplay extends javax.swing.JFrame
         componentsInternalFrame.setVerifyInputWhenFocusTarget(false);
         componentsInternalFrame.setVisible(true);
 
-        ioComponent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/tempcomponents/32/io.png"))); // NOI18N
-        ioComponent.setToolTipText("");
-        ioComponent.setBorder(null);
-        ioComponent.setBorderPainted(false);
-        ioComponent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        decisionComponent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/tempcomponents/32/decision.png"))); // NOI18N
-        decisionComponent.setBorder(null);
-        decisionComponent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         processingComponent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/tempcomponents/32/processing.png"))); // NOI18N
         processingComponent.setBorder(null);
         processingComponent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -260,79 +226,196 @@ public class MainDisplay extends javax.swing.JFrame
             }
         });
 
-        returnComponent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/tempcomponents/32/return.png"))); // NOI18N
-        returnComponent.setBorder(null);
-        returnComponent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.setText("Processing Block");
+
+        decisionComponent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/tempcomponents/32/decision.png"))); // NOI18N
+        decisionComponent.setBorder(null);
+        decisionComponent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel4.setText("Decision Block");
+
+        ioComponent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/tempcomponents/32/io.png"))); // NOI18N
+        ioComponent.setToolTipText("");
+        ioComponent.setBorder(null);
+        ioComponent.setBorderPainted(false);
+        ioComponent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel5.setText("Input/Output Block");
 
         moduleComponent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/tempcomponents/32/module.png"))); // NOI18N
         moduleComponent.setBorder(null);
         moduleComponent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(processingComponent)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(moduleComponent))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(returnComponent)
-                            .addComponent(ioComponent))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(decisionComponent)))
-                .addGap(82, 82, 82))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(processingComponent)
-                    .addComponent(moduleComponent))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(decisionComponent)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(returnComponent)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ioComponent)
-                .addContainerGap(44, Short.MAX_VALUE))
-        );
+        jLabel6.setText("Module");
 
-        ioComponent.getAccessibleContext().setAccessibleName("io");
+        returnComponent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/tempcomponents/32/return.png"))); // NOI18N
+        returnComponent.setBorder(null);
+        returnComponent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel7.setText("End Block");
+
+        javax.swing.GroupLayout jDesktopPane3Layout = new javax.swing.GroupLayout(jDesktopPane3);
+        jDesktopPane3.setLayout(jDesktopPane3Layout);
+        jDesktopPane3Layout.setHorizontalGroup(
+            jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                                .addComponent(decisionComponent)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel4))
+                            .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                                .addComponent(processingComponent)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addComponent(ioComponent)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5))
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addComponent(moduleComponent)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6))
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addComponent(returnComponent)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)))
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+        jDesktopPane3Layout.setVerticalGroup(
+            jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(processingComponent)
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabel3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(decisionComponent)
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel4)))
+                .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ioComponent))
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel5)))
+                .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(moduleComponent))
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel6)))
+                .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(returnComponent)))
+                .addContainerGap())
+        );
+        jDesktopPane3.setLayer(processingComponent, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         processingComponent.getAccessibleContext().setAccessibleName("processingComponent");
+        jDesktopPane3.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(decisionComponent, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(ioComponent, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        ioComponent.getAccessibleContext().setAccessibleName("io");
+        jDesktopPane3.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(moduleComponent, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(returnComponent, javax.swing.JLayeredPane.DEFAULT_LAYER);
         returnComponent.getAccessibleContext().setAccessibleName("returnComponent");
+        jDesktopPane3.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jScrollPane4.setViewportView(jDesktopPane3);
 
         javax.swing.GroupLayout componentsInternalFrameLayout = new javax.swing.GroupLayout(componentsInternalFrame.getContentPane());
         componentsInternalFrame.getContentPane().setLayout(componentsInternalFrameLayout);
         componentsInternalFrameLayout.setHorizontalGroup(
             componentsInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         componentsInternalFrameLayout.setVerticalGroup(
             componentsInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(componentsInternalFrameLayout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 24, Short.MAX_VALUE))
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
         );
+
+        jToolBar2.setFloatable(false);
+        jToolBar2.setRollover(true);
+
+        bin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/48/delete.png"))); // NOI18N
+        bin.setBorderPainted(false);
+        bin.setFocusable(false);
+        bin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar2.add(bin);
+
+        jSlider1.setPaintLabels(true);
+        jSlider1.setPaintTicks(true);
+        jSlider1.setMaximumSize(new java.awt.Dimension(80, 31));
+        jSlider1.setPreferredSize(new java.awt.Dimension(50, 31));
+        jToolBar2.add(jSlider1);
+
+        jLabel2.setText("Zoom");
+        jToolBar2.add(jLabel2);
+
+        jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+
+        javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
+        jDesktopPane2.setLayout(jDesktopPane2Layout);
+        jDesktopPane2Layout.setHorizontalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 903, Short.MAX_VALUE)
+        );
+        jDesktopPane2Layout.setVerticalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 577, Short.MAX_VALUE)
+        );
+
+        jScrollPane5.setViewportView(jDesktopPane2);
+
+        jTabbedPane1.addTab("tab1", jScrollPane5);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jScrollPane2.setViewportView(jTree1);
 
         jInternalFrame2.setBorder(javax.swing.BorderFactory.createTitledBorder("Output"));
         jInternalFrame2.setClosable(true);
         jInternalFrame2.setIconifiable(true);
-        jInternalFrame2.setMaximizable(true);
-        jInternalFrame2.setResizable(true);
         jInternalFrame2.setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/javablock/gui/icons/jframeicon.png"))); // NOI18N
         jInternalFrame2.setVisible(true);
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("=A Flowchart Planning and Simulation Tool=\nProudly brought to you by ThinkTech!");
+        jTextArea1.setText("=A Flowchart Planning and Simulation Tool=\n      Proudly brought to you by ThinkTech!");
         jTextArea1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -340,10 +423,7 @@ public class MainDisplay extends javax.swing.JFrame
         jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
         jInternalFrame2Layout.setHorizontalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrame2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
         );
         jInternalFrame2Layout.setVerticalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -352,6 +432,40 @@ public class MainDisplay extends javax.swing.JFrame
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jInternalFrame2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(componentsInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                            .addComponent(componentsInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(364, 364, 364))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDesktopPane1Layout.createSequentialGroup()
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jInternalFrame2)
+                            .addGap(53, 53, 53)))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jDesktopPane1.setLayer(componentsInternalFrame, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jInternalFrame2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         fileMenu.setText("File");
         fileMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -482,9 +596,16 @@ public class MainDisplay extends javax.swing.JFrame
         settingsMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         MenuBar.add(settingsMenu);
 
-        aboutMenu.setText("About");
-        aboutMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        MenuBar.add(aboutMenu);
+        helpMenu.setText("Help");
+        helpMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jMenuItem2.setText("Help Contents");
+        helpMenu.add(jMenuItem2);
+
+        jMenuItem3.setText("About");
+        helpMenu.add(jMenuItem3);
+
+        MenuBar.add(helpMenu);
 
         setJMenuBar(MenuBar);
 
@@ -492,28 +613,16 @@ public class MainDisplay extends javax.swing.JFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jInternalFrame2)
-                    .addComponent(componentsInternalFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(6, 6, 6))
-            .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1363, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(componentsInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jInternalFrame2))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -603,15 +712,12 @@ public class MainDisplay extends javax.swing.JFrame
     }
     boolean fullscreen=false;
     Rectangle windowSize;
-    /**
-     * @param args the command line arguments
-     */
+   
     
 public static boolean showSplash=true;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar;
-    private javax.swing.JMenu aboutMenu;
     private javax.swing.JButton bin;
     private javax.swing.JInternalFrame componentsInternalFrame;
     private javax.swing.JMenuItem componentsMenuItem;
@@ -625,14 +731,28 @@ public static boolean showSplash=true;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JCheckBoxMenuItem fullScreenMenuItem;
     private javax.swing.JMenuItem gridMenuItem;
+    private javax.swing.JMenu helpMenu;
     private javax.swing.JButton ioComponent;
+    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane jDesktopPane2;
+    private javax.swing.JDesktopPane jDesktopPane3;
     private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
@@ -640,10 +760,13 @@ public static boolean showSplash=true;
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;
+    private javax.swing.JSlider jSlider1;
     private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
+    private javax.swing.JTree jTree1;
     private javax.swing.JButton moduleComponent;
     private javax.swing.JButton newFile;
     private javax.swing.JMenuItem newFileMenuItem;
