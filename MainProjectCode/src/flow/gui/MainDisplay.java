@@ -46,19 +46,24 @@ public class MainDisplay extends javax.swing.JFrame
         newFile = new javax.swing.JButton();
         open = new javax.swing.JButton();
         save = new javax.swing.JButton();
+        copy = new javax.swing.JButton();
+        cut = new javax.swing.JButton();
+        paste = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JToolBar.Separator();
         undo = new javax.swing.JButton();
         redo = new javax.swing.JButton();
         jSeparator8 = new javax.swing.JToolBar.Separator();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jSlider1 = new javax.swing.JSlider();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JToolBar.Separator();
         run = new javax.swing.JButton();
         step = new javax.swing.JButton();
         stop = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JToolBar.Separator();
         jSpinner1 = new javax.swing.JSpinner();
         jLabel1 = new javax.swing.JLabel();
-        jSeparator5 = new javax.swing.JToolBar.Separator();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         componentsInternalFrame = new javax.swing.JInternalFrame();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -76,8 +81,6 @@ public class MainDisplay extends javax.swing.JFrame
         jPanel2 = new javax.swing.JPanel();
         jToolBar2 = new javax.swing.JToolBar();
         bin = new javax.swing.JButton();
-        jSlider1 = new javax.swing.JSlider();
-        jLabel2 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane5 = new javax.swing.JScrollPane();
         jDesktopPane2 = new javax.swing.JDesktopPane();
@@ -110,6 +113,10 @@ public class MainDisplay extends javax.swing.JFrame
         gridMenuItem = new javax.swing.JMenuItem();
         navigationMenuItem = new javax.swing.JMenuItem();
         fullScreenMenuItem = new javax.swing.JCheckBoxMenuItem();
+        moduleMenu = new javax.swing.JMenu();
+        viewModulesMenuItem = new javax.swing.JMenuItem();
+        renameModuleMenuItem = new javax.swing.JMenuItem();
+        deleteModuleMenuItem = new javax.swing.JMenuItem();
         optionMenu = new javax.swing.JMenu();
         helpMenu = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -156,6 +163,34 @@ public class MainDisplay extends javax.swing.JFrame
         save.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         save.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(save);
+
+        copy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flowicons/gui/icons/24/Copy-icon.png"))); // NOI18N
+        copy.setToolTipText("Copy");
+        copy.setFocusable(false);
+        copy.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        copy.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(copy);
+
+        cut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flowicons/gui/icons/24/Actions-edit-cut-icon.png"))); // NOI18N
+        cut.setToolTipText("Cut");
+        cut.setFocusable(false);
+        cut.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        cut.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(cut);
+
+        paste.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flowicons/gui/icons/24/Actions-edit-paste-icon.png"))); // NOI18N
+        paste.setToolTipText("Paste");
+        paste.setFocusable(false);
+        paste.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        paste.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(paste);
+
+        delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flowicons/gui/icons/24/rsz_rsz_bin-empty-icon.png"))); // NOI18N
+        delete.setToolTipText("Delete");
+        delete.setFocusable(false);
+        delete.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        delete.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(delete);
         jToolBar1.add(jSeparator6);
 
         undo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flowicons/gui/icons/24/rsz_arrows-undo-icon.png"))); // NOI18N
@@ -174,6 +209,35 @@ public class MainDisplay extends javax.swing.JFrame
         redo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(redo);
         jToolBar1.add(jSeparator8);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flowicons/gui/icons/24/zoom-in.png"))); // NOI18N
+        jButton1.setToolTipText("Zoom in");
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton1);
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flowicons/gui/icons/24/zoom-out.png"))); // NOI18N
+        jButton2.setToolTipText("Zoom out");
+        jButton2.setFocusable(false);
+        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton2);
+
+        jSlider1.setPaintLabels(true);
+        jSlider1.setPaintTicks(true);
+        jSlider1.setMaximumSize(new java.awt.Dimension(80, 31));
+        jSlider1.setPreferredSize(new java.awt.Dimension(50, 31));
+        jToolBar1.add(jSlider1);
+
+        jLabel2.setText("Zoom");
+        jToolBar1.add(jLabel2);
+        jToolBar1.add(jSeparator5);
 
         run.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flow/gui/icons/rsz_play-icon.png"))); // NOI18N
         run.setToolTipText("Run");
@@ -198,9 +262,6 @@ public class MainDisplay extends javax.swing.JFrame
         stop.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(stop);
 
-        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
-        jToolBar1.add(jSeparator1);
-
         jSpinner1.setMaximumSize(new java.awt.Dimension(63, 30));
         jSpinner1.setPreferredSize(new java.awt.Dimension(63, 30));
         jToolBar1.add(jSpinner1);
@@ -208,26 +269,6 @@ public class MainDisplay extends javax.swing.JFrame
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("run speed");
         jToolBar1.add(jLabel1);
-        jToolBar1.add(jSeparator5);
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flowicons/gui/icons/24/zoom-in.png"))); // NOI18N
-        jButton1.setToolTipText("zoom in");
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton1);
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flowicons/gui/icons/24/zoom-out.png"))); // NOI18N
-        jButton2.setToolTipText("zoom out");
-        jButton2.setFocusable(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(jButton2);
 
         componentsInternalFrame.setBorder(javax.swing.BorderFactory.createTitledBorder("Components"));
         componentsInternalFrame.setClosable(true);
@@ -373,7 +414,7 @@ public class MainDisplay extends javax.swing.JFrame
         componentsInternalFrameLayout.setVerticalGroup(
             componentsInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(componentsInternalFrameLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -386,15 +427,6 @@ public class MainDisplay extends javax.swing.JFrame
         bin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar2.add(bin);
-
-        jSlider1.setPaintLabels(true);
-        jSlider1.setPaintTicks(true);
-        jSlider1.setMaximumSize(new java.awt.Dimension(80, 31));
-        jSlider1.setPreferredSize(new java.awt.Dimension(50, 31));
-        jToolBar2.add(jSlider1);
-
-        jLabel2.setText("Zoom");
-        jToolBar2.add(jLabel2);
 
         jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
 
@@ -456,7 +488,7 @@ public class MainDisplay extends javax.swing.JFrame
         );
         consoleInternalFrameLayout.setVerticalGroup(
             consoleInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
         );
 
         jScrollPane2.setViewportView(jTree1);
@@ -481,16 +513,16 @@ public class MainDisplay extends javax.swing.JFrame
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(componentsInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addComponent(componentsInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(consoleInternalFrame)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(808, Short.MAX_VALUE))
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(consoleInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jDesktopPane1.setLayer(componentsInternalFrame, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -629,6 +661,22 @@ public class MainDisplay extends javax.swing.JFrame
         viewMenu.add(fullScreenMenuItem);
 
         MenuBar.add(viewMenu);
+
+        moduleMenu.setText("Module");
+
+        viewModulesMenuItem.setText("View Modules");
+        moduleMenu.add(viewModulesMenuItem);
+
+        renameModuleMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flowicons/gui/icons/16/rename.png"))); // NOI18N
+        renameModuleMenuItem.setText("Rename");
+        moduleMenu.add(renameModuleMenuItem);
+
+        deleteModuleMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
+        deleteModuleMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flowicons/gui/icons/16/rsz_bin-empty-icon.png"))); // NOI18N
+        deleteModuleMenuItem.setText("Delete");
+        moduleMenu.add(deleteModuleMenuItem);
+
+        MenuBar.add(moduleMenu);
 
         optionMenu.setText("Options");
         optionMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -808,10 +856,14 @@ public static boolean showSplash=true;
     private javax.swing.JMenuItem componentsMenuItem;
     private javax.swing.JInternalFrame consoleInternalFrame;
     private javax.swing.JMenuItem consoleMenuItem;
+    private javax.swing.JButton copy;
     private javax.swing.JMenuItem copyMenuItem;
+    private javax.swing.JButton cut;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JButton decisionComponent;
+    private javax.swing.JButton delete;
     private javax.swing.JMenuItem deleteMenuItem;
+    private javax.swing.JMenuItem deleteModuleMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
@@ -840,7 +892,6 @@ public static boolean showSplash=true;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
@@ -856,17 +907,20 @@ public static boolean showSplash=true;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JTree jTree1;
     private javax.swing.JButton moduleComponent;
+    private javax.swing.JMenu moduleMenu;
     private javax.swing.JMenuItem navigationMenuItem;
     private javax.swing.JButton newFile;
     private javax.swing.JMenuItem newFileMenuItem;
     private javax.swing.JButton open;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenu optionMenu;
+    private javax.swing.JButton paste;
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JButton processingComponent;
     private javax.swing.JButton redo;
     private javax.swing.JMenuItem redoMenuItem;
     private javax.swing.JMenuItem renameMenuItem;
+    private javax.swing.JMenuItem renameModuleMenuItem;
     private javax.swing.JButton returnComponent;
     private javax.swing.JButton run;
     private javax.swing.JButton save;
@@ -877,6 +931,7 @@ public static boolean showSplash=true;
     private javax.swing.JButton undo;
     private javax.swing.JMenuItem undoMenuItem;
     private javax.swing.JMenu viewMenu;
+    private javax.swing.JMenuItem viewModulesMenuItem;
     // End of variables declaration//GEN-END:variables
 }
 
