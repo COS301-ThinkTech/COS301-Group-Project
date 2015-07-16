@@ -6,3 +6,12 @@
 6. Remove hide console option.
 7. Change font face and size
 8. Resize the flowchart components icon.
+
+==Feedback from the client meeting==
+1.Zooming controls on the toolbar
+2.Move output frame beneah the canvas
+3.Move components frame to the left - more intuituve
+4.Research on the dragging onto bin icon
+5.Changing components based on the active tab i.e. different for modules
+6.Leave input/output as parallelogram
+7.Lighter interface
