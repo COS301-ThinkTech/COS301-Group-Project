@@ -56,6 +56,9 @@ public class MainDisplay extends javax.swing.JFrame
         jSeparator1 = new javax.swing.JToolBar.Separator();
         jSpinner1 = new javax.swing.JSpinner();
         jLabel1 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JToolBar.Separator();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         componentsInternalFrame = new javax.swing.JInternalFrame();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -205,6 +208,26 @@ public class MainDisplay extends javax.swing.JFrame
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("run speed");
         jToolBar1.add(jLabel1);
+        jToolBar1.add(jSeparator5);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flowicons/gui/icons/24/zoom-in.png"))); // NOI18N
+        jButton1.setToolTipText("zoom in");
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton1);
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flowicons/gui/icons/24/zoom-out.png"))); // NOI18N
+        jButton2.setToolTipText("zoom out");
+        jButton2.setFocusable(false);
+        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton2);
 
         componentsInternalFrame.setBorder(javax.swing.BorderFactory.createTitledBorder("Components"));
         componentsInternalFrame.setClosable(true);
@@ -405,8 +428,7 @@ public class MainDisplay extends javax.swing.JFrame
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("");
@@ -702,6 +724,10 @@ public class MainDisplay extends javax.swing.JFrame
            jScrollPane2.setVisible(true);
     }//GEN-LAST:event_navigationMenuItemActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     public void displayFullScreeen()
     {        
         if(fullscreen == true)
@@ -793,6 +819,8 @@ public static boolean showSplash=true;
     private javax.swing.JMenuItem gridMenuItem;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JButton ioComponent;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JDesktopPane jDesktopPane3;
@@ -816,6 +844,7 @@ public static boolean showSplash=true;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
+    private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;

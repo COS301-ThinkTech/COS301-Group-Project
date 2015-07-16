@@ -440,6 +440,33 @@
             <Property name="text" type="java.lang.String" value="run speed"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JToolBar$Separator" name="jSeparator5">
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/flowicons/gui/icons/24/zoom-in.png"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="zoom in"/>
+            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="3"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton2">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/flowicons/gui/icons/24/zoom-out.png"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="zoom out"/>
+            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="3"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDesktopPane" name="jDesktopPane1">
@@ -749,8 +776,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jTabbedPane1" min="-2" pref="363" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jToolBar2" min="-2" pref="37" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jToolBar2" min="-2" pref="48" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
