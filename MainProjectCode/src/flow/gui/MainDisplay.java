@@ -78,11 +78,11 @@ public class MainDisplay extends javax.swing.JFrame
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane5 = new javax.swing.JScrollPane();
         jDesktopPane2 = new javax.swing.JDesktopPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
         consoleInternalFrame = new javax.swing.JInternalFrame();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
         MenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         newFileMenuItem = new javax.swing.JMenuItem();
@@ -287,7 +287,7 @@ public class MainDisplay extends javax.swing.JFrame
                         .addComponent(returnComponent)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         jDesktopPane3Layout.setVerticalGroup(
             jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,11 +349,11 @@ public class MainDisplay extends javax.swing.JFrame
         componentsInternalFrame.getContentPane().setLayout(componentsInternalFrameLayout);
         componentsInternalFrameLayout.setHorizontalGroup(
             componentsInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         componentsInternalFrameLayout.setVerticalGroup(
             componentsInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
         );
 
         jToolBar2.setFloatable(false);
@@ -381,7 +381,7 @@ public class MainDisplay extends javax.swing.JFrame
         jDesktopPane2.setLayout(jDesktopPane2Layout);
         jDesktopPane2Layout.setHorizontalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 903, Short.MAX_VALUE)
+            .addGap(0, 867, Short.MAX_VALUE)
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -397,7 +397,7 @@ public class MainDisplay extends javax.swing.JFrame
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 891, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -408,8 +408,6 @@ public class MainDisplay extends javax.swing.JFrame
         );
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("");
-
-        jScrollPane2.setViewportView(jTree1);
 
         consoleInternalFrame.setBorder(javax.swing.BorderFactory.createTitledBorder("Output"));
         consoleInternalFrame.setClosable(true);
@@ -435,8 +433,10 @@ public class MainDisplay extends javax.swing.JFrame
             .addGroup(consoleInternalFrameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
+
+        jScrollPane2.setViewportView(jTree1);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -444,33 +444,36 @@ public class MainDisplay extends javax.swing.JFrame
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2)
-                    .addComponent(consoleInternalFrame))
+                    .addComponent(consoleInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(componentsInternalFrame, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(componentsInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                    .addGap(290, 290, 290)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDesktopPane1Layout.createSequentialGroup()
+                    .addGap(6, 6, 6)
+                    .addComponent(componentsInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(consoleInternalFrame)
+                    .addContainerGap(54, Short.MAX_VALUE)))
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                            .addComponent(componentsInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(364, 364, 364))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDesktopPane1Layout.createSequentialGroup()
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(consoleInternalFrame)
-                            .addGap(53, 53, 53)))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         jDesktopPane1.setLayer(componentsInternalFrame, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(consoleInternalFrame, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         fileMenu.setText("File");
         fileMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -575,7 +578,7 @@ public class MainDisplay extends javax.swing.JFrame
         });
         viewMenu.add(componentsMenuItem);
 
-        consoleMenuItem.setText("Console");
+        consoleMenuItem.setText("Output");
         consoleMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consoleMenuItemActionPerformed(evt);
