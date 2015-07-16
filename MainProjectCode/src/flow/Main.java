@@ -1,6 +1,8 @@
 package flow;
 
+import com.jtattoo.plaf.mint.MintLookAndFeel;
 import com.jtattoo.plaf.noire.NoireLookAndFeel;
+import com.jtattoo.plaf.texture.TextureLookAndFeel;
 import java.beans.PropertyVetoException;
 import java.util.Properties;
 import flow.gui.MainDisplay;
@@ -34,8 +36,8 @@ public class Main {
             }*/
             Properties props = new Properties();
             props.put("logoString", "Flow");
-            NoireLookAndFeel.setCurrentTheme(props);
-            UIManager.setLookAndFeel("com.jtattoo.plaf.noire.NoireLookAndFeel");
+            TextureLookAndFeel.setCurrentTheme(props);
+            UIManager.setLookAndFeel("com.jtattoo.plaf.texture.TextureLookAndFeel");
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
