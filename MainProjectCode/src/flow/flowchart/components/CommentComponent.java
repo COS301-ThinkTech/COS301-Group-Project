@@ -10,27 +10,36 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Polygon;
-import java.awt.geom.AffineTransform;
-import java.awt.geom.Line2D;
+import java.awt.geom.GeneralPath;
 import javax.swing.Icon;
 
 /**
  *
  * @author tshepiso
  */
-public class FlowLineComponent implements Icon{
-    
+public class CommentComponent implements Icon{
+
     @Override
     public void paintIcon(Component cmpnt, Graphics g, int i, int i1) {
-
         Graphics2D gObject = (Graphics2D)g;
+        GeneralPath commentPolygon = new GeneralPath();
+        int xPoints[] = {5,20,25,25,5,5};
+        int yPoints[] = {5,5,10,25,25,5};
         
-        gObject.setColor(Color.BLUE);
-        gObject.setStroke(new BasicStroke(2.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL));
-        gObject.draw(new Line2D.Double(10,15,45,15));
+        commentPolygon.moveTo(xPoints[0], yPoints[0]);
         
+        for(int index = 1; index < xPoints.length; index++){
+            commentPolygon.lineTo(xPoints[index], yPoints[index]);
+        }
         
+        commentPolygon.moveTo(20, 5);
+        commentPolygon.lineTo(20, 10);
+        commentPolygon.lineTo(25, 10);
+        
+        gObject.setColor(Color.decode("#079CCE"));
+        gObject.setStroke(new BasicStroke());
+        gObject.fill(commentPolygon);
+        gObject.draw(commentPolygon);
     }
 
     @Override
@@ -42,6 +51,5 @@ public class FlowLineComponent implements Icon{
     public int getIconHeight() {
         return 20;
     }
-    
     
 }
