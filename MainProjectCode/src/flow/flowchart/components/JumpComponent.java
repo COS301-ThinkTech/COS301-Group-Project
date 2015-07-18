@@ -18,8 +18,8 @@ public class JumpComponent implements Icon{
     public void paintIcon(Component c, Graphics g, int x, int y){
         Graphics2D g2 = (Graphics2D)g;
         
-        g2.setColor(Color.BLUE);
-        g2.fillOval(36, 5, 20, 20);
+        g2.setColor(Color.decode("#079CCE"));
+        g2.fillOval(10, 10, 10, 10);
     }
 
     @Override
