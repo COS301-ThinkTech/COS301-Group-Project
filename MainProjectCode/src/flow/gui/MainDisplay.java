@@ -9,6 +9,8 @@ import java.beans.PropertyVetoException;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import flow.flowchart.components.*;
 /**
  *
  * @author Mpumpu
