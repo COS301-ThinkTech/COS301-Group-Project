@@ -18,8 +18,8 @@ public class EndComponent implements Icon{
     public void paintIcon(Component cmpnt, Graphics g, int i, int i1) {
 
         Graphics2D gObject = (Graphics2D)g;
-        gObject.setColor(Color.BLUE);
-        gObject.fillOval(10, 10, 30, 10);
+        gObject.setColor(Color.decode("#079CCE"));
+        gObject.fillOval(4, 8, 24, 16);
         //gObject.
     }
 
