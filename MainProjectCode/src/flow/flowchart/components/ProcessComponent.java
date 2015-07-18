@@ -20,8 +20,8 @@ public class ProcessComponent implements Icon{
     public void paintIcon(Component c, Graphics g, int x, int y){
         Graphics2D g2 = (Graphics2D)g;
         
-        g2.setColor(Color.BLUE);
-        g2.fillRect(16,5, 61, 20);
+        g2.setColor(Color.decode("#079CCE"));
+        g2.fillRect(9,5, 15, 20);
     }
 
     @Override
