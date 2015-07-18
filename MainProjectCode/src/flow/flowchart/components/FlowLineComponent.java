@@ -26,9 +26,9 @@ public class FlowLineComponent implements Icon{
 
         Graphics2D gObject = (Graphics2D)g;
         
-        gObject.setColor(Color.BLUE);
+        gObject.setColor(Color.decode("#079CCE"));
         gObject.setStroke(new BasicStroke(2.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL));
-        gObject.draw(new Line2D.Double(10,15,45,15));
+        gObject.draw(new Line2D.Double(5,15,25,15));
         
         
     }
