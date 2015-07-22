@@ -411,7 +411,7 @@ public class MainDisplay extends javax.swing.JFrame
         componentsInternalFrameLayout.setVerticalGroup(
             componentsInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(componentsInternalFrameLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -484,7 +484,9 @@ public class MainDisplay extends javax.swing.JFrame
         );
         consoleInternalFrameLayout.setVerticalGroup(
             consoleInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 2034, Short.MAX_VALUE)
+            .addGroup(consoleInternalFrameLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1995, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 103, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(jTree1);
