@@ -54,9 +54,7 @@ public class InputComponent implements Icon{
         int yPoints[] = {8,8,23,23,8};
         
         GeneralPath inputPolygon = new GeneralPath(GeneralPath.WIND_EVEN_ODD,xPoints.length);
-        
-        inputPolygon.
-        
+
         inputPolygon.moveTo(xPoints[0], yPoints[0]);
         
         for(int index = 1; index < xPoints.length; index++){

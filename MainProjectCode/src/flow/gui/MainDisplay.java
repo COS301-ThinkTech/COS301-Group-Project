@@ -2,6 +2,7 @@ package flow.gui;
 import flow.flowchart.components.*;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
