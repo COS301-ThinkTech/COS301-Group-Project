@@ -75,7 +75,7 @@ public class MainDisplay extends javax.swing.JFrame
         ProcessingBlockButton = new javax.swing.JButton();
         JumpBlockButton = new javax.swing.JButton();
         CommentBlockButton = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        DecisionBlockButton = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
@@ -306,10 +306,10 @@ public class MainDisplay extends javax.swing.JFrame
         CommentBlockButton.setBorderPainted(false);
         CommentBlockButton.setPreferredSize(new java.awt.Dimension(32, 32));
 
-        jButton6.setIcon(new DecisionComponent());
-        jButton6.setToolTipText("Decision Block");
-        jButton6.setBorderPainted(false);
-        jButton6.setPreferredSize(new java.awt.Dimension(32, 32));
+        DecisionBlockButton.setIcon(new DecisionComponent());
+        DecisionBlockButton.setToolTipText("Decision Block");
+        DecisionBlockButton.setBorderPainted(false);
+        DecisionBlockButton.setPreferredSize(new java.awt.Dimension(32, 32));
 
         jButton7.setIcon(new ModuleComponent());
         jButton7.setToolTipText("Module Block");
@@ -350,7 +350,7 @@ public class MainDisplay extends javax.swing.JFrame
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CommentBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DecisionBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -376,7 +376,7 @@ public class MainDisplay extends javax.swing.JFrame
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DecisionBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -388,7 +388,7 @@ public class MainDisplay extends javax.swing.JFrame
         jDesktopPane3.setLayer(ProcessingBlockButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(JumpBlockButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(CommentBlockButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane3.setLayer(jButton6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(DecisionBlockButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(jButton7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(jButton8, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(jButton9, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -884,7 +884,7 @@ public static boolean showSplash=true;
     private javax.swing.JButton ProcessingBlockButton;
     private javax.swing.JButton JumpBlockButton;
     private javax.swing.JButton CommentBlockButton;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton DecisionBlockButton;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
