@@ -824,7 +824,6 @@ public class MainDisplay extends javax.swing.JFrame
    
     public void Tab()
     {
-        //jTabbedPane1.addTab ("Start", null);
         FlowLayout f = new FlowLayout (FlowLayout.CENTER, 5, 0);
 
         // Make a small JPanel with the layout and make it non-opaque
