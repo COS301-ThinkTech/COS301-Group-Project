@@ -1,4 +1,5 @@
 package flow.gui;
+import JButtonDrag.RavDragHandler;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Rectangle;
@@ -774,14 +775,16 @@ public class MainDisplay extends javax.swing.JFrame
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         //jButton3.setTransferHandler(new TransferHandler());
-        jButton3.addMouseListener(new MouseAdapter(){
-            public void mousePressed(MouseEvent e)
-            {
-                JComponent c = (JComponent)e.getSource();
-                TransferHandler handler = c.getTransferHandler();
-                handler.exportAsDrag(c, e, TransferHandler.COPY);
-            }
-        });
+//        jButton3.addMouseListener(new MouseAdapter(){
+//            public void mousePressed(MouseEvent e)
+//            {
+//                JComponent c = (JComponent)e.getSource();
+//                TransferHandler handler = c.getTransferHandler();
+//                handler.exportAsDrag(c, e, TransferHandler.COPY);
+//            }
+//        });
+        
+        jButton3.addMouseListener(new RavDragHandler());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public void displayFullScreeen()
