@@ -1,24 +1,25 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package flow.flowchart.components;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import javax.swing.Icon;
+import java.awt.*;
+import javax.swing.*;
 
 /**
  *
  * @author tshepiso
  */
-public class JumpComponent extends Component implements Icon{
+public class JumpComponent implements Icon{
     
     @Override
     public void paintIcon(Component c, Graphics g, int x, int y){
-        Graphics2D gObject = (Graphics2D)g;
+        Graphics2D g2 = (Graphics2D)g;
         
-        gObject.setColor(Color.decode("#079CCE"));
-        gObject.fillOval(10, 10, 10, 10);
+        g2.setColor(Color.decode("#079CCE"));
+        g2.fillOval(10, 10, 10, 10);
     }
 
     @Override

@@ -1,10 +1,12 @@
 package flow;
 
+import com.jtattoo.plaf.mint.MintLookAndFeel;
+import com.jtattoo.plaf.noire.NoireLookAndFeel;
 import com.jtattoo.plaf.texture.TextureLookAndFeel;
-import flow.gui.MainDisplay;
-import flow.gui.Splash;
 import java.beans.PropertyVetoException;
 import java.util.Properties;
+import flow.gui.MainDisplay;
+import flow.gui.Splash;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
