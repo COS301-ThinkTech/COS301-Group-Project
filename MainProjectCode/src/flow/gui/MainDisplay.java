@@ -27,6 +27,10 @@ public class MainDisplay extends javax.swing.JFrame
         jPanel1.setLayout(new GridLayout());
         jPanel1.add(new ModuleComponent());
         jPanel1.setBackground(Color.WHITE);
+        JPanel j = new JPanel();
+        j.add(new ModuleComponent());
+        j.setVisible(true);
+        jDesktopPane3.add(new ModuleComponent());
         
         Tab();
         
@@ -73,15 +77,15 @@ public class MainDisplay extends javax.swing.JFrame
         componentsInternalFrame = new javax.swing.JInternalFrame();
         jScrollPane4 = new javax.swing.JScrollPane();
         jDesktopPane3 = new javax.swing.JDesktopPane();
-        ProcessingBlockButton = new javax.swing.JButton();
-        JumpBlockButton = new javax.swing.JButton();
-        CommentBlockButton = new javax.swing.JButton();
-        DecisionBlockButton = new javax.swing.JButton();
-        ModuleBlockButton = new javax.swing.JButton();
-        FlowLineButton = new javax.swing.JButton();
-        InputBlockButton = new javax.swing.JButton();
-        OutputBlockButton = new javax.swing.JButton();
-        EndBlockButton = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jToolBar2 = new javax.swing.JToolBar();
         bin = new javax.swing.JButton();
@@ -291,52 +295,57 @@ public class MainDisplay extends javax.swing.JFrame
         componentsInternalFrame.setVerifyInputWhenFocusTarget(false);
         componentsInternalFrame.setVisible(true);
 
-        ProcessingBlockButton.setIcon(new ProcessComponent());
-        ProcessingBlockButton.setToolTipText("Processing Block");
-        ProcessingBlockButton.setBorderPainted(false);
-        ProcessingBlockButton.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton3.setIcon(new ProcessComponent());
+        jButton3.setToolTipText("Processing Block");
+        jButton3.setBorderPainted(false);
+        jButton3.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
-        JumpBlockButton.setIcon(new JumpComponent());
-        JumpBlockButton.setToolTipText("Jump Block");
-        JumpBlockButton.setBorderPainted(false);
-        JumpBlockButton.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton4.setIcon(new JumpComponent());
+        jButton4.setToolTipText("Jump Block");
+        jButton4.setBorderPainted(false);
+        jButton4.setPreferredSize(new java.awt.Dimension(32, 32));
 
-        CommentBlockButton.setIcon(new CommentComponent());
-        CommentBlockButton.setToolTipText("Comment Block");
-        CommentBlockButton.setBorderPainted(false);
-        CommentBlockButton.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton5.setIcon(new CommentComponent());
+        jButton5.setToolTipText("Comment Block");
+        jButton5.setBorderPainted(false);
+        jButton5.setPreferredSize(new java.awt.Dimension(32, 32));
 
-        DecisionBlockButton.setIcon(new DecisionComponent());
-        DecisionBlockButton.setToolTipText("Decision Block");
-        DecisionBlockButton.setBorderPainted(false);
-        DecisionBlockButton.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton6.setIcon(new DecisionComponent());
+        jButton6.setToolTipText("Decision Block");
+        jButton6.setBorderPainted(false);
+        jButton6.setPreferredSize(new java.awt.Dimension(32, 32));
 
-        ModuleBlockButton.setIcon(new ModuleComponent());
-        ModuleBlockButton.setToolTipText("Module Block");
-        ModuleBlockButton.setBorderPainted(false);
-        ModuleBlockButton.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton7.setIcon(new ModuleComponent());
+        jButton7.setToolTipText("Module Block");
+        jButton7.setBorderPainted(false);
+        jButton7.setPreferredSize(new java.awt.Dimension(32, 32));
 
-        FlowLineButton.setIcon(new FlowLineComponent());
-        FlowLineButton.setToolTipText("Flow Line");
-        FlowLineButton.setBorderPainted(false);
-        FlowLineButton.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton8.setIcon(new FlowLineComponent());
+        jButton8.setToolTipText("Flow Line");
+        jButton8.setBorderPainted(false);
+        jButton8.setPreferredSize(new java.awt.Dimension(32, 32));
 
-        InputBlockButton.setIcon(new InputComponent());
-        InputBlockButton.setToolTipText("Input Block");
-        InputBlockButton.setBorderPainted(false);
-        InputBlockButton.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton9.setIcon(new InputComponent());
+        jButton9.setToolTipText("Input Block");
+        jButton9.setBorderPainted(false);
+        jButton9.setPreferredSize(new java.awt.Dimension(32, 32));
 
-        OutputBlockButton.setIcon(new OutputComponent());
-        OutputBlockButton.setToolTipText("Output Block");
-        OutputBlockButton.setBorderPainted(false);
-        OutputBlockButton.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton10.setIcon(new OutputComponent());
+        jButton10.setToolTipText("Output Block");
+        jButton10.setBorderPainted(false);
+        jButton10.setPreferredSize(new java.awt.Dimension(32, 32));
 
-        EndBlockButton.setIcon(new EndComponent());
-        EndBlockButton.setToolTipText("End Block");
-        EndBlockButton.setBorderPainted(false);
-        EndBlockButton.setPreferredSize(new java.awt.Dimension(32, 32));
-	
-	javax.swing.GroupLayout jDesktopPane3Layout = new javax.swing.GroupLayout(jDesktopPane3);
+        jButton11.setIcon(new EndComponent());
+        jButton11.setToolTipText("End Block");
+        jButton11.setBorderPainted(false);
+        jButton11.setPreferredSize(new java.awt.Dimension(32, 32));
+
+        javax.swing.GroupLayout jDesktopPane3Layout = new javax.swing.GroupLayout(jDesktopPane3);
         jDesktopPane3.setLayout(jDesktopPane3Layout);
         jDesktopPane3Layout.setHorizontalGroup(
             jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,23 +353,23 @@ public class MainDisplay extends javax.swing.JFrame
                 .addGap(20, 20, 20)
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addComponent(ProcessingBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JumpBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CommentBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addComponent(DecisionBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ModuleBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(FlowLineButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addComponent(InputBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(OutputBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(EndBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(112, Short.MAX_VALUE))
         );
         jDesktopPane3Layout.setVerticalGroup(
@@ -368,32 +377,32 @@ public class MainDisplay extends javax.swing.JFrame
             .addGroup(jDesktopPane3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CommentBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ProcessingBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(JumpBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(FlowLineButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(DecisionBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ModuleBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InputBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OutputBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EndBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(264, Short.MAX_VALUE))
         );
-        jDesktopPane3.setLayer(ProcessingBlockButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane3.setLayer(JumpBlockButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane3.setLayer(CommentBlockButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane3.setLayer(DecisionBlockButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane3.setLayer(ModuleBlockButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane3.setLayer(FlowLineButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane3.setLayer(InputBlockButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane3.setLayer(OutputBlockButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane3.setLayer(EndBlockButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(jButton5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(jButton6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(jButton7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(jButton8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(jButton9, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(jButton10, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(jButton11, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jScrollPane4.setViewportView(jDesktopPane3);
 
@@ -406,7 +415,7 @@ public class MainDisplay extends javax.swing.JFrame
         componentsInternalFrameLayout.setVerticalGroup(
             componentsInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(componentsInternalFrameLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -481,7 +490,7 @@ public class MainDisplay extends javax.swing.JFrame
         );
         consoleInternalFrameLayout.setVerticalGroup(
             consoleInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 2998, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 3030, Short.MAX_VALUE)
         );
 
         jScrollPane2.setViewportView(jTree1);
@@ -767,6 +776,10 @@ public class MainDisplay extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     public void displayFullScreeen()
     {        
         if(fullscreen == true)
@@ -860,16 +873,16 @@ public static boolean showSplash=true;
     private javax.swing.JMenuItem gridMenuItem;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton OutputBlockButton;
-    private javax.swing.JButton EndBlockButton;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton ProcessingBlockButton;
-    private javax.swing.JButton JumpBlockButton;
-    private javax.swing.JButton CommentBlockButton;
-    private javax.swing.JButton DecisionBlockButton;
-    private javax.swing.JButton ModuleBlockButton;
-    private javax.swing.JButton FlowLineButton;
-    private javax.swing.JButton InputBlockButton;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JDesktopPane jDesktopPane3;
     private javax.swing.JLabel jLabel1;
