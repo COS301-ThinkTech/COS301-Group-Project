@@ -1,17 +1,14 @@
 package flow.gui;
+import flow.flowchart.components.*;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.PropertyVetoException;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
-import flow.flowchart.components.*;
-import java.awt.GridLayout;
 /**
  *
  * @author Mpumpu
