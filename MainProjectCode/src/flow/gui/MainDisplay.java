@@ -274,7 +274,6 @@ public class MainDisplay extends javax.swing.JFrame
         jSpinner1.setPreferredSize(new java.awt.Dimension(63, 30));
         jToolBar1.add(jSpinner1);
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("run speed");
         jToolBar1.add(jLabel1);
 
@@ -490,7 +489,7 @@ public class MainDisplay extends javax.swing.JFrame
         );
         consoleInternalFrameLayout.setVerticalGroup(
             consoleInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 3030, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 3046, Short.MAX_VALUE)
         );
 
         jScrollPane2.setViewportView(jTree1);
