@@ -25,11 +25,10 @@ public class DecisionComponent implements Icon{
     public void paintIcon(Component cmpnt, Graphics g, int i, int i1) {
 
         Graphics2D gObject = (Graphics2D)g;
-        GeneralPath decisionPolygon = new GeneralPath();
-        
         
         int xPoints[] = {16,29,16,3,16};
         int yPoints[] = {3,16,29,16,3};
+        GeneralPath decisionPolygon = new GeneralPath(GeneralPath.WIND_EVEN_ODD,xPoints.length);
         
         decisionPolygon.moveTo(xPoints[0], yPoints[0]);
         
@@ -37,8 +36,11 @@ public class DecisionComponent implements Icon{
             decisionPolygon.lineTo(xPoints[index], yPoints[index]);
         }
         
-        gObject.setColor(Color.decode("#079CCE"));
+        decisionPolygon.closePath();
+        
+        gObject.setPaint(Color.decode("#079CCE"));
         gObject.fill(decisionPolygon);
+        gObject.setPaint(Color.BLACK);
         gObject.draw(decisionPolygon);
         
     }

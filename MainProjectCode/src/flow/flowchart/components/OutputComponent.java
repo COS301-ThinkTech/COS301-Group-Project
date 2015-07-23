@@ -21,11 +21,11 @@ public class OutputComponent implements Icon{
     @Override
     public void paintIcon(Component cmpnt, Graphics g, int i, int i1) {
         Graphics2D gObject = (Graphics2D)g;
-        GeneralPath outputPolygon = new GeneralPath();
-        
-        
+
         int xPoints[] = {10,28,23,5,10};
         int yPoints[] = {8,8,23,23,8};
+        
+        GeneralPath outputPolygon = new GeneralPath(GeneralPath.WIND_EVEN_ODD,xPoints.length);
         
         outputPolygon.moveTo(xPoints[0], yPoints[0]);
         
@@ -33,8 +33,11 @@ public class OutputComponent implements Icon{
             outputPolygon.lineTo(xPoints[index], yPoints[index]);
         }
         
-        gObject.setColor(Color.decode("#079CCE"));
+        
+        outputPolygon.closePath();
+        gObject.setPaint(Color.decode("#079CCE"));
         gObject.fill(outputPolygon);
+        gObject.setPaint(Color.BLACK);
         gObject.draw(outputPolygon);
         
     }

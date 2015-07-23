@@ -11,17 +11,23 @@ package flow.flowchart.components;
  */
 
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 import javax.swing.*;
-import java.awt.image.BufferedImage;
 
-public class ProcessComponent implements Icon{
+public class ProcessComponent extends Component implements Icon{
 
     @Override
     public void paintIcon(Component c, Graphics g, int x, int y){
-        Graphics2D g2 = (Graphics2D)g;
+        Graphics2D gObject = (Graphics2D)g;
+        BasicStroke stroke = new BasicStroke(1.0f);
+        Rectangle2D processPolygon = new Rectangle2D.Double(9, 5, 15, 20);
         
-        g2.setColor(Color.decode("#079CCE"));
-        g2.fillRect(9,5, 15, 20);
+        gObject.setStroke(stroke);
+        gObject.setPaint(Color.decode("#079CCE"));
+        gObject.fill(processPolygon);
+        gObject.setPaint(Color.BLACK);
+        gObject.draw(processPolygon);
+        
     }
 
     @Override

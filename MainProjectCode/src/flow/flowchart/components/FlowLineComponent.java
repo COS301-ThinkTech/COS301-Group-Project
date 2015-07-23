@@ -19,7 +19,7 @@ import javax.swing.Icon;
  *
  * @author tshepiso
  */
-public class FlowLineComponent implements Icon{
+public class FlowLineComponent extends Component implements Icon{
     
     @Override
     public void paintIcon(Component cmpnt, Graphics g, int i, int i1) {

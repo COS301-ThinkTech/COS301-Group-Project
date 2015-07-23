@@ -12,14 +12,14 @@ import javax.swing.*;
  *
  * @author tshepiso
  */
-public class JumpComponent implements Icon{
+public class JumpComponent extends Component implements Icon{
     
     @Override
     public void paintIcon(Component c, Graphics g, int x, int y){
-        Graphics2D g2 = (Graphics2D)g;
+        Graphics2D gObject = (Graphics2D)g;
         
-        g2.setColor(Color.decode("#079CCE"));
-        g2.fillOval(10, 10, 10, 10);
+        gObject.setColor(Color.decode("#079CCE"));
+        gObject.fillOval(10, 10, 10, 10);
     }
 
     @Override
