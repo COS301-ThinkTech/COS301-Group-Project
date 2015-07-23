@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/GreaterThanSolomon/Desktop/MainProjectCode/src/flow/flowchart/editors/InputComponentEditor.java</file>
+=======
+            <file>file:/home/tshepiso/Documents/git/Flowchart-planning-and-simulation-tool/MainProjectCode/src/flow/flowchart/components/OutputComponent.java</file>
+            <file>file:/home/tshepiso/Documents/git/Flowchart-planning-and-simulation-tool/MainProjectCode/src/flow/flowchart/components/JumpComponent.java</file>
+            <file>file:/home/tshepiso/Documents/git/Flowchart-planning-and-simulation-tool/MainProjectCode/src/flow/flowchart/components/DecisionComponent.java</file>
+            <file>file:/home/tshepiso/Documents/git/Flowchart-planning-and-simulation-tool/MainProjectCode/src/flow/flowchart/components/ModuleComponent.java</file>
+            <file>file:/home/tshepiso/Documents/git/Flowchart-planning-and-simulation-tool/MainProjectCode/src/flow/flowchart/components/CommentComponent.java</file>
+            <file>file:/home/tshepiso/Documents/git/Flowchart-planning-and-simulation-tool/MainProjectCode/src/flow/flowchart/components/InputComponent.java</file>
+            <file>file:/home/tshepiso/Documents/git/Flowchart-planning-and-simulation-tool/MainProjectCode/src/flow/Main.java</file>
+            <file>file:/home/tshepiso/Documents/git/Flowchart-planning-and-simulation-tool/MainProjectCode/src/flow/flowchart/components/ProcessComponent.java</file>
+            <file>file:/home/tshepiso/Documents/git/Flowchart-planning-and-simulation-tool/MainProjectCode/src/flow/flowchart/components/ReturnComponent.java</file>
+            <file>file:/home/tshepiso/Documents/git/Flowchart-planning-and-simulation-tool/MainProjectCode/src/flow/flowchart/Component.java</file>
+            <file>file:/home/tshepiso/Documents/git/Flowchart-planning-and-simulation-tool/MainProjectCode/src/flow/flowchart/components/EndComponent.java</file>
+>>>>>>> origin/draw-icons
         </group>
     </open-files>
 </project-private>
