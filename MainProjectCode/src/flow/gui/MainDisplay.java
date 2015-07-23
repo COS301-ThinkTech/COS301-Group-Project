@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import flow.flowchart.components.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JComponent;
 import javax.swing.TransferHandler;
 /**
@@ -784,7 +785,7 @@ public class MainDisplay extends javax.swing.JFrame
 //            }
 //        });
         
-        jButton3.addMouseListener(new RavDragHandler());
+        jButton3.addMouseListener((MouseListener) new RavDragHandler());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public void displayFullScreeen()
