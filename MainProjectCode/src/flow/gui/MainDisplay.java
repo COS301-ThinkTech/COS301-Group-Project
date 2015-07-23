@@ -80,7 +80,7 @@ public class MainDisplay extends javax.swing.JFrame
         FlowLineButton = new javax.swing.JButton();
         InputBlockButton = new javax.swing.JButton();
         OutputBlockButton = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        EndBlockButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jToolBar2 = new javax.swing.JToolBar();
         bin = new javax.swing.JButton();
@@ -331,10 +331,10 @@ public class MainDisplay extends javax.swing.JFrame
         OutputBlockButton.setBorderPainted(false);
         OutputBlockButton.setPreferredSize(new java.awt.Dimension(32, 32));
 
-        jButton11.setIcon(new EndComponent());
-        jButton11.setToolTipText("End Block");
-        jButton11.setBorderPainted(false);
-        jButton11.setPreferredSize(new java.awt.Dimension(32, 32));
+        EndBlockButton.setIcon(new EndComponent());
+        EndBlockButton.setToolTipText("End Block");
+        EndBlockButton.setBorderPainted(false);
+        EndBlockButton.setPreferredSize(new java.awt.Dimension(32, 32));
 	
 	javax.swing.GroupLayout jDesktopPane3Layout = new javax.swing.GroupLayout(jDesktopPane3);
         jDesktopPane3.setLayout(jDesktopPane3Layout);
@@ -360,7 +360,7 @@ public class MainDisplay extends javax.swing.JFrame
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(OutputBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(EndBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(112, Short.MAX_VALUE))
         );
         jDesktopPane3Layout.setVerticalGroup(
@@ -382,7 +382,7 @@ public class MainDisplay extends javax.swing.JFrame
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InputBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(OutputBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EndBlockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(264, Short.MAX_VALUE))
         );
         jDesktopPane3.setLayer(ProcessingBlockButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -393,7 +393,7 @@ public class MainDisplay extends javax.swing.JFrame
         jDesktopPane3.setLayer(FlowLineButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(InputBlockButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(OutputBlockButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane3.setLayer(jButton11, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(EndBlockButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jScrollPane4.setViewportView(jDesktopPane3);
 
@@ -879,7 +879,7 @@ public static boolean showSplash=true;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton OutputBlockButton;
-    private javax.swing.JButton jButton11;
+    private javax.swing.JButton EndBlockButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton ProcessingBlockButton;
     private javax.swing.JButton JumpBlockButton;
