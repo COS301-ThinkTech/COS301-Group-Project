@@ -9,6 +9,8 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Polygon;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.GeneralPath;
 import javax.swing.Icon;
 import javax.swing.JButton;
@@ -38,6 +40,7 @@ public class ModuleComponent extends Component implements Icon{
         for(int index = 1; index < xPoints.length; index++){
             modulePolygon.lineTo(xPoints[index], yPoints[index]);
         }
+        
         
         modulePolygon.moveTo(5, 12);
         modulePolygon.lineTo(26, 12);
@@ -84,15 +87,19 @@ public class ModuleComponent extends Component implements Icon{
         gObject.setPaint(Color.decode("#079CCE"));
         gObject.fill(modulePolygon);
         gObject.setPaint(Color.BLACK);
+        /*AffineTransform moving = new AffineTransform();
+        moving.translate(190, 200);
+        modulePolygon.transform(moving);*/
         gObject.draw(modulePolygon);
     }
     
-    
+    /*
     public static void main(String args[]){
         
         JPanel random = new JPanel();
         random.setBackground(Color.red);
         Component mod = new ModuleComponent();
+        mod.getGraphics().tr
         mod.setBackground(Color.yellow);
         
         random.add(mod);
@@ -104,5 +111,5 @@ public class ModuleComponent extends Component implements Icon{
         frame.setVisible(true);
         
         frame.add(mod);
-    }
+    }*/
 }
