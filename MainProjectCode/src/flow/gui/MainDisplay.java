@@ -335,8 +335,8 @@ public class MainDisplay extends javax.swing.JFrame
         jButton11.setToolTipText("End Block");
         jButton11.setBorderPainted(false);
         jButton11.setPreferredSize(new java.awt.Dimension(32, 32));
-
-        javax.swing.GroupLayout jDesktopPane3Layout = new javax.swing.GroupLayout(jDesktopPane3);
+	
+	javax.swing.GroupLayout jDesktopPane3Layout = new javax.swing.GroupLayout(jDesktopPane3);
         jDesktopPane3.setLayout(jDesktopPane3Layout);
         jDesktopPane3Layout.setHorizontalGroup(
             jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
