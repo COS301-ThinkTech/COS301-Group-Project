@@ -10,7 +10,9 @@ import flow.flowchart.ComponentEditor;
 
 /**
  *
- * @author GreaterThanSolomon
+ * @author Hlavutelo
+ *  
+ *  Only has option for name of the  Module being created. Could be in the form of popUp.
  */
 public class ModuleComponentEditor implements ComponentEditor{
      

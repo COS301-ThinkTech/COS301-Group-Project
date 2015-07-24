@@ -3,10 +3,12 @@ package flow;
 import com.jtattoo.plaf.mint.MintLookAndFeel;
 import com.jtattoo.plaf.noire.NoireLookAndFeel;
 import com.jtattoo.plaf.texture.TextureLookAndFeel;
+import flow.flowchart.editors.ProcessComponentEditor;
 import java.beans.PropertyVetoException;
 import java.util.Properties;
 import flow.gui.MainDisplay;
 import flow.gui.Splash;
+import java.awt.Component;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
@@ -22,7 +24,7 @@ public class Main {
     public static void main(String args[]) throws PropertyVetoException 
     {
         /* Set the Nimbus look and feel */
-        
+        /*
         System.out.println("START Building");
         
         MainDisplay mainDisp = new MainDisplay();
@@ -34,6 +36,7 @@ public class Main {
                     break;
                 }
             }*/
+        /*
             Properties props = new Properties();
             props.put("logoString", "Flow");
             TextureLookAndFeel.setCurrentTheme(props);
@@ -50,7 +53,7 @@ public class Main {
         }
         
         /* Create and display the form */
-        
+        /*
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -62,13 +65,14 @@ public class Main {
         });
         
         System.out.println("END Building");
-        /*
-        StandardEditor se = new StandardEditor();
+        */
+        ProcessComponentEditor se = new ProcessComponentEditor();
         JFrame f = new JFrame();
+        
         f.add(se);
         
         f.setVisible(true);
-                */
+                
         
     }
     

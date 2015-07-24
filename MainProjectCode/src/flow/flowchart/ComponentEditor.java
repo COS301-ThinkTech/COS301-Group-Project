@@ -7,7 +7,7 @@ package flow.flowchart;
 
 /**
  *
- * @author GreaterThanSolomon
+ * @author Hlavutelo
  */
 public interface ComponentEditor {
     // edit component sent as parameter (Object)
