@@ -3,7 +3,7 @@ package flow;
 import com.jtattoo.plaf.mint.MintLookAndFeel;
 import com.jtattoo.plaf.noire.NoireLookAndFeel;
 import com.jtattoo.plaf.texture.TextureLookAndFeel;
-import flow.flowchart.editors.ProcessComponentEditor;
+import flow.flowchart.editors.*;
 import java.beans.PropertyVetoException;
 import java.util.Properties;
 import flow.gui.MainDisplay;
@@ -66,7 +66,7 @@ public class Main {
         
         System.out.println("END Building");
         */
-        ProcessComponentEditor se = new ProcessComponentEditor();
+        CommentComponentEditor se = new CommentComponentEditor();
         JFrame f = new JFrame();
         
         f.add(se);
