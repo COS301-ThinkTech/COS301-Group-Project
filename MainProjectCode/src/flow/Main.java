@@ -1,14 +1,19 @@
 package flow;
 
-import com.jtattoo.plaf.mint.MintLookAndFeel;
-import com.jtattoo.plaf.noire.NoireLookAndFeel;
 import com.jtattoo.plaf.texture.TextureLookAndFeel;
+<<<<<<< HEAD
 import flow.flowchart.editors.*;
 import java.beans.PropertyVetoException;
 import java.util.Properties;
 import flow.gui.MainDisplay;
 import flow.gui.Splash;
 import java.awt.Component;
+=======
+import flow.gui.MainDisplay;
+import flow.gui.Splash;
+import java.beans.PropertyVetoException;
+import java.util.Properties;
+>>>>>>> origin/draw-icons
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 

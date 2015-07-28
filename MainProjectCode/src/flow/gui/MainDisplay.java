@@ -1,15 +1,21 @@
 package flow.gui;
+<<<<<<< HEAD
 import JButtonDrag.RavDragHandler;
+=======
+import flow.flowchart.components.*;
+>>>>>>> origin/draw-icons
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Graphics2D;
+import java.awt.GridLayout;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.PropertyVetoException;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+<<<<<<< HEAD
 
 import flow.flowchart.components.*;
 import java.awt.event.MouseAdapter;
@@ -17,6 +23,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JComponent;
 import javax.swing.TransferHandler;
+=======
+>>>>>>> origin/draw-icons
 /**
  *
  * @author Mpumpu
@@ -31,6 +39,14 @@ public class MainDisplay extends javax.swing.JFrame
         initComponents();
         getContentPane().setBackground(Color.DARK_GRAY.darker());
         jPanel2.setBackground(Color.white);  
+        jPanel1.setLayout(new GridLayout());
+        jPanel1.add(new ModuleComponent());
+        jPanel1.setBackground(Color.WHITE);
+        JPanel j = new JPanel();
+        j.add(new ModuleComponent());
+        j.setVisible(true);
+        jDesktopPane3.add(new ModuleComponent());
+        
         Tab();
         
         try {
@@ -86,16 +102,14 @@ public class MainDisplay extends javax.swing.JFrame
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jToolBar2 = new javax.swing.JToolBar();
-        bin = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jDesktopPane2 = new javax.swing.JDesktopPane();
+        jPanel1 = new javax.swing.JPanel();
+        jToolBar2 = new javax.swing.JToolBar();
+        bin = new javax.swing.JButton();
         consoleInternalFrame = new javax.swing.JInternalFrame();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
         MenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         newFileMenuItem = new javax.swing.JMenuItem();
@@ -117,7 +131,6 @@ public class MainDisplay extends javax.swing.JFrame
         viewMenu = new javax.swing.JMenu();
         componentsMenuItem = new javax.swing.JMenuItem();
         consoleMenuItem = new javax.swing.JMenuItem();
-        gridMenuItem = new javax.swing.JMenuItem();
         navigationMenuItem = new javax.swing.JMenuItem();
         fullScreenMenuItem = new javax.swing.JCheckBoxMenuItem();
         moduleMenu = new javax.swing.JMenu();
@@ -293,10 +306,24 @@ public class MainDisplay extends javax.swing.JFrame
         componentsInternalFrame.setVerifyInputWhenFocusTarget(false);
         componentsInternalFrame.setVisible(true);
 
+        jDesktopPane3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jDesktopPane3MouseDragged(evt);
+            }
+        });
+
         jButton3.setIcon(new ProcessComponent());
         jButton3.setToolTipText("Processing Block");
         jButton3.setBorderPainted(false);
         jButton3.setPreferredSize(new java.awt.Dimension(32, 32));
+<<<<<<< HEAD
+=======
+        jButton3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButton3MouseDragged(evt);
+            }
+        });
+>>>>>>> origin/draw-icons
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -307,6 +334,11 @@ public class MainDisplay extends javax.swing.JFrame
         jButton4.setToolTipText("Jump Block");
         jButton4.setBorderPainted(false);
         jButton4.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButton4MouseDragged(evt);
+            }
+        });
 
         jButton5.setIcon(new CommentComponent());
         jButton5.setToolTipText("Comment Block");
@@ -317,63 +349,85 @@ public class MainDisplay extends javax.swing.JFrame
         jButton6.setToolTipText("Decision Block");
         jButton6.setBorderPainted(false);
         jButton6.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton6.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButton6MouseDragged(evt);
+            }
+        });
 
         jButton7.setIcon(new ModuleComponent());
         jButton7.setToolTipText("Module Block");
         jButton7.setBorderPainted(false);
         jButton7.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton7.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButton7MouseDragged(evt);
+            }
+        });
 
         jButton8.setIcon(new FlowLineComponent());
         jButton8.setToolTipText("Flow Line");
         jButton8.setBorderPainted(false);
         jButton8.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton8.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButton8MouseDragged(evt);
+            }
+        });
 
         jButton9.setIcon(new InputComponent());
         jButton9.setToolTipText("Input Block");
         jButton9.setBorderPainted(false);
         jButton9.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButton9MouseDragged(evt);
+            }
+        });
 
         jButton10.setIcon(new OutputComponent());
         jButton10.setToolTipText("Output Block");
         jButton10.setBorderPainted(false);
         jButton10.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton10.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButton10MouseDragged(evt);
+            }
+        });
 
         jButton11.setIcon(new EndComponent());
         jButton11.setToolTipText("End Block");
         jButton11.setBorderPainted(false);
         jButton11.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton11.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButton11MouseDragged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jDesktopPane3Layout = new javax.swing.GroupLayout(jDesktopPane3);
         jDesktopPane3.setLayout(jDesktopPane3Layout);
         jDesktopPane3Layout.setHorizontalGroup(
             jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(112, Short.MAX_VALUE))
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
         jDesktopPane3Layout.setVerticalGroup(
             jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane3Layout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -385,12 +439,26 @@ public class MainDisplay extends javax.swing.JFrame
                     .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+=======
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> origin/draw-icons
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         jDesktopPane3.setLayer(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -408,14 +476,36 @@ public class MainDisplay extends javax.swing.JFrame
         componentsInternalFrame.getContentPane().setLayout(componentsInternalFrameLayout);
         componentsInternalFrameLayout.setHorizontalGroup(
             componentsInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         componentsInternalFrameLayout.setVerticalGroup(
             componentsInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(componentsInternalFrameLayout.createSequentialGroup()
+<<<<<<< HEAD
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
                 .addContainerGap())
+=======
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+>>>>>>> origin/draw-icons
         );
+
+        jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1269, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2947, Short.MAX_VALUE)
+        );
+
+        jScrollPane5.setViewportView(jPanel1);
+
+        jTabbedPane1.addTab("Tab1", jScrollPane5);
 
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
@@ -427,40 +517,23 @@ public class MainDisplay extends javax.swing.JFrame
         bin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar2.add(bin);
 
-        jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
-
-        javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
-        jDesktopPane2.setLayout(jDesktopPane2Layout);
-        jDesktopPane2Layout.setHorizontalGroup(
-            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 942, Short.MAX_VALUE)
-        );
-        jDesktopPane2Layout.setVerticalGroup(
-            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 577, Short.MAX_VALUE)
-        );
-
-        jScrollPane5.setViewportView(jDesktopPane2);
-
-        jTabbedPane1.addTab("Tab1", jScrollPane5);
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 965, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1175, Short.MAX_VALUE)
+                    .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("");
@@ -471,17 +544,15 @@ public class MainDisplay extends javax.swing.JFrame
         consoleInternalFrame.setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/flow/gui/icons/jframeicon.png"))); // NOI18N
         consoleInternalFrame.setVisible(true);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("=A Flowchart Planning and Simulation Tool=\n   Proudly brought to you by ThinkTech!");
-        jTextArea1.setWrapStyleWord(true);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane3.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout consoleInternalFrameLayout = new javax.swing.GroupLayout(consoleInternalFrame.getContentPane());
         consoleInternalFrame.getContentPane().setLayout(consoleInternalFrameLayout);
         consoleInternalFrameLayout.setHorizontalGroup(
             consoleInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addComponent(jScrollPane1)
         );
         consoleInternalFrameLayout.setVerticalGroup(
@@ -489,46 +560,44 @@ public class MainDisplay extends javax.swing.JFrame
             .addGroup(consoleInternalFrameLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1995, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 103, Short.MAX_VALUE))
+=======
+            .addGroup(consoleInternalFrameLayout.createSequentialGroup()
+                .addComponent(jScrollPane3)
+                .addContainerGap())
         );
-
-        jScrollPane2.setViewportView(jTree1);
+        consoleInternalFrameLayout.setVerticalGroup(
+            consoleInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+>>>>>>> origin/draw-icons
+        );
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(componentsInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(consoleInternalFrame)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(173, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(consoleInternalFrame, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(componentsInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(900, 900, 900))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(componentsInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(componentsInternalFrame, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(consoleInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(4050, Short.MAX_VALUE))
         );
         jDesktopPane1.setLayer(componentsInternalFrame, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(consoleInternalFrame, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         fileMenu.setText("File");
         fileMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -641,9 +710,6 @@ public class MainDisplay extends javax.swing.JFrame
         });
         viewMenu.add(consoleMenuItem);
 
-        gridMenuItem.setText("Grid");
-        viewMenu.add(gridMenuItem);
-
         navigationMenuItem.setText("Navigation");
         navigationMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -700,16 +766,16 @@ public class MainDisplay extends javax.swing.JFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1364, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -763,10 +829,10 @@ public class MainDisplay extends javax.swing.JFrame
 
     private void navigationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_navigationMenuItemActionPerformed
         // TODO add your handling code here:
-        if(jScrollPane2.isVisible())
-           jScrollPane2.setVisible(false);
+        if(jScrollPane4.isVisible())
+           jScrollPane4.setVisible(false);
        else
-           jScrollPane2.setVisible(true);
+           jScrollPane4.setVisible(true);
     }//GEN-LAST:event_navigationMenuItemActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -775,6 +841,7 @@ public class MainDisplay extends javax.swing.JFrame
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
         //jButton3.setTransferHandler(new TransferHandler());
 //        jButton3.addMouseListener(new MouseAdapter(){
 //            public void mousePressed(MouseEvent e)
@@ -788,6 +855,71 @@ public class MainDisplay extends javax.swing.JFrame
         jButton3.addMouseListener((MouseListener) new RavDragHandler());
     }//GEN-LAST:event_jButton3ActionPerformed
 
+=======
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseDragged
+        // TODO add your handling code here:
+                System.out.println("("+evt.getX() + "," + evt.getY()+")");
+                
+        //jPanel1.repaint();
+        System.out.println("("+evt.getX() + "," + evt.getY()+")");
+        ProcessComponent process = new ProcessComponent();
+        Graphics2D image = (Graphics2D) jPanel1.getGraphics();
+        process.drawProcess(image,evt.getX(),evt.getY());
+    }//GEN-LAST:event_jButton3MouseDragged
+
+    private void jButton6MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6MouseDragged
+
+    private void jButton9MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseDragged
+        // TODO add your handling code here:
+        System.out.println("("+evt.getX() + "," + evt.getY()+")");
+        InputComponent input = new InputComponent();
+        Graphics2D image = (Graphics2D) jPanel1.getGraphics();
+        input.drawInput(image,evt.getX(),evt.getY());
+    }//GEN-LAST:event_jButton9MouseDragged
+
+    private void jButton4MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4MouseDragged
+
+    private void jButton7MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseDragged
+        // TODO add your handling code here:
+        System.out.println("("+evt.getX() + "," + evt.getY()+")");
+        ModuleComponent module = new ModuleComponent();
+        jPanel1.repaint();
+        Graphics2D image = (Graphics2D) jPanel1.getGraphics();
+        module.drawModule(image,evt.getX(),evt.getY());
+    }//GEN-LAST:event_jButton7MouseDragged
+
+    private void jButton10MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10MouseDragged
+
+    private void jButton8MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8MouseDragged
+
+    private void jButton11MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11MouseDragged
+
+    private void jDesktopPane3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDesktopPane3MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jDesktopPane3MouseDragged
+
+    private void jButton5MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseDragged
+        // TODO add your handling code here:
+        //jPanel1.repaint();
+        System.out.println("("+evt.getX() + "," + evt.getY()+")");
+        CommentComponent comment = new CommentComponent();
+        Graphics2D image = (Graphics2D) jPanel1.getGraphics();
+        comment.drawComment(image,evt.getX(),evt.getY());
+    }//GEN-LAST:event_jButton5MouseDragged
+    
+>>>>>>> origin/draw-icons
     public void displayFullScreeen()
     {        
         if(fullscreen == true)
@@ -806,7 +938,7 @@ public class MainDisplay extends javax.swing.JFrame
             jToolBar1.setVisible(false);
             componentsInternalFrame.setVisible(false);
             consoleInternalFrame.setVisible(false);
-            jScrollPane2.setVisible(false);
+            jScrollPane4.setVisible(false);
             this.setVisible(true);
         }
         else
@@ -818,7 +950,7 @@ public class MainDisplay extends javax.swing.JFrame
             jToolBar1.setVisible(true);
             componentsInternalFrame.setVisible(true);
             consoleInternalFrame.setVisible(true);
-            jScrollPane2.setVisible(true);       
+            jScrollPane4.setVisible(true);       
             this.setVisible(true);
         }
     }
@@ -827,7 +959,6 @@ public class MainDisplay extends javax.swing.JFrame
    
     public void Tab()
     {
-        //jTabbedPane1.addTab ("Start", null);
         FlowLayout f = new FlowLayout (FlowLayout.CENTER, 5, 0);
 
         // Make a small JPanel with the layout and make it non-opaque
@@ -879,7 +1010,6 @@ public static boolean showSplash=true;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JCheckBoxMenuItem fullScreenMenuItem;
-    private javax.swing.JMenuItem gridMenuItem;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -893,7 +1023,6 @@ public static boolean showSplash=true;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JDesktopPane jDesktopPane3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -901,9 +1030,9 @@ public static boolean showSplash=true;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPopupMenu.Separator jSeparator2;
@@ -916,10 +1045,9 @@ public static boolean showSplash=true;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
-    private javax.swing.JTree jTree1;
     private javax.swing.JMenu moduleMenu;
     private javax.swing.JMenuItem navigationMenuItem;
     private javax.swing.JButton newFile;
