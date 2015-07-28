@@ -69,4 +69,30 @@ public class InputComponent implements Icon{
         gObject.draw(inputPolygon);
     }
     
+    public void redraw(Graphics2D g, int x, int y){
+        Graphics2D gObject = (Graphics2D)g;
+        
+        int xPoints[] = {5+x,200+x,200+x,5+x,5+x};
+        int yPoints[] = {8+y,8+y,100+y,100+y,8+y};
+        
+        GeneralPath inputPolygon = new GeneralPath(GeneralPath.WIND_EVEN_ODD,xPoints.length);
+
+        inputPolygon.moveTo(xPoints[0], yPoints[0]);
+        
+        for(int index = 1; index < xPoints.length; index++){
+            inputPolygon.lineTo(xPoints[index], yPoints[index]);
+        }
+        
+        inputPolygon.closePath();
+        //gObject.setColor(Color.decode("#079CCE"));
+        gObject.setPaint(Color.decode("#079CCE"));
+        gObject.fill(inputPolygon);
+        gObject.setPaint(Color.BLACK);
+        gObject.draw(inputPolygon);
+    }
+    
+    public void drawInput(Graphics2D g, int x, int y){
+        redraw(g,x,y);
+    }
+    
 }

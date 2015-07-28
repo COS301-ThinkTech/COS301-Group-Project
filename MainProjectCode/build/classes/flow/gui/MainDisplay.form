@@ -628,6 +628,9 @@
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
                 <Container class="javax.swing.JDesktopPane" name="jDesktopPane3">
+                  <Events>
+                    <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jDesktopPane3MouseDragged"/>
+                  </Events>
 
                   <Layout>
                     <DimensionLayout dim="0">
@@ -688,6 +691,7 @@
                         </Property>
                       </Properties>
                       <Events>
+                        <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jButton3MouseDragged"/>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
                       </Events>
                     </Component>
@@ -702,6 +706,9 @@
                           <Dimension value="[32, 32]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jButton4MouseDragged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton5">
                       <Properties>
@@ -726,6 +733,9 @@
                           <Dimension value="[32, 32]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jButton6MouseDragged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton7">
                       <Properties>
@@ -738,6 +748,9 @@
                           <Dimension value="[32, 32]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jButton7MouseDragged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton8">
                       <Properties>
@@ -750,6 +763,9 @@
                           <Dimension value="[32, 32]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jButton8MouseDragged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton9">
                       <Properties>
@@ -762,6 +778,9 @@
                           <Dimension value="[32, 32]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jButton9MouseDragged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton10">
                       <Properties>
@@ -774,6 +793,9 @@
                           <Dimension value="[32, 32]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jButton10MouseDragged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton11">
                       <Properties>
@@ -786,6 +808,9 @@
                           <Dimension value="[32, 32]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jButton11MouseDragged"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -908,7 +933,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane3" alignment="0" pref="256" max="32767" attributes="0"/>
+                  <Component id="jScrollPane3" alignment="0" pref="276" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>

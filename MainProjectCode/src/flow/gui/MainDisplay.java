@@ -2,6 +2,7 @@ package flow.gui;
 import flow.flowchart.components.*;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
@@ -291,10 +292,21 @@ public class MainDisplay extends javax.swing.JFrame
         componentsInternalFrame.setVerifyInputWhenFocusTarget(false);
         componentsInternalFrame.setVisible(true);
 
+        jDesktopPane3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jDesktopPane3MouseDragged(evt);
+            }
+        });
+
         jButton3.setIcon(new ProcessComponent());
         jButton3.setToolTipText("Processing Block");
         jButton3.setBorderPainted(false);
         jButton3.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButton3MouseDragged(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -305,6 +317,11 @@ public class MainDisplay extends javax.swing.JFrame
         jButton4.setToolTipText("Jump Block");
         jButton4.setBorderPainted(false);
         jButton4.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButton4MouseDragged(evt);
+            }
+        });
 
         jButton5.setIcon(new CommentComponent());
         jButton5.setToolTipText("Comment Block");
@@ -315,31 +332,61 @@ public class MainDisplay extends javax.swing.JFrame
         jButton6.setToolTipText("Decision Block");
         jButton6.setBorderPainted(false);
         jButton6.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton6.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButton6MouseDragged(evt);
+            }
+        });
 
         jButton7.setIcon(new ModuleComponent());
         jButton7.setToolTipText("Module Block");
         jButton7.setBorderPainted(false);
         jButton7.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton7.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButton7MouseDragged(evt);
+            }
+        });
 
         jButton8.setIcon(new FlowLineComponent());
         jButton8.setToolTipText("Flow Line");
         jButton8.setBorderPainted(false);
         jButton8.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton8.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButton8MouseDragged(evt);
+            }
+        });
 
         jButton9.setIcon(new InputComponent());
         jButton9.setToolTipText("Input Block");
         jButton9.setBorderPainted(false);
         jButton9.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButton9MouseDragged(evt);
+            }
+        });
 
         jButton10.setIcon(new OutputComponent());
         jButton10.setToolTipText("Output Block");
         jButton10.setBorderPainted(false);
         jButton10.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton10.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButton10MouseDragged(evt);
+            }
+        });
 
         jButton11.setIcon(new EndComponent());
         jButton11.setToolTipText("End Block");
         jButton11.setBorderPainted(false);
         jButton11.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton11.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButton11MouseDragged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jDesktopPane3Layout = new javax.swing.GroupLayout(jDesktopPane3);
         jDesktopPane3.setLayout(jDesktopPane3Layout);
@@ -475,7 +522,7 @@ public class MainDisplay extends javax.swing.JFrame
         );
         consoleInternalFrameLayout.setVerticalGroup(
             consoleInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
@@ -750,6 +797,67 @@ public class MainDisplay extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseDragged
+        // TODO add your handling code here:
+                System.out.println("("+evt.getX() + "," + evt.getY()+")");
+                
+        //jPanel1.repaint();
+        System.out.println("("+evt.getX() + "," + evt.getY()+")");
+        ProcessComponent process = new ProcessComponent();
+        Graphics2D image = (Graphics2D) jPanel1.getGraphics();
+        process.drawProcess(image,evt.getX(),evt.getY());
+    }//GEN-LAST:event_jButton3MouseDragged
+
+    private void jButton6MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6MouseDragged
+
+    private void jButton9MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseDragged
+        // TODO add your handling code here:
+        System.out.println("("+evt.getX() + "," + evt.getY()+")");
+        InputComponent input = new InputComponent();
+        Graphics2D image = (Graphics2D) jPanel1.getGraphics();
+        input.drawInput(image,evt.getX(),evt.getY());
+    }//GEN-LAST:event_jButton9MouseDragged
+
+    private void jButton4MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4MouseDragged
+
+    private void jButton7MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseDragged
+        // TODO add your handling code here:
+        System.out.println("("+evt.getX() + "," + evt.getY()+")");
+        ModuleComponent module = new ModuleComponent();
+        jPanel1.repaint();
+        Graphics2D image = (Graphics2D) jPanel1.getGraphics();
+        module.drawModule(image,evt.getX(),evt.getY());
+    }//GEN-LAST:event_jButton7MouseDragged
+
+    private void jButton10MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10MouseDragged
+
+    private void jButton8MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8MouseDragged
+
+    private void jButton11MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11MouseDragged
+
+    private void jDesktopPane3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDesktopPane3MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jDesktopPane3MouseDragged
+
+    private void jButton5MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseDragged
+        // TODO add your handling code here:
+        //jPanel1.repaint();
+        System.out.println("("+evt.getX() + "," + evt.getY()+")");
+        CommentComponent comment = new CommentComponent();
+        Graphics2D image = (Graphics2D) jPanel1.getGraphics();
+        comment.drawComment(image,evt.getX(),evt.getY());
+    }//GEN-LAST:event_jButton5MouseDragged
+    
     public void displayFullScreeen()
     {        
         if(fullscreen == true)
