@@ -736,10 +736,10 @@ public class MainDisplay extends javax.swing.JFrame
 
     private void navigationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_navigationMenuItemActionPerformed
         // TODO add your handling code here:
-        if(jScrollPane2.isVisible())
-           jScrollPane2.setVisible(false);
+        if(jScrollPane4.isVisible())
+           jScrollPane4.setVisible(false);
        else
-           jScrollPane2.setVisible(true);
+           jScrollPane4.setVisible(true);
     }//GEN-LAST:event_navigationMenuItemActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -768,7 +768,7 @@ public class MainDisplay extends javax.swing.JFrame
             jToolBar1.setVisible(false);
             componentsInternalFrame.setVisible(false);
             consoleInternalFrame.setVisible(false);
-            jScrollPane2.setVisible(false);
+            jScrollPane4.setVisible(false);
             this.setVisible(true);
         }
         else
@@ -780,7 +780,7 @@ public class MainDisplay extends javax.swing.JFrame
             jToolBar1.setVisible(true);
             componentsInternalFrame.setVisible(true);
             consoleInternalFrame.setVisible(true);
-            jScrollPane2.setVisible(true);       
+            jScrollPane4.setVisible(true);       
             this.setVisible(true);
         }
     }
