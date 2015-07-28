@@ -2,12 +2,19 @@ package flow;
 
 import com.jtattoo.plaf.texture.TextureLookAndFeel;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import flow.flowchart.editors.*;
 import java.beans.PropertyVetoException;
 import java.util.Properties;
 import flow.gui.MainDisplay;
 import flow.gui.Splash;
 import java.awt.Component;
+=======
+import flow.gui.MainDisplay;
+import flow.gui.Splash;
+import java.beans.PropertyVetoException;
+import java.util.Properties;
+>>>>>>> origin/draw-icons
 =======
 import flow.gui.MainDisplay;
 import flow.gui.Splash;

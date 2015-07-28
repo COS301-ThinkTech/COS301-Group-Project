@@ -1,6 +1,10 @@
 package flow.gui;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import JButtonDrag.RavDragHandler;
+=======
+import flow.flowchart.components.*;
+>>>>>>> origin/draw-icons
 =======
 import flow.flowchart.components.*;
 >>>>>>> origin/draw-icons
@@ -16,6 +20,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 import flow.flowchart.components.*;
 import java.awt.event.MouseAdapter;
@@ -23,6 +28,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JComponent;
 import javax.swing.TransferHandler;
+=======
+>>>>>>> origin/draw-icons
 =======
 >>>>>>> origin/draw-icons
 /**
@@ -317,12 +324,18 @@ public class MainDisplay extends javax.swing.JFrame
         jButton3.setBorderPainted(false);
         jButton3.setPreferredSize(new java.awt.Dimension(32, 32));
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/draw-icons
         jButton3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jButton3MouseDragged(evt);
             }
         });
+<<<<<<< HEAD
+>>>>>>> origin/draw-icons
+=======
 >>>>>>> origin/draw-icons
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -428,6 +441,7 @@ public class MainDisplay extends javax.swing.JFrame
             .addGroup(jDesktopPane3Layout.createSequentialGroup()
                 .addContainerGap()
 <<<<<<< HEAD
+<<<<<<< HEAD
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -445,6 +459,12 @@ public class MainDisplay extends javax.swing.JFrame
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
 >>>>>>> origin/draw-icons
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+=======
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+>>>>>>> origin/draw-icons
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -482,8 +502,13 @@ public class MainDisplay extends javax.swing.JFrame
             componentsInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(componentsInternalFrameLayout.createSequentialGroup()
 <<<<<<< HEAD
+<<<<<<< HEAD
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
                 .addContainerGap())
+=======
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+>>>>>>> origin/draw-icons
 =======
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -553,6 +578,7 @@ public class MainDisplay extends javax.swing.JFrame
         consoleInternalFrameLayout.setHorizontalGroup(
             consoleInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 <<<<<<< HEAD
+<<<<<<< HEAD
             .addComponent(jScrollPane1)
         );
         consoleInternalFrameLayout.setVerticalGroup(
@@ -560,6 +586,15 @@ public class MainDisplay extends javax.swing.JFrame
             .addGroup(consoleInternalFrameLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1995, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 103, Short.MAX_VALUE))
+=======
+            .addGroup(consoleInternalFrameLayout.createSequentialGroup()
+                .addComponent(jScrollPane3)
+                .addContainerGap())
+        );
+        consoleInternalFrameLayout.setVerticalGroup(
+            consoleInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+>>>>>>> origin/draw-icons
 =======
             .addGroup(consoleInternalFrameLayout.createSequentialGroup()
                 .addComponent(jScrollPane3)
@@ -842,6 +877,7 @@ public class MainDisplay extends javax.swing.JFrame
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
 <<<<<<< HEAD
+<<<<<<< HEAD
         //jButton3.setTransferHandler(new TransferHandler());
 //        jButton3.addMouseListener(new MouseAdapter(){
 //            public void mousePressed(MouseEvent e)
@@ -856,6 +892,8 @@ public class MainDisplay extends javax.swing.JFrame
     }//GEN-LAST:event_jButton3ActionPerformed
 
 =======
+=======
+>>>>>>> origin/draw-icons
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseDragged
@@ -919,6 +957,9 @@ public class MainDisplay extends javax.swing.JFrame
         comment.drawComment(image,evt.getX(),evt.getY());
     }//GEN-LAST:event_jButton5MouseDragged
     
+<<<<<<< HEAD
+>>>>>>> origin/draw-icons
+=======
 >>>>>>> origin/draw-icons
     public void displayFullScreeen()
     {        
