@@ -6,13 +6,13 @@
 System Overview
 ========================================
 Flowchart Simulation Tool is an application which allows for designing and
-executing fowchart diagrams. This application is intended for academic purposes for students with basic knowlegde of programming design and implementation.
+executing fowchart diagrams. This application is intended for academic purposes for students with basic knowlegde of programming design and implementation.It aims to aid them with understanding the logic behind programming.
 
 System Summary
 ========================================
 System Configuration
 ----------------------------------------
-The fowchart tool is intended to operate on any Linux distribution. However, it can also be used on Windows and Mac OS. Any version of Java should be installed to allow for successful execution of the program.
+The fowchart tool is intended to operate on any Linux distribution. However, it can also be used on Windows and Mac OS. Any version of Java i.e A JRE environment should be installed to allow for successful execution of the program.
 
 Getting Started
 ========================================
