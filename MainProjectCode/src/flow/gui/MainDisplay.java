@@ -302,6 +302,11 @@ public class MainDisplay extends javax.swing.JFrame
         jButton3.setToolTipText("Processing Block");
         jButton3.setBorderPainted(false);
         jButton3.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
         jButton3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jButton3MouseDragged(evt);
@@ -327,6 +332,11 @@ public class MainDisplay extends javax.swing.JFrame
         jButton5.setToolTipText("Comment Block");
         jButton5.setBorderPainted(false);
         jButton5.setPreferredSize(new java.awt.Dimension(32, 32));
+        jButton5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButton5MouseDragged(evt);
+            }
+        });
 
         jButton6.setIcon(new DecisionComponent());
         jButton6.setToolTipText("Decision Block");
@@ -522,7 +532,7 @@ public class MainDisplay extends javax.swing.JFrame
         );
         consoleInternalFrameLayout.setVerticalGroup(
             consoleInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
@@ -547,7 +557,7 @@ public class MainDisplay extends javax.swing.JFrame
                     .addComponent(componentsInternalFrame, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(consoleInternalFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(4050, Short.MAX_VALUE))
+                .addContainerGap(3879, Short.MAX_VALUE))
         );
         jDesktopPane1.setLayer(componentsInternalFrame, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -729,7 +739,7 @@ public class MainDisplay extends javax.swing.JFrame
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(535, 535, 535))
         );
 
         pack();
@@ -799,7 +809,7 @@ public class MainDisplay extends javax.swing.JFrame
 
     private void jButton3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseDragged
         // TODO add your handling code here:
-                System.out.println("("+evt.getX() + "," + evt.getY()+")");
+        System.out.println("("+evt.getX() + "," + evt.getY()+")");
                 
         //jPanel1.repaint();
         System.out.println("("+evt.getX() + "," + evt.getY()+")");
@@ -810,6 +820,10 @@ public class MainDisplay extends javax.swing.JFrame
 
     private void jButton6MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseDragged
         // TODO add your handling code here:
+        System.out.println("("+evt.getX() + "," + evt.getY()+")");
+        DecisionComponent decision = new DecisionComponent();
+        Graphics2D image = (Graphics2D) jPanel1.getGraphics();
+        decision.drawDecision(image,evt.getX(),evt.getY());
     }//GEN-LAST:event_jButton6MouseDragged
 
     private void jButton9MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseDragged
@@ -824,17 +838,24 @@ public class MainDisplay extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4MouseDragged
 
+    
+    //ModuleComponent module = new ModuleComponent();
     private void jButton7MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseDragged
         // TODO add your handling code here:
         System.out.println("("+evt.getX() + "," + evt.getY()+")");
         ModuleComponent module = new ModuleComponent();
-        jPanel1.repaint();
+        System.out.println(module);
         Graphics2D image = (Graphics2D) jPanel1.getGraphics();
         module.drawModule(image,evt.getX(),evt.getY());
+        //jPanel1.repaint();
     }//GEN-LAST:event_jButton7MouseDragged
 
     private void jButton10MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseDragged
         // TODO add your handling code here:
+        System.out.println("("+evt.getX() + "," + evt.getY()+")");
+        OutputComponent output = new OutputComponent();
+        Graphics2D image = (Graphics2D) jPanel1.getGraphics();
+        output.drawOutput(image,evt.getX(),evt.getY());
     }//GEN-LAST:event_jButton10MouseDragged
 
     private void jButton8MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseDragged
@@ -851,12 +872,26 @@ public class MainDisplay extends javax.swing.JFrame
 
     private void jButton5MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseDragged
         // TODO add your handling code here:
-        //jPanel1.repaint();
+                //jPanel1.repaint();
         System.out.println("("+evt.getX() + "," + evt.getY()+")");
         CommentComponent comment = new CommentComponent();
+        //jPanel1 = null;
+        //jPanel1 = new JPanel();
         Graphics2D image = (Graphics2D) jPanel1.getGraphics();
+
         comment.drawComment(image,evt.getX(),evt.getY());
     }//GEN-LAST:event_jButton5MouseDragged
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        System.out.println("("+evt.getX() + "," + evt.getY()+")");
+                
+        //jPanel1.repaint();
+        System.out.println("("+evt.getX() + "," + evt.getY()+")");
+        ProcessComponent process = new ProcessComponent();
+        Graphics2D image = (Graphics2D) jPanel1.getGraphics();
+        process.drawProcess(image,evt.getX(),evt.getY());
+    }//GEN-LAST:event_jButton3MouseClicked
     
     public void displayFullScreeen()
     {        

@@ -47,4 +47,30 @@ public class OutputComponent implements Icon{
        return 20; 
     }
     
+    public void redraw(Graphics2D g, int x, int y){
+        Graphics2D gObject = (Graphics2D)g;
+        
+        int xPoints[] = {40+x,230+x,190+x,0+x,40+x};
+        int yPoints[] = {10+y,10+y,100+y,100+y,10+y};
+        
+        GeneralPath outputPolygon = new GeneralPath(GeneralPath.WIND_EVEN_ODD,xPoints.length);
+
+        outputPolygon.moveTo(xPoints[0], yPoints[0]);
+        
+        for(int index = 1; index < xPoints.length; index++){
+            outputPolygon.lineTo(xPoints[index], yPoints[index]);
+        }
+        
+        outputPolygon.closePath();
+        //gObject.setColor(Color.decode("#079CCE"));
+        gObject.setPaint(Color.decode("#079CCE"));
+        gObject.fill(outputPolygon);
+        gObject.setPaint(Color.BLACK);
+        gObject.draw(outputPolygon);
+    }
+    
+    public void drawOutput(Graphics2D g, int x, int y){
+        redraw(g,x,y);
+    }
+    
 }

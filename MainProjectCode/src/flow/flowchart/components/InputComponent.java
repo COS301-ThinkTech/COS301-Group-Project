@@ -72,8 +72,8 @@ public class InputComponent implements Icon{
     public void redraw(Graphics2D g, int x, int y){
         Graphics2D gObject = (Graphics2D)g;
         
-        int xPoints[] = {5+x,200+x,200+x,5+x,5+x};
-        int yPoints[] = {8+y,8+y,100+y,100+y,8+y};
+        int xPoints[] = {40+x,230+x,190+x,0+x,40+x};
+        int yPoints[] = {10+y,10+y,100+y,100+y,10+y};
         
         GeneralPath inputPolygon = new GeneralPath(GeneralPath.WIND_EVEN_ODD,xPoints.length);
 

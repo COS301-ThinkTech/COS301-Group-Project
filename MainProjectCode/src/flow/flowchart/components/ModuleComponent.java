@@ -23,7 +23,7 @@ public class ModuleComponent extends Component implements Icon{
     private GeneralPath modulePolygon;
     
     public ModuleComponent(){
-        addMouseListener(new MouseAdapter(){
+        /*addMouseListener(new MouseAdapter(){
             @Override
             public void mousePressed(MouseEvent me) {
                 System.out.println("Pressing! X:" + me.getX() + ", Y:" + me.getY());
@@ -41,7 +41,7 @@ public class ModuleComponent extends Component implements Icon{
                 modulePolygon.transform(dragged);
                 repaint();
             }
-        });
+        });*/
         
         
     }
@@ -147,6 +147,7 @@ public class ModuleComponent extends Component implements Icon{
         moving.translate(190, 200);
         modulePolygon.transform(moving);*/
         gObject.draw(modulePolygon);
+        gObject.drawString("functionA()", x, y);
     }
     
     public void drawModule(Graphics2D g,int x, int y){
