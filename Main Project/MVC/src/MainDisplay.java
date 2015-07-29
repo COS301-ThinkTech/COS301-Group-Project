@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JToolBar;
 /**
  *
  * @author Mpumpu
@@ -747,7 +748,7 @@ public class MainDisplay extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_processingBlockActionPerformed
 
-    public void displayFullScreeen()
+    public void displayFullScreeen(JToolBar tb)
     {        
         if(fullscreen == true)
             fullscreen = false;        
@@ -762,7 +763,7 @@ public class MainDisplay extends javax.swing.JFrame
             this.setUndecorated(true);
             Toolkit tk = Toolkit.getDefaultToolkit();
             this.setBounds(0,0,tk.getScreenSize().width, tk.getScreenSize().height);
-            jToolBar1.setVisible(false);
+            tb.setVisible(false);
             componentsInternalFrame.setVisible(false);
             consoleInternalFrame.setVisible(false);
             this.setVisible(true);
@@ -773,7 +774,7 @@ public class MainDisplay extends javax.swing.JFrame
             this.dispose();
             this.setUndecorated(false);
             setBounds(windowSize);
-            jToolBar1.setVisible(true);
+            tb.setVisible(true);
             componentsInternalFrame.setVisible(true);
             consoleInternalFrame.setVisible(true);
             this.setVisible(true);

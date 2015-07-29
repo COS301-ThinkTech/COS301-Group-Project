@@ -16,6 +16,7 @@ public class FlowchartManager {
 	public void displayFullScreen() {
 		// TODO - implement FlowchartManager.displayFullScreen
 		throw new UnsupportedOperationException();
+                
 	}
 
 	public void tab() {
