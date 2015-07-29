@@ -11,7 +11,7 @@ import javax.swing.Icon;
  *
  * @author tshepiso
  */
-public class InputComponent implements Icon{
+public class InputComponent extends FlowchartComponent implements Icon{
 
     @Override
     public void paintIcon(Component cmpnt, Graphics g, int i, int i1) {

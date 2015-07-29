@@ -4,27 +4,27 @@ public class FlowchartManager {
 	private Flowchart flowchart;
 
 	public FlowchartManager() {
-		// TODO - implement FlowchartMananger.FlowchartMananger
+		// TODO - implement FlowchartManager.FlowchartManager
 		throw new UnsupportedOperationException();
 	}
 
 	public void updateView() {
-		// TODO - implement FlowchartMananger.updateView
+		// TODO - implement FlowchartManager.updateView
 		throw new UnsupportedOperationException();
 	}
 
 	public void displayFullScreen() {
-		// TODO - implement FlowchartMananger.displayFullScreen
+		// TODO - implement FlowchartManager.displayFullScreen
 		throw new UnsupportedOperationException();
 	}
 
 	public void tab() {
-		// TODO - implement FlowchartMananger.tab
+		// TODO - implement FlowchartManager.tab
 		throw new UnsupportedOperationException();
 	}
 
 	public void updateComponents() {
-		// TODO - implement FlowchartMananger.updateComponents
+		// TODO - implement FlowchartManager.updateComponents
 		throw new UnsupportedOperationException();
 	}
 
