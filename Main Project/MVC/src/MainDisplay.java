@@ -816,6 +816,7 @@ public class MainDisplay extends javax.swing.JFrame
     }
     
 public static boolean showSplash=true;
+private FlowchartManager flowchartManager;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar;
