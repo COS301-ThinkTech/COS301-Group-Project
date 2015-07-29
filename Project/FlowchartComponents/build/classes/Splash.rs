@@ -1,2 +1,0 @@
-closer
-Splash
