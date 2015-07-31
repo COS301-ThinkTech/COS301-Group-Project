@@ -250,9 +250,9 @@ made subject to such option by the copyright holder.
 
     <target name="jnlp" depends="-init-filename,-test-jnlp-enabled,-do-jar-jnlp" if="is.jnlp.enabled">
         <makeurl property="jnlp.local.codebase.url" file="${basedir}/dist" validate="false"/>
-        <!--<antcall target="generate-jnlp"/>-->
-        <!--<antcall target="generate-html-preview"/>-->
-        <!--<antcall target="-warn-insufficient-signing"/>-->
+        <antcall target="generate-jnlp"/>
+        <antcall target="generate-html-preview"/>
+        <antcall target="-warn-insufficient-signing"/>
     </target>
 
     <!-- JNLP archiving -->
@@ -399,11 +399,11 @@ made subject to such option by the copyright holder.
     </target>
     <target name="-extend-manifest-codebase-web" depends="-check-manifest-codebase" if="manifest.codebase.web">
         <property name="manifest.codebase.attribute" value="*"/>
-        <!-- echo message="Warning: Setting Codebase manifest attribute to '*' due to current JNLP Codebase setting. Set manifest.custom.codebase property to override the non-secure value '*'." level="warning"/>-->
+        <echo message="Warning: Setting Codebase manifest attribute to '*' due to current JNLP Codebase setting. Set manifest.custom.codebase property to override the non-secure value '*'." level="warning"/>
     </target>
     <target name="-extend-manifest-codebase-other" depends="-check-manifest-codebase" if="manifest.codebase.other">
         <property name="manifest.codebase.attribute" value="*"/>
-        <!--<echo message="Warning: Setting Codebase manifest attribute to '*' due to current JNLP Codebase. Set manifest.custom.codebase property to override the non-secure value '*'." level="warning"/>-->
+        <echo message="Warning: Setting Codebase manifest attribute to '*' due to current JNLP Codebase. Set manifest.custom.codebase property to override the non-secure value '*'." level="warning"/>
     </target>
     <target name="-extend-manifest-codebase-override-warning" depends="-check-manifest-codebase" if="manifest.codebase.override.warning">
         <echo message="Warning: Codebase manifest attribute should be used to restrict JAR repurposing. Preferably set manifest.custom.codebase to more specific value than the non-secure '*'" level="warning"/>
@@ -525,7 +525,34 @@ made subject to such option by the copyright holder.
     
     <!-- Generating JNLP file -->
     
-   
+    <target name="generate-jnlp" depends="sign-jars,-test-generate-task-available,-unavailable-generate-task" if="generate.task.available">
+        <taskdef name="generate-jnlp" classname="org.netbeans.modules.javawebstart.anttasks.GenerateJnlpFileTask" 
+            classpath="${libs.JWSAntTasks.classpath}"/>
+        <property name="jnlp.lazy.jars" value=""/>
+        <generate-jnlp destfile="${jnlp.dest.dir}/${jnlp.file}_" template="master-${jnlp.descriptor}.jnlp" destdir="dist" lazyJars="${jnlp.lazy.jars}"/>
+        <antcall target="-strip-empty-lines"/>
+    </target>
+    
+    <target name="-strip-empty-lines">
+        <copy file="${jnlp.dest.dir}/${jnlp.file}_" tofile="${jnlp.dest.dir}/${jnlp.file}" overwrite="true" encoding="UTF-8">
+            <filterchain>
+                <tokenfilter>
+                    <ignoreblank/>
+                </tokenfilter>
+            </filterchain>
+        </copy>
+        <delete file="${jnlp.dest.dir}/${jnlp.file}_" failonerror="false"/>
+    </target>
+    
+    <target name="-test-generate-task-available">
+        <available property="generate.task.available" classname="org.netbeans.modules.javawebstart.anttasks.GenerateJnlpFileTask" 
+        classpath="${libs.JWSAntTasks.classpath}"/>
+    </target>
+    
+    <target name="-unavailable-generate-task" unless="generate.task.available">
+        <echo message="Task required to generate JNLP file is missing, probably the library 'JWS Ant Tasks' is missing either from shared folder or from IDE installation."/>
+        <fail/>
+    </target>
     
     <!-- Codebase processing -->
     
@@ -727,7 +754,7 @@ made subject to such option by the copyright holder.
     <target name="generate-html-preview" depends="-check-html-preview" if="generate.html.preview">
         <taskdef name="copy-template-page" classname="org.netbeans.modules.javawebstart.anttasks.CopyTemplatePageTask"
             classpath="${libs.JWSAntTasks.classpath}"/>
-        <!--<copy-template-page destfile="${jnlp.dest.dir}/launch.html" template="preview-${jnlp.descriptor}.html" destdir="${jnlp.dest.dir}"/>-->
+        <copy-template-page destfile="${jnlp.dest.dir}/launch.html" template="preview-${jnlp.descriptor}.html" destdir="${jnlp.dest.dir}"/>
     </target>
     
 </project>
