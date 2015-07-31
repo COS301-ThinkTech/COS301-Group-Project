@@ -57,7 +57,7 @@ public class CommentComponent extends FlowchartComponent implements Icon{
         gObject.draw(commentPolygon);
     }
     
-    
+    /*
     public static void main(String args[]){
         
         Component cc = new CommentComponent();
@@ -74,7 +74,7 @@ public class CommentComponent extends FlowchartComponent implements Icon{
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.add(cc);
         f.setVisible(true);
-    }
+    }*/
 
     @Override
     public int getIconWidth() {

@@ -715,6 +715,9 @@
                           <Dimension value="[32, 32]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jumpBlockMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="commentBlock">
                       <Properties>
@@ -727,6 +730,9 @@
                           <Dimension value="[32, 32]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="commentBlockMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="decisionBlock">
                       <Properties>
@@ -739,6 +745,10 @@
                           <Dimension value="[32, 32]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="decisionBlockMouseClicked"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="decisionBlockActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
                       </AuxValues>
@@ -754,6 +764,9 @@
                           <Dimension value="[32, 32]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="moduleBlockMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="flowLine">
                       <Properties>
@@ -766,6 +779,9 @@
                           <Dimension value="[32, 32]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="flowLineMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="inputBlock">
                       <Properties>
@@ -778,6 +794,9 @@
                           <Dimension value="[32, 32]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="inputBlockMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="outputBlock">
                       <Properties>
@@ -790,6 +809,9 @@
                           <Dimension value="[32, 32]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="outputBlockMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="endBlock">
                       <Properties>
@@ -802,6 +824,9 @@
                           <Dimension value="[32, 32]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="endBlockMouseClicked"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -924,7 +949,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane3" alignment="0" pref="448" max="32767" attributes="0"/>
+                  <Component id="jScrollPane3" alignment="0" pref="704" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
