@@ -590,7 +590,7 @@ public class MainDisplay extends javax.swing.JFrame
         consoleInternalFrame.setBorder(javax.swing.BorderFactory.createTitledBorder("Output"));
         consoleInternalFrame.setClosable(true);
         consoleInternalFrame.setIconifiable(true);
-        consoleInternalFrame.setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/flowicons/gui/icons/jframeicon.png"))); // NOI18N
+        consoleInternalFrame.setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/flow/gui/icons/jframeicon.png"))); // NOI18N
         consoleInternalFrame.setVisible(true);
 
         jTextArea2.setColumns(20);
@@ -607,7 +607,7 @@ public class MainDisplay extends javax.swing.JFrame
         );
         consoleInternalFrameLayout.setVerticalGroup(
             consoleInternalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 864, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
@@ -805,8 +805,13 @@ public class MainDisplay extends javax.swing.JFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jDesktopPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 2100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(258, 258, 258))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -875,10 +880,6 @@ public class MainDisplay extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void processingBlockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processingBlockActionPerformed
-           
-    }//GEN-LAST:event_processingBlockActionPerformed
-
     private void newFileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newFileMouseClicked
        
     }//GEN-LAST:event_newFileMouseClicked
@@ -888,46 +889,50 @@ public class MainDisplay extends javax.swing.JFrame
          canvasPanel.add(new ProcessComponent());
     }//GEN-LAST:event_testActionPerformed
 
-    private void processingBlockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_processingBlockMouseClicked
-        canvasPanel.add(flowchartManager.addNewComponent(new ProcessComponent()));
-         
-    }//GEN-LAST:event_processingBlockMouseClicked
+    private void endBlockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_endBlockMouseClicked
+        canvasPanel.add(flowchartManager.addNewComponent(new EndComponent()));
+    }//GEN-LAST:event_endBlockMouseClicked
+
+    private void outputBlockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_outputBlockMouseClicked
+        canvasPanel.add(flowchartManager.addNewComponent(new OutputComponent()));
+    }//GEN-LAST:event_outputBlockMouseClicked
+
+    private void inputBlockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inputBlockMouseClicked
+        canvasPanel.add(flowchartManager.addNewComponent(new InputComponent()));
+    }//GEN-LAST:event_inputBlockMouseClicked
+
+    private void flowLineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flowLineMouseClicked
+        canvasPanel.add(flowchartManager.addNewComponent(new FlowLineComponent()));
+    }//GEN-LAST:event_flowLineMouseClicked
+
+    private void moduleBlockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moduleBlockMouseClicked
+        canvasPanel.add(flowchartManager.addNewComponent(new ModuleComponent()));
+    }//GEN-LAST:event_moduleBlockMouseClicked
 
     private void decisionBlockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decisionBlockActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_decisionBlockActionPerformed
 
     private void decisionBlockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_decisionBlockMouseClicked
-       canvasPanel.add(flowchartManager.addNewComponent(new DecisionComponent()));
+        canvasPanel.add(flowchartManager.addNewComponent(new DecisionComponent()));
     }//GEN-LAST:event_decisionBlockMouseClicked
-
-    private void inputBlockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inputBlockMouseClicked
-        canvasPanel.add(flowchartManager.addNewComponent(new InputComponent()));
-    }//GEN-LAST:event_inputBlockMouseClicked
-
-    private void jumpBlockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jumpBlockMouseClicked
-        canvasPanel.add(flowchartManager.addNewComponent(new JumpComponent()));
-    }//GEN-LAST:event_jumpBlockMouseClicked
-
-    private void moduleBlockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moduleBlockMouseClicked
-        canvasPanel.add(flowchartManager.addNewComponent(new ModuleComponent()));
-    }//GEN-LAST:event_moduleBlockMouseClicked
-
-    private void outputBlockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_outputBlockMouseClicked
-        canvasPanel.add(flowchartManager.addNewComponent(new OutputComponent()));
-    }//GEN-LAST:event_outputBlockMouseClicked
 
     private void commentBlockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_commentBlockMouseClicked
         canvasPanel.add(flowchartManager.addNewComponent(new CommentComponent()));
     }//GEN-LAST:event_commentBlockMouseClicked
 
-    private void flowLineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flowLineMouseClicked
-        canvasPanel.add(flowchartManager.addNewComponent(new FlowLineComponent()));
-    }//GEN-LAST:event_flowLineMouseClicked
+    private void jumpBlockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jumpBlockMouseClicked
+        canvasPanel.add(flowchartManager.addNewComponent(new JumpComponent()));
+    }//GEN-LAST:event_jumpBlockMouseClicked
 
-    private void endBlockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_endBlockMouseClicked
-        canvasPanel.add(flowchartManager.addNewComponent(new EndComponent()));
-    }//GEN-LAST:event_endBlockMouseClicked
+    private void processingBlockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processingBlockActionPerformed
+
+    }//GEN-LAST:event_processingBlockActionPerformed
+
+    private void processingBlockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_processingBlockMouseClicked
+        canvasPanel.add(flowchartManager.addNewComponent(new ProcessComponent()));
+
+    }//GEN-LAST:event_processingBlockMouseClicked
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar;
