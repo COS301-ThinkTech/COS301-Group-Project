@@ -535,11 +535,13 @@ public class FlowchartManager extends JPanel implements ActionListener{
                 //f.parseXml((Element)flowList.item(i));
                 flow=(Flowchart)f;
                 flows.add(f);
-                workspace.addSheet(flow);
+                
             }
             //while(tab>=tabs.getTabCount()) tab--;
             //tabs.setSelectedIndex(tab);
-            workspace.setActive(oldActive);
+            //workspace.setActive(oldActive);
+            workspace.removeAll();
+            workspace.addSheet(flow);
             updateFocus();
             repaint();
             gui.updateConfig();
