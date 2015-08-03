@@ -751,7 +751,7 @@ public class FlowchartManager extends JPanel implements ActionListener{
                         editor.finnishEdit();
                         if (editor.getBlock() == selected) {
                         } else {
-                            //((Flowchart)flow).editorPane.remove((Component) editor);
+                            ((Flowchart)flow).editorPane.remove((Component) editor);
                         }
                     }
                     editor = selected.getEditor();
