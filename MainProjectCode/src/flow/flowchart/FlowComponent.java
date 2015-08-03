@@ -1,5 +1,6 @@
 package flow.flowchart;
 
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Shape;
@@ -15,7 +16,7 @@ public abstract class FlowComponent extends JPanel{
     
     protected String componentCode; 
     private int componentID;
-    protected Shape shape;
+    public Shape shape;
 
     public void drawProcess(Graphics2D image, int x, int y) {
         
@@ -23,7 +24,7 @@ public abstract class FlowComponent extends JPanel{
     
     public static enum Type{INPUT,OUTPUT,PROCESS
                             ,DECISION,COMMENT,JUMP
-                            ,FLOWLINE,END,START,RETURN,MODULE};
+                            ,FLOWLINE,END,START,RETURN,MODULE,GROUP};
     
     private Type componentType; 
     
@@ -42,5 +43,10 @@ public abstract class FlowComponent extends JPanel{
     
     public int getComonentID(){
         return componentID;
+    }
+    
+    @Override
+    public void paint(Graphics g){
+        System.out.println("flowComponent.");
     }
 }
