@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.2.26)  3 AUG 2015 23:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.2.26)  4 AUG 2015 00:00
 entering extended mode
 **coverpage.tex
 
@@ -186,6 +186,17 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+! Undefined control sequence.
+<recently read> \LARGE 
+                       
+l.21 			\textbf{\LARGE Stakeholders}
+                                    \newline
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 Missing character: There is no L in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no l in font nullfont!
@@ -306,17 +317,13 @@ Missing character: There is no 0 in font nullfont!
 Missing character: There is no 3 in font nullfont!
 Missing character: There is no 7 in font nullfont!
 Missing character: There is no 8 in font nullfont!
-! Undefined control sequence.
-l.33 		\begin{flushright} \large
-                                
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+
+Overfull \hbox (63.73715pt too wide) in paragraph at lines 21--27
+ \OT1/cmr/bx/n/10 Stakeholders 
+ []
 
 ! Undefined control sequence.
-l.42 		{\LARGE
+l.35 		{\LARGE
                Version 0.2}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -335,7 +342,7 @@ Missing character: There is no 0 in font nullfont!
 Missing character: There is no . in font nullfont!
 Missing character: There is no 2 in font nullfont!
 ! Undefined control sequence.
-l.44 		{\large
+l.37 		{\large
                \today}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -344,7 +351,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.44 		{\large \today
+l.37 		{\large \today
                      }
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -359,7 +366,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.48 \end{titlepage}
+l.41 \end{titlepage}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
