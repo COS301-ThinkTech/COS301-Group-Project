@@ -1,10 +1,12 @@
 package flow.flowchart.components;
 
+import flow.flowchart.FlowComponent;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+import java.awt.Shape;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -18,28 +20,31 @@ import javax.swing.JPanel;
  *
  * @author tshepiso
  */
-public class ModuleComponent extends Component implements Icon{
+public class ModuleComponent extends FlowComponent implements Icon{
     
     private GeneralPath modulePolygon;
+    private Shape moduleShape = null;
+
     
     public ModuleComponent(){
         /*addMouseListener(new MouseAdapter(){
             @Override
             public void mousePressed(MouseEvent me) {
                 System.out.println("Pressing! X:" + me.getX() + ", Y:" + me.getY());
-                repaint();
+                //repaint();
             }
         });
         
         addMouseMotionListener(new MouseAdapter(){
             @Override
             public void mouseDragged(MouseEvent me) {
+                //repaint();
                 System.out.println("Dragging! X:" + me.getX() + ", Y:" + me.getY());
                 AffineTransform dragged = new AffineTransform();
                 dragged.translate(me.getX(), me.getY());
                 //System.out.println(dragged.);
                 modulePolygon.transform(dragged);
-                repaint();
+                
             }
         });*/
         
@@ -148,6 +153,10 @@ public class ModuleComponent extends Component implements Icon{
         modulePolygon.transform(moving);*/
         gObject.draw(modulePolygon);
         gObject.drawString("functionA()", x, y);
+        
+        shape = modulePolygon;
+        moduleShape = (Shape) modulePolygon;
+        
     }
     
     public void drawModule(Graphics2D g,int x, int y){
@@ -160,6 +169,10 @@ public class ModuleComponent extends Component implements Icon{
     
     public void clear(Graphics2D g, int x, int y){
        
+    }
+    
+    public void tranlate(Graphics2D g, int x, int y){
+        
     }
     
     

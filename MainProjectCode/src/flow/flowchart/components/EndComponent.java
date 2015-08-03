@@ -2,6 +2,7 @@
 package flow.flowchart.components;
 
 
+import flow.flowchart.FlowComponent;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -15,7 +16,7 @@ import javax.swing.JPanel;
  *
  * @author tshepiso
  */
-public class EndComponent extends Component implements Icon{
+public class EndComponent extends FlowComponent implements Icon{
 
 
     

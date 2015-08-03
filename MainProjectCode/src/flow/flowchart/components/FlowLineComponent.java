@@ -1,5 +1,6 @@
 package flow.flowchart.components;
 
+import flow.flowchart.FlowComponent;
 import java.awt.*;
 import java.awt.geom.Line2D;
 import javax.swing.Icon;
@@ -8,7 +9,7 @@ import javax.swing.Icon;
  *
  * @author tshepiso
  */
-public class FlowLineComponent extends Component implements Icon{
+public class FlowLineComponent extends FlowComponent implements Icon{
     
     @Override
     public void paintIcon(Component cmpnt, Graphics g, int i, int i1) {

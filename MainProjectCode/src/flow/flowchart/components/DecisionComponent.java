@@ -1,5 +1,6 @@
 package flow.flowchart.components;
 
+import flow.flowchart.FlowComponent;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Component;
@@ -12,7 +13,7 @@ import javax.swing.Icon;
  *
  * @author tshepiso
  */
-public class DecisionComponent implements Icon{
+public class DecisionComponent extends FlowComponent implements Icon{
     
     @Override
     public void paintIcon(Component cmpnt, Graphics g, int i, int i1) {
@@ -73,4 +74,6 @@ public class DecisionComponent implements Icon{
         gObject.setPaint(Color.BLACK);
         gObject.draw(decisionPolygon);
     }
+    
+
 }

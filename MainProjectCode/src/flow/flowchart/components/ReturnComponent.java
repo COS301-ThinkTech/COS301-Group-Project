@@ -1,5 +1,6 @@
 package flow.flowchart.components;
 
+import flow.flowchart.FlowComponent;
 import java.awt.Component;
 import java.awt.Graphics;
 import javax.swing.Icon;
@@ -8,7 +9,7 @@ import javax.swing.Icon;
  *
  * @author tshepiso
  */
-public class ReturnComponent implements Icon{
+public class ReturnComponent extends FlowComponent implements Icon{
 
     @Override
     public void paintIcon(Component cmpnt, Graphics g, int i, int i1) {
@@ -24,5 +25,7 @@ public class ReturnComponent implements Icon{
     public int getIconHeight() {
        return 20; 
     }
+    
+
     
 }

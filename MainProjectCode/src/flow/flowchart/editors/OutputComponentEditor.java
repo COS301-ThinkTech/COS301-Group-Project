@@ -5,7 +5,7 @@
  */
 package flow.flowchart.editors;
 
-import flow.flowchart.Component;
+import flow.flowchart.FlowComponent;
 import flow.flowchart.ComponentEditor;
 
 /**
@@ -25,7 +25,7 @@ public class OutputComponentEditor implements ComponentEditor{
     }
      
     @Override
-    public Component getComponent(){
+    public FlowComponent getComponent(){
         return null; // replace with appropriate return type.
     }
 }

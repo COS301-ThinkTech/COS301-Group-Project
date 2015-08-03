@@ -1,4 +1,6 @@
 package flow.gui;
+import flow.flowchart.CanvasEvents;
+import flow.flowchart.FlowComponent;
 import flow.flowchart.components.*;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -90,7 +92,7 @@ public class MainDisplay extends javax.swing.JFrame
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new CanvasEvents();
         jToolBar2 = new javax.swing.JToolBar();
         bin = new javax.swing.JButton();
         consoleInternalFrame = new javax.swing.JInternalFrame();
@@ -813,9 +815,10 @@ public class MainDisplay extends javax.swing.JFrame
                 
         //jPanel1.repaint();
         System.out.println("("+evt.getX() + "," + evt.getY()+")");
-        ProcessComponent process = new ProcessComponent();
+        FlowComponent process = new ProcessComponent();
         Graphics2D image = (Graphics2D) jPanel1.getGraphics();
         process.drawProcess(image,evt.getX(),evt.getY());
+        jPanel1.addComponent(process);
     }//GEN-LAST:event_jButton3MouseDragged
 
     private void jButton6MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseDragged
@@ -888,9 +891,10 @@ public class MainDisplay extends javax.swing.JFrame
                 
         //jPanel1.repaint();
         System.out.println("("+evt.getX() + "," + evt.getY()+")");
-        ProcessComponent process = new ProcessComponent();
+        FlowComponent process = new ProcessComponent();
         Graphics2D image = (Graphics2D) jPanel1.getGraphics();
         process.drawProcess(image,evt.getX(),evt.getY());
+        jPanel1.addComponent(process);
     }//GEN-LAST:event_jButton3MouseClicked
     
     public void displayFullScreeen()
@@ -1003,7 +1007,7 @@ public static boolean showSplash=true;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JPanel jPanel1;
+    private CanvasEvents jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1045,5 +1049,6 @@ public static boolean showSplash=true;
     private javax.swing.JMenu viewMenu;
     private javax.swing.JMenuItem viewModulesMenuItem;
     // End of variables declaration//GEN-END:variables
+
 }
 

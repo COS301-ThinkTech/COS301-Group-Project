@@ -12,5 +12,5 @@ public interface ComponentEditor {
     public void saveEditedComponent();
     
     // return the edited component, componentType still to be defined.
-    public Component getComponent();    
+    public FlowComponent getComponent();    
 }

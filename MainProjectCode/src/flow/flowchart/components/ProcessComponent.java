@@ -5,15 +5,16 @@ package flow.flowchart.components;
  * @author tshepiso
  */
 
+import flow.flowchart.FlowComponent;
 import java.awt.*;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Rectangle2D;
 import javax.swing.Icon;
 
-public class ProcessComponent extends Component implements Icon{
+public class ProcessComponent extends FlowComponent implements Icon{
 
     public ProcessComponent() {
-        
+        super();
     }
 
     @Override
@@ -40,6 +41,7 @@ public class ProcessComponent extends Component implements Icon{
         return 60;
     }
     
+    @Override
     public void drawProcess(Graphics2D g, int x, int y){
         redraw(g,x,y);
     }
@@ -66,5 +68,7 @@ public class ProcessComponent extends Component implements Icon{
         gObject.setPaint(Color.BLACK);
         gObject.draw(processPolygon);
     }
+    
+
 }
 

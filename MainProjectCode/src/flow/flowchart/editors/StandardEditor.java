@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package flow.flowchart.editors;
-import flow.flowchart.Component;
+import flow.flowchart.FlowComponent;
 import flow.flowchart.ComponentEditor;
 
 
@@ -21,7 +21,7 @@ public class StandardEditor extends javax.swing.JPanel implements ComponentEdito
         All variable declarations must come here.
     */
     
-    private Component editing = null;
+    private FlowComponent editing = null;
     private String beforeCode = "";
     private String beforeComment = "";
     
@@ -163,7 +163,7 @@ public class StandardEditor extends javax.swing.JPanel implements ComponentEdito
     }
      
     @Override
-    public Component getComponent(){
+    public FlowComponent getComponent(){
         return null; // replace with appropriate return type.
     }
 }
