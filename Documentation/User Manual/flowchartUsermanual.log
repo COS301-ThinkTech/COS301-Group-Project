@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.2.26)  4 AUG 2015 00:38
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.2.26)  4 AUG 2015 02:15
 entering extended mode
 **flowchartUsermanual.tex
 
@@ -32,21 +32,68 @@ File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
+("C:\Program Files (x86)\MiKTeX 2.9 L\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9 L\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files (x86)\MiKTeX 2.9 L\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9 L\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files (x86)\MiKTeX 2.9 L\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+("C:\Program Files (x86)\MiKTeX 2.9 L\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files (x86)\MiKTeX 2.9 L\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9 L\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
 ("C:\Users\GreaterThanSolomon\Documents\Flowchart-planning-and-simulation-tool\
 Documentation\User Manual\flowchartUsermanual.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
 
+(C:\Users\GreaterThanSolomon\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-p
+df.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count88
+\scratchdimen=\dimen105
+\scratchbox=\box26
+\nofMPsegments=\count89
+\nofMParguments=\count90
+\everyMPshowfont=\toks15
+\MPscratchCnt=\count91
+\MPscratchDim=\dimen106
+\MPnumerator=\count92
+\makeMPintoPDFobject=\count93
+\everyMPtoPDFconversion=\toks16
+)
 ("C:\Users\GreaterThanSolomon\Documents\Flowchart-planning-and-simulation-tool\
 Documentation\User Manual\coverpage.tex" [1
 
@@ -63,29 +110,43 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 )
 \tf@toc=\write3
  [1]
-Underfull \hbox (badness 10000) in paragraph at lines 34--35
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
 
  []
 
 [1]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 37.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 39.
  ("C:\Program Files (x86)\MiKTeX 2.9 L\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 39.
  [2]
+
+! LaTeX Error: File `ManualDemo2' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.48 	\includegraphics[width=500px]{ManualDemo2}
+                                                
+I could not locate the file with any of these extensions:
+.png
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 [3] [4]
 ("C:\Users\GreaterThanSolomon\Documents\Flowchart-planning-and-simulation-tool\
 Documentation\User Manual\flowchartUsermanual.aux") ) 
 Here is how much of TeX's memory you used:
- 255 strings out of 493921
- 4115 string characters out of 3144035
- 52031 words of memory out of 3000000
- 3615 multiletter control sequences out of 15000+200000
+ 1152 strings out of 493921
+ 16459 string characters out of 3144035
+ 65880 words of memory out of 3000000
+ 4478 multiletter control sequences out of 15000+200000
  8503 words of font info for 30 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 22i,4n,19p,380b,181s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,4n,19p,380b,181s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/Mi
 KTeX 2.9 L/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/Mi
 KTeX 2.9 L/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/Mi
@@ -93,7 +154,7 @@ KTeX 2.9 L/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiK
 TeX 2.9 L/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKT
 eX 2.9 L/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTe
 X 2.9 L/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on flowchartUsermanual.pdf (6 pages, 95133 bytes).
+Output written on flowchartUsermanual.pdf (6 pages, 95794 bytes).
 PDF statistics:
  45 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

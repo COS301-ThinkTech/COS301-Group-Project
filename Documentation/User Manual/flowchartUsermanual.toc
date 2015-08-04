@@ -14,3 +14,4 @@
 \contentsline {subsection}{\numberline {4.5}Saving Project}{3}
 \contentsline {subsection}{\numberline {4.6}Run Simulation}{3}
 \contentsline {subsection}{\numberline {4.7}Opening Existing Project}{3}
+\contentsline {section}{\numberline {5}Troubleshooting}{4}
