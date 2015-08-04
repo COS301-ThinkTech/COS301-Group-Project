@@ -29,7 +29,7 @@ public abstract class JBlock implements FlowElement{
         IO, IOin, IOout, CPU, SCRIPT,
         DECISION, COMMENT, LINK,
         BRACE, JUMP, NULL, GROUP, 
-        LOGO, CANVAS2D, STRUCT, CUSTOM
+        LOGO, CANVAS2D, STRUCT, CUSTOM, MODULE
     };
     static final ArrayList<Class<JBlock>> customTypes=new ArrayList<Class<JBlock>>();
     static HashMap<Class, String> customTypesNames=new HashMap<Class, String>();
@@ -55,7 +55,7 @@ public abstract class JBlock implements FlowElement{
         return Type.CUSTOM;
     }
     public static Type StandardTypes[]={
-        Type.CPU/*, Type.IOin, Type.IOout*/, Type.DECISION, Type.RETURN/*, Type.COMMENT*/
+        Type.CPU/*, Type.IOin, Type.IOout*/, Type.DECISION, Type.RETURN //Type.MODULE/*, Type.COMMENT*/
     };
     public static Type HelpingTypes[]={
         Type.IO, Type.JUMP, Type.LINK, Type.BRACE/*, Type.STRUCT*/, Type.SCRIPT
@@ -65,7 +65,7 @@ public abstract class JBlock implements FlowElement{
     };
     
     public static String leftLineTypes=
-        "CPU IOin IOout DECISION RETURN COMMENT";
+        "CPU IOin IOout DECISION RETURN COMMENT, MODULE";
     public static String rightLineTypes=
         "IO JUMP LINK BRACE STRUCT SCRIPT";
     public static String[] getLeftLine(){
@@ -156,7 +156,8 @@ public abstract class JBlock implements FlowElement{
             case DECISION: b= new decBlock(parent); break;
             case SCRIPT: b= new scrBlock(parent); break;
             case COMMENT: b= new commentBlock(parent); break;
-
+           // case MODULE: b= new moduleBlock(parent);  break;
+                
             case LINK: b= new linkBlock(parent); break;
             case BRACE: b= new braceBlock(parent); break;
             case JUMP: b= new jumpBlock(parent); break;
@@ -352,8 +353,8 @@ public abstract class JBlock implements FlowElement{
     public String getCode(){
         if(getManager().scriptEngine.equals("JavaScript"))
             return getCodeForJavaScript();
-        if(getManager().scriptEngine.equals("python"))
-            return getCodeForPython();
+//        if(getManager().scriptEngine.equals("python"))
+//            return getCodeForPython();
         return "";
     }
 
