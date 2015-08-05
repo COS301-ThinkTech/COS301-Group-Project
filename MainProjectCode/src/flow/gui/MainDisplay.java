@@ -28,12 +28,13 @@ public class MainDisplay extends javax.swing.JFrame
         getContentPane().setBackground(Color.DARK_GRAY.darker());
         jPanel2.setBackground(Color.white);  
         jPanel1.setLayout(new GridLayout());
-        jPanel1.add(new ModuleComponent());
+        //jPanel1.add(new ModuleComponent());
         jPanel1.setBackground(Color.WHITE);
         JPanel j = new JPanel();
-        j.add(new ModuleComponent());
+//        j.add(new ModuleComponent());
         j.setVisible(true);
-        jDesktopPane3.add(new ModuleComponent());
+//        jDesktopPane3.add(new ModuleComponent());
+        
         
         Tab();
         
@@ -818,7 +819,7 @@ public class MainDisplay extends javax.swing.JFrame
         FlowComponent process = new ProcessComponent();
         Graphics2D image = (Graphics2D) jPanel1.getGraphics();
         process.drawProcess(image,evt.getX(),evt.getY());
-        jPanel1.addComponent(process);
+//        jPanel1.addComponent(process);
     }//GEN-LAST:event_jButton3MouseDragged
 
     private void jButton6MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseDragged
@@ -889,7 +890,7 @@ public class MainDisplay extends javax.swing.JFrame
         // TODO add your handling code here:
         System.out.println("("+evt.getX() + "," + evt.getY()+")");
                 
-        //jPanel1.repaint();
+        repaint();
         System.out.println("("+evt.getX() + "," + evt.getY()+")");
         FlowComponent process = new ProcessComponent();
         Graphics2D image = (Graphics2D) jPanel1.getGraphics();

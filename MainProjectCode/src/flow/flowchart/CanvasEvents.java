@@ -34,6 +34,7 @@ public class CanvasEvents extends JPanel{
         addMouseListener(ma);
         //addMouseWheelListener(new ScaleHandler())
     }
+
     
     /*private MouseAdapter mouseListener = new MouseAdapter(){
         private FlowComponent dragged = null;
@@ -95,6 +96,15 @@ public class CanvasEvents extends JPanel{
     public void mousePressed(MouseEvent e) {
       x = e.getX();
       y = e.getY();
+      
+      for(FlowComponent component: components){
+        if(component.shape.getBounds2D().contains(x, y)){
+            System.out.println("Visibility true.");
+        }else{
+            System.out.println("Visibility false.");
+        }
+          
+      }
     }
 
     @Override
@@ -111,7 +121,7 @@ public class CanvasEvents extends JPanel{
               component.shape.getBounds().x += dx;
                component.shape.getBounds().y += dy;
                       //component.getBounds().y += dy, component.getBounds().width, component.getBounds().height);
-                System.out.println(component.getBounds());
+               // System.out.println(component.getBounds());
               //component.getBounds().y += dy;
                 //component.shape.getBounds().setBounds(x, y, dy, dy);
               repaint();
@@ -132,21 +142,24 @@ public class CanvasEvents extends JPanel{
             int y = e.getY();
 
             if (e.getScrollType() == MouseWheelEvent.WHEEL_UNIT_SCROLL) {
-
-              if (component.getBounds().contains(x, y)) {
+          
+             /* if (component.getBounds().contains(x, y)) {
                 float amount = e.getWheelRotation() * 5f;
                 //component..getBounds().width += amount;
                 component.getBounds().height += amount;
                 repaint();
               }
-            }
+            }*/
         }
     }
   }
     
+
+  }
+  
+  
     public void addComponent(FlowComponent comp){
         System.out.println("Component added.");
         components.add(comp);
-        System.out.println(comp.getBounds());
     }
 }

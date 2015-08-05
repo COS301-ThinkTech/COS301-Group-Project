@@ -103,7 +103,7 @@ public class CommentComponent extends FlowComponent implements Icon{
     
     public static void main(String args[]){
         
-        Component cc = new CommentComponent();
+       /* Component cc = new CommentComponent();
         
         JFrame f = new JFrame("Something.");
         f.setLayout(new GridLayout(3,4));
@@ -116,6 +116,6 @@ public class CommentComponent extends FlowComponent implements Icon{
         f.setSize(300,300);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.add(cc);
-        f.setVisible(true);
+        f.setVisible(true);*/
     }
 }

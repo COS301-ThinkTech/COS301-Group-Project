@@ -32,18 +32,6 @@ public class ProcessComponent extends FlowComponent implements Icon{
     
 
     @Override
-    public Rectangle getBounds(){
-        return new Rectangle(x, y, width, height);
-    }
-    
-    @Override
-    public void setBounds(int x, int y, int width, int height){
-        new Rectangle(x, y, width, height);
-    }
-    
-    
-
-    @Override
     public void paintIcon(Component c, Graphics g, int x, int y){
         Graphics2D gObject = (Graphics2D)g;
         BasicStroke stroke = new BasicStroke(1.0f);
@@ -121,6 +109,13 @@ public class ProcessComponent extends FlowComponent implements Icon{
         gObject.setPaint(Color.BLACK);
         gObject.draw(processPolygon);
                 shape = processPolygon;
+    }
+    
+    public void setBounds(int x, int y, int w, int h){
+        this.x = x;
+        this.y = y;
+        width = w;
+        height = h;
     }
     
 

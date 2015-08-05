@@ -179,6 +179,7 @@ public class ModuleComponent extends FlowComponent implements Icon{
    
     public static void main(String args[]){
         
+        /*
         JPanel random = new JPanel();
         random.setBackground(Color.red);
         Component mod = new ModuleComponent();
@@ -195,6 +196,6 @@ public class ModuleComponent extends FlowComponent implements Icon{
         frame.setVisible(true);
         
         frame.add(mod);
-        System.out.println("-->"+mod.getGraphics());
+        System.out.println("-->"+mod.getGraphics());*/
     }
 }
