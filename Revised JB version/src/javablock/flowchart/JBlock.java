@@ -55,7 +55,7 @@ public abstract class JBlock implements FlowElement{
         return Type.CUSTOM;
     }
     public static Type StandardTypes[]={
-        Type.CPU/*, Type.IOin, Type.IOout*/, Type.DECISION, Type.RETURN //Type.MODULE/*, Type.COMMENT*/
+        Type.CPU/*, Type.IOin, Type.IOout*/, Type.DECISION, Type.RETURN, Type.MODULE/*, Type.COMMENT*/
     };
     public static Type HelpingTypes[]={
         Type.IO, Type.JUMP, Type.LINK, Type.BRACE/*, Type.STRUCT*/, Type.SCRIPT
@@ -156,7 +156,7 @@ public abstract class JBlock implements FlowElement{
             case DECISION: b= new decBlock(parent); break;
             case SCRIPT: b= new scrBlock(parent); break;
             case COMMENT: b= new commentBlock(parent); break;
-           // case MODULE: b= new moduleBlock(parent);  break;
+            case MODULE: b= new moduleBlock(parent);  break;
                 
             case LINK: b= new linkBlock(parent); break;
             case BRACE: b= new braceBlock(parent); break;
