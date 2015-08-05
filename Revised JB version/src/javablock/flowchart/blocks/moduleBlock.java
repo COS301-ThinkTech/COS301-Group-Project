@@ -7,7 +7,9 @@ package javablock.flowchart.blocks;
 
 import config.global;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.geom.GeneralPath;
+import java.awt.geom.Rectangle2D;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
 import javablock.*;
@@ -119,13 +121,19 @@ public class moduleBlock extends JBlock{
     @Override
     public void shape(){
         prepareText();
-        GeneralPath deci=new GeneralPath();
-            deci.moveTo(bound.getX()+bound.getWidth()/2, bound.getY()-10-bound.getWidth()/6);
-            deci.lineTo(bound.getX()+bound.getWidth()+20, bound.getY()+bound.getHeight()/2);
-            deci.lineTo(bound.getX()+bound.getWidth()/2, bound.getY()+bound.getHeight()+10+bound.getWidth()/6);
-            deci.lineTo(bound.getX()+-20, bound.getY()+bound.getHeight()/2);
-            deci.lineTo(bound.getX()+bound.getWidth()/2, bound.getY()-10-bound.getWidth()/6);
-        shape=deci;
+        GeneralPath module = new GeneralPath();
+        double xPoints[] = {bound.getX(), bound.getX()+bound.getWidth()+20, bound.getX()+bound.getWidth()+20, bound.getX(), bound.getX()};
+        double yPoints[] = {bound.getY(), bound.getY(), bound.getY()+bound.getHeight()+20, bound.getY()+bound.getHeight()+20, bound.getY()};
+         
+        module.moveTo(xPoints[0], yPoints[0]);
+        for(int i = 1; i < xPoints.length; i++)
+        {
+            module.lineTo(xPoints[i], yPoints[i]);
+        }
+        module.moveTo(bound.getX(), bound.getY()+10);
+        module.lineTo(bound.getX()+bound.getWidth()+20, bound.getY()+10);
+
+        shape=module;
         afterShape();
     }
 
