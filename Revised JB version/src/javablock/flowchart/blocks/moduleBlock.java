@@ -123,7 +123,7 @@ public class moduleBlock extends JBlock{
         prepareText();
         GeneralPath module = new GeneralPath();
         double xPoints[] = {bound.getX(), bound.getX()+bound.getWidth()+20, bound.getX()+bound.getWidth()+20, bound.getX(), bound.getX()};
-        double yPoints[] = {bound.getY(), bound.getY(), bound.getY()+bound.getHeight()+25, bound.getY()+bound.getHeight()+25, bound.getY()};
+        double yPoints[] = {bound.getY(), bound.getY(), bound.getY()+bound.getHeight()+20, bound.getY()+bound.getHeight()+20, bound.getY()};
          
         module.moveTo(xPoints[0], yPoints[0]);
         for(int i = 1; i < xPoints.length; i++)
