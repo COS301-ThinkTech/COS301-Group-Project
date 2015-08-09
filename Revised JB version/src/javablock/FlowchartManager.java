@@ -17,6 +17,7 @@ import java.util.logging.*;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
 import javablock.flowchart.connector;
+import javablock.flowchart.generator.For;
 import javax.swing.*;
 import javax.swing.text.EditorKit;
 import javax.xml.parsers.*;
@@ -847,7 +848,11 @@ public class FlowchartManager extends JPanel implements ActionListener{
 
         else if(action[0].equals("showMeta"))
             this.showMeta();
-       
+        
+        if(action[0].equals("add"))
+            flow.actionPerformed(e);
+        else if(action[0].equals("foraction"))
+            flow.actionPerformed(e);
     }
 
 }
