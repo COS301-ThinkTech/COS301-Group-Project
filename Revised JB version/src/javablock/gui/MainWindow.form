@@ -498,6 +498,9 @@
                 <Property name="toolTipText" type="java.lang.String" value="Jump"/>
                 <Property name="actionCommand" type="java.lang.String" value="add/JUMP"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="jMenuItem9.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
               <Properties>

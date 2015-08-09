@@ -619,6 +619,7 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem9.setToolTipText("Jump");
         jMenuItem9.setActionCommand("add/JUMP");
         jMenu7.add(jMenuItem9);
+        jMenuItem9.addActionListener(this);
 
         jMenuItem10.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.FORLOOP)));
         jMenuItem10.setText("For Loop");
