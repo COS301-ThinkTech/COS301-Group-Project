@@ -1,6 +1,6 @@
 package config;
 
-import com.jtattoo.plaf.acryl.AcrylLookAndFeel;
+import com.jtattoo.plaf.noire.NoireLookAndFeel;
 import java.lang.reflect.InvocationTargetException;
 import javablock.gui.*;
 import java.awt.*;
@@ -213,10 +213,10 @@ public class global {
         //if(true) return ;
         s=true;
         Properties props = new Properties();
-       props.put("logoString", "Flow");
-       AcrylLookAndFeel.setCurrentTheme(props);
+       props.put("logoString", "Floww");
+       NoireLookAndFeel.setCurrentTheme(props);
         try {
-            UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
+            UIManager.setLookAndFeel("com.jtattoo.plaf.noire.NoireLookAndFeel");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(configurator.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
