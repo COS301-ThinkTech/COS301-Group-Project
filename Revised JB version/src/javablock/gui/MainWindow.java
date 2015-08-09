@@ -600,6 +600,7 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem7.setToolTipText("End");
         jMenuItem7.setActionCommand("IO/RETURN");
         jMenu7.add(jMenuItem7);
+        jMenuItem7.addActionListener(this);
 
         jMenuItem8.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.LINK)));
         jMenuItem8.setText("Link");
