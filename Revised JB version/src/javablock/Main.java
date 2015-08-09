@@ -204,6 +204,7 @@ public class Main extends JApplet implements ActionListener, Runnable {
             }
             MainWindow w=new MainWindow();
             misc.center(w);
+            w.setTitle("Flow 0.1");
             w.setVisible(true);
             checkVersion();
         }
