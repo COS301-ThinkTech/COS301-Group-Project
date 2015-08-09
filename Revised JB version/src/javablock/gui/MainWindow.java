@@ -592,6 +592,7 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem8.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.LINK)));
         jMenuItem8.setText("Link");
         jMenuItem8.setToolTipText("Link");
+        jMenuItem8.setActionCommand("add/LINK");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem8ActionPerformed(evt);

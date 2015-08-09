@@ -463,6 +463,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Link"/>
                 <Property name="toolTipText" type="java.lang.String" value="Link"/>
+                <Property name="actionCommand" type="java.lang.String" value="add/LINK"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem8ActionPerformed"/>
