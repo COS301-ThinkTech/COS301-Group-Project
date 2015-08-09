@@ -195,6 +195,7 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         menuGridBool = new javax.swing.JCheckBoxMenuItem();
@@ -573,6 +574,14 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem7.setText("End");
         jMenu7.add(jMenuItem7);
 
+        jMenuItem8.setText("Link");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu7.add(jMenuItem8);
+
         menu.add(jMenu7);
 
         jMenu3.setText(bundle.getString("main.settings")); // NOI18N
@@ -748,6 +757,10 @@ public final class MainWindow extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
     }                                          
@@ -911,6 +924,7 @@ Rectangle windowSize;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator11;
     private javax.swing.JPopupMenu.Separator jSeparator12;
