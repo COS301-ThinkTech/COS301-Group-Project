@@ -567,6 +567,7 @@ public final class MainWindow extends javax.swing.JFrame
         jMenu7.add(jMenuItem5);
 
         jMenuItem6.setText("Decision");
+        jMenuItem6.setToolTipText("Decision");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
