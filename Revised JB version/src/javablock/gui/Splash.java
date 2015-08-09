@@ -28,7 +28,7 @@ public class Splash extends JWindow implements MouseListener {
         content = (JPanel)getContentPane();
         content.setBackground(Color.white);
         // Build the splash screen
-        JLabel label = new JLabel(new ImageIcon(getClass().getResource("/gui/splash.jpg")));
+        JLabel label = new JLabel(new ImageIcon(getClass().getResource("/gui/splash.png")));
         JLabel copyrt = new JLabel
                 ("Copyright 2015, ThinkTech, University of Pretoria", JLabel.CENTER);
         copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 12));
