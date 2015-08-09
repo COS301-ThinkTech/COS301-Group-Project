@@ -575,6 +575,7 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem6.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.DECISION)));
         jMenuItem6.setText("Decision");
         jMenuItem6.setToolTipText("Decision");
+        jMenuItem6.setActionCommand("add/DECISION");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
