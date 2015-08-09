@@ -152,8 +152,6 @@ public final class MainWindow extends javax.swing.JFrame
         scriptRun = new javax.swing.JButton();
         scriptInterval = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
-        jSeparator9 = new javax.swing.JToolBar.Separator();
-        consoleHide = new javax.swing.JButton();
         menu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuNew = new javax.swing.JMenuItem();
@@ -207,6 +205,7 @@ public final class MainWindow extends javax.swing.JFrame
         menuPascalMode = new javax.swing.JCheckBoxMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         menuSettings = new javax.swing.JMenuItem();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jMenu4 = new javax.swing.JMenu();
         menuHelp = new javax.swing.JMenuItem();
         wikiHelp = new javax.swing.JMenuItem();
@@ -335,18 +334,6 @@ public final class MainWindow extends javax.swing.JFrame
 
         jLabel2.setText("run speed");
         scriptTools.add(jLabel2);
-        scriptTools.add(jSeparator9);
-
-        consoleHide.setText(bundle.getString("main.hideConsole")); // NOI18N
-        consoleHide.setFocusable(false);
-        consoleHide.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        consoleHide.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        consoleHide.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consoleHideActionPerformed(evt);
-            }
-        });
-        scriptTools.add(consoleHide);
 
         toolBar.add(scriptTools);
 
@@ -693,6 +680,14 @@ public final class MainWindow extends javax.swing.JFrame
         });
         jMenu3.add(menuSettings);
 
+        jCheckBoxMenuItem1.setText("Console");
+        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jCheckBoxMenuItem1);
+
         menu.add(jMenu3);
 
         jMenu4.setText(bundle.getString("main.help")); // NOI18N
@@ -785,16 +780,6 @@ public final class MainWindow extends javax.swing.JFrame
         Manager.flow.I.run();
     }//GEN-LAST:event_scriptRunActionPerformed
 
-    private void consoleHideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consoleHideActionPerformed
-        //int loc=Manager.flow.split.getDividerLocation();
-        if(Manager.flow.split.getBottomComponent().getBounds().height<50){
-            Manager.flow.split.setDividerLocation(
-                    Manager.flow.getSize().height-220);
-        }
-        else
-            Manager.flow.split.setDividerLocation(2000);
-    }//GEN-LAST:event_consoleHideActionPerformed
-
     private void menuFlowchartsAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFlowchartsAddActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuFlowchartsAddActionPerformed
@@ -818,6 +803,16 @@ public final class MainWindow extends javax.swing.JFrame
     private void menuFlowchartsRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFlowchartsRemoveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuFlowchartsRemoveActionPerformed
+
+    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        if(Manager.flow.split.getBottomComponent().getBounds().height<50){
+            Manager.flow.split.setDividerLocation(
+                    Manager.flow.getSize().height-220);
+        }
+        else
+            Manager.flow.split.setDividerLocation(2000);
+    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
 
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
@@ -964,8 +959,8 @@ Rectangle windowSize;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel FLOW;
     private javax.swing.JMenuItem comment;
-    private javax.swing.JButton consoleHide;
     private javax.swing.JMenuItem exportPasteBin;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -994,7 +989,6 @@ Rectangle windowSize;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JPopupMenu.Separator jSeparator8;
-    private javax.swing.JToolBar.Separator jSeparator9;
     public javax.swing.JMenuBar menu;
     private javax.swing.JCheckBoxMenuItem menuAABool;
     private javax.swing.JMenuItem menuCopy;
