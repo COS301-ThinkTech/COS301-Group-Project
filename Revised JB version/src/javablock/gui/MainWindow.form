@@ -827,6 +827,9 @@
         <Container class="javax.swing.JToolBar" name="scriptTools">
           <Properties>
             <Property name="rollover" type="boolean" value="true"/>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[350, 33]"/>
+            </Property>
           </Properties>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
@@ -910,8 +913,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="ms"/>
+                <Property name="text" type="java.lang.String" value="run speed"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JToolBar$Separator" name="jSeparator9">
             </Component>
             <Component class="javax.swing.JButton" name="consoleHide">
               <Properties>

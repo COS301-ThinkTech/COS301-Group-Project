@@ -152,6 +152,7 @@ public final class MainWindow extends javax.swing.JFrame
         scriptRun = new javax.swing.JButton();
         scriptInterval = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
+        jSeparator9 = new javax.swing.JToolBar.Separator();
         consoleHide = new javax.swing.JButton();
         menu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -282,6 +283,7 @@ public final class MainWindow extends javax.swing.JFrame
         toolRedo.addActionListener(this);
 
         scriptTools.setRollover(true);
+        scriptTools.setMinimumSize(new java.awt.Dimension(350, 33));
 
         scriptStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-stop.png"))); // NOI18N
         scriptStop.setFocusable(false);
@@ -331,8 +333,9 @@ public final class MainWindow extends javax.swing.JFrame
         scriptInterval.setMaximumSize(new java.awt.Dimension(63, 20));
         scriptTools.add(scriptInterval);
 
-        jLabel2.setText("ms");
+        jLabel2.setText("run speed");
         scriptTools.add(jLabel2);
+        scriptTools.add(jSeparator9);
 
         consoleHide.setText(bundle.getString("main.hideConsole")); // NOI18N
         consoleHide.setFocusable(false);
@@ -991,6 +994,7 @@ Rectangle windowSize;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JPopupMenu.Separator jSeparator8;
+    private javax.swing.JToolBar.Separator jSeparator9;
     public javax.swing.JMenuBar menu;
     private javax.swing.JCheckBoxMenuItem menuAABool;
     private javax.swing.JMenuItem menuCopy;
