@@ -407,6 +407,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu7">
           <Properties>
             <Property name="text" type="java.lang.String" value="Components"/>
+            <Property name="actionCommand" type="java.lang.String" value="add/IO"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
@@ -470,6 +471,11 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Jump"/>
                 <Property name="toolTipText" type="java.lang.String" value="Jump"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="For Loop"/>
               </Properties>
             </MenuItem>
           </SubComponents>

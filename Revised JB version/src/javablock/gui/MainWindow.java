@@ -197,6 +197,7 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         menuGridBool = new javax.swing.JCheckBoxMenuItem();
@@ -552,6 +553,7 @@ public final class MainWindow extends javax.swing.JFrame
         menu.add(jMenu6);
 
         jMenu7.setText("Components");
+        jMenu7.setActionCommand("add/IO");
 
         jMenuItem4.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.IO)));
         jMenuItem4.setText("I/O");
@@ -597,6 +599,9 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem9.setText("Jump");
         jMenuItem9.setToolTipText("Jump");
         jMenu7.add(jMenuItem9);
+
+        jMenuItem10.setText("For Loop");
+        jMenu7.add(jMenuItem10);
 
         menu.add(jMenu7);
 
@@ -933,6 +938,7 @@ Rectangle windowSize;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
