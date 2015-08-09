@@ -1,7 +1,7 @@
 package config;
 
 import addons.Syntax;
-import com.jtattoo.plaf.texture.TextureLookAndFeel;
+import com.jtattoo.plaf.mint.MintLookAndFeel;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.io.*;
@@ -33,10 +33,10 @@ public final class configurator extends javax.swing.JFrame {
     }
     void init(){
        Properties props = new Properties();
-       props.put("logoString", "Flow");
-       TextureLookAndFeel.setCurrentTheme(props);
+       props.put("logoString", "FLOW");
+       MintLookAndFeel.setCurrentTheme(props);
         try {
-            UIManager.setLookAndFeel("com.jtattoo.plaf.texture.TextureLookAndFeel");
+            UIManager.setLookAndFeel("com.jtattoo.plaf.mint.MintLookAndFeel");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(configurator.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {

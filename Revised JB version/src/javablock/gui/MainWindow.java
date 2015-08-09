@@ -282,6 +282,7 @@ public final class MainWindow extends javax.swing.JFrame
         toolRedo.addActionListener(this);
 
         scriptTools.setRollover(true);
+        scriptTools.setMaximumSize(new java.awt.Dimension(350, 33));
         scriptTools.setMinimumSize(new java.awt.Dimension(350, 33));
 
         scriptStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-stop.png"))); // NOI18N
@@ -681,6 +682,11 @@ public final class MainWindow extends javax.swing.JFrame
         jMenu3.add(menuSettings);
 
         jMenuItem11.setText("Console");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem11);
 
         menu.add(jMenu3);
@@ -798,6 +804,16 @@ public final class MainWindow extends javax.swing.JFrame
     private void menuFlowchartsRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFlowchartsRemoveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuFlowchartsRemoveActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+         if(Manager.flow.split.getBottomComponent().getBounds().height<50){
+            Manager.flow.split.setDividerLocation(
+                    Manager.flow.getSize().height-220);
+        }
+        else
+            Manager.flow.split.setDividerLocation(2000);
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
