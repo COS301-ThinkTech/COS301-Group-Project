@@ -417,6 +417,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="I/O"/>
                 <Property name="toolTipText" type="java.lang.String" value="I/O"/>
+                <Property name="actionCommand" type="java.lang.String" value="add/IO"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
