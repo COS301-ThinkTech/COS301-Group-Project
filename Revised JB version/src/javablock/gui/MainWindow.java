@@ -578,6 +578,7 @@ public final class MainWindow extends javax.swing.JFrame
         });
         jMenu7.add(jMenuItem6);
 
+        jMenuItem7.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.RETURN)));
         jMenuItem7.setText("End");
         jMenuItem7.setToolTipText("End");
         jMenu7.add(jMenuItem7);

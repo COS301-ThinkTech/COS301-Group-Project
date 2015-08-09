@@ -444,6 +444,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new ImageIcon(JBlock.getIcon(JBlock.Type.RETURN))" type="code"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="End"/>
                 <Property name="toolTipText" type="java.lang.String" value="End"/>
               </Properties>
