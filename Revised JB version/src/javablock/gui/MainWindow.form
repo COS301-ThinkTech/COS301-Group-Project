@@ -357,6 +357,9 @@
                 </Property>
                 <Property name="actionCommand" type="java.lang.String" value="flowcharts/add"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuFlowchartsAddActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="menuFlowchartsAdd.addActionListener(this);"/>
               </AuxValues>
@@ -403,7 +406,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu7">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jMenu7"/>
+            <Property name="text" type="java.lang.String" value="Components"/>
           </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">

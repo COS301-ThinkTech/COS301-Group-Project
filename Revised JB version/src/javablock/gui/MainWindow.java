@@ -517,6 +517,11 @@ public final class MainWindow extends javax.swing.JFrame
         menuFlowchartsAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/folder-new.png"))); // NOI18N
         menuFlowchartsAdd.setText(bundle.getString("main.flowcharts.add")); // NOI18N
         menuFlowchartsAdd.setActionCommand("flowcharts/add");
+        menuFlowchartsAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFlowchartsAddActionPerformed(evt);
+            }
+        });
         jMenu6.add(menuFlowchartsAdd);
         menuFlowchartsAdd.addActionListener(this);
 
@@ -540,7 +545,7 @@ public final class MainWindow extends javax.swing.JFrame
 
         menu.add(jMenu6);
 
-        jMenu7.setText("jMenu7");
+        jMenu7.setText("Components");
         menu.add(jMenu7);
 
         jMenu3.setText(bundle.getString("main.settings")); // NOI18N
@@ -703,6 +708,10 @@ public final class MainWindow extends javax.swing.JFrame
         else
             Manager.flow.split.setDividerLocation(2000);
     }//GEN-LAST:event_consoleHideActionPerformed
+
+    private void menuFlowchartsAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFlowchartsAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuFlowchartsAddActionPerformed
 
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
