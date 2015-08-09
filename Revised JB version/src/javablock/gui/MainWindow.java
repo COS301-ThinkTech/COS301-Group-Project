@@ -553,6 +553,7 @@ public final class MainWindow extends javax.swing.JFrame
 
         jMenu7.setText("Components");
 
+        jMenuItem4.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.IO)));
         jMenuItem4.setText("I/O");
         jMenuItem4.setToolTipText("I/O");
         jMenu7.add(jMenuItem4);
