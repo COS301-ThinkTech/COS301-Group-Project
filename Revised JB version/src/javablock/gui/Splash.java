@@ -31,7 +31,7 @@ public class Splash extends JWindow implements MouseListener {
         JLabel label = new JLabel(new ImageIcon(getClass().getResource("/gui/splash.png")));
         JLabel copyrt = new JLabel
                 ("Copyright 2015, ThinkTech, University of Pretoria", JLabel.CENTER);
-        copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 12));
+        copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 12));        
         content.add(label, BorderLayout.CENTER);
         content.add(copyrt, BorderLayout.SOUTH);
     }
@@ -48,7 +48,7 @@ public class Splash extends JWindow implements MouseListener {
         this.setContentPane(content);*/
         content.setBackground(Color.white);
         //content.setOpaque(true);
-        JLabel label = new JLabel(new ImageIcon(getClass().getResource("/javablock/gui/splash.jpg")));
+        JLabel label = new JLabel(new ImageIcon(getClass().getResource("/javablock/gui/splash.png")));
         int width = label.getIcon().getIconWidth();
         int height =label.getIcon().getIconHeight()+20;
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
