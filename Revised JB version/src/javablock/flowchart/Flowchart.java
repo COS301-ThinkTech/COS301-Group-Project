@@ -26,6 +26,7 @@ import java.awt.image.VolatileImage;
 import java.io.File;
 import javablock.*;
 import javablock.flowchart.blocks.startBlock;
+import javablock.flowchart.generator.For;
 import javax.imageio.ImageIO;
 import org.w3c.dom.*;
 import widgets.Resizer;
@@ -1722,6 +1723,8 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         String[] action=e.getActionCommand().split("/");
         if(action[0].equals("add"))
             addBlock(action[1]);
+        else if(action[0].equals("foraction"))
+            addBlocksGroup(new For().get(this));
         else if(action[0].equals("align"))
             align(action[1]);
         else if(action[0].equals("history")){

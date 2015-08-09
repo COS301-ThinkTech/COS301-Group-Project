@@ -33,10 +33,17 @@ public class LeftToolbar extends JToolBar{
             std.setFloatable(false);
             std.setOrientation(JToolBar.VERTICAL);
             for (JBlock.Type T : JBlock.StandardTypes) {
-                b = new JButton();
-                b.setActionCommand("add/" + T.toString());
+                b = new JButton();                
                 //b.setToolTipText(T.toString());
                 b.setToolTipText(translator.tooltips.getString(T.toString() + ".help"));
+                if(T == JBlock.StandardTypes[4])
+                {
+                    b.setActionCommand("foraction/" + T.toString());
+                }
+                else
+                {
+                     b.setActionCommand("add/" + T.toString());
+                }
                 b.setPreferredSize(new Dimension(32, 32));
                 b.setIcon(new javax.swing.ImageIcon(JBlock.getIcon(T)));
                 std.add(b);

@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
  *
  * 
  */
-class For extends javax.swing.JPanel implements Generator{
+public class For extends javax.swing.JPanel implements Generator{
 
     /** Creates new form For */
     public For() {
