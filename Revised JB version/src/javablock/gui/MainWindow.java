@@ -328,6 +328,7 @@ public final class MainWindow extends javax.swing.JFrame
         scriptTools.add(scriptRun);
 
         scriptInterval.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5000, 50));
+        scriptInterval.setMaximumSize(new java.awt.Dimension(63, 20));
         scriptTools.add(scriptInterval);
 
         jLabel2.setText("ms");
