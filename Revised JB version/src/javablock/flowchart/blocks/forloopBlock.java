@@ -9,7 +9,7 @@ import config.global;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.GeneralPath;
-import java.awt.geom.Rectangle2D;
+import java.awt.geom.QuadCurve2D;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
 import javablock.*;
@@ -27,11 +27,13 @@ public class forloopBlock extends JBlock{
     @Override
     public void shape(){
         prepareText();
-        Rectangle2D cpu=new Rectangle.Double(
-                        bound.getX()-10,
-                        bound.getY()-10,
+        QuadCurve2D cpu=new QuadCurve2D.Double(
+                        bound.getX()+40,
+                        bound.getY()+5,
                         bound.getWidth()+20,
-                        bound.getHeight()+20
+                        bound.getY()+5,
+                        bound.getY()+10,
+                        bound.getX()+10
                         );
                 shape=cpu;
         afterShape();
