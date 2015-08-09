@@ -467,7 +467,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="End"/>
                 <Property name="toolTipText" type="java.lang.String" value="End"/>
-                <Property name="actionCommand" type="java.lang.String" value="IO/RETURN"/>
+                <Property name="actionCommand" type="java.lang.String" value="add/RETURN"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="jMenuItem7.addActionListener(this);"/>
