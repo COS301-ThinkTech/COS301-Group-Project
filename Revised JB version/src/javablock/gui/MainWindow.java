@@ -205,7 +205,7 @@ public final class MainWindow extends javax.swing.JFrame
         menuPascalMode = new javax.swing.JCheckBoxMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         menuSettings = new javax.swing.JMenuItem();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         menuHelp = new javax.swing.JMenuItem();
         wikiHelp = new javax.swing.JMenuItem();
@@ -680,13 +680,8 @@ public final class MainWindow extends javax.swing.JFrame
         });
         jMenu3.add(menuSettings);
 
-        jCheckBoxMenuItem1.setText("Console");
-        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jCheckBoxMenuItem1);
+        jMenuItem11.setText("Console");
+        jMenu3.add(jMenuItem11);
 
         menu.add(jMenu3);
 
@@ -803,16 +798,6 @@ public final class MainWindow extends javax.swing.JFrame
     private void menuFlowchartsRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFlowchartsRemoveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuFlowchartsRemoveActionPerformed
-
-    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        if(Manager.flow.split.getBottomComponent().getBounds().height<50){
-            Manager.flow.split.setDividerLocation(
-                    Manager.flow.getSize().height-220);
-        }
-        else
-            Manager.flow.split.setDividerLocation(2000);
-    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
 
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
@@ -960,7 +945,6 @@ Rectangle windowSize;
     private javax.swing.JPanel FLOW;
     private javax.swing.JMenuItem comment;
     private javax.swing.JMenuItem exportPasteBin;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -971,6 +955,7 @@ Rectangle windowSize;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
