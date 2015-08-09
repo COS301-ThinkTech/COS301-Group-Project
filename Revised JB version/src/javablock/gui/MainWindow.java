@@ -194,6 +194,7 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         menuGridBool = new javax.swing.JCheckBoxMenuItem();
@@ -569,6 +570,9 @@ public final class MainWindow extends javax.swing.JFrame
         });
         jMenu7.add(jMenuItem6);
 
+        jMenuItem7.setText("End");
+        jMenu7.add(jMenuItem7);
+
         menu.add(jMenu7);
 
         jMenu3.setText(bundle.getString("main.settings")); // NOI18N
@@ -906,6 +910,7 @@ Rectangle windowSize;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator11;
     private javax.swing.JPopupMenu.Separator jSeparator12;
