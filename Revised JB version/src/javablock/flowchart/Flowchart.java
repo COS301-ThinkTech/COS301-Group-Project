@@ -80,6 +80,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         updateScrolls();
         moving=false;
         frc=global.frc;
+        
     }
     public Flowchart(FlowchartManager action, Element xml){
         super(action);
@@ -186,7 +187,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         split.setResizeWeight(1.0);
         setLayout(new BorderLayout());
         add(split, BorderLayout.CENTER);
-        split.setDividerLocation(1000);
+        split.setDividerLocation(2000);
         add(new javablock.flowchart.LeftToolbar(this),
                 BorderLayout.WEST);
         add(editorPane,BorderLayout.EAST);
