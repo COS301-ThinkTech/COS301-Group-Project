@@ -511,6 +511,9 @@
                 <Property name="toolTipText" type="java.lang.String" value="For Loop"/>
                 <Property name="actionCommand" type="java.lang.String" value="foraction/FORLOOP"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="jMenuItem10.addActionListener(this);"/>
+              </AuxValues>
             </MenuItem>
           </SubComponents>
         </Menu>
