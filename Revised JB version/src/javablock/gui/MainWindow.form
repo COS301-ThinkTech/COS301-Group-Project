@@ -486,7 +486,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="For Loop"/>
                 <Property name="toolTipText" type="java.lang.String" value="For Loop"/>
-                <Property name="actionCommand" type="java.lang.String" value="forloopaction/FORLOOP"/>
+                <Property name="actionCommand" type="java.lang.String" value="foraction/FORLOOP"/>
               </Properties>
             </MenuItem>
           </SubComponents>
