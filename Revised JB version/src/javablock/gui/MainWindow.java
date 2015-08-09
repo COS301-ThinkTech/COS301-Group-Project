@@ -535,6 +535,11 @@ public final class MainWindow extends javax.swing.JFrame
         menuFlowchartsRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/list-remove.png"))); // NOI18N
         menuFlowchartsRemove.setText(bundle.getString("main.flowcharts.remove")); // NOI18N
         menuFlowchartsRemove.setActionCommand("flowcharts/remove");
+        menuFlowchartsRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFlowchartsRemoveActionPerformed(evt);
+            }
+        });
         jMenu6.add(menuFlowchartsRemove);
         menuFlowchartsRemove.addActionListener(this);
 
@@ -558,7 +563,13 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem4.setText("I/O");
         jMenuItem4.setToolTipText("I/O");
         jMenuItem4.setActionCommand("add/IO");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem4);
+        jMenuItem4.addActionListener(this);
 
         jMenuItem5.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.CPU)));
         jMenuItem5.setText("CPU");
@@ -570,6 +581,7 @@ public final class MainWindow extends javax.swing.JFrame
             }
         });
         jMenu7.add(jMenuItem5);
+        jMenuItem5.addActionListener(this);
 
         jMenuItem6.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.DECISION)));
         jMenuItem6.setText("Decision");
@@ -789,6 +801,14 @@ public final class MainWindow extends javax.swing.JFrame
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void menuFlowchartsRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFlowchartsRemoveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuFlowchartsRemoveActionPerformed
 
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
