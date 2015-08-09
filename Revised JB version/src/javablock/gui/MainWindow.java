@@ -554,6 +554,7 @@ public final class MainWindow extends javax.swing.JFrame
         jMenu7.setText("Components");
 
         jMenuItem4.setText("I/O");
+        jMenuItem4.setToolTipText("I/O");
         jMenu7.add(jMenuItem4);
 
         jMenuItem5.setText("CPU");
