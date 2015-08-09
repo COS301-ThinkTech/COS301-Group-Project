@@ -145,11 +145,6 @@ public final class MainWindow extends javax.swing.JFrame
         jSeparator5 = new javax.swing.JToolBar.Separator();
         toolUndo = new javax.swing.JButton();
         toolRedo = new javax.swing.JButton();
-        jSeparator6 = new javax.swing.JToolBar.Separator();
-        //jButton1 = new javax.swing.JButton();
-        jSeparator9 = new javax.swing.JToolBar.Separator();
-        //jLabel1 = new javax.swing.JLabel();
-        //engine = new javax.swing.JComboBox();
         scriptTools = new javax.swing.JToolBar();
         scriptStop = new javax.swing.JButton();
         scriptStart = new javax.swing.JButton();
@@ -195,6 +190,7 @@ public final class MainWindow extends javax.swing.JFrame
         menuFlowchartsRename = new javax.swing.JMenuItem();
         jSeparator11 = new javax.swing.JPopupMenu.Separator();
         menuScript = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         menuGridBool = new javax.swing.JCheckBoxMenuItem();
@@ -212,7 +208,7 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem12 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Flow");
+        setTitle("JavaBlock");
         setMinimumSize(new java.awt.Dimension(900, 550));
 
         FLOW.setLayout(new java.awt.BorderLayout());
@@ -277,26 +273,6 @@ public final class MainWindow extends javax.swing.JFrame
         toolRedo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(toolRedo);
         toolRedo.addActionListener(this);
-        //toolBar.add(jSeparator6);
-
-        /*jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/24/help-about.png"))); // NOI18N
-        jButton1.setToolTipText(bundle.getString("main.about")); // NOI18N
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        toolBar.add(jButton1);*/
-        //toolBar.add(jSeparator9);
-
-        //jLabel1.setText(bundle.getString("main.engine")); // NOI18N
-        //toolBar.add(jLabel1);
-
-        //engine.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "JavaScript" }));
-        //toolBar.add(engine);
 
         scriptTools.setRollover(true);
 
@@ -563,6 +539,9 @@ public final class MainWindow extends javax.swing.JFrame
         menuScript.addActionListener(this);
 
         menu.add(jMenu6);
+
+        jMenu7.setText("jMenu7");
+        menu.add(jMenu7);
 
         jMenu3.setText(bundle.getString("main.settings")); // NOI18N
 
@@ -871,10 +850,7 @@ Rectangle windowSize;
     private javax.swing.JPanel FLOW;
     private javax.swing.JMenuItem comment;
     private javax.swing.JButton consoleHide;
-    //private javax.swing.JComboBox engine;
     private javax.swing.JMenuItem exportPasteBin;
-    private javax.swing.JButton jButton1;
-   // private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -882,6 +858,7 @@ Rectangle windowSize;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
@@ -893,10 +870,8 @@ Rectangle windowSize;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
-    private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JPopupMenu.Separator jSeparator8;
-    private javax.swing.JToolBar.Separator jSeparator9;
     public javax.swing.JMenuBar menu;
     private javax.swing.JCheckBoxMenuItem menuAABool;
     private javax.swing.JMenuItem menuCopy;
