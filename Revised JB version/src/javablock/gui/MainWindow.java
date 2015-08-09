@@ -601,6 +601,7 @@ public final class MainWindow extends javax.swing.JFrame
         jMenu7.add(jMenuItem9);
 
         jMenuItem10.setText("For Loop");
+        jMenuItem10.setToolTipText("For Loop");
         jMenu7.add(jMenuItem10);
 
         menu.add(jMenu7);

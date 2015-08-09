@@ -476,6 +476,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
               <Properties>
                 <Property name="text" type="java.lang.String" value="For Loop"/>
+                <Property name="toolTipText" type="java.lang.String" value="For Loop"/>
               </Properties>
             </MenuItem>
           </SubComponents>
