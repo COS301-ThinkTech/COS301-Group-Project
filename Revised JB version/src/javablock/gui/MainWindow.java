@@ -580,6 +580,7 @@ public final class MainWindow extends javax.swing.JFrame
         jMenu7.add(jMenuItem7);
 
         jMenuItem8.setText("Link");
+        jMenuItem8.setToolTipText("Link");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem8ActionPerformed(evt);
