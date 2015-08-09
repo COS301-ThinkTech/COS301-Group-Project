@@ -558,6 +558,7 @@ public final class MainWindow extends javax.swing.JFrame
         jMenu7.add(jMenuItem4);
 
         jMenuItem5.setText("CPU");
+        jMenuItem5.setToolTipText("CPU");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
