@@ -36,7 +36,7 @@ public class LeftToolbar extends JToolBar{
                 b = new JButton();                
                 //b.setToolTipText(T.toString());
                 b.setToolTipText(translator.tooltips.getString(T.toString() + ".help"));
-                if(T == JBlock.StandardTypes[3])
+                if(T == JBlock.StandardTypes[4])
                 {
                     b.setActionCommand("foraction/FORLOOP" + T.toString());
                 }
