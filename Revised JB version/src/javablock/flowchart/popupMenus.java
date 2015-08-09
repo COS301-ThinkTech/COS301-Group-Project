@@ -81,9 +81,9 @@ public class popupMenus implements ActionListener, PopupMenuListener {
         item=newMenuItem("block.RETURN", JBlock.getIcon(JBlock.Type.RETURN), "return", "add/RETURN");
         nullMenu.add(item);
 
-        item=newMenuItem("block.COMMENT", JBlock.getIcon(JBlock.Type.COMMENT), "comment", "add/COMMENT");
-        nullMenu.add(item);
-        nullMenu.addSeparator();
+//        item=newMenuItem("block.COMMENT", JBlock.getIcon(JBlock.Type.COMMENT), "comment", "add/COMMENT");
+//        nullMenu.add(item);
+//        nullMenu.addSeparator();
 
         item=newMenuItem("block.LINK", JBlock.getIcon(JBlock.Type.LINK), "link", "add/LINK");
         nullMenu.add(item);

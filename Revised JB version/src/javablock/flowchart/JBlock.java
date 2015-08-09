@@ -27,7 +27,7 @@ import org.w3c.dom.*;
 public abstract class JBlock implements FlowElement{
     public enum Type { START, RETURN,
         IO, IOin, IOout, CPU, SCRIPT,
-        DECISION, COMMENT, LINK,
+        DECISION, LINK,
         BRACE, JUMP, NULL, GROUP, 
         LOGO, CANVAS2D, STRUCT, CUSTOM, MODULE, FORLOOP
     };
@@ -55,7 +55,7 @@ public abstract class JBlock implements FlowElement{
         return Type.CUSTOM;
     }
     public static Type StandardTypes[]={
-        Type.CPU/*, Type.IOin, Type.IOout*/, Type.DECISION, Type.RETURN, Type.MODULE, Type.FORLOOP/*, Type.COMMENT*/
+        Type.CPU/*, Type.IOin, Type.IOout*/, Type.DECISION, Type.RETURN,  Type.FORLOOP/*, Type.COMMENT*/
     };
     public static Type HelpingTypes[]={
         Type.IO, Type.JUMP, Type.LINK, Type.BRACE/*, Type.STRUCT*/, Type.SCRIPT
@@ -155,7 +155,6 @@ public abstract class JBlock implements FlowElement{
             case RETURN: b= new returnBlock(parent); break;
             case DECISION: b= new decBlock(parent); break;
             case SCRIPT: b= new scrBlock(parent); break;
-            case COMMENT: b= new commentBlock(parent); break;
             case MODULE: b= new moduleBlock(parent);  break;
             case FORLOOP: b= new forloopBlock(parent);  break;
                 

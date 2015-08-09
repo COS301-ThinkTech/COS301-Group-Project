@@ -506,7 +506,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                 + "\t  switch("+getName()+"_block){\n";
         for(JBlock b: blocks){
             if(b.isDefinitionBlock()) continue;
-            if(b.type==JBlock.Type.COMMENT) continue;
+//            if(b.type==JBlock.Type.COMMENT) continue;
             if(!global.highlightLinks)
                 if(b.type==JBlock.Type.JUMP) continue;
             code+="\t\tcase "+b.getId()+":\n";
@@ -522,7 +522,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                 + "\t switch("+getName()+"_block){\n";
         for(JBlock b: blocks){
             if(b.isDefinitionBlock()) continue;
-            if(b.type==JBlock.Type.COMMENT) continue;
+//            if(b.type==JBlock.Type.COMMENT) continue;
             if(!global.highlightLinks)
                 if(b.type==JBlock.Type.JUMP) continue;
             code+="\t\tcase "+b.getId()+":\n";
@@ -562,7 +562,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         code+="\twhile true:\n";
         for(JBlock b:blocks){
             if(b.isDefinitionBlock()) continue;
-            if(b.type==JBlock.Type.COMMENT) continue;
+    //        if(b.type==JBlock.Type.COMMENT) continue;
             if(!global.highlightLinks)
                 if(b.type==JBlock.Type.JUMP) continue;
             code+="\t\tif "+getName()+"_block=="+b.ID+": #"+b.type+"\n";
@@ -573,7 +573,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                 + "\twhile(true):\n";
         for(JBlock b:blocks){
             if(b.isDefinitionBlock()) continue;
-            if(b.type==JBlock.Type.COMMENT) continue;
+//            if(b.type==JBlock.Type.COMMENT) continue;
             if(!global.highlightLinks)
                 if(b.type==JBlock.Type.JUMP) continue;
             code+="\t\tif "+getName()+"_block=="+b.ID+": #"+b.type+"\n";
@@ -603,7 +603,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         code+="\t"+getName()+"_block="+blocks.get(0).nextBlock().nextExe().ID+"\n";
         code+="\twhile true:\n";
         for(JBlock b:blocks){
-            if(b.type==JBlock.Type.COMMENT) continue;
+//            if(b.type==JBlock.Type.COMMENT) continue;
             if(!global.highlightLinks)
                 if(b.type==JBlock.Type.JUMP) continue;
             if(b.isDefinitionBlock()) continue;
@@ -1858,7 +1858,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
 
         for (JBlock b : this.blocks) {
             if ((!b.isDefinitionBlock())
-                    && (b.type != JBlock.Type.COMMENT) && ((global.highlightLinks)
+                    /*&& (b.type != JBlock.Type.COMMENT)*/ && ((global.highlightLinks)
                     || (b.type != JBlock.Type.JUMP))) {
                 code = code + "\t\tcase " + b.getId() + ":\n";
                 code = code + b.getScriptFragmentForJavaScript() + "\n";
@@ -1871,7 +1871,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
 
         for (JBlock b : this.blocks) {
             if ((!b.isDefinitionBlock())
-                    && (b.type != JBlock.Type.COMMENT) && ((global.highlightLinks)
+                    /*&& (b.type != JBlock.Type.COMMENT)*/ && ((global.highlightLinks)
                     || (b.type != JBlock.Type.JUMP))) {
                 code = code + "\t\tcase " + b.getId() + ":\n";
                 code = code + b.getScriptFragmentForJavaScript() + "\n";
