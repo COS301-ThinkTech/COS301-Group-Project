@@ -432,6 +432,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new ImageIcon(JBlock.getIcon(JBlock.Type.DECISION))" type="code"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Decision"/>
                 <Property name="toolTipText" type="java.lang.String" value="Decision"/>
               </Properties>
