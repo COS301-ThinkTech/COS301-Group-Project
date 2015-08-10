@@ -3,7 +3,6 @@ package widgets;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.JComponent;
-import javax.swing.JSplitPane;
 
 
 public class Resizer extends JComponent implements MouseListener, MouseMotionListener{

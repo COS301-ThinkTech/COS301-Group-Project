@@ -5,17 +5,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
-import java.awt.image.PixelGrabber;
 import javablock.Sheet;
-import javablock.FlowchartManager;
 import javax.swing.*;
-import javax.swing.border.*;
 
 public class colors extends JPanel implements MouseListener, MouseMotionListener{
     String colors[]={ "0xffff00","0xff00ff","0x00ffff",
@@ -169,6 +165,7 @@ public class colors extends JPanel implements MouseListener, MouseMotionListener
     }
 
 
+    @Override
     public void mouseClicked(MouseEvent e) {
         //if (e.getClickCount() == 2 && !e.isConsumed()) {
         if(e.getButton()==MouseEvent.BUTTON3){
@@ -194,10 +191,12 @@ public class colors extends JPanel implements MouseListener, MouseMotionListener
         }
     }
 
+    @Override
     public void mousePressed(MouseEvent me) {
         clicked=true;
     }
 
+    @Override
     public void mouseReleased(MouseEvent me) {
         if(me.getButton()==MouseEvent.BUTTON1){
             type=0;
@@ -213,13 +212,16 @@ public class colors extends JPanel implements MouseListener, MouseMotionListener
         clicked=false;
     }
 
+    @Override
     public void mouseEntered(MouseEvent me) {
     }
 
+    @Override
     public void mouseExited(MouseEvent me) {
         clicked=false;
     }
 
+    @Override
     public void mouseDragged(MouseEvent me) {
         if(clicked){
             type=0;
@@ -229,6 +231,7 @@ public class colors extends JPanel implements MouseListener, MouseMotionListener
         }
     }
 
+    @Override
     public void mouseMoved(MouseEvent me) {
         if(clicked){
             type=0;

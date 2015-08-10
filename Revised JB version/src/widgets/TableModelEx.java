@@ -12,8 +12,8 @@ import javax.swing.table.AbstractTableModel;
 
 
 public class TableModelEx extends AbstractTableModel{
-    private String[] columnNames;
-    private List<Object[]> data=new ArrayList();
+    private final String[] columnNames;
+    private final List<Object[]> data=new ArrayList();
     public TableModelEx(String[] headers, Object[][] rows){
         columnNames=headers;
         data.addAll(Arrays.asList(rows));
@@ -27,13 +27,16 @@ public class TableModelEx extends AbstractTableModel{
         columnNames=headers;
         data.addAll(Arrays.asList(rows));
     }
+    @Override
     public int getRowCount() {
         return data.size();}
+    @Override
     public int getColumnCount() {
         return columnNames.length;}
     @Override
     public String getColumnName(int col) {
         return columnNames[col];}
+    @Override
     public Object getValueAt(int i, int i1) {
         return data.get(i)[i1];
     }

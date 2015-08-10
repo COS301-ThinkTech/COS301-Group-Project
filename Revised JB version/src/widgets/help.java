@@ -3,18 +3,8 @@
  * and open the template in the editor.
  */
 
-/*
- * help.java
- *
- * Created on 2010-10-07, 22:12:11
- */
-
 package widgets;
 
-/**
- *
- * @author razi
- */
 public class help extends javax.swing.JFrame {
 
     /** Creates new form help */
@@ -91,7 +81,6 @@ public class help extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-    * @param args the command line arguments
     */
     public static void showHelp() {
         new help().setVisible(true);

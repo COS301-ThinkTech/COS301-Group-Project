@@ -1,10 +1,5 @@
 package widgets;
 
-import java.awt.Graphics;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
 public class ComboText{
     String text, value, icon="";
     /**
