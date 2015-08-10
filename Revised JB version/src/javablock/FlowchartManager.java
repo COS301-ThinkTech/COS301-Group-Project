@@ -27,8 +27,7 @@ import org.xml.sax.SAXException;
 import widgets.help;
 
 public class FlowchartManager extends JPanel implements ActionListener{
-    public MetaInfo meta;
-
+    
     public Flowchart flow;
     public List<Sheet> flows=new ArrayList();
 
@@ -43,7 +42,6 @@ public class FlowchartManager extends JPanel implements ActionListener{
 
     MainWindow gui;
     public FlowchartManager(MainWindow gui){
-        meta=new MetaInfo();
         this.gui=gui;
         gui.Manager=this;
         //tabs.setTabPlacement(JTabbedPane.BOTTOM);
@@ -67,15 +65,7 @@ public class FlowchartManager extends JPanel implements ActionListener{
         return false;
     }
     
-    private void showMeta(){
-        MetaInfo newMeta=new MetaInfo(meta);
-        int o=JOptionPane.showConfirmDialog(global.Window, newMeta,
-                "Informations", JOptionPane.OK_CANCEL_OPTION,
-                JOptionPane.INFORMATION_MESSAGE);
-        if(o==JOptionPane.OK_OPTION){
-            meta=newMeta;
-        }
-    }
+   
 
     /**
      * Call before program exit
@@ -481,15 +471,6 @@ public class FlowchartManager extends JPanel implements ActionListener{
             Element root = doc.createElement("JavaBlocks");
             root.setAttribute("version", ""+global.version);
             root.setAttribute("scriptEngine", scriptEngine);
-            if(meta.author.getText().length()>0)
-                root.setAttribute("author", meta.author.getText());
-            if(meta.name.getText().length()>0)
-                root.setAttribute("name", meta.name.getText());
-            if(meta.description.getText().length()>0){
-                Element desc=doc.createElement("description");
-                desc.appendChild(doc.createTextNode(meta.description.getText()));
-                root.appendChild(desc);
-            }
             doc.appendChild(root);
             Element options=doc.createElement("option");
             options.setAttribute("pascal", global.pascalMode+"");
@@ -635,22 +616,13 @@ public class FlowchartManager extends JPanel implements ActionListener{
                             translator.get("popup.flowchartNewer"));
                 }
             }
-            if (main.hasAttribute("author")) {
-                meta.author.setText(main.getAttribute("author"));
-            }
-            if (main.hasAttribute("name")) {
-                meta.name.setText(main.getAttribute("name"));
-            }
+           
             if (main.hasAttribute("scriptEngine")) {
                 scriptEngine = main.getAttribute("scriptEngine");
             }
 
             {
-                NodeList desc = main.getElementsByTagName("description");
-                if (desc.getLength() > 0) {
-                    Element e = (Element) desc.item(0);
-                    meta.description.setText(e.getTextContent());
-                }
+                
             }
 
             NodeList options = main.getElementsByTagName("option");
@@ -700,7 +672,7 @@ public class FlowchartManager extends JPanel implements ActionListener{
         }
         py+="\n\n";
         py+="def getAuthor():"
-                + "\treturn \""+this.meta.author.getText()+"\"\n";
+                + "\treturn \""+"\"\n";
         //py+=flows.get(0).getName()+"()\n";
         misc.saveToFile(fn, py);
     }
@@ -846,9 +818,7 @@ public class FlowchartManager extends JPanel implements ActionListener{
                 paste();
         }
 
-        else if(action[0].equals("showMeta"))
-            this.showMeta();
-        
+                
         if(action[0].equals("add"))
             flow.actionPerformed(e);
         else if(action[0].equals("foraction"))
