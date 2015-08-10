@@ -200,7 +200,6 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         menuHelp = new javax.swing.JMenuItem();
-        wikiHelp = new javax.swing.JMenuItem();
         menuManual = new javax.swing.JMenuItem();
         menuInstall = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
@@ -662,15 +661,6 @@ public final class MainWindow extends javax.swing.JFrame
         jMenu4.add(menuHelp);
         menuHelp.addActionListener(Manager);
 
-        wikiHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/help-contents.png"))); // NOI18N
-        wikiHelp.setText(bundle.getString("main.wikiHelp")); // NOI18N
-        wikiHelp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wikiHelpActionPerformed(evt);
-            }
-        });
-        jMenu4.add(wikiHelp);
-
         menuManual.setText(bundle.getString("main.manual")); // NOI18N
         menuManual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -798,16 +788,8 @@ public final class MainWindow extends javax.swing.JFrame
 
     private void menuSettingsActionPerformed(java.awt.event.ActionEvent evt) {                                             
         global.conf.show();
-    }                                            
-
-                        
-
-    private void wikiHelpActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        try{
-            java.awt.Desktop.getDesktop().browse(new URI("http://sourceforge.net/apps/mediawiki/javablock/"));
-        } catch(Exception e){
-        }
-    }                                        
+    }                                           
+                                  
 
     private void menuHelpActionPerformed(java.awt.event.ActionEvent evt) {                                         
         widgets.help.showHelp();
@@ -959,7 +941,6 @@ Rectangle windowSize;
     private javax.swing.JButton toolRedo;
     private javax.swing.JButton toolSave;
     private javax.swing.JButton toolUndo;
-    private javax.swing.JMenuItem wikiHelp;
     // End of variables declaration//GEN-END:variables
     
     public void updateConfig(FlowchartManager men) {
