@@ -16,7 +16,6 @@ import java.awt.geom.*;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import javablock.FlowchartManager;
-import javablock.flowchart.blocks.addons.*;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
@@ -163,7 +162,6 @@ public abstract class JBlock implements FlowElement{
             case BRACE: b= new braceBlock(parent); break;
             case JUMP: b= new jumpBlock(parent); break;
             case GROUP: b= new blockGroup(parent); break;
-            case LOGO: b = new logoBlock(parent); break;
             case STRUCT: b = new structBlock(parent); break;
             default: b= new cpuBlock(parent);b.type=Type.CUSTOM; break;
         }
