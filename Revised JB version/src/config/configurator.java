@@ -13,7 +13,6 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.xml.parsers.*;
-import net.FileDownloader;
 import org.w3c.dom.*;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -138,18 +137,7 @@ public final class configurator extends javax.swing.JFrame {
 
                 // </editor-fold>
 
-                // <editor-fold defaultstate="collapsed" desc="Pastebin">
-                {
-                    Element pastebin = doc.createElement("pastebin");
-                    //pastebin.setAttribute("email", pastebinEmail.getText());
-                    if(pastebinExpire.getSelectedItem()!=null)
-                        pastebin.setAttribute("expire",pastebinExpire.getSelectedItem().toString());
-                    if(pastebinPublic.getSelectedItem()!=null)
-                        pastebin.setAttribute("exposure", pastebinPublic.getSelectedItem().toString());
-                    pastebin.setAttribute("ask", labelPastebinShowThisDialog.isSelected()+"");
-                    root.appendChild(pastebin);
-                }// </editor-fold>
-
+                
                 // <editor-fold defaultstate="collapsed" desc="General">
                 {
                     Element general = doc.createElement("general");
@@ -230,16 +218,9 @@ public final class configurator extends javax.swing.JFrame {
         colorHorPix.setValue(global.colorResolutionX);
         colorVertPix.setValue(global.colorResolutionY);
         colorTransparentPNG.setSelected(global.transparentPNG);// </editor-fold>
-        // <editor-fold defaultstate="collapsed" desc="pastebin">
-        pastebinEmail.setText(net.pastebin.email);
-        if(net.pastebin.expire.length()>1)
-            pastebinExpire.setSelectedItem(net.pastebin.expire);
-        if(net.pastebin.exposure.length()>1)
-            pastebinPublic.setSelectedItem(net.pastebin.exposure);
-        labelPastebinShowThisDialog.setSelected(net.pastebin.askForName);// </editor-fold>
+       
         // <editor-fold defaultstate="collapsed" desc="General">
         //scriptSingle.setSelected(global.singleCall);
-        checkUpdate.setSelected(global.checkUpdate);
         scriptHighlightAll.setSelected(global.highlightLinks);
         scriptReplace.setSelected(global.scriptReplace);
         drawingPrerender.setSelected(global.prerender);
@@ -320,15 +301,7 @@ public final class configurator extends javax.swing.JFrame {
                     global.colors[3] = c.getAttribute("flowBg");
                     global.transparentPNG = c.getAttribute("transparentPNG").equals("true");
                 }// </editor-fold>
-                // <editor-fold defaultstate="collapsed" desc="Pastebin">
-                set = main.getElementsByTagName("pastebin");
-                if (set.getLength() > 0) {
-                    Element p = (Element) set.item(0);
-                    net.pastebin.email = p.getAttribute("email");
-                    net.pastebin.expire = p.getAttribute("expire");
-                    net.pastebin.exposure = p.getAttribute("exposure");
-                    net.pastebin.askForName = Boolean.parseBoolean(p.getAttribute("ask"));
-                }// </editor-fold>
+                
                 // <editor-fold defaultstate="collapsed" desc="General">
                 set = main.getElementsByTagName("general");
                 if (set.getLength() > 0) {
@@ -403,13 +376,6 @@ public final class configurator extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pastebinSummary = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        pastebinURL = new javax.swing.JTextField();
-        pastebinID = new javax.swing.JTextField();
-        pastebinApplet = new javax.swing.JTextField();
         tabs = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JScrollPane();
         general = new javax.swing.JPanel();
@@ -423,7 +389,6 @@ public final class configurator extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         startupSplash = new javax.swing.JCheckBox();
         startupLoadLast = new javax.swing.JCheckBox();
-        checkUpdate = new javax.swing.JCheckBox();
         jPanel5 = new javax.swing.JPanel();
         editingAutojumps = new javax.swing.JCheckBox();
         labelHighlighting = new javax.swing.JLabel();
@@ -459,17 +424,6 @@ public final class configurator extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         LaF = new javax.swing.JComboBox();
-        pastebinPane = new javax.swing.JPanel();
-        pastebinConf = new javax.swing.JPanel();
-        pastebinNameLabel = new javax.swing.JLabel();
-        pastebinName = new javax.swing.JTextField();
-        pastebinPublic = new javax.swing.JComboBox();
-        labelPastebinExposure = new javax.swing.JLabel();
-        labelPastebinExpiration = new javax.swing.JLabel();
-        pastebinExpire = new javax.swing.JComboBox();
-        pastebinEmail = new javax.swing.JTextField();
-        labelPastebinEmail = new javax.swing.JLabel();
-        labelPastebinShowThisDialog = new javax.swing.JCheckBox();
         jPanel7 = new javax.swing.JPanel();
         syntaxDownload = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -483,58 +437,6 @@ public final class configurator extends javax.swing.JFrame {
         restartRequired = new javax.swing.JLabel();
 
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("config/lang/settings"); // NOI18N
-        jLabel2.setText(bundle.getString("configurator.jLabel2.text")); // NOI18N
-
-        jLabel3.setText(bundle.getString("configurator.jLabel3.text")); // NOI18N
-
-        jLabel4.setText(bundle.getString("configurator.jLabel4.text")); // NOI18N
-
-        pastebinURL.setText(bundle.getString("configurator.pastebinURL.text")); // NOI18N
-
-        pastebinID.setText(bundle.getString("configurator.pastebinID.text")); // NOI18N
-        pastebinID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pastebinIDActionPerformed(evt);
-            }
-        });
-
-        pastebinApplet.setText(bundle.getString("configurator.pastebinApplet.text")); // NOI18N
-
-        javax.swing.GroupLayout pastebinSummaryLayout = new javax.swing.GroupLayout(pastebinSummary);
-        pastebinSummary.setLayout(pastebinSummaryLayout);
-        pastebinSummaryLayout.setHorizontalGroup(
-            pastebinSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pastebinSummaryLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pastebinSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pastebinSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pastebinID, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                    .addComponent(pastebinURL, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                    .addComponent(pastebinApplet, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        pastebinSummaryLayout.setVerticalGroup(
-            pastebinSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pastebinSummaryLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pastebinSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(pastebinURL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pastebinSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(pastebinID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pastebinSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(pastebinApplet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         setTitle(bundle.getString("configurator.title")); // NOI18N
 
         tabs.setPreferredSize(new java.awt.Dimension(0, 0));
@@ -592,8 +494,6 @@ public final class configurator extends javax.swing.JFrame {
         startupLoadLast.setText(bundle.getString("configurator.startupLoadLast.text")); // NOI18N
         startupLoadLast.setToolTipText(bundle.getString("configurator.startupLoadLast.toolTipText")); // NOI18N
 
-        checkUpdate.setText(bundle.getString("configurator.checkUpdate.text")); // NOI18N
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -601,9 +501,8 @@ public final class configurator extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(startupSplash)
-                    .addComponent(startupLoadLast)
-                    .addComponent(checkUpdate))
-                .addContainerGap(183, Short.MAX_VALUE))
+                    .addComponent(startupLoadLast))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -611,8 +510,7 @@ public final class configurator extends javax.swing.JFrame {
                 .addComponent(startupSplash)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(startupLoadLast)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(checkUpdate))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(bundle.getString("configurator.jPanel5.border.title"))); // NOI18N
@@ -634,7 +532,7 @@ public final class configurator extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(labelHighlighting)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(highlighting, 0, 176, Short.MAX_VALUE))
+                        .addComponent(highlighting, 0, 200, Short.MAX_VALUE))
                     .addComponent(snapToGrid))
                 .addContainerGap())
         );
@@ -771,7 +669,7 @@ public final class configurator extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(colorHorPix)
-                    .addComponent(colorVertPix, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                    .addComponent(colorVertPix)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
@@ -909,87 +807,6 @@ public final class configurator extends javax.swing.JFrame {
 
         tabs.addTab(bundle.getString("configurator.colorsPane.TabConstraints.tabTitle"), colorsPane); // NOI18N
 
-        pastebinNameLabel.setText(bundle.getString("configurator.pastebinNameLabel.text")); // NOI18N
-
-        pastebinName.setText(bundle.getString("configurator.pastebinName.text")); // NOI18N
-
-        pastebinPublic.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Public", "Private" }));
-        pastebinPublic.setSelectedIndex(1);
-
-        labelPastebinExposure.setText(bundle.getString("configurator.labelPastebinExposure.text")); // NOI18N
-
-        labelPastebinExpiration.setText(bundle.getString("configurator.labelPastebinExpiration.text")); // NOI18N
-
-        pastebinExpire.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "N Never", "10M 10 Minutes", "1H 1 Hour", "1D 1 Day", "1M 1 Month" }));
-        pastebinExpire.setSelectedIndex(4);
-        pastebinExpire.setSelectedItem(pastebinExpire);
-
-        labelPastebinEmail.setText(bundle.getString("configurator.labelPastebinEmail.text")); // NOI18N
-
-        labelPastebinShowThisDialog.setSelected(true);
-        labelPastebinShowThisDialog.setText(bundle.getString("configurator.labelPastebinShowThisDialog.text")); // NOI18N
-
-        javax.swing.GroupLayout pastebinConfLayout = new javax.swing.GroupLayout(pastebinConf);
-        pastebinConf.setLayout(pastebinConfLayout);
-        pastebinConfLayout.setHorizontalGroup(
-            pastebinConfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pastebinConfLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pastebinConfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelPastebinShowThisDialog)
-                    .addGroup(pastebinConfLayout.createSequentialGroup()
-                        .addGroup(pastebinConfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelPastebinExposure)
-                            .addComponent(labelPastebinExpiration)
-                            .addComponent(labelPastebinEmail)
-                            .addComponent(pastebinNameLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pastebinConfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pastebinName)
-                            .addComponent(pastebinEmail)
-                            .addComponent(pastebinPublic, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pastebinExpire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pastebinConfLayout.setVerticalGroup(
-            pastebinConfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pastebinConfLayout.createSequentialGroup()
-                .addGroup(pastebinConfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelPastebinEmail)
-                    .addComponent(pastebinEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pastebinConfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelPastebinExpiration)
-                    .addComponent(pastebinExpire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pastebinConfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelPastebinExposure)
-                    .addComponent(pastebinPublic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pastebinConfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pastebinNameLabel)
-                    .addComponent(pastebinName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelPastebinShowThisDialog))
-        );
-
-        javax.swing.GroupLayout pastebinPaneLayout = new javax.swing.GroupLayout(pastebinPane);
-        pastebinPane.setLayout(pastebinPaneLayout);
-        pastebinPaneLayout.setHorizontalGroup(
-            pastebinPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pastebinPaneLayout.createSequentialGroup()
-                .addComponent(pastebinConf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(435, Short.MAX_VALUE))
-        );
-        pastebinPaneLayout.setVerticalGroup(
-            pastebinPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pastebinPaneLayout.createSequentialGroup()
-                .addComponent(pastebinConf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(264, Short.MAX_VALUE))
-        );
-
-        tabs.addTab(bundle.getString("configurator.pastebinPane.TabConstraints.tabTitle"), pastebinPane); // NOI18N
-
         syntaxDownload.setText(bundle.getString("configurator.download")); // NOI18N
         syntaxDownload.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1065,7 +882,7 @@ public final class configurator extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("DejaVu Sans", 0, 18));
+        jLabel8.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         jLabel8.setText(bundle.getString("configurator.jLabel8.text")); // NOI18N
 
         defaultButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/24/go-home.png"))); // NOI18N
@@ -1088,7 +905,7 @@ public final class configurator extends javax.swing.JFrame {
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(restartRequired)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
                         .addComponent(defaultButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(okButton)
@@ -1142,30 +959,18 @@ public final class configurator extends javax.swing.JFrame {
         this.updateConfigGUI();
     }//GEN-LAST:event_defaultButtonActionPerformed
 
-    private void pastebinIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pastebinIDActionPerformed
-
-    }//GEN-LAST:event_pastebinIDActionPerformed
+    private void jythonDownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jythonDownloadActionPerformed
+        installJython();
+    }//GEN-LAST:event_jythonDownloadActionPerformed
 
     private void syntaxDownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_syntaxDownloadActionPerformed
         File dir=new File(System.getProperty("user.home") +
-                        "/.JavaBlock/modules/");
+            "/.JavaBlock/modules/");
         dir.mkdir();
         new Thread(){
             @Override
             public void run() {
-                FileDownloader url = new FileDownloader(
-                        "http://javablock.sourceforge.net/JavaBlock/modules/jsyntaxpane.jar",
-                        "jsyntaxpane",
-                        System.getProperty("user.home")
-                        + "/.JavaBlock/modules/jsyntaxpane.jar");
-                if (url.get()) {
-                    JOptionPane.showMessageDialog(null,
-                            "Module Syntax Highlighter has been successfully installed!\n\n"
-                            + "You must restart JavaBlock to take effect",
-                             "Installed!",
-                            JOptionPane.INFORMATION_MESSAGE);
-                    Syntax.init();
-                }
+
             }
         }.start();
     }//GEN-LAST:event_syntaxDownloadActionPerformed
@@ -1177,38 +982,16 @@ public final class configurator extends javax.swing.JFrame {
         new Thread(){
             @Override
             public void run() {
-                FileDownloader jar = new FileDownloader(
-                        "http://javablock.sourceforge.net/JavaBlock/modules/jython.jar",
-                        "Jython",
-                        System.getProperty("user.home")
-                        + "/.JavaBlock/modules/jython.jar");
-                FileDownloader lib = new FileDownloader(
-                        "http://javablock.sourceforge.net/JavaBlock/modules/Lib",
-                        "Jython Libraries",
-                        System.getProperty("user.home")
-                        + "/.JavaBlock/modules/Lib");
-                boolean ok=jar.get() && lib.get();
-                if (ok) {
-                    JOptionPane.showMessageDialog(null,
-                            "Jython has been successfully installed!\n\n"
-                            + "You must restart JavaBlock to take effect",
-                             "Installed!",
-                            JOptionPane.INFORMATION_MESSAGE);
-                }
+                
             }
         }.start();
     }
-    private void jythonDownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jythonDownloadActionPerformed
-        installJython();
-    }//GEN-LAST:event_jythonDownloadActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox LaF;
     private javax.swing.JCheckBox animations;
     private javax.swing.JButton applyButton;
     private javax.swing.JButton cancelButton;
-    private javax.swing.JCheckBox checkUpdate;
     private javax.swing.JTextField colorBlockBg;
     private javax.swing.JTextField colorBlockBorder;
     private javax.swing.JTextField colorBlockText;
@@ -1231,9 +1014,6 @@ public final class configurator extends javax.swing.JFrame {
     private javax.swing.JComboBox highlighting;
     private javax.swing.JCheckBox hwAccel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1253,24 +1033,9 @@ public final class configurator extends javax.swing.JFrame {
     private javax.swing.JLabel labelColorFlowchartBackground;
     private javax.swing.JLabel labelColorHorPixel;
     private javax.swing.JLabel labelHighlighting;
-    private javax.swing.JLabel labelPastebinEmail;
-    private javax.swing.JLabel labelPastebinExpiration;
-    private javax.swing.JLabel labelPastebinExposure;
-    private javax.swing.JCheckBox labelPastebinShowThisDialog;
     private javax.swing.JLabel labelStaticPalette;
     private javax.swing.JLabel labelVertPixel;
     private javax.swing.JButton okButton;
-    public javax.swing.JTextField pastebinApplet;
-    public javax.swing.JPanel pastebinConf;
-    public javax.swing.JTextField pastebinEmail;
-    public javax.swing.JComboBox pastebinExpire;
-    public javax.swing.JTextField pastebinID;
-    public javax.swing.JTextField pastebinName;
-    private javax.swing.JLabel pastebinNameLabel;
-    public javax.swing.JPanel pastebinPane;
-    public javax.swing.JComboBox pastebinPublic;
-    public javax.swing.JPanel pastebinSummary;
-    public javax.swing.JTextField pastebinURL;
     private javax.swing.JLabel restartRequired;
     private javax.swing.JCheckBox scriptHighlightAll;
     private javax.swing.JCheckBox scriptMark;
@@ -1280,7 +1045,7 @@ public final class configurator extends javax.swing.JFrame {
     private javax.swing.JCheckBox startupLoadLast;
     private javax.swing.JCheckBox startupSplash;
     private javax.swing.JButton syntaxDownload;
-    public javax.swing.JTabbedPane tabs;
+    private javax.swing.JTabbedPane tabs;
     private javax.swing.JCheckBox useJLabels;
     // End of variables declaration//GEN-END:variables
 
