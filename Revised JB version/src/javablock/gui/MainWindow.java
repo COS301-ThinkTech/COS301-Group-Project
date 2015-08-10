@@ -13,7 +13,6 @@ import javablock.flowchart.JBlock.Type;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import widgets.About;
 import config.translator;
 import javax.swing.SwingUtilities;
 
