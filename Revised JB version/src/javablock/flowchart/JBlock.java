@@ -144,25 +144,24 @@ public abstract class JBlock implements FlowElement{
     public static JBlock make(Type type, boolean codeBased, Flowchart parent){
         JBlock b=null;
         switch(type){
-            case IOin: b=new ioBlock(parent); b.nonCodeBased(!codeBased);
-                ((ioBlock)b).ioType=2; break;
-            case IOout: b=new ioBlock(parent); b.nonCodeBased(!codeBased);
-                ((ioBlock)b).ioType=1; break;
-            case IO: b= new ioBlock(parent); break;
-            case CPU: b= new cpuBlock(parent); break;
+            case IOin: b=new IOBlock(parent); b.nonCodeBased(!codeBased);
+                ((IOBlock)b).ioType=2; break;
+            case IOout: b=new IOBlock(parent); b.nonCodeBased(!codeBased);
+                ((IOBlock)b).ioType=1; break;
+            case IO: b= new IOBlock(parent); break;
+            case CPU: b= new CPUBlock(parent); break;
             case START: b= new startBlock(parent); break;
-            case RETURN: b= new returnBlock(parent); break;
-            case DECISION: b= new decBlock(parent); break;
-            case SCRIPT: b= new scrBlock(parent); break;
+            case RETURN: b= new ReturnBlock(parent); break;
+            case DECISION: b= new DecisionBlock(parent); break;
             //case COMMENT: b= new commentBlock(parent); break;
-            case MODULE: b= new moduleBlock(parent);  break;
-            case FORLOOP: b= new forloopBlock(parent);  break;
+            case MODULE: b= new ModuleBlock(parent);  break;
+            case FORLOOP: b= new ForLoopBlock(parent);  break;
                 
-            case LINK: b= new linkBlock(parent); break;
-            case JUMP: b= new jumpBlock(parent); break;
+            case LINK: b= new LinkBlock(parent); break;
+            case JUMP: b= new JumpBlock(parent); break;
             case GROUP: b= new blockGroup(parent); break;
             case STRUCT: b = new structBlock(parent); break;
-            default: b= new cpuBlock(parent);b.type=Type.CUSTOM; break;
+            default: b= new CPUBlock(parent);b.type=Type.CUSTOM; break;
         }
         if(type==Type.IOin || type==Type.IOout);
         else
