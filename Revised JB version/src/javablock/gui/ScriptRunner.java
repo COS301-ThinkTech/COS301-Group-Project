@@ -68,9 +68,7 @@ public class ScriptRunner extends Thread {
     JBlock actual=null;
 
     public boolean isRunning(){
-        if(wait>=0 || wait==-1)
-            return true;
-        return false;
+        return wait>=0 || wait==-1;
     }
     
     public boolean stopped(){
@@ -123,7 +121,7 @@ public class ScriptRunner extends Thread {
                     }
                     if(wait==-2){ //Krok
                         GUI.addLines(actual.code.split("\n").length);
-                        actual=actual.execute(script, (wait==-2 || wait>0?true:false));
+                        actual=actual.execute(script, (wait==-2 || wait>0));
                         GUI.updateVisual();
                         wait=-10;
                         if(actual==null)
@@ -132,7 +130,7 @@ public class ScriptRunner extends Thread {
                     }
                     else if(wait>=0){
                         GUI.addLines(actual.code.split("\n").length);
-                        actual=actual.execute(script, (wait==-2 || wait>0?true:false));
+                        actual=actual.execute(script, (wait==-2 || wait>0));
                         GUI.updateVisual();
                          sleep(wait);
                     }
@@ -140,7 +138,6 @@ public class ScriptRunner extends Thread {
                         GUI.simulateEnd(true);
                         actual=null;
                         GUI.updateVisual();
-                        continue;
                     }
                 }//while(actual!=null)
             }//while(true)
