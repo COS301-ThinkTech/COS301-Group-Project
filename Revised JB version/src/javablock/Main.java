@@ -16,7 +16,6 @@ import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URL;
 import java.net.URLClassLoader;
-import net.URLDownloader;
 
 
 public class Main extends JApplet implements ActionListener, Runnable {
@@ -65,30 +64,7 @@ public class Main extends JApplet implements ActionListener, Runnable {
         super.init();
     }
 
-    public static void checkVersion(){
-        if(!global.checkUpdate) return;
-        URLDownloader url=new URLDownloader("http://javablock.sourceforge.net/version", "");
-        //url.get1();
-        String v;
-        v=url.get1();
-        String ver=""+global.version;
-        if(true) return ;
-        if(v!=null)
-            if(Integer.parseInt(v)>Integer.parseInt(ver)){
-            try {
-                int an=JOptionPane.showConfirmDialog(null,translator.get("popup.newVersion"),
-                        translator.get("popup.newVersion.head"),
-                        JOptionPane.YES_NO_OPTION);
-                if(an==JOptionPane.YES_OPTION)
-                    java.awt.Desktop.getDesktop().browse(
-                            new URI("http://javablock.sf.net/"));
-            } catch (URISyntaxException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            }
-    }
+    
     public static boolean judgeInited=false;
     public static void judgeInit(){
         global.GUI=false;
@@ -205,7 +181,6 @@ public class Main extends JApplet implements ActionListener, Runnable {
             misc.center(w);
             w.setTitle("Flow 0.1");            
             w.setVisible(true);
-            checkVersion();
         }
     }
 
