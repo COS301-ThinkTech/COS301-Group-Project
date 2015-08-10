@@ -10,6 +10,7 @@ import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
+import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import javablock.flowchart.*;
 import javax.script.ScriptEngine;
@@ -19,9 +20,9 @@ import org.w3c.dom.*;
  *
  * 
  */
-public class LinkBlock extends JBlock {
+public class linkBlock extends JBlock {
     JBlock next=null;
-    public LinkBlock(Flowchart parent){
+    public linkBlock(Flowchart parent){
         super(Type.LINK, parent);
         code="<>";
     }
@@ -33,7 +34,7 @@ public class LinkBlock extends JBlock {
             flow.selected.add(linkTo);
             return ;
         }
-        linkTo=new LinkBlock(flow);
+        linkTo=new linkBlock(flow);
         linkTo.linkTo=this;
         linkTo.translate(0, 20);
         flow.addBlock(linkTo);
@@ -109,7 +110,7 @@ public class LinkBlock extends JBlock {
 
     @Override
     public JBlock nextExe(){
-        if(global.highlightLinks || linkTo.connects.isEmpty())
+        if(global.highlightLinks || linkTo.connects.size()==0)
             return this;
         else if(linkTo.connects.size() == 1)
             return linkTo.connects.get(0).n.nextExe();
@@ -165,7 +166,7 @@ public class LinkBlock extends JBlock {
         if(connect){
             NodeList lines=xml.getElementsByTagName("link");
             Element l=(Element)lines.item(0);
-            linkTo=(LinkBlock) flow.getBlockById(
+            linkTo=(linkBlock) flow.getBlockById(
                     Integer.parseInt(l.getAttribute("ID")));
             linkTo.linkTo=this;
         }

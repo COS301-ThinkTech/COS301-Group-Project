@@ -5,16 +5,17 @@ import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
+import javablock.*;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
 import javablock.flowchart.connector;
 import javax.script.ScriptEngine;
 
 
-public class JumpBlock extends JBlock {
+public class jumpBlock extends JBlock {
     JBlock next=null;
     boolean open;
-    public JumpBlock(Flowchart parent){
+    public jumpBlock(Flowchart parent){
         super(Type.JUMP, parent);
         code=" ";
         open=true;
@@ -62,7 +63,7 @@ public class JumpBlock extends JBlock {
             needDraw=false;
             connectsUpdate(); return ;
         }
-        else if(connects.isEmpty()){
+        else if(connects.size()==0){
             needDraw=true;
             connectsUpdate(); return ;
         }
@@ -89,7 +90,7 @@ public class JumpBlock extends JBlock {
         if(connects.size()==1 && 1==connectsIn.size()){
             needDraw=false; 
         }
-        else if(connects.isEmpty() || connectsIn.isEmpty()){
+        else if(connects.size()==0 || connectsIn.size()==0){
             needDraw=true;
             return true;
         }
@@ -144,7 +145,7 @@ public class JumpBlock extends JBlock {
     }
     @Override
     public JBlock nextExe(){
-        if(global.highlightLinks || connects.isEmpty())
+        if(global.highlightLinks || connects.size()==0)
             return this;
         else if(connects.size() == 1)
             return connects.get(0).n.nextExe();
@@ -153,7 +154,7 @@ public class JumpBlock extends JBlock {
 
     @Override
     public JBlock nextBlock(){
-        if(global.highlightLinks || connects.isEmpty())
+        if(global.highlightLinks || connects.size()==0)
             return this;
         else if(connects.size() == 1)
             return connects.get(0).n.nextExe();
@@ -176,7 +177,9 @@ public class JumpBlock extends JBlock {
 
     @Override
     public boolean drawArrow(){
-        return connectsIn.size() != 1 || connects.size() <= 0;
+        if(connectsIn.size()==1 && connects.size()>0)
+            return false;
+        return true;
     }
     @Override
     public boolean drawArrow(connector c){

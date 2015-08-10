@@ -11,14 +11,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javablock.flowchart.blocks.ioBlock;
+import javablock.flowchart.blocks.IOBlock;
 import javablock.flowchart.*;
 import widgets.ComboText;
 
 public class ioEditor extends javax.swing.JPanel implements BlockEditor, ActionListener {
     //standardEditor s=new standardEditor();
    
-    public ioBlock editing=null;
+    public IOBlock editing=null;
     public ioEditor() {
         initComponents();
         input.addActionListener(this);
@@ -361,7 +361,7 @@ public class ioEditor extends javax.swing.JPanel implements BlockEditor, ActionL
     }
     public void setEditedBlock(JBlock b) {
         reset();
-        editing=(ioBlock)b;
+        editing=(IOBlock)b;
         message.setText(editing.message);
         variable.setText(editing.variable);
         switch(Math.abs(editing.ioType)){

@@ -3,13 +3,14 @@ import javablock.flowchart.blockEditors.*;
 import java.awt.geom.Area;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
+import javablock.*;
 import javablock.flowchart.BlockEditor;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-public class IOBlock extends JBlock {
+public class ioBlock extends JBlock {
     public static ioEditor editor=new ioEditor();
     public boolean Editor=true;
     //public
@@ -36,16 +37,13 @@ public class IOBlock extends JBlock {
     //output
     public boolean newLine=true;
 
-    public IOBlock(Flowchart parent){
+    public ioBlock(Flowchart parent){
         super(Type.IO, parent);
     }
 
-    /**
-     *
-     * @return
-     */
+
     @Override
-    public boolean popUpEditor(){return (ioType==0);}
+    public boolean popUpEditor(){return (ioType==0?true:false);}
     @Override
     public BlockEditor getEditor(){
         if(ioType==0)

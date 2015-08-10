@@ -47,49 +47,49 @@ public class For extends javax.swing.JPanel implements Generator{
             int p=0;
             if(!g.useClips.isSelected()){
                 JBlock[] list=new JBlock[8];
-                cpuBlock init=(cpuBlock) JBlock.make(JBlock.Type.CPU, f);
+                CPUBlock init=(CPUBlock) JBlock.make(JBlock.Type.CPU, f);
                 init.setCode((g.declare.isSelected()?"var ":"")+
                         g.variable.getText()+" = "+g.initial.getText());
                 init.setPos(0,-90);
                 list[p++]=init;
                 
-                decBlock condition=(decBlock) JBlock.make(JBlock.Type.DECISION, f);
+                DecisionBlock condition=(DecisionBlock) JBlock.make(JBlock.Type.DECISION, f);
                 condition.setCode(g.variable.getText()+" "+g.comp.getSelectedItem()+" "+
                         g.end.getText());
                 list[p++]=condition;
                 
-                cpuBlock iter=(cpuBlock) JBlock.make(JBlock.Type.CPU, f);
+                CPUBlock iter=(CPUBlock) JBlock.make(JBlock.Type.CPU, f);
                 iter.setCode(g.variable.getText()+" "+g.iterType.getSelectedItem()
                         +"= "+g.iterNum.getText());
                 iter.setPos(100,100);
                 list[p++]=iter;
                 
-                jumpBlock jump, jump2;
+                JumpBlock jump, jump2;
                 
-                jump=(jumpBlock) JBlock.make(JBlock.Type.JUMP, f);
+                jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
                 jump.setPos(0, -50);
                 init.connectTo(jump);
                 jump.connectTo(condition);
                 list[p++]=jump;
                 
-                jump2=(jumpBlock) JBlock.make(JBlock.Type.JUMP, f);
+                jump2=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
                 jump2.setPos(100,0);
                 condition.connectTo(jump2);
                 jump2.connectTo(iter);
                 list[p++]=jump2;
                 
-                jump2=(jumpBlock) JBlock.make(JBlock.Type.JUMP, f);
+                jump2=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
                 jump2.setPos(200,-50);
                 jump2.connectTo(jump);
                 list[p++]=jump2;
                 
-                jump=(jumpBlock) JBlock.make(JBlock.Type.JUMP, f);
+                jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
                 jump.setPos(200, 100);
                 jump.connectTo(jump2);
                 iter.connectTo(jump);
                 list[p++]=jump;
                 
-                jump=(jumpBlock) JBlock.make(JBlock.Type.JUMP, f);
+                jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
                 jump.setPos(0,100);
                 condition.connectTo(jump);
                 list[p++]=jump;
@@ -98,33 +98,33 @@ public class For extends javax.swing.JPanel implements Generator{
             }
             else{
                 JBlock[] list=new JBlock[7];
-                cpuBlock init=(cpuBlock) JBlock.make(JBlock.Type.CPU, f);
+                CPUBlock init=(CPUBlock) JBlock.make(JBlock.Type.CPU, f);
                 init.setCode((g.declare.isSelected()?"var ":"")+
                         g.variable.getText()+" = "+g.initial.getText());
                 init.setPos(0,-90);
                 list[p++]=init;
                 
-                decBlock condition=(decBlock) JBlock.make(JBlock.Type.DECISION, f);
+                DecisionBlock condition=(DecisionBlock) JBlock.make(JBlock.Type.DECISION, f);
                 condition.setCode(g.variable.getText()+" "+g.comp.getSelectedItem()+" "+
                         g.end.getText());
                 init.connectTo(condition);
                 list[p++]=condition;
                 
-                cpuBlock iter=(cpuBlock) JBlock.make(JBlock.Type.CPU, f);
+                CPUBlock iter=(CPUBlock) JBlock.make(JBlock.Type.CPU, f);
                 iter.setCode(g.variable.getText()+" "+g.iterType.getSelectedItem()
                         +"= "+g.iterNum.getText());
                 iter.setPos(180,100);
                 list[p++]=iter;
                 
-                jumpBlock jump;
+                JumpBlock jump;
                 
                 
-                jump=(jumpBlock) JBlock.make(JBlock.Type.JUMP, f);
+                jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
                 jump.setPos(180, 0);
                 jump.connectTo(iter);
                 list[p++]=jump;
                 
-                jump=(jumpBlock) JBlock.make(JBlock.Type.JUMP, f);
+                jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
                 jump.setPos(0, 100);
                 condition.connectTo(jump);
                 list[p++]=jump;
