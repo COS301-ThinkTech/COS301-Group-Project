@@ -4,22 +4,14 @@
  */
 
 package javablock.flowchart.blocks;
-import config.global;
 import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
-import javablock.*;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
-import javax.script.ScriptEngine;
-import javax.script.ScriptException;
-import javax.swing.JOptionPane;
 
-/**
- *
- * 
- */
-public class cpuBlock extends JBlock {
-    public cpuBlock(Flowchart parent){
+
+public class CPUBlock extends JBlock {
+    public CPUBlock(Flowchart parent){
         super(Type.CPU, parent);
     }
 

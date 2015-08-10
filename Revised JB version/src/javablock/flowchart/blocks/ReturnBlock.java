@@ -5,29 +5,28 @@
 
 package javablock.flowchart.blocks;
 import config.global;
+import config.translator;
 import java.awt.geom.Area;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javablock.*;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
 import javablock.flowchart.connector;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 
 /**
  *
  * 
  */
-public class returnBlock extends JBlock {
-    public returnBlock(Flowchart parent){
+public class ReturnBlock extends JBlock {
+    public ReturnBlock(Flowchart parent){
         super(Type.RETURN, parent);
         this.displayComment=true;
-        this.comment=global.translate.misc.getString("End");
+        this.comment=translator.misc.getString("End");
     }
     @Override
     public boolean isSwitchable() {
@@ -46,7 +45,7 @@ public class returnBlock extends JBlock {
             try {
                 script.eval(getCode());
             } catch (ScriptException ex) {
-                Logger.getLogger(returnBlock.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ReturnBlock.class.getName()).log(Level.SEVERE, null, ex);
             }
         return null;
     }
