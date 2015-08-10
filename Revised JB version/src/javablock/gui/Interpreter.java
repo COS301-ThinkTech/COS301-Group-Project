@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import java.awt.Rectangle;
 import java.awt.event.*;
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.*;
 import java.util.Properties;
@@ -179,8 +180,13 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
             } catch (MalformedURLException ex) {
                 System.out.println("Error");
                 m = new ScriptEngineManager();
-            } catch (Exception ex) {
-                ex.printStackTrace();
+            } catch (ClassNotFoundException ex) {
+                m = new ScriptEngineManager();
+            } catch (NoSuchMethodException ex) {
+                m = new ScriptEngineManager();
+            } catch (IllegalAccessException ex) {
+                m = new ScriptEngineManager();
+            } catch (InvocationTargetException ex) {
                 m = new ScriptEngineManager();
             }
         } else {
@@ -720,7 +726,6 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
             script.eval(code);
         } catch (ScriptException ex) {
             Out.append(translator.get("console.containsError")+"\n");
-            ex.printStackTrace();
             String l[]=code.split("\n");
             int i=0;
             for(String c:l){
@@ -946,12 +951,19 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
             console=new JFrame();
             console.setAlwaysOnTop(true);
             console.addWindowListener(new WindowListener() {
+                @Override
                 public void windowOpened(WindowEvent e) {}
+                @Override
                 public void windowClosing(WindowEvent e) {hideConsole();}
+                @Override
                 public void windowClosed(WindowEvent e) {}
+                @Override
                 public void windowIconified(WindowEvent e) {}
+                @Override
                 public void windowDeiconified(WindowEvent e) {}
+                @Override
                 public void windowActivated(WindowEvent e) {}
+                @Override
                 public void windowDeactivated(WindowEvent e) {}
             });
         }
@@ -976,17 +988,21 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
     }
 
     public int Width=-1;
+    @Override
     public void componentResized(ComponentEvent e) {
         if(this.isShowing())
             Width=this.getWidth();
     }
 
+    @Override
     public void componentMoved(ComponentEvent e) {
     }
 
+    @Override
     public void componentShown(ComponentEvent e) {
         resetButtons();
     }
+    @Override
     public void componentHidden(ComponentEvent e) {
         hideConsole();
     }
@@ -1013,7 +1029,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
                     return lines[argLine - 1];
                 }
             }
-            String a = "";
+            String a;
             a= JOptionPane.showInputDialog(translator.get("popup.inputArgument") +arg);
             if (a == null) {
                 i.stop();
@@ -1038,7 +1054,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
                 } catch (NumberFormatException ex) {
                 }
             }
-            String a = "";
+            String a;
             do {
                 a = JOptionPane.showInputDialog(m);
                 if (a == null) {
@@ -1068,7 +1084,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
                 } catch (NumberFormatException ex) {
                 }
             }
-            String a = "";
+            String a;
             do {
                 a = JOptionPane.showInputDialog(m);
                 if (a == null) {
@@ -1123,7 +1139,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
                     return lines[inputLine - 1];
                 }
             }
-            String a = "";
+            String a;
             a = JOptionPane.showInputDialog(m);
             if (a == null) {
                 i.stop();
@@ -1140,7 +1156,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
                     return lines[inputLine - 1].toCharArray();
                 }
             }
-            String a = "";
+            String a;
             a = JOptionPane.showInputDialog(m);
             if (a == null) {
                 i.stop();
