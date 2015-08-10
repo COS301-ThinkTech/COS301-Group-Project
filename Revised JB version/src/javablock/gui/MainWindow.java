@@ -200,7 +200,6 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         menuHelp = new javax.swing.JMenuItem();
-        menuManual = new javax.swing.JMenuItem();
         menuInstall = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
 
@@ -661,14 +660,6 @@ public final class MainWindow extends javax.swing.JFrame
         jMenu4.add(menuHelp);
         menuHelp.addActionListener(Manager);
 
-        menuManual.setText(bundle.getString("main.manual")); // NOI18N
-        menuManual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuManualActionPerformed(evt);
-            }
-        });
-        jMenu4.add(menuManual);
-
         menuInstall.setText(bundle.getString("main.install")); // NOI18N
         menuInstall.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -793,14 +784,7 @@ public final class MainWindow extends javax.swing.JFrame
 
     private void menuHelpActionPerformed(java.awt.event.ActionEvent evt) {                                         
         widgets.help.showHelp();
-    }                                        
-
-    private void menuManualActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        try{
-            java.awt.Desktop.getDesktop().browse(new URI("http://javablock.sourceforge.net/manuals/pl.pdf"));
-        } catch(Exception e){
-        }
-    }                                          
+    }                                
 
     private void menuExitActionPerformed(java.awt.event.ActionEvent evt) {                                         
         Manager.saveExit();
@@ -916,7 +900,6 @@ Rectangle windowSize;
     private javax.swing.JMenuItem menuHelp;
     private javax.swing.JMenuItem menuImportXml;
     private javax.swing.JMenuItem menuInstall;
-    private javax.swing.JMenuItem menuManual;
     private javax.swing.JMenuItem menuNew;
     private javax.swing.JMenuItem menuOpen;
     private javax.swing.JCheckBoxMenuItem menuPascalMode;
