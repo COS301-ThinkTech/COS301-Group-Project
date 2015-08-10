@@ -4,11 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -17,37 +12,17 @@ import javax.swing.*;
 
 public class Splash extends JWindow implements MouseListener {
 
-    private int duration;
+    private final int duration;
 
     public Splash(int d) {
         duration = d;
     }
 
     public JPanel content;
-    public void createSplash(){
-        content = (JPanel)getContentPane();
-        content.setBackground(Color.white);
-        // Build the splash screen
-        JLabel label = new JLabel(new ImageIcon(getClass().getResource("/gui/splash.png")));
-        JLabel copyrt = new JLabel
-                ("Copyright 2015, ThinkTech, University of Pretoria", JLabel.CENTER);
-        copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 12));        
-        content.add(label, BorderLayout.CENTER);
-        content.add(copyrt, BorderLayout.SOUTH);
-    }
+    
     public void showSplash() {
         content = (JPanel)getContentPane();
-        /*content=new JPanel(){
-            public void paintComponent(Graphics g) {
-                Point pos = this.getLocationOnScreen( );
-                Point offset = new Point(-pos.x,-pos.y);
-                g.drawImage(background,offset.x,offset.y,null);
-                }
-        };
-        updateBackground();
-        this.setContentPane(content);*/
         content.setBackground(Color.white);
-        //content.setOpaque(true);
         JLabel label = new JLabel(new ImageIcon(getClass().getResource("/javablock/gui/splash.png")));
         int width = label.getIcon().getIconWidth();
         int height =label.getIcon().getIconHeight()+20;
@@ -58,11 +33,6 @@ public class Splash extends JWindow implements MouseListener {
         
         
         JLabel copyrt = new JLabel("Author: ThinkTech, University of Pretoria (2015)");
-        //JLabel copyrt = new JLabel
-        //        ("<html>Autor: Jakub Konieczny<br/>"
-        //        + "Zespół Szkół Zawodowych w Zawadzkiem<br/>"
-        //        + "nauczyciel prowadzący: Piotr Wiatrek", JLabel.CENTER);
-        //copyrt.setOpaque(true);
         copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 12));
         content.add(label, BorderLayout.CENTER);
         content.add(copyrt, BorderLayout.SOUTH);
@@ -70,20 +40,7 @@ public class Splash extends JWindow implements MouseListener {
         this.addMouseListener(this);
 
     }
-    /*
-    Image background;
-    public void updateBackground( ) {
-        try {
-            Robot rbt = new Robot( );
-            Toolkit tk = Toolkit.getDefaultToolkit( );
-            Dimension dim = tk.getScreenSize( );
-            background = rbt.createScreenCapture(
-            new Rectangle(0,0,(int)dim.getWidth( ),
-                              (int)dim.getHeight( )));
-        } catch (Exception ex) {
-            ex.printStackTrace( );
-        }
-    }*/
+  
 
 
     @Override
@@ -92,28 +49,35 @@ public class Splash extends JWindow implements MouseListener {
         super.show();
     }
 
+    @Override
     public void mouseClicked(MouseEvent e) {
         setVisible(false);
     }
 
+    @Override
     public void mousePressed(MouseEvent e) {
     }
 
+    @Override
     public void mouseReleased(MouseEvent e) {
     }
 
+    @Override
     public void mouseEntered(MouseEvent e) {
     }
 
+    @Override
     public void mouseExited(MouseEvent e) {
     }
 }
 
 
-class closer extends TimerTask{
+class closer extends TimerTask
+{
     java.util.Timer timer;
     Splash s=null;
-    public closer(Splash s){
+    public closer(Splash s)
+    {
         this.s=s;
         timer = new java.util.Timer( );
         timer.schedule(this, 5000, 5000);
@@ -121,8 +85,9 @@ class closer extends TimerTask{
 
 
     @Override
-    public void run() {
-        s.hide();
+    public void run() 
+    {
+        s.setVisible(false);
         timer.cancel();
     }
 }
