@@ -160,7 +160,6 @@ public abstract class JBlock implements FlowElement{
             case LINK: b= new LinkBlock(parent); break;
             case JUMP: b= new JumpBlock(parent); break;
             case GROUP: b= new blockGroup(parent); break;
-            case STRUCT: b = new structBlock(parent); break;
             default: b= new CPUBlock(parent);b.type=Type.CUSTOM; break;
         }
         if(type==Type.IOin || type==Type.IOout);
