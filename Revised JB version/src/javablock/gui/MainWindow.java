@@ -163,8 +163,6 @@ public final class MainWindow extends javax.swing.JFrame
         menuImportXml = new javax.swing.JMenuItem();
         menuExportXml = new javax.swing.JMenuItem();
         jSeparator8 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        exportPasteBin = new javax.swing.JMenuItem();
         jSeparator7 = new javax.swing.JPopupMenu.Separator();
         menuInformation = new javax.swing.JMenuItem();
         menuExportImage = new javax.swing.JMenuItem();
@@ -403,24 +401,6 @@ public final class MainWindow extends javax.swing.JFrame
         jMenu1.add(menuExportXml);
         menuExportXml.addActionListener(this);
         jMenu1.add(jSeparator8);
-
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/document-download.png"))); // NOI18N
-        jMenuItem2.setText(bundle.getString("main.importPastebin")); // NOI18N
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem2);
-
-        exportPasteBin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/document-send.png"))); // NOI18N
-        exportPasteBin.setText(bundle.getString("main.exportPastebin")); // NOI18N
-        exportPasteBin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exportPasteBinActionPerformed(evt);
-            }
-        });
-        jMenu1.add(exportPasteBin);
         jMenu1.add(jSeparator7);
 
         menuInformation.setText(bundle.getString("main.flowchartInformation")); // NOI18N
@@ -851,18 +831,7 @@ public final class MainWindow extends javax.swing.JFrame
         global.conf.show();
     }                                            
 
-    private void exportPasteBinActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        net.pastebin.send(Manager.saveXml());
-    }                                              
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        String ID=JOptionPane.showInputDialog(this, "Enter Pastebin paste ID:");
-        if(ID!=null){
-            String in=net.pastebin.load(ID);
-            if(in.length()>10)
-                Manager.loadXml(in);
-        }
-    }                                          
+                        
 
     private void wikiHelpActionPerformed(java.awt.event.ActionEvent evt) {                                         
         try{
@@ -959,7 +928,6 @@ Rectangle windowSize;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel FLOW;
     private javax.swing.JMenuItem comment;
-    private javax.swing.JMenuItem exportPasteBin;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -972,7 +940,6 @@ Rectangle windowSize;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
