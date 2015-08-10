@@ -159,7 +159,6 @@ public abstract class JBlock implements FlowElement{
             case FORLOOP: b= new forloopBlock(parent);  break;
                 
             case LINK: b= new linkBlock(parent); break;
-            case BRACE: b= new braceBlock(parent); break;
             case JUMP: b= new jumpBlock(parent); break;
             case GROUP: b= new blockGroup(parent); break;
             case STRUCT: b = new structBlock(parent); break;

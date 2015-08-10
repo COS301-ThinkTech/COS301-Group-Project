@@ -117,24 +117,10 @@ public class For extends javax.swing.JPanel implements Generator{
                 list[p++]=iter;
                 
                 jumpBlock jump;
-                braceBlock cl1, cl2;
                 
-                cl1=(braceBlock) JBlock.make(JBlock.Type.BRACE, f);
-                cl1.setOpen(true);
-                cl1.setPos(100, 0);
-                cl2=(braceBlock) JBlock.make(JBlock.Type.BRACE, f);
-                cl2.setOpen(false);
-                cl2.setPos(100, 100);
-                cl1.setLinkTo(cl2);
-                list[p++]=cl1;
-                list[p++]=cl2;
-                
-                condition.connectTo(cl1);
-                iter.connectTo(cl2);
                 
                 jump=(jumpBlock) JBlock.make(JBlock.Type.JUMP, f);
                 jump.setPos(180, 0);
-                cl1.connectTo(jump);
                 jump.connectTo(iter);
                 list[p++]=jump;
                 
