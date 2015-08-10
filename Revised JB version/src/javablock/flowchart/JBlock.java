@@ -164,7 +164,6 @@ public abstract class JBlock implements FlowElement{
             case JUMP: b= new jumpBlock(parent); break;
             case GROUP: b= new blockGroup(parent); break;
             case LOGO: b = new logoBlock(parent); break;
-            case CANVAS2D: b = new canvas2dBlock(parent); break;
             case STRUCT: b = new structBlock(parent); break;
             default: b= new cpuBlock(parent);b.type=Type.CUSTOM; break;
         }
