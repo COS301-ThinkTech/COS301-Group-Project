@@ -9,11 +9,9 @@ import java.io.IOException;
 import java.net.URI;
 import javablock.FlowchartManager;
 import javablock.flowchart.JBlock;
-import javablock.flowchart.JBlock.Type;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import config.translator;
 import javax.swing.SwingUtilities;
 
 public final class MainWindow extends javax.swing.JFrame 
@@ -28,7 +26,7 @@ public final class MainWindow extends javax.swing.JFrame
         if(global.GUI){
             try {
                 this.setIconImage(ImageIO.read(getClass().getResource("/javablock/gui/icon.png")));
-            } catch (Exception ex) {}
+            } catch (IOException ex) {}
         }
         inited=true;
 
@@ -162,7 +160,6 @@ public final class MainWindow extends javax.swing.JFrame
         menuExportXml = new javax.swing.JMenuItem();
         jSeparator8 = new javax.swing.JPopupMenu.Separator();
         jSeparator7 = new javax.swing.JPopupMenu.Separator();
-        menuInformation = new javax.swing.JMenuItem();
         menuExportImage = new javax.swing.JMenuItem();
         menuSavePython = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
@@ -391,11 +388,6 @@ public final class MainWindow extends javax.swing.JFrame
         menuExportXml.addActionListener(this);
         jMenu1.add(jSeparator8);
         jMenu1.add(jSeparator7);
-
-        menuInformation.setText(bundle.getString("main.flowchartInformation")); // NOI18N
-        menuInformation.setActionCommand("showMeta");
-        jMenu1.add(menuInformation);
-        menuInformation.addActionListener(this);
 
         menuExportImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/image-png.png"))); // NOI18N
         menuExportImage.setText(bundle.getString("main.importImage")); // NOI18N
@@ -941,7 +933,6 @@ Rectangle windowSize;
     private javax.swing.JCheckBoxMenuItem menuGridBool;
     private javax.swing.JMenuItem menuHelp;
     private javax.swing.JMenuItem menuImportXml;
-    private javax.swing.JMenuItem menuInformation;
     private javax.swing.JMenuItem menuInstall;
     private javax.swing.JMenuItem menuManual;
     private javax.swing.JMenuItem menuNew;
