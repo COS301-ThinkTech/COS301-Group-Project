@@ -13,7 +13,7 @@ package widgets;
 
 /**
  *
- * 
+ * @author razi
  */
 public class help extends javax.swing.JFrame {
 

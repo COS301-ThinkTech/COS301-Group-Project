@@ -65,7 +65,6 @@ public final class MainWindow extends javax.swing.JFrame
             Manager.loadLast();
         global.setGlobalManager(Manager);
         global.ready=true;
-        newNS.setVisible(false);
     }
 
     void init(){
@@ -154,7 +153,6 @@ public final class MainWindow extends javax.swing.JFrame
         menu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuNew = new javax.swing.JMenuItem();
-        newNS = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         menuOpen = new javax.swing.JMenuItem();
         menuSave = new javax.swing.JMenuItem();
@@ -346,14 +344,6 @@ public final class MainWindow extends javax.swing.JFrame
             }
         });
         jMenu1.add(menuNew);
-
-        newNS.setText(bundle.getString("main.newNS")); // NOI18N
-        newNS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newNSActionPerformed(evt);
-            }
-        });
-        jMenu1.add(newNS);
         jMenu1.add(jSeparator1);
 
         menuOpen.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
@@ -731,10 +721,6 @@ public final class MainWindow extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void newNSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newNSActionPerformed
-        Manager.New("NS");
-    }//GEN-LAST:event_newNSActionPerformed
-
     private void scriptStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scriptStopActionPerformed
         Manager.flow.I.reset();
     }//GEN-LAST:event_scriptStopActionPerformed
@@ -969,7 +955,6 @@ Rectangle windowSize;
     private javax.swing.JMenuItem menuScript;
     private javax.swing.JMenuItem menuSettings;
     private javax.swing.JMenuItem menuUndo;
-    private javax.swing.JMenuItem newNS;
     public javax.swing.JSpinner scriptInterval;
     public javax.swing.JButton scriptRun;
     public javax.swing.JButton scriptStart;

@@ -10,7 +10,7 @@ public class Resizer extends JComponent implements MouseListener, MouseMotionLis
     JComponent parent=null;
     int Orientation=0;//HOR VER
     int min=100;
-    int max=1000;
+    int max=10;
     boolean minimalistic=false;
     public static int HORIZONTAL=0;
     public static int VERTICAL=1;
