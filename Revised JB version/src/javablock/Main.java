@@ -16,7 +16,6 @@ import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URL;
 import java.net.URLClassLoader;
-import net.FileDownloader;
 import net.URLDownloader;
 
 
