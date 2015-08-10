@@ -1906,7 +1906,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         JButton addNew;
         public EditorPane(){
             setLayout(new BorderLayout());
-            add(new Resizer(this), BorderLayout.EAST);
+            //add(new Resizer(this), BorderLayout.WEST);
             this.setMinimumSize(new Dimension(200,200));
             addNew=new JButton(global.translate.get("blockEditor.addNew"));
             addNew.setActionCommand("add/SAME");
