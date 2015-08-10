@@ -207,7 +207,6 @@ public final class MainWindow extends javax.swing.JFrame
         menuHelp = new javax.swing.JMenuItem();
         wikiHelp = new javax.swing.JMenuItem();
         menuManual = new javax.swing.JMenuItem();
-        comment = new javax.swing.JMenuItem();
         menuInstall = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
 
@@ -698,14 +697,6 @@ public final class MainWindow extends javax.swing.JFrame
         });
         jMenu4.add(menuManual);
 
-        comment.setText(bundle.getString("main.comment")); // NOI18N
-        comment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                commentActionPerformed(evt);
-            }
-        });
-        jMenu4.add(comment);
-
         menuInstall.setText(bundle.getString("main.install")); // NOI18N
         menuInstall.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -856,16 +847,10 @@ public final class MainWindow extends javax.swing.JFrame
         global.conf.saveConfig();
         System.exit(0);
     }                                        
-    net.guestBook book=new net.guestBook();
-    private void commentActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        book.clear();
-        book.show();
-    }                                       
+    
+                                         
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        book.clear();
-        book.show();
-    }                                        
+                                        
 
 
     //*******************************NEW**************************************//
@@ -927,7 +912,6 @@ Rectangle windowSize;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel FLOW;
-    private javax.swing.JMenuItem comment;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
