@@ -7,7 +7,6 @@ import java.awt.*;
 import java.awt.font.FontRenderContext;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.lang.Class;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
@@ -261,17 +260,8 @@ public class global {
                                             .invoke(null).toString()  
                                         //newType.getName()
                                     );
-                            }
-                            else if(info[0].contains("generator")){
-                                Class<javablock.flowchart.generator.Generator> newType
-                                        =(Class<javablock.flowchart.generator.Generator>) jar.loadClass("javablock.plugin."+info[1]);
-                                javablock.flowchart.generator.Manager.addGenerator(
-                                        newType.getMethod("getGeneratorName")
-                                            .invoke(null).toString(),
-                                        newType
-
-                                    );
-                            }
+                            }                           
+                            
                             else if(info[0].contains("method")){
                                 c.getMethod(info[1]).invoke(null);
                             }

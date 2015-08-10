@@ -12,7 +12,6 @@ package javablock.flowchart.generator;
 
 import config.global;
 import config.translator;
-import javablock.Sheet;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
 import javablock.flowchart.blocks.*;

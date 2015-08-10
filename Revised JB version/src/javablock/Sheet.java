@@ -71,20 +71,20 @@ public abstract class Sheet extends JComponent{
     public abstract void setEditable(boolean editing);
     /**
      * optimize all sheet's elements id's
-     * @deprecated
+     * 
      */
-    @Deprecated
+   
     public abstract void optimizeID();
     
     /**
      * Returns all selected elements
      * @return 
-     * @deprecated
+     * 
      */
-    @Deprecated
+    
     public abstract List<JBlock> getSelected();
     
-    @Deprecated
+    
     public abstract List<JBlock> getBlocks();
     
     public void generateBlocks(){
@@ -94,7 +94,7 @@ public abstract class Sheet extends JComponent{
     public  abstract void cut();
     public  abstract void paste();
     
-    @Deprecated
+    
     public abstract void update();
     
     /**

@@ -1543,13 +1543,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         return b;
     }
     
-    @Override
-    public void generateBlocks(){
-        JBlock[] l=javablock.flowchart.generator.Manager.get(this);
-        if(l!=null)
-            addBlocksGroup(l);
-    }
-    
+     
     public void addBlocksGroup(JBlock[] list){
         selected.clear();
         for(JBlock n: list){

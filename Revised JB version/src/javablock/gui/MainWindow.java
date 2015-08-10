@@ -174,7 +174,6 @@ public final class MainWindow extends javax.swing.JFrame
         sep = new javax.swing.JPopupMenu.Separator();
         menuDelete = new javax.swing.JMenuItem();
         jSeparator12 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         menuFlowchartsAdd = new javax.swing.JMenuItem();
         menuFlowchartsRemove = new javax.swing.JMenuItem();
@@ -200,7 +199,6 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         menuHelp = new javax.swing.JMenuItem();
-        menuInstall = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -458,15 +456,6 @@ public final class MainWindow extends javax.swing.JFrame
 
         jMenu2.add(jSeparator12);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setText(bundle.getString("main.edit.generator")); // NOI18N
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem3);
-
         menu.add(jMenu2);
 
         jMenu6.setText(bundle.getString("main.flowcharts")); // NOI18N
@@ -660,14 +649,6 @@ public final class MainWindow extends javax.swing.JFrame
         jMenu4.add(menuHelp);
         menuHelp.addActionListener(Manager);
 
-        menuInstall.setText(bundle.getString("main.install")); // NOI18N
-        menuInstall.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuInstallActionPerformed(evt);
-            }
-        });
-        jMenu4.add(menuInstall);
-
         jMenuItem12.setText(bundle.getString("main.about")); // NOI18N
         jMenuItem12.setEnabled(false);
         jMenu4.add(jMenuItem12);
@@ -843,16 +824,9 @@ Rectangle windowSize;
 
 
 
-    private void menuInstallActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        try{
-            java.awt.Desktop.getDesktop().browse(new URI("http://javablock.sf.net/install.jnlp"));
-        } catch(Exception e){
-        }
-    }                                           
+                                            
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        Manager.flow.generateBlocks();
-    }                                          
+                                          
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel FLOW;
@@ -868,7 +842,6 @@ Rectangle windowSize;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
@@ -899,7 +872,6 @@ Rectangle windowSize;
     private javax.swing.JCheckBoxMenuItem menuGridBool;
     private javax.swing.JMenuItem menuHelp;
     private javax.swing.JMenuItem menuImportXml;
-    private javax.swing.JMenuItem menuInstall;
     private javax.swing.JMenuItem menuNew;
     private javax.swing.JMenuItem menuOpen;
     private javax.swing.JCheckBoxMenuItem menuPascalMode;
