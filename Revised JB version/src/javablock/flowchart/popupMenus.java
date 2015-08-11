@@ -2,8 +2,6 @@ package javablock.flowchart;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 import config.*;
 import java.awt.Component;
@@ -17,7 +15,7 @@ import javax.swing.event.PopupMenuListener;
  * This class contains all in-canvas popup menus
  * 
  */
-public class popupMenus implements ActionListener, PopupMenuListener {
+public final class popupMenus implements ActionListener, PopupMenuListener {
     public JPopupMenu blockMenu, selectedMenu, codeEditor,
             otherBlocksMenu;
     FlowchartManager action;
@@ -59,35 +57,6 @@ public class popupMenus implements ActionListener, PopupMenuListener {
     public void initNull(){
         JMenuItem item;
         
-        
-        if(true){
-            JMenu addons=new JMenu("Addons");
-            item=newMenuItem("Logo", JBlock.getIcon(JBlock.Type.LOGO), "logo", "add/LOGO");
-            addons.add(item);
-            item=newMenuItem("Canvas2D", JBlock.getIcon(JBlock.Type.CANVAS2D), "canvas2d", "add/CANVAS2D");
-            addons.add(item);
-            addons.addSeparator();
-            for (Class<JBlock> c : JBlock.getCustomTypes()) {
-                try {
-                    String typeName=(String) c.getMethod("getName").invoke(null);
-                    item=new JMenuItem(typeName);
-                    item.addActionListener(this);
-                    item.setActionCommand("add/"+typeName);
-                    item.setIcon(
-                            new ImageIcon((BufferedImage)c.getMethod("getIcon").invoke(null)));
-                    addons.add(item);
-                } catch (Exception ex) {
-                    Logger.getLogger(popupMenus.class.getName()).log(Level.SEVERE, null, ex);
-                } 
-            }
-            
-            nullMenu.add(addons);
-        }
-
-        nullMenu.addSeparator();
-        codeBased=new JCheckBox(translator.bundle.getString("block.codebased"));
-        codeBased.setSelected(true);
-        nullMenu.add(codeBased);
     }
     
     public void initOthers(){
@@ -196,6 +165,7 @@ public class popupMenus implements ActionListener, PopupMenuListener {
 
     }
 
+    @Override
     public void actionPerformed(ActionEvent e) {
         String[] ex=e.getActionCommand().split("/");
         if(ex[0].equals("showOthers")){
@@ -217,15 +187,18 @@ public class popupMenus implements ActionListener, PopupMenuListener {
         else action.actionPerformed(e);
     }
 
+    @Override
     public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
     }
 
+    @Override
     public void popupMenuWillBecomeInvisible(PopupMenuEvent e) {
         if(e.getSource()==blockMenu){
             hidePopupOnBlock();
         }
     }
 
+    @Override
     public void popupMenuCanceled(PopupMenuEvent e) {
     }
 }
