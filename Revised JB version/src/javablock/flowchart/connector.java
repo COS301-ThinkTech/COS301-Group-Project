@@ -1,13 +1,11 @@
 package javablock.flowchart;
 
 import config.global;
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Shape;
 import java.awt.font.TextLayout;
 import java.awt.geom.AffineTransform;
-import java.awt.geom.Area;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
@@ -23,6 +21,7 @@ public class connector implements FlowElement {
         needUpdate=true;
     }
 
+    @Override
     public void delete(){
         f.connects.remove(this);
         n.connectsIn.remove(this);
@@ -49,6 +48,7 @@ public class connector implements FlowElement {
     
     static double arrowLength=12;
 
+    @Override
     public void shape(){
         needUpdate=true;
         if(n.needUpdate)
@@ -122,6 +122,7 @@ public class connector implements FlowElement {
         needUpdate=false;
     }
     
+    @Override
     public void draw(Graphics2D g2d){
         if(n==null || f==null) return ;
         if(needUpdate==true)
@@ -156,40 +157,50 @@ public class connector implements FlowElement {
         g2d.setStroke(global.strokeNormal);
     }
 
+    @Override
     public boolean isEditable() {
         return false;
     }
 
+    @Override
     public BlockEditor getEditor() {
         return null;
     }
 
+    @Override
     public boolean contains(double x, double y) {
         return line.intersects(new Rectangle2D.Double(x-2, y-2,4,4));
     }
+    @Override
     public boolean intersects(Shape s) {
         return line.intersects(s.getBounds2D());
     }
 
+    @Override
     public Rectangle2D bound2D() {
         return line.getBounds2D();
     }
 
+    @Override
     public Rectangle bound() {
         return line.getBounds();
     }
 
+    @Override
     public void draw(Graphics2D g2d, boolean drawFull) {
         draw(g2d);
     }
 
+    @Override
     public void drawSelection(Graphics2D g2d) {
     }
 
+    @Override
     public boolean highLight(Graphics2D g2d) {
         return false;
     }
 
+    @Override
     public void drawShadow(Graphics2D g2d) {
     }
 }
