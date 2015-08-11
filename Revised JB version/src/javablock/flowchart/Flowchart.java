@@ -44,7 +44,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     public List<JBlock> selected=new ArrayList();
     public List<JBlock> groups=new ArrayList();
     JBlock mouseOver=null;
-    popupMenus menus;
+    PopUpMenus menus;
     float posX=0, posY=0;
     float scale=1;
     Color bgColor=Color.WHITE;
@@ -69,7 +69,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         flow.addMouseMotionListener(this);
         flow.addMouseWheelListener(this);
         flow.addComponentListener(this);
-        menus=new popupMenus(action);
+        menus=new PopUpMenus(action);
         txtLay=null;
         moving=true;
         updateScrolls();
@@ -92,7 +92,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         flow.addMouseListener(this);
         flow.addMouseMotionListener(this);
         flow.addMouseWheelListener(this);
-        menus=new popupMenus(action);
+        menus=new PopUpMenus(action);
         txtLay=null;
         moving=true;
         updateScrolls();
