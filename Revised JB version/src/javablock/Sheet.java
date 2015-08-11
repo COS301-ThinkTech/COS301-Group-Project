@@ -10,9 +10,6 @@ import org.w3c.dom.Element;
 
 
 public abstract class Sheet extends JComponent{
-    /**
-     * Manager in which this sheet is located and managed
-     */
     protected FlowchartManager manager;
     
     public Interpreter I;
@@ -57,10 +54,13 @@ public abstract class Sheet extends JComponent{
     /**
      * Set new name
      */
+    @Override
     public abstract void setName(String name);
     
     /**
      * Sets color to selected items
+     * @param c
+     * @param mode
      */
     public abstract void setColor(Color c, int mode);
     
@@ -99,6 +99,8 @@ public abstract class Sheet extends JComponent{
     
     /**
      * Method used to save sheet as image do file (definied by url)
+     * @param url
+     * @param name
      */
     public abstract void saveAsImage(String url, String name);
     /**
