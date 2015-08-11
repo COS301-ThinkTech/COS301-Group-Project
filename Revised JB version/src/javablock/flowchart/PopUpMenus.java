@@ -15,11 +15,11 @@ import javax.swing.event.PopupMenuListener;
  * This class contains all in-canvas popup menus
  * 
  */
-public final class PopUpMenus implements ActionListener, PopupMenuListener {
+public final class popupMenus implements ActionListener, PopupMenuListener {
     public JPopupMenu blockMenu, selectedMenu, codeEditor,
             otherBlocksMenu;
     FlowchartManager action;
-    public PopUpMenus(FlowchartManager action){
+    public popupMenus(FlowchartManager action){
         this.action=action;
         initNull();
         initBlock();

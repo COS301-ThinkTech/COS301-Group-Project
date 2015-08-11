@@ -12,11 +12,11 @@ import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
 
-public class connector implements FlowElement {
+public class Flowline implements FlowElement {
     public JBlock f=null, n=null;
     public String value="";
 
-    public connector(JBlock from, JBlock to){
+    public Flowline(JBlock from, JBlock to){
         f=from; n=to;
         needUpdate=true;
     }

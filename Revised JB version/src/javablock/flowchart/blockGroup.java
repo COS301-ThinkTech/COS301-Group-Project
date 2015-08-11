@@ -12,9 +12,9 @@ import javax.script.ScriptEngine;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-public final class blockGroup extends JBlock {
+public final class BlockGroup extends JBlock {
     public List<JBlock> blocks=new ArrayList();
-    public blockGroup(Flowchart parent){
+    public BlockGroup(Flowchart parent){
         super(Type.GROUP, parent);
         displayComment=true;        
         setColor(color);
@@ -48,11 +48,11 @@ public final class blockGroup extends JBlock {
 
 
     @Override
-    public connector connectTo(JBlock n){
+    public Flowline connectTo(JBlock n){
        if(n==this) return null;
        if(n.type==Type.GROUP){
            //if(true) return null;
-           blockGroup g=(blockGroup)n;
+           BlockGroup g=(BlockGroup)n;
            if(g.blocks.contains(this))
                return null;
        }

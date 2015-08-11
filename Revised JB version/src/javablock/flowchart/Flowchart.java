@@ -183,7 +183,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         setLayout(new BorderLayout());
         add(split, BorderLayout.CENTER);
         split.setDividerLocation(2000);
-        add(new javablock.flowchart.LeftToolbar(this),
+        add(new javablock.flowchart.BlocksToolBar(this),
                 BorderLayout.WEST);
         add(editorPane,BorderLayout.EAST);
         if(global.animations){
@@ -252,9 +252,9 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
      */
     public void groupsUpdate(){
         for(int i=0; i<groups.size(); i++){
-            blockGroup g=(blockGroup)groups.get(i);
+            BlockGroup g=(BlockGroup)groups.get(i);
             g.shape();
-            if(((blockGroup)g).l==0){g.delete(); i--;}
+            if(((BlockGroup)g).l==0){g.delete(); i--;}
         }
     }
     
@@ -648,7 +648,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             for(JBlock bs:blocks){
                 if(b==bs) continue;
                 if(bs.connects.size()>0)
-                    for(connector c:bs.connects){
+                    for(Flowline c:bs.connects){
                         if(c.intersects(b.bound2D())){
                             b.connectTo(c.n);
                             bs.connectTo(b);
@@ -1063,19 +1063,19 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                             int i=0;
                             JBlock atIn[]=new JBlock[at.connectsIn.size()];
                             JBlock atOut[]=new JBlock[at.connects.size()];
-                            for(connector c:at.connectsIn)
+                            for(Flowline c:at.connectsIn)
                                 atIn[i++]=c.f;
                             i=0;
-                            for(connector c:at.connects)
+                            for(Flowline c:at.connects)
                                 atOut[i++]=c.n;
                             
                             JBlock sIn[]=new JBlock[g.connectsIn.size()];
                             JBlock sOut[]=new JBlock[g.connects.size()];
                             i=0;
-                            for(connector c:g.connectsIn)
+                            for(Flowline c:g.connectsIn)
                                 sIn[i++]=c.f;
                             i=0;
-                            for(connector c:g.connects)
+                            for(Flowline c:g.connects)
                                 sOut[i++]=c.n;
                             while(at.connects.size()>0)
                                 at.connects.get(0).delete();
@@ -1144,7 +1144,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                         f.connectTo(j);
                         for(JBlock b:blocks){
                             if(b==j || b==f) continue;
-                            for(connector C:b.connects){
+                            for(Flowline C:b.connects){
                                 if(C.intersects(j.getRound())){
                                     C.f.connectTo(j);
                                     j.connectTo(C.n);
@@ -1580,7 +1580,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             n.ID=nextBlockID;
             nextBlockID++;
             if(n.type==JBlock.Type.GROUP)
-                ((blockGroup)n).group();
+                ((BlockGroup)n).group();
         }
         action.historyAdd();
     }
@@ -1588,7 +1588,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     public void addBlock(JBlock n, boolean connect){
         blocks.add(n);
         if(n.type==JBlock.Type.GROUP)
-            ((blockGroup)n).group();
+            ((BlockGroup)n).group();
         selected.clear();
         action.selectedBlock(this);
         //updateFocus();
@@ -1780,7 +1780,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                 Element bl=null;
                 {
                     b.ID=-b.ID;
-                    for(connector con:b.connects){
+                    for(Flowline con:b.connects){
                         if(getSelected().contains(con.n))
                             con.n.ID=-con.n.ID;
                     }
@@ -1791,7 +1791,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                 {
                     if(b.linkTo!=null)
                         b.linkTo.ID=-b.linkTo.ID;
-                    for(connector con:b.connects){
+                    for(Flowline con:b.connects){
                         if(getSelected().contains(con.n))
                             con.n.ID=-con.n.ID;
                     }

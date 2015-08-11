@@ -96,9 +96,9 @@ public abstract class JBlock implements FlowElement{
     protected Paint gradient;
     //public boolean alignCenter;
 
-    public List<connector> connects=new ArrayList();
-    public List<connector> connectsIn=new ArrayList();
-    public List<blockGroup> groups=new ArrayList();
+    public List<Flowline> connects=new ArrayList();
+    public List<Flowline> connectsIn=new ArrayList();
+    public List<BlockGroup> groups=new ArrayList();
     public int ID;
 
     public Flowchart flow;
@@ -170,7 +170,7 @@ public abstract class JBlock implements FlowElement{
             case FORLOOP: b= new ForLoopBlock(parent);  break;                
             case LINK: b= new LinkBlock(parent); break;
             case JUMP: b= new JumpBlock(parent); break;
-            case GROUP: b= new blockGroup(parent); break;
+            case GROUP: b= new BlockGroup(parent); break;
             default: b= new CPUBlock(parent);b.type=Type.CUSTOM; break;
         }
         
@@ -212,12 +212,12 @@ public abstract class JBlock implements FlowElement{
         return true;
     }
 
-    public connector connectTo(JBlock n){
+    public Flowline connectTo(JBlock n){
         if(n==this || n==null) return null;
-        for(connector c: connects)
+        for(Flowline c: connects)
             c.n.removeConnectFrom(this);
         connects.clear();
-        connector c=new connector(this, n);
+        Flowline c=new Flowline(this, n);
         if(c==null) return null;
         flow.historyAdd();
         connects.add(c);
@@ -234,19 +234,19 @@ public abstract class JBlock implements FlowElement{
     }
 
     public void removeInConnects(){
-        for(connector c:connectsIn){
+        for(Flowline c:connectsIn){
             c.f.removeConnectTo(this);
         }
         connectsIn.clear();
     }
     public void removeOutConnects(){
-        for(connector c:connects){
+        for(Flowline c:connects){
             c.f.removeConnectFrom(this);
         }
         connects.clear();
     }
 
-    public void addInConnect(connector c){
+    public void addInConnect(Flowline c){
         connectsIn.add(c);
     }
     public void removeConnectFrom(JBlock b){
@@ -1025,7 +1025,7 @@ public abstract class JBlock implements FlowElement{
         for(i=0; i<connectsIn.size(); i++)
             connectsIn.get(i).needUpdate=true;
         for(i=0; i<groups.size(); i++){
-            blockGroup g=groups.get(i);
+            BlockGroup g=groups.get(i);
             if(g.blocks.contains(this))
                 g.needUpdate=true;
             else{
@@ -1081,7 +1081,7 @@ public abstract class JBlock implements FlowElement{
             for(i=0; i<connectsIn.size(); i++)
                 connectsIn.get(i).needUpdate=true;
             for(i=0; i<groups.size(); i++){
-                blockGroup g=groups.get(i);
+                BlockGroup g=groups.get(i);
                 if(g.blocks.contains(this))
                     g.needUpdate=true;
                 else{
@@ -1172,7 +1172,7 @@ public abstract class JBlock implements FlowElement{
     }
 
     public boolean drawArrow(){return true;}
-    public boolean drawArrow(connector c){return true;}
+    public boolean drawArrow(Flowline c){return true;}
 
     protected void parseXml(Element b, boolean connect){
          if(connect==false){
@@ -1228,7 +1228,7 @@ public abstract class JBlock implements FlowElement{
             NodeList con=b.getElementsByTagName("connect");
             for(int i=0; i<con.getLength(); i++){
                 Element to=(Element)con.item(i);
-                connector c=connectTo(
+                Flowline c=connectTo(
                         flow.getBlockById(Integer.parseInt(to.getAttribute("ID")))
                         );
                 if(to.hasAttribute("value"))

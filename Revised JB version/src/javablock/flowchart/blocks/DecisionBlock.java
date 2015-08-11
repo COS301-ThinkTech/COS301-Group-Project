@@ -22,8 +22,8 @@ public class DecisionBlock extends JBlock {
     public boolean isSwitchable(){return false;}
 
     @Override
-    public connector connectTo(JBlock n){
-        connector c=new connector(this, n);
+    public Flowline connectTo(JBlock n){
+        Flowline c=new Flowline(this, n);
         if(type==Type.DECISION){
             if(connects.size()>0){
                 if(connects.get(connects.size()-1).value.equals("true"))

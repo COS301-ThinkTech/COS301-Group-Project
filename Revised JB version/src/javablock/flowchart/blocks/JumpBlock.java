@@ -7,7 +7,7 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
-import javablock.flowchart.connector;
+import javablock.flowchart.Flowline;
 import javax.script.ScriptEngine;
 
 
@@ -49,9 +49,9 @@ public class JumpBlock extends JBlock {
     }
     private void connectsUpdate(){
         if(oldNeed!=needDraw){
-            for(connector c: connects)
+            for(Flowline c: connects)
                 c.shape();
-            for(connector c: connectsIn)
+            for(Flowline c: connectsIn)
                 c.shape();
             oldNeed=needDraw;
         }
@@ -68,7 +68,7 @@ public class JumpBlock extends JBlock {
         }
         needDraw=true;
         double a=connects.get(0).angle;
-        for(connector c:connectsIn){
+        for(Flowline c:connectsIn){
             if(Math.abs(c.angle-a)/Math.PI==0){
             //if(c.angle==a){
                 needDraw=false;
@@ -93,15 +93,15 @@ public class JumpBlock extends JBlock {
             needDraw=true;
             return true;
         }
-        for(connector c:connectsIn){
+        for(Flowline c:connectsIn){
             if(Math.abs(c.angle-connects.get(0).angle)/Math.PI==0){
                 needDraw=false;
             }
         }
         if(oldNeed!=needDraw){
-            for(connector c:connectsIn)
+            for(Flowline c:connectsIn)
                 c.shape();
-            for(connector c:connects)
+            for(Flowline c:connects)
                 c.shape();
         }
         return needDraw;
@@ -179,7 +179,7 @@ public class JumpBlock extends JBlock {
         return connectsIn.size() != 1 || connects.size() <= 0;
     }
     @Override
-    public boolean drawArrow(connector c){
+    public boolean drawArrow(Flowline c){
         if(connectsIn.size()==1 && connects.size()==1)
             return false;
         if(connects.size()==1)

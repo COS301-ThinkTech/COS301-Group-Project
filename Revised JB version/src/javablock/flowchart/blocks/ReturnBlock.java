@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
-import javablock.flowchart.connector;
+import javablock.flowchart.Flowline;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 import org.w3c.dom.Element;
@@ -127,7 +127,7 @@ public class ReturnBlock extends JBlock {
     }
 
     @Override
-    public connector connectTo(JBlock n){
+    public Flowline connectTo(JBlock n){
         return null;
     }
 
