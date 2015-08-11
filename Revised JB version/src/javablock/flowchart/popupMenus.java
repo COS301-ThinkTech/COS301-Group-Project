@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
-import javablock.flowchart.*;
 import config.*;
 import java.awt.Component;
 import java.awt.Image;
@@ -19,7 +18,7 @@ import javax.swing.event.PopupMenuListener;
  * 
  */
 public class popupMenus implements ActionListener, PopupMenuListener {
-    public JPopupMenu blockMenu, selectedMenu, nullMenu, codeEditor,
+    public JPopupMenu blockMenu, selectedMenu, codeEditor,
             otherBlocksMenu;
     FlowchartManager action;
     public popupMenus(FlowchartManager action){
@@ -60,41 +59,7 @@ public class popupMenus implements ActionListener, PopupMenuListener {
     public void initNull(){
         JMenuItem item;
         
-        nullMenu=new JPopupMenu();
-        nullMenu.add(new JLabel(translator.get("block.insert")));
-        nullMenu.addSeparator();
-
-        item=newMenuItem("block.IO", JBlock.getIcon(JBlock.Type.IO), "io", "add/IO");
-        nullMenu.add(item);
-
-        item=newMenuItem("block.CPU", JBlock.getIcon(JBlock.Type.CPU), "cpu", "add/CPU");
-        nullMenu.add(item);
-
-        item=newMenuItem("block.DECISION", JBlock.getIcon(JBlock.Type.DECISION), "decision", "add/DECISION");
-        nullMenu.add(item);
-
-        item=newMenuItem("block.SCRIPT", JBlock.getIcon(JBlock.Type.SCRIPT), "script", "add/SCRIPT");
-        nullMenu.add(item);
-        item=newMenuItem("block.STRUCT", JBlock.getIcon(JBlock.Type.STRUCT), "struct", "add/STRUCT");
-        nullMenu.add(item);
-
-        item=newMenuItem("block.RETURN", JBlock.getIcon(JBlock.Type.RETURN), "return", "add/RETURN");
-        nullMenu.add(item);
-
-//        item=newMenuItem("block.COMMENT", JBlock.getIcon(JBlock.Type.COMMENT), "comment", "add/COMMENT");
-//        nullMenu.add(item);
-//        nullMenu.addSeparator();
-
-        item=newMenuItem("block.LINK", JBlock.getIcon(JBlock.Type.LINK), "link", "add/LINK");
-        nullMenu.add(item);
-
-        item=newMenuItem("block.CLIP", JBlock.getIcon(JBlock.Type.BRACE), "clips", "add/CLIP");
-        nullMenu.add(item);
-
-        item=newMenuItem("block.JUMP", JBlock.getIcon(JBlock.Type.JUMP), "jump", "add/JUMP");
-        nullMenu.add(item);
-
-        nullMenu.addSeparator();
+        
         if(true){
             JMenu addons=new JMenu("Addons");
             item=newMenuItem("Logo", JBlock.getIcon(JBlock.Type.LOGO), "logo", "add/LOGO");
