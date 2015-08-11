@@ -5,7 +5,6 @@
 
 package javablock.flowchart.blocks;
 import javablock.flowchart.blockEditors.startEditor;
-import java.awt.Rectangle;
 import java.awt.geom.Area;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
@@ -13,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javablock.*;
 import javablock.flowchart.BlockEditor;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
@@ -26,9 +24,9 @@ import org.w3c.dom.NodeList;
  *
  * 
  */
-public class startBlock extends JBlock {
+public class StartBlock extends JBlock {
     public static startEditor editor=new startEditor();
-    public startBlock(Flowchart parent){
+    public StartBlock(Flowchart parent){
         super(Type.START, parent);
         //displayComment=true;
         comment="Start";
@@ -84,7 +82,7 @@ public class startBlock extends JBlock {
         try {
             script.eval(code);
         } catch (ScriptException ex) {
-            Logger.getLogger(startBlock.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StartBlock.class.getName()).log(Level.SEVERE, null, ex);
         }
         if(connects.size()==1)
             return connects.get(0).n.nextExe();
