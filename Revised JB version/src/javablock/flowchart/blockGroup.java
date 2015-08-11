@@ -2,19 +2,17 @@ package javablock.flowchart;
 
 import config.global;
 import java.awt.Color;
-import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
 import java.util.List;
-import javablock.Sheet;
 import javax.script.ScriptEngine;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-public class blockGroup extends JBlock {
+public final class blockGroup extends JBlock {
     public List<JBlock> blocks=new ArrayList();
     public blockGroup(Flowchart parent){
         super(Type.GROUP, parent);
@@ -39,7 +37,7 @@ public class blockGroup extends JBlock {
         gradient=null;
         txtList.clear();
         if(flow!=null)
-            while(flow.groups.remove(this)){};
+            while(flow.groups.remove(this)){}
         flow=null;
     }
 
@@ -132,17 +130,7 @@ public class blockGroup extends JBlock {
         prerender=null;
         if(gradient!=null)
             gradient=null;
-        return ;
-/*
-        if(global.gradients){
-            gradient=new GradientPaint(0,shape.getBounds().y, color,
-                    0,
-                    (float)shape.getBounds().y+shape.getBounds().height, color.darker());
-        }
-        else{
-            gradient=new GradientPaint(0,shape.getBounds().y, color, 0,
-                (float) shape.getBounds().y+shape.getBounds().height, color);
-        }*/
+
     }
 
     @Override
@@ -200,6 +188,13 @@ public class blockGroup extends JBlock {
         g2d.setStroke(global.strokeNormal);
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @return
+     */
+    @Override
     public boolean contains(double x, double y){
         return shape.contains(x, y);
     }
