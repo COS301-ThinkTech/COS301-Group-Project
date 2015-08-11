@@ -2,7 +2,6 @@ package javablock;
 
 import java.awt.event.*;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -13,32 +12,21 @@ import java.awt.BorderLayout;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
-import java.net.URI;
 import java.net.URL;
-import java.net.URLClassLoader;
 
 
 public class Main extends JApplet implements ActionListener, Runnable {
-    //public Flowchart Flow;
     public Main(){
-        //try{
-        //    if(getParameter("compact")!=null)
-        //        global.compactR=getParameter("compact").equals("true");
-        //}catch(Exception e){
-        //}
         global.Classes=this.getClass().getClassLoader();
         global.setSystemLaF(true);
         global.setApplet(true);
         global.init();
         MainWindow w=new MainWindow();
         w.remove(w.menu);
-        //this.removeAll();
         this.setLayout(new BorderLayout());
         this.add(w.menu, BorderLayout.PAGE_START);
         add(w.getContentPane(), BorderLayout.CENTER);
-        //this.validate();
         repaint();
-        //new Thread(this).start();
     }
 
     @Override
@@ -47,7 +35,7 @@ public class Main extends JApplet implements ActionListener, Runnable {
         if(getParameter("url")!=null)
         if(!(getParameter("url").equals("none"))){
             //loaders.WebFile file=null;
-            String in="";
+            String in;
             try {
                 URL url = new URL(getParameter("url"));
                 BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
@@ -188,8 +176,10 @@ public class Main extends JApplet implements ActionListener, Runnable {
     public void actionPerformed(ActionEvent e) {
     }
     MainWindow w;
+    @Override
     public void run() {
         javax.swing.SwingUtilities.invokeLater(new Runnable(){
+            @Override
             public void run(){
             w=new MainWindow();
             w.remove(w.menu);
