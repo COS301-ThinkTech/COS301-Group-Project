@@ -5,19 +5,16 @@ import javablock.flowchart.BlockEditor;
 import config.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.util.*;
 
 import javablock.gui.*;
 import java.awt.BorderLayout;
 import java.awt.Component;
-import java.awt.event.KeyListener;
+import java.awt.HeadlessException;
 import java.io.*;
 import java.util.logging.*;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
-import javablock.flowchart.connector;
-import javablock.flowchart.generator.For;
 import javax.swing.*;
 import javax.swing.text.EditorKit;
 import javax.xml.parsers.*;
@@ -26,7 +23,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import widgets.help;
 
-public class FlowchartManager extends JPanel implements ActionListener{
+public final class FlowchartManager extends JPanel implements ActionListener{
     
     public Flowchart flow;
     public List<Sheet> flows=new ArrayList();
@@ -97,7 +94,9 @@ public class FlowchartManager extends JPanel implements ActionListener{
             fw.close();
             global.lastFlow=file.getAbsolutePath();
             return 1;
-        } catch (Throwable ex) {
+        } catch (HeadlessException ex) {
+            Logger.getLogger(FlowchartManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
             Logger.getLogger(FlowchartManager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 1;
@@ -129,16 +128,15 @@ public class FlowchartManager extends JPanel implements ActionListener{
                     fc.setSelectedFile(new File(global.lastFlow));
                 else
                     fc.setSelectedFile(null);
-                if(flows.size()==0){
+                if(flows.isEmpty()){
                     JOptionPane.showMessageDialog(global.Window, translator.get("popup.loadLastError"),
                         translator.get("popup.loadError.head"), JOptionPane.ERROR_MESSAGE);
                     New();
                 }
             }
-        } catch (Exception e){
+        } catch (HeadlessException e){
             JOptionPane.showMessageDialog(global.Window, translator.get("popup.loadLastError"),
                     translator.get("popup.loadError.head"), JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
             New();
         }
         
@@ -161,7 +159,7 @@ public class FlowchartManager extends JPanel implements ActionListener{
         gui.updateConfig(this);
     }
 
-    private List<String> history=new ArrayList();
+    private final List<String> history=new ArrayList();
     int historyPos;
     public boolean historyArchive=false;
 
@@ -169,6 +167,7 @@ public class FlowchartManager extends JPanel implements ActionListener{
     void newFileChooser(){
         fc = new JFileChooser();
         javax.swing.filechooser.FileFilter ff = new javax.swing.filechooser.FileFilter() {
+            @Override
             public boolean accept(File f) {
                 return f.isDirectory() || f.getName().toLowerCase().endsWith(".jbf");
             }
@@ -309,7 +308,6 @@ public class FlowchartManager extends JPanel implements ActionListener{
         }
         gui.undoAvaiable(historyPos>0);
         gui.redoAvaiable(false);
-        return ;
     }
     public void historyUndo(){
         if(global.applet) return ;
@@ -364,7 +362,6 @@ public class FlowchartManager extends JPanel implements ActionListener{
             f.saveAsImage(url, name);
         }
         }catch(Exception e){
-            e.printStackTrace();
         }
     }
     
@@ -422,13 +419,12 @@ public class FlowchartManager extends JPanel implements ActionListener{
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(this, translator.get("popup.saveError"),
                         translator.get("popup.saveError"), JOptionPane.ERROR_MESSAGE);
-                return ;
             }
         }
     }
     public int loadFile(){ return loadFile(false);}
     public int loadFile(boolean imp){
-        String in="";
+        String in;
         if(imp){
             in=JOptionPane.showInputDialog(null);
             if(in!=null){
@@ -657,8 +653,9 @@ public class FlowchartManager extends JPanel implements ActionListener{
             history.add(saveXml());
             historyClear();
             return true;
-        } catch(Exception e){
+        } catch(NumberFormatException e){
 
+        } catch (HeadlessException e) {
         }
         return true;
     }
@@ -710,11 +707,9 @@ public class FlowchartManager extends JPanel implements ActionListener{
         if(flow==null) return;
         int w=SecSplit.getDividerLocation();
         SecSplit.setRightComponent(((Flowchart)flow).I);
+        SecSplit.setBottomComponent(((Flowchart)flow).I);
         SecSplit.setDividerLocation(w);
-        if(false){
-            //if(blockEdit!=null)
-            //    blockEdit.setActiveSheet(flow);
-        }else{
+       
             boolean resize=true;
             if (flow.getSelected().size() == 1) {
                 JBlock selected=flow.getSelected().get(0);
@@ -759,7 +754,7 @@ public class FlowchartManager extends JPanel implements ActionListener{
                 editor = null;
                 flow.editorPane.setVisible(false);
             }
-        }
+        
         flow.flow.requestFocusInWindow();
         flow.flow.requestFocus();
     }
