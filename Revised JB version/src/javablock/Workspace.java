@@ -4,7 +4,6 @@
  */
 package javablock;
 
-import java.beans.PropertyVetoException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComponent;
@@ -12,10 +11,7 @@ import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JTabbedPane;
 
-/**
- *
- * 
- */
+
 public class Workspace {
     final static int VIEWTYPE_TABS=0;
     final static int VIEWTYPE_MDI=1;
