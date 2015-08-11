@@ -1006,14 +1006,13 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                     at=tmp;
                     break;
             }}
-            if(at==null)
-                menus.nullMenu.show(flow, e.getX(), e.getY());
-            else{
+            
+           
                 if(selected.contains(at) && selected.size()>1)
                     menus.selectedMenu.show(flow, e.getX(), e.getY());
                 if(selected.contains(at) && selected.size()==1)
                     menus.showPopupOnBlock(flow, e.getX(), e.getY(), selected.get(0));
-            }
+            
             update();
         }
     }
