@@ -25,7 +25,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.VolatileImage;
 import java.io.File;
 import javablock.*;
-import javablock.flowchart.blocks.startBlock;
+import javablock.flowchart.blocks.StartBlock;
 import javablock.flowchart.generator.For;
 import javax.imageio.ImageIO;
 import org.w3c.dom.*;
@@ -415,7 +415,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
      * @return arguments names in array
      */
     public String[] getArgumentsList(){
-        String f[][]=((startBlock)blocks.get(0)).getFields();
+        String f[][]=((StartBlock)blocks.get(0)).getFields();
         String args[]=new String[f.length];
         int i=0;
         for(String ff[]:f){
@@ -431,7 +431,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
      * @return arguments types in array
      */
     public String[] getArgumentsTypes(){
-        String f[][]=((startBlock)blocks.get(0)).getFields();
+        String f[][]=((StartBlock)blocks.get(0)).getFields();
         String args[]=new String[f.length];
         int i=0;
         for(String ff[]:f){
@@ -500,7 +500,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             }
         }
         code+= "){\n";
-        code+=((startBlock)blocks.get(0)).generateIntro(true);
+        code+=((StartBlock)blocks.get(0)).generateIntro(true);
         code+="\tvar "+getName()+"_block="+blocks.get(0).nextBlock().nextExe().ID+"\n"
                 + "\twhile(true)\n"
                 + "\t  switch("+getName()+"_block){\n";
@@ -557,7 +557,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                 i++;
             }
         }*/
-        code+=((startBlock)blocks.get(0)).generateIntro(false);
+        code+=((StartBlock)blocks.get(0)).generateIntro(false);
         code+="\t"+getName()+"_block="+blocks.get(0).nextBlock().nextExe().ID+"\n";
         code+="\twhile true:\n";
         for(JBlock b:blocks){
@@ -599,7 +599,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         }
         code+="):\n";
         i=0;
-        code+=((startBlock)blocks.get(0)).generateIntro(false);
+        code+=((StartBlock)blocks.get(0)).generateIntro(false);
         code+="\t"+getName()+"_block="+blocks.get(0).nextBlock().nextExe().ID+"\n";
         code+="\twhile true:\n";
         for(JBlock b:blocks){
@@ -1847,7 +1847,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             }
         }
         code = code + "){\n";
-        code = code + ((startBlock) this.blocks.get(0)).generateIntro(true);
+        code = code + ((StartBlock) this.blocks.get(0)).generateIntro(true);
         code = code + "\tvar " + getName() + "_block=" + ((JBlock) this.blocks.get(0)).nextBlock().nextExe().ID + "\n" + "\twhile(true)\n" + "\t  switch(" + getName() + "_block){\n";
 
         for (JBlock b : this.blocks) {

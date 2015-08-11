@@ -150,7 +150,7 @@ public abstract class JBlock implements FlowElement{
                 ((IOBlock)b).ioType=1; break;
             case IO: b= new IOBlock(parent); break;
             case CPU: b= new CPUBlock(parent); break;
-            case START: b= new startBlock(parent); break;
+            case START: b= new StartBlock(parent); break;
             case RETURN: b= new ReturnBlock(parent); break;
             case DECISION: b= new DecisionBlock(parent); break;
             //case COMMENT: b= new commentBlock(parent); break;

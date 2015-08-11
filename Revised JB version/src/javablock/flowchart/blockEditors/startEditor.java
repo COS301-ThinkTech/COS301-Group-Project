@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import javablock.flowchart.blocks.startBlock;
+import javablock.flowchart.blocks.StartBlock;
 import javablock.flowchart.*;
 import javax.swing.*;
 import widgets.ComboText;
@@ -20,7 +20,7 @@ public final class startEditor extends javax.swing.JPanel implements BlockEditor
         delIcon=new javax.swing.ImageIcon(getClass().getResource("/icons/16/list-remove.png"));
         makeList();
     }
-    startBlock editing;
+    StartBlock editing;
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -168,7 +168,7 @@ public final class startEditor extends javax.swing.JPanel implements BlockEditor
         if(b==editing) return ;
         if(editing!=null)
             finnishEdit();
-        editing=(startBlock)b;
+        editing=(StartBlock)b;
         fields.clear();
         fieldsPane.removeAll();
         name.setText(editing.name);
