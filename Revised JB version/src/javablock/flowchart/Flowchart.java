@@ -3,21 +3,17 @@ package javablock.flowchart;
 import config.global;
 import config.translator;
 import java.awt.*;
-import java.beans.PropertyChangeListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.script.ScriptException;
 import javax.swing.*;
 
 import java.awt.event.*;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.*;
 import java.util.Calendar;
-import java.util.TimerTask;
 import javablock.gui.*;
 import java.awt.Robot;
 import java.awt.font.TextLayout;
@@ -29,7 +25,6 @@ import javablock.flowchart.blocks.StartBlock;
 import javablock.flowchart.generator.For;
 import javax.imageio.ImageIO;
 import org.w3c.dom.*;
-import widgets.Resizer;
 import javax.xml.parsers.*;
 
 
@@ -200,6 +195,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     /**
      * Stops Interpreter
      */
+    @Override
     public void close(){
         if(I.run != null)
             I.run.close();
@@ -210,6 +206,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     /**
      * Deletes this flowchart
      */
+    @Override
     public void delete(){
         I.delete();
         close();
@@ -237,6 +234,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     /**
      * Resets block's IDs
      */
+    @Override
     public void optimizeID(){
         int i=1;
         for(JBlock b: blocks){
@@ -269,6 +267,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
      * Reads flowchart from XML
      * @param f DOM element
      */
+    @Override
     public void parseXml(Element f){
         loading=true;
         blocks.clear();
@@ -341,6 +340,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
      * Saves XML to root
      * @param root where Node should be added
      */
+    @Override
     public void saveXml(Element root){
         Document doc=root.getOwnerDocument();
         Element f=doc.createElement("flowchart");
@@ -639,7 +639,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
 
 
     private void placeBlock(){
-        if(selected.size()==0) return ;
+        if(selected.isEmpty()) return ;
         boolean next=false;
         for(JBlock b:selected){
             if(b.connects.size()>0 || b.connectsIn.size()>0) continue;
@@ -748,6 +748,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         g2d.setTransform(id);
     }
 
+    @Override
     public void saveAsImage(String url, String docName){
         int z=actZoom;
         actZoom=4;
@@ -791,6 +792,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         }
     };
     
+    @Override
     public void saveAsImage(){
         BufferedImage img=drawImageSrc();
         if(fc==null){
@@ -821,7 +823,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             ext="png";
             fc.setSelectedFile(new File(f.getAbsolutePath()+"."+ext));
         }
-        if(ext!="png"){
+        if(!"png".equals(ext)){
             BufferedImage src=img;
             img=new BufferedImage(src.getWidth(),
                 src.getHeight(),
@@ -844,7 +846,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                     ext
                     ,f))
                 System.err.println("Error");
-        } catch (Exception ex) {
+        } catch (IOException ex) {
             Logger.getLogger(Flowchart.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -974,6 +976,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
 
     public boolean blockEdit=true;
 
+    @Override
     public void setEditable(boolean editing){
         blockEdit=editing;
         if(blockEdit==false){
@@ -989,6 +992,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
 
     JBlock deselect=null;
     JBlock select=null;
+    @Override
     public void mouseClicked(MouseEvent e) {
         if(!blockEdit) return;
         Point2D cur=cursorInScene(e.getPoint());
@@ -1014,6 +1018,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         }
     }
     boolean selectedNow=false;
+    @Override
     public void mousePressed(MouseEvent e) {
         flow.requestFocus();
         cur=cursorInScene(e.getPoint());
@@ -1160,6 +1165,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         }
     }
 
+    @Override
     public void mouseReleased(MouseEvent e) {
         if(e.getButton()==MouseEvent.BUTTON2 || e.getButton()==MouseEvent.BUTTON3){
             moving=false;
@@ -1227,6 +1233,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     }
 
     public boolean moveAbsolute=false;
+    @Override
     public void mouseEntered(MouseEvent e) {
         if(moveAbsolute){
             mousePos=e.getPoint();
@@ -1237,11 +1244,13 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         }
     }
 
+    @Override
     public void mouseExited(MouseEvent e) {
         //cur=cursorInScene(e.getPoint());
     }
     static Robot mouseControll;
     Point mouseOnScreen=new Point(0,0);
+    @Override
     public void mouseDragged(MouseEvent e) {
         if(moving){
             //setCursor(Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR));
@@ -1326,6 +1335,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
 
     boolean needDraw=false;
     boolean rendering=true;
+    @Override
     public void update(){
         if(global.animations){
             rendering=true;
@@ -1347,6 +1357,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         
     }
 
+    @Override
     public void keyPressed(KeyEvent e) {
         if(e.isControlDown()){
             int w=e.getKeyCode();
@@ -1417,10 +1428,12 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                     break;
         }
     }
+    @Override
     public void keyReleased(KeyEvent e) {
     }
 
     boolean zooming=false;
+    @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
         if(this.selecting) return ;
         cur=cursorInScene(e.getPoint());
@@ -1482,18 +1495,22 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         return Zooms[actZoom];
     }
 
+    @Override
     public void componentResized(ComponentEvent e) {
     }
 
+    @Override
     public void componentMoved(ComponentEvent e) {
     }
     Renderer r;
+    @Override
     public void componentShown(ComponentEvent e) {
         action.setActiveSheet(this);
         action.setInterpreter(I);
         I.resetButtons();
     }
     
+    @Override
     public void componentHidden(ComponentEvent e) {
         I.getInterval();
     }
@@ -1960,7 +1977,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                         else //jeśli nie
                             renderLock.wait(); //czeka do notyfikcacji
                     }
-                } catch (Exception ex) {
+                } catch (InterruptedException ex) {
                     Logger.getLogger(Renderer.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
