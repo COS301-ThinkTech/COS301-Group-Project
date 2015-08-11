@@ -1,7 +1,6 @@
 package javablock.flowchart;
 
 import addons.AnimatedVariable;
-import javablock.flowchart.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javablock.flowchart.blocks.*;
@@ -14,6 +13,7 @@ import java.awt.font.FontRenderContext;
 import java.awt.font.TextLayout;
 import java.awt.geom.*;
 import java.awt.image.BufferedImage;
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import javablock.FlowchartManager;
 
@@ -25,10 +25,9 @@ import org.w3c.dom.*;
 
 public abstract class JBlock implements FlowElement{
     public enum Type { START, RETURN,
-        IO, IOin, IOout, CPU, SCRIPT,
-        DECISION, COMMENT, LINK,
-        BRACE, JUMP, NULL, GROUP, 
-        LOGO, CANVAS2D, STRUCT, CUSTOM, MODULE, FORLOOP
+        IO, CPU, DECISION, LINK,
+        JUMP, NULL, GROUP, 
+        CUSTOM, MODULE, FORLOOP
     };
     static final ArrayList<Class<JBlock>> customTypes=new ArrayList<Class<JBlock>>();
     static HashMap<Class, String> customTypesNames=new HashMap<Class, String>();
@@ -41,7 +40,17 @@ public abstract class JBlock implements FlowElement{
             if(o instanceof JBlock){
                 customTypes.add(newType.asSubclass(JBlock.class));
             }
-        } catch (Exception ex) {
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(JBlock.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(JBlock.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(JBlock.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(JBlock.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SecurityException ex) {
+            Logger.getLogger(JBlock.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvocationTargetException ex) {
             Logger.getLogger(JBlock.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -57,11 +66,9 @@ public abstract class JBlock implements FlowElement{
         Type.CPU/*, Type.IOin, Type.IOout*/, Type.DECISION, Type.RETURN, Type.MODULE, Type.FORLOOP/*, Type.COMMENT*/
     };
     public static Type HelpingTypes[]={
-        Type.IO, Type.JUMP, Type.LINK, Type.BRACE/*, Type.STRUCT*/, Type.SCRIPT
+        Type.IO, Type.JUMP, Type.LINK
     };
-    public static Type AddonsTypes[]={
-        Type.CANVAS2D, Type.LOGO
-    };
+   
     
     public static String leftLineTypes=
         "CPU IOin IOout DECISION RETURN MODULE FORLOOP";
@@ -135,36 +142,39 @@ public abstract class JBlock implements FlowElement{
                 if(c.getMethod("getName").invoke(null).equals(type)){
                     return c.getConstructor(Flowchart.class).newInstance(parent);
                 }
-            } catch (Exception ex) {
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(JBlock.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalArgumentException ex) {
+                Logger.getLogger(JBlock.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                Logger.getLogger(JBlock.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (NoSuchMethodException ex) {
+                Logger.getLogger(JBlock.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SecurityException ex) {
+                Logger.getLogger(JBlock.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InvocationTargetException ex) {
                 Logger.getLogger(JBlock.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return make(Type.CUSTOM, true, parent);
     }
     public static JBlock make(Type type, boolean codeBased, Flowchart parent){
-        JBlock b=null;
-        switch(type){
-            case IOin: b=new IOBlock(parent); b.nonCodeBased(!codeBased);
-                ((IOBlock)b).ioType=2; break;
-            case IOout: b=new IOBlock(parent); b.nonCodeBased(!codeBased);
-                ((IOBlock)b).ioType=1; break;
+        JBlock b;
+        switch(type){            
             case IO: b= new IOBlock(parent); break;
             case CPU: b= new CPUBlock(parent); break;
             case START: b= new StartBlock(parent); break;
             case RETURN: b= new ReturnBlock(parent); break;
             case DECISION: b= new DecisionBlock(parent); break;
-            //case COMMENT: b= new commentBlock(parent); break;
             case MODULE: b= new ModuleBlock(parent);  break;
-            case FORLOOP: b= new ForLoopBlock(parent);  break;
-                
+            case FORLOOP: b= new ForLoopBlock(parent);  break;                
             case LINK: b= new LinkBlock(parent); break;
             case JUMP: b= new JumpBlock(parent); break;
             case GROUP: b= new blockGroup(parent); break;
             default: b= new CPUBlock(parent);b.type=Type.CUSTOM; break;
         }
-        if(type==Type.IOin || type==Type.IOout);
-        else
-            b.nonCodeBased(!codeBased);
+        
+           b.nonCodeBased(!codeBased);
         return b;
     }
     public static JBlock make(Type type, Flowchart parent){
@@ -181,6 +191,7 @@ public abstract class JBlock implements FlowElement{
     public FlowchartManager getManager(){
         return flow.action;
     }
+    @Override
     public boolean isEditable(){
         return true;
     }
@@ -193,6 +204,7 @@ public abstract class JBlock implements FlowElement{
     public boolean oneOut(){return true;}
     public boolean popUpEditor(){return true;}
     public boolean isDefinitionBlock(){return false;}
+    @Override
     public BlockEditor getEditor(){
         return (BlockEditor) javablock.flowchart.blockEditors.Editor.standard;
     }
@@ -253,6 +265,7 @@ public abstract class JBlock implements FlowElement{
     }
 
     public boolean deleted=false;
+    @Override
     public void delete(){
         deleted=true;
         if(connectsIn.size()==1 && connects.size()==1)
@@ -318,10 +331,7 @@ public abstract class JBlock implements FlowElement{
     public boolean nowExecute=false;
 
     public void prepareToExe(){
-        if(flow.blockEdit)
-            nowExecute=false;
-        else
-            nowExecute=true;
+        nowExecute = !flow.blockEdit;
         makeGradient();
     }
     public void releaseFromExe(){
@@ -354,9 +364,7 @@ public abstract class JBlock implements FlowElement{
     }
 
     protected boolean isReadyCode(){
-        if(getEditor()==javablock.flowchart.blockEditors.Editor.standard)
-            return false;
-        return true;
+        return getEditor() != javablock.flowchart.blockEditors.Editor.standard;
     }
     private String parseCode(char s){
         String c="";
@@ -445,13 +453,14 @@ public abstract class JBlock implements FlowElement{
         if(c.indexOf("#^")>=0){
             String l[]=c.split("\n");
             c="";
-            for(int i=0; i<l.length; i++){
-                if(l[i].startsWith("#^")){
-                    if(l[i].charAt(2)==s)
-                        c+=l[i].substring(4)+"\n";
+            for (String l1 : l) {
+                if (l1.startsWith("#^")) {
+                    if (l1.charAt(2) == s) {
+                        c += l1.substring(4) + "\n";
+                    }
+                } else {
+                    c += l1 + "\n";
                 }
-                else
-                    c+=l[i]+"\n";
             }
         }
         return c;
@@ -543,7 +552,6 @@ public abstract class JBlock implements FlowElement{
             } catch (ScriptException ex) {
                 JOptionPane.showMessageDialog(null,"Script error:\n"+getCode()+"\n\n"
                         + ""+ex.getMessage());
-                ex.printStackTrace();
                 return null;
             }
         }
@@ -570,6 +578,7 @@ public abstract class JBlock implements FlowElement{
     public BufferedImage prerender=null;
     protected boolean prerendered=false;
     protected float prerenderedInScale=0;
+    @Override
     public void shape(){
         prepareText();
         afterShape();
@@ -663,7 +672,7 @@ public abstract class JBlock implements FlowElement{
         else {
             if(txtLay==null){
                 if(frc==null)
-                    frc=global.frc;;
+                    frc=global.frc;
                 txtLay=new TextLayout(".YTyj",
                         global.monoFont,
                         frc);
@@ -829,7 +838,9 @@ public abstract class JBlock implements FlowElement{
 
     float scale=1;
     float highlight=0;
+    @Override
     public void draw(Graphics2D g2d){draw(g2d, false);}
+    @Override
     public void draw(Graphics2D g2d, boolean drawFull){
         if(flow==null) return;
         if (global.prerender) {
@@ -907,6 +918,7 @@ public abstract class JBlock implements FlowElement{
                 shape.getBounds().height/2+15*2);
         }
     }
+    @Override
     public void drawSelection(Graphics2D g2d){
         g2d.translate(posX, posY);
         g2d.setStroke(global.strokeSelection);
@@ -987,6 +999,7 @@ public abstract class JBlock implements FlowElement{
         }
     }
     protected static Color shadowColor=new Color(0,0,0,100);
+    @Override
     public void drawShadow(Graphics2D g2d){
         AffineTransform af = g2d.getTransform();
         g2d.translate(posX, posY);
@@ -1080,6 +1093,7 @@ public abstract class JBlock implements FlowElement{
         }
     }
 
+    @Override
     public Rectangle2D bound2D(){
         Rectangle2D rect=shape.getBounds2D();
         rect.setFrame(rect.getX() + posX,
@@ -1090,6 +1104,7 @@ public abstract class JBlock implements FlowElement{
         //        (posY-bound.getHeight()/2+0.5));
         return rect;
     }
+    @Override
     public Rectangle bound(){
         Rectangle rect=shape.getBounds();
         //rect.translate( (int)(posX-bound.getWidth()/2+0.5),
@@ -1098,6 +1113,7 @@ public abstract class JBlock implements FlowElement{
         return rect;
     }
 
+    @Override
     public boolean contains(double x, double y){
         return shape.contains(x-posX,
                 y-posY);
@@ -1115,11 +1131,10 @@ public abstract class JBlock implements FlowElement{
         if(shape.contains(x-posX-prec,
                           y-posY+prec/0.7))
             return true;
-        if(shape.contains(x-posX-prec,
-                          y-posY-prec/0.7))
-            return true;
-        return false;
+        return shape.contains(x-posX-prec,
+                y-posY-prec/0.7);
     }
+    @Override
     public boolean intersects(Shape s){
         return shape.intersects(s.getBounds2D());
     }
