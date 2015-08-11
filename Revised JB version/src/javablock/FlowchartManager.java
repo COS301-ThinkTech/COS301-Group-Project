@@ -151,7 +151,7 @@ public class FlowchartManager extends JPanel implements ActionListener{
         this.validate();
     }
 
-    @Deprecated
+    
     public void setInterpreter(Interpreter set){
         gui.updateConfig();
     }
