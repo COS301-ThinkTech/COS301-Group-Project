@@ -27,7 +27,7 @@ public abstract class JBlock implements FlowElement{
     public enum Type { START, RETURN,
         IO, CPU, DECISION, LINK,
         JUMP, NULL, GROUP, 
-        CUSTOM, MODULE, FORLOOP
+        CUSTOM, MODULE, FORLOOP,COMMENT
     };
     static final ArrayList<Class<JBlock>> customTypes=new ArrayList<Class<JBlock>>();
     static HashMap<Class, String> customTypesNames=new HashMap<Class, String>();
@@ -63,7 +63,7 @@ public abstract class JBlock implements FlowElement{
         return Type.CUSTOM;
     }
     public static Type StandardTypes[]={
-        Type.CPU/*, Type.IOin, Type.IOout*/, Type.DECISION, Type.RETURN, Type.MODULE, Type.FORLOOP/*, Type.COMMENT*/
+        Type.CPU/*, Type.IOin, Type.IOout*/, Type.DECISION, Type.RETURN, Type.MODULE, Type.FORLOOP, Type.COMMENT
     };
     public static Type HelpingTypes[]={
         Type.IO, Type.JUMP, Type.LINK
@@ -171,6 +171,7 @@ public abstract class JBlock implements FlowElement{
             case LINK: b= new LinkBlock(parent); break;
             case JUMP: b= new JumpBlock(parent); break;
             case GROUP: b= new BlockGroup(parent); break;
+            case COMMENT: b=new CommentBlock(parent); break;
             default: b= new CPUBlock(parent);b.type=Type.CUSTOM; break;
         }
         
