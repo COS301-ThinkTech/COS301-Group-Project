@@ -21,11 +21,9 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class global 
-{
+public class global {
     public static boolean GUI=true;
-    public  enum hilight
-    {
+    public  enum hlightT{
         NONE, SCALE, HIGHLIGHT, AUTO
     }
     public static ArrayList<ScriptRunner> runners=new ArrayList();
@@ -47,19 +45,21 @@ public class global
     }
     //Plugins status
     public static boolean jsyntaxpane=false;
+    
     public static int version=6010;
     public static boolean debugMode=false;
+    
     public static boolean checkUpdate=true;
     public static boolean debug=false;
     public static boolean applet=false;
     public static boolean editable=true;
     public static String startWith=null;
-    public static void setApplet(boolean s)
-    {
+    public static void setApplet(boolean s){
         if(global.debug)
         System.out.println("[init] Applet="+s);
         applet=s;
     }
+
     
     public static String confDir;
     public static String lastFlow;
@@ -118,7 +118,7 @@ public class global
 
     //EDITING
     public static boolean autoJumps=true;
-    public static hilight hlight=hilight.AUTO;
+    public static hlightT hlight=hlightT.AUTO;
     public static boolean snapToGrid=true;
 
     //FONTS
@@ -175,7 +175,7 @@ public class global
         highlightLinks=false;
         //systemFont=true;
         markChanges=true;
-        hlight=hilight.AUTO;
+        hlight=hlightT.AUTO;
         LaF="Nimbus";
         scriptEngine="JavaScript";
 
@@ -212,7 +212,7 @@ public class global
         //if(true) return ;
         s=true;
         Properties props = new Properties();
-       props.put("LogoString", "FLOW");
+       props.put("logoString", "FLOW");
        AcrylLookAndFeel.setCurrentTheme(props);
         try {
             UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
