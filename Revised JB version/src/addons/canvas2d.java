@@ -10,13 +10,15 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public class canvas2d extends JPanel {
+public class Canvas2d extends JPanel 
+{
     protected int w, h;
     protected JFrame f;
     protected JApplet f2;
     public boolean autoUpdate=true;
     JMenuBar menu;
-    public canvas2d(int width, int height){
+    public Canvas2d(int width, int height)
+    {
         global.setSystemLaF(true);
         img=new BufferedImage(width, height, BufferedImage.TYPE_4BYTE_ABGR);
         this.w=width;
@@ -24,7 +26,7 @@ public class canvas2d extends JPanel {
         this.setSize(w, h);
         this.setPreferredSize(new Dimension(w,h));
             f=new JFrame();
-            f.setTitle("JavaBlock Canvas2D");
+            f.setTitle("JavaBlock Canvas2d");
             f.setLayout(new java.awt.BorderLayout());
             menu=makeMenu();
             f.setJMenuBar(menu);
@@ -37,8 +39,10 @@ public class canvas2d extends JPanel {
         update();
     }
 
-    ActionListener menuAction = new ActionListener() {
-        void save(){
+    ActionListener menuAction = new ActionListener() 
+    {
+        void save()
+        {
             JFileChooser fc = new JFileChooser();
             javax.swing.filechooser.FileFilter ff = new javax.swing.filechooser.FileFilter() {
                 @Override
@@ -72,7 +76,8 @@ public class canvas2d extends JPanel {
                     +(progress.isVisible()?progress.getHeight():0));
         }
         @Override
-        public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(ActionEvent e) 
+        {
             if(e.getActionCommand().equals("save"))
                 save();
             else if(e.getActionCommand().equals("onTop"))
@@ -83,11 +88,11 @@ public class canvas2d extends JPanel {
     };
     JCheckBoxMenuItem onTop;
     
-    final JMenuBar makeMenu(){
+    final JMenuBar makeMenu()
+    {
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("config/lang/lang");
         JMenuBar m=new JMenuBar();
         JMenuItem save=new JMenuItem();
-        //save.setText("save");
         save.setText(bundle.getString("main.save"));
         save.setActionCommand(bundle.getString("main.save"));
         save.addActionListener(menuAction);
@@ -97,7 +102,8 @@ public class canvas2d extends JPanel {
         onTop.addActionListener(menuAction);
         JMenu scalesMenu=new JMenu("Scales");
         int scales[]={15, 25, 50, 75, 100, 125, 150, 175, 200, 400};
-        for(int s:scales){
+        for(int s:scales)
+        {
             JMenuItem it=new JMenuItem();
             it.setText(""+s+"%");
             it.setActionCommand("scale/"+s);
@@ -137,7 +143,8 @@ public class canvas2d extends JPanel {
             g.drawRect(0,0,w,h);
         }
     }
-    public void update(){
+    public void update()
+    {
         if(!global.applet)
         if(!f.isShowing())
             f.show();
@@ -154,14 +161,6 @@ public class canvas2d extends JPanel {
         G.setColor(Color.decode(c));
     }
 
-    public void setAA(boolean set){
-        if(set)
-            G.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                            RenderingHints.VALUE_ANTIALIAS_ON);
-        else
-            G.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                            RenderingHints.VALUE_ANTIALIAS_OFF);
-    }
     Rectangle2D pix=new Rectangle2D.Double(0,0,1,1);
     public void drawPixel(String x, String y){
         drawPixel(Double.parseDouble(x), Double.parseDouble(y));
@@ -177,7 +176,8 @@ public class canvas2d extends JPanel {
     protected Point2D penFrom=new Point2D.Double();
     protected Point2D penTo=new Point2D.Double();
     protected boolean isPen=false;
-    public void lineTo(double x, double y){
+    public void lineTo(double x, double y)
+    {
         penFrom.setLocation(penTo);
         penTo.setLocation(x, y);
         pen.setLine(penFrom, penTo);
@@ -185,26 +185,28 @@ public class canvas2d extends JPanel {
         if(autoUpdate)
             update();
     }
-    public void lineFrom(double x, double y){
+    public void lineFrom(double x, double y)
+    {
         penTo.setLocation(x, y);
         penFrom.setLocation(x,y);
         pen.setLine(penFrom, penTo);
     }
-    public void lineDraw(){
+    public void lineDraw()
+    {
         G.draw(pen);
         if(autoUpdate)
             update();
     }
-
-    public void drawLine(double x1, double y1, double x2, double y2){
+    public void drawLine(double x1, double y1, double x2, double y2)
+    {
         Line2D l=new Line2D.Double(x1, y1, x2, y2);
         G.draw(l);
         if(autoUpdate)
             update();
     }
-
     protected JProgressBar progress=new JProgressBar();
-    public void addProgress(int max){
+    public void addProgress(int max)
+    {
         progress.setMaximum(max);
         progress.setMinimum(0);
         progress.setValue(0);
@@ -213,40 +215,36 @@ public class canvas2d extends JPanel {
         f.add(progress, java.awt.BorderLayout.SOUTH);
         f.pack();
     }
-    public void setProgress(int m){
+    public void setProgress(int m)
+    {
         progress.setValue(m);
         progress.setString("Progress: "+(m*100)/progress.getMaximum()+"%");
     }
-
-
-    public Area Area(){
+    public Area Area()
+    {
         Area ar=new Area();
         return ar;
     }
-    public Rectangle2D Rectangle(){
+    public Rectangle2D Rectangle()
+    {
         Rectangle2D rec=new Rectangle2D.Double();
         return rec;
     }
-    public Line2D Line(){
+    public Line2D Line()
+    {
         Line2D rec=new Line2D.Double();
         return rec;
     }
-    public Path2D Path(){
+    public Path2D Path()
+    {
         Path2D rec=new Path2D.Double();
         return rec;
 
     }
     public static AffineTransform transform=new AffineTransform();
-    
-    protected Color colors[]={
-        Color.WHITE,
-        Color.BLACK,
-        Color.GRAY, Color.lightGray,
-        Color.RED,  Color.GREEN,    Color.BLUE,
-        Color.CYAN, Color.MAGENTA,  Color.YELLOW
-    };
-    
-    public void drawMap(int map[][]){
+
+    public void drawMap(int map[][])
+    {
         int x=0,y=0;
         int w=this.w/map[0].length, h=this.h/map.length;
         for(x=0; x<map.length;x++){
@@ -260,12 +258,13 @@ public class canvas2d extends JPanel {
         if(autoUpdate)
             update();
     }
-    
-    public void drawMap(String map){
+    public void drawMap(String map)
+    {
         int x=0,y=0;
         String line[]=map.split("\n");
         int w=this.w/line[0].length(), h=this.h/line.length;
-        for(y=0; y<line.length;y++){
+        for(y=0; y<line.length;y++)
+        {
             for (x=0; x<line[y].length(); x++) {
                 if(line[y].charAt(x)-'0'>=0 && line[y].charAt(x)-'0'<=colors.length){
                     G.setColor(colors[(line[y].charAt(x)-'0')]);
@@ -276,16 +275,26 @@ public class canvas2d extends JPanel {
         if(autoUpdate)
             update();
     }
-    public int getColor(long x, long y){
+    public int getColor(long x, long y)
+    {
         return getColor((int)x, (int)y);
     }
-    public int getColor(int x, int y){
+    public int getColor(int x, int y)
+    {
         Color c=new Color(img.getRGB(x, y));
         for(int i=0; i<colors.length; i++)
             if(c.equals(colors[i]))
                 return i;
         return -1;
     }
+    protected Color colors[]=
+    {
+        Color.WHITE,
+        Color.BLACK,
+        Color.GRAY, Color.lightGray,
+        Color.RED,  Color.GREEN,    Color.BLUE,
+        Color.CYAN, Color.MAGENTA,  Color.YELLOW
+    };
     
     
 }

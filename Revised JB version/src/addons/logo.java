@@ -11,8 +11,10 @@ import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
 
-public class logo extends canvas2d {    
-    public logo(int width, int height){
+public class Logo extends Canvas2d
+{    
+    public Logo(int width, int height)
+    {
         super(width,height);
         pos=new Point2D.Double(0,0);
         f.setTitle("LogoBlock");
@@ -21,22 +23,21 @@ public class logo extends canvas2d {
     }
     int sub=1;
     
-    public logo(int width, int height, int sub){
+    public Logo(int width, int height, int sub)
+    {
         super(width,height);
         pos=new Point2D.Double(0,0);
         pos.setLocation((int)w/2, (int)h/2);
         update();
     }
-
     AffineTransform AF=null;
     Point2D pos=new Point2D.Double(0,0);
     Line2D line=new Line2D.Double(0,0,0,0);
     double angle=0;
-
     boolean penDown=true;
     boolean hideTurtle=false;
-
-    private void drawTurtle(Graphics2D g){
+    private void drawTurtle(Graphics2D g)
+    {
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                             RenderingHints.VALUE_ANTIALIAS_ON);
         g.translate(pos.getX(), pos.getY());
@@ -50,57 +51,52 @@ public class logo extends canvas2d {
         g.drawLine( 5, 0, 0, 20);
         g.drawLine( 0, 0, 0, 3);
     }
-
     @Override
-    public void clear(){
+    public void clear()
+    {
         img=new BufferedImage(w, h, BufferedImage.TYPE_4BYTE_ABGR);
         G=(Graphics2D)img.getGraphics();
         G.setBackground(Color.WHITE);
         G.clearRect(0,0,w, h);
         G.setColor(Color.BLACK);
     }
-    public void reset(){
+    public void reset()
+    {
         clear();
     }
-    
-    public void setAA(boolean set){
-        if(set)
-            G.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                            RenderingHints.VALUE_ANTIALIAS_ON);
-        else
-            G.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                            RenderingHints.VALUE_ANTIALIAS_OFF);
-    }
     boolean closedCanvas=false;
-
-    public boolean isClosedCanvas() {
+    public boolean isClosedCanvas() 
+    {
         return closedCanvas;
     }
-
-    public void setClosedCanvas(boolean closedCanvas) {
+    public void setClosedCanvas(boolean closedCanvas)
+    {
         this.closedCanvas = closedCanvas;
     }
 
     Graphics2D g2d;
     @Override
-    public void paint(Graphics g){
+    public void paint(Graphics g)
+    {
         g2d=(Graphics2D) g;
         g2d.scale((float)(getWidth())/w, (float)(getHeight())/h);
-        if(img!=null){
+        if(img!=null)
+        {
             g2d.drawImage(img,0,0, null);
             g2d=(Graphics2D)g;
             //g2d.rotate(Math.PI);
             if(!hideTurtle)
                 drawTurtle(g2d);
         }
-        else{
+        else
+        {
             g.setColor(Color.RED);
             g.drawRect(0,0,w,h);
         }
     }
-
     @Override
-    public void update(){
+    public void update()
+    {
         if(!global.applet)
             if(!f.isShowing())
                 f.show();
@@ -199,7 +195,8 @@ public class logo extends canvas2d {
         G.setColor(Color.decode(c));
     }
     
-    private boolean fillPixel(int x, int y, int C, int dir) {
+    private boolean fillPixel(int x, int y, int C, int dir)
+    {
         if (x < 0 || x >= w - 1 || y < 0 || y >= h)
             return false;
         int CC = img.getRGB(x, y);
@@ -230,7 +227,8 @@ public class logo extends canvas2d {
         return true;
     }
 
-    public void fill(){
+    public void fill()
+    {
         int x=(int)pos.getX();
         int y=(int)pos.getY();
         System.out.println(x+";"+y);
@@ -250,17 +248,20 @@ public class logo extends canvas2d {
     }
 
     public void hideTurtle(){ht();}
-    public void ht(){
+    public void ht()
+    {
         hideTurtle=true;
         update();
     }
     public void showTurtle(){st();}
-    public void st(){
+    public void st()
+    {
         hideTurtle=false;
         update();
     }
 
-    public int distance(double angle){
+    public int distance(double angle)
+    {
         angle-=this.angle;
         double s=Math.sin(Math.toRadians(angle));
         double c=Math.cos(Math.toRadians(angle));
@@ -277,7 +278,8 @@ public class logo extends canvas2d {
         return -1;
     }
     
-    public void e(String s){
+    public void e(String s)
+    {
         eval(s);
     }
     public void eval(String s){
@@ -315,13 +317,13 @@ public class logo extends canvas2d {
                     "Script error", JOptionPane.ERROR);
         }
         catch(Exception ex){
-            JOptionPane.showMessageDialog(global.Window, "Error while parsing LOGO command",
+            JOptionPane.showMessageDialog(global.Window, "Error while parsing Logo command",
                     "Script error", JOptionPane.ERROR);
         }
     }
-
     @Override
-    public String toString(){
+    public String toString()
+    {
         String s="";
         s+="Turtle pos: "+pos.getX()+"; "+pos.getY();
         return s;

@@ -15,7 +15,6 @@ public class Syntax {
     public static Object js;
     public static Object py;
     public static Object cpp;
-    //public static Object pascal;
     public static Object plain;
     public static Object xml;
     public static Object html;
@@ -98,7 +97,6 @@ public class Syntax {
                 c=loader.loadClass("jsyntaxpane.syntaxkits.JavaScriptSyntaxKit");
                 con = c.getConstructor();
                 js = con.newInstance();
-                //c.getMethod("initKit").invoke(js);
                 
                 c=loader.loadClass("jsyntaxpane.syntaxkits.PythonSyntaxKit");
                 con = c.getConstructor();
