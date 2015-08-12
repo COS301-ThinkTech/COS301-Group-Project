@@ -46,7 +46,6 @@ public final class BlockGroup extends JBlock {
        flow.movingSelected=false;
    }
 
-
     @Override
     public Flowline connectTo(JBlock n){
        if(n==this) return null;
