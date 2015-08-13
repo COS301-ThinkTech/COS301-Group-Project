@@ -2,7 +2,7 @@ package icons;
 
 import javax.swing.ImageIcon;
 
-public class Icons 
+public class icons 
 {
     public static ImageIcon alignVer;
     public static ImageIcon alignHor;

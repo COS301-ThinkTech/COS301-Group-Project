@@ -202,7 +202,7 @@ public class Global
         confDir=System.getProperty("user.home")+"/.JavaBlock";
         lastFlow=confDir+"/last.jbf";
         conf=new configurator();
-        icons.Icons.load(conf);
+        icons.icons.load(conf);
         translate=new translator();
         addons.Syntax.init();
         frc=((Graphics2D)

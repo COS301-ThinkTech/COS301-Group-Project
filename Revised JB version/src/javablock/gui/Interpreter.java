@@ -1,5 +1,5 @@
 package javablock.gui;
-import addons.Addons;
+import addons.addons;
 import config.*;
 import java.awt.BorderLayout;
 import java.awt.Rectangle;
@@ -26,7 +26,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
     private FlowchartManager manager;
     /** Creates new form Interpreter */
     int lines;
-    Addons add=null;
+    addons add=null;
     reader read;
     
     int wait=0;
@@ -44,7 +44,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         read=new reader(this);
         //run=new ScriptRunner(this);
         inputReader=new reader(this);
-        add=new Addons();
+        add=new addons();
         ValuesPanel.setViewportView(values2);
         ValuesPanel.validate();
         init();
