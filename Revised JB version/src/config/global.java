@@ -21,9 +21,11 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class global {
+public class Global
+{
     public static boolean GUI=true;
-    public  enum hlightT{
+    public  enum hlightT
+    {
         NONE, SCALE, HIGHLIGHT, AUTO
     }
     public static ArrayList<ScriptRunner> runners=new ArrayList();
@@ -40,22 +42,22 @@ public class global {
         Manager=n;
         Window.updateConfig(n);
     }
-    public static FlowchartManager getManager(){
+    public static FlowchartManager getManager()
+    {
         return Manager;
     }
-    //Plugins status
-    public static boolean jsyntaxpane=false;
-    
+
+    public static boolean jsyntaxpane=false; 
     public static int version=6010;
     public static boolean debugMode=false;
-    
     public static boolean checkUpdate=true;
     public static boolean debug=false;
     public static boolean applet=false;
     public static boolean editable=true;
     public static String startWith=null;
-    public static void setApplet(boolean s){
-        if(global.debug)
+    public static void setApplet(boolean s)
+    {
+        if(Global.debug)
         System.out.println("[init] Applet="+s);
         applet=s;
     }
@@ -142,16 +144,15 @@ public class global {
                      BasicStroke.JOIN_MITER, 1);
     public static BasicStroke strokeDotted = new BasicStroke(1, BasicStroke.CAP_SQUARE,
                      BasicStroke.JOIN_ROUND, 0, new float[]{4,4}, 0);
-    //public static BasicStroke strokeShadow = new BasicStroke(4, BasicStroke.CAP_SQUARE,
-    //                 BasicStroke.JOIN_ROUND, 0, new float[]{4,4}, 0);
-
-    public static void Default(){
-        if(!applet){
+    public static void Default()
+    {
+        if(!applet)
+        {
             File settings=new File("./.JavaBlock/config.jbc");
             settings.delete();
         }
         checkUpdate=true;
-        if(global.debug)
+        if(Global.debug)
             System.out.println("[settings] set Default");
         colorPalette="0xffff00\n"+"0xff00ff\n"+"0x00ffff\n"+
                     "0xff8888\n"+"0x88ff88\n"+"0x8888ff\n"+
@@ -178,7 +179,6 @@ public class global {
         hlight=hlightT.AUTO;
         LaF="Nimbus";
         scriptEngine="JavaScript";
-
         showToolbar=true;
         scriptReplace=true;
         showSplash=true;
@@ -187,20 +187,22 @@ public class global {
         lastFlow=confDir+"/last.jbf";
     }
 
-    public static void reset(){
+    public static void reset()
+    {
         antialiasing=true;
         grid=false;
         pascalMode=false;
         fullConnectorValue=true;
     }
 
-    public static void init(){
+    public static void init()
+    {
         loadPlugins();
         reset();
         confDir=System.getProperty("user.home")+"/.JavaBlock";
         lastFlow=confDir+"/last.jbf";
         conf=new configurator();
-        icons.icons.load(conf);
+        icons.Icons.load(conf);
         translate=new translator();
         addons.Syntax.init();
         frc=((Graphics2D)
@@ -208,36 +210,48 @@ public class global {
                 ).getFontRenderContext();
     }
 
-    public static void setSystemLaF(boolean s){
-        //if(true) return ;
+    public static void setSystemLaF(boolean s)
+    {
         s=true;
         Properties props = new Properties();
        props.put("logoString", "FLOW");
        AcrylLookAndFeel.setCurrentTheme(props);
-        try {
+        try 
+        {
             UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
-        } catch (ClassNotFoundException ex) {
+        }
+        catch (ClassNotFoundException ex) 
+        {
             Logger.getLogger(configurator.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } 
+        catch (InstantiationException ex) 
+        {
             Logger.getLogger(configurator.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } 
+        catch (IllegalAccessException ex)
+        {
             Logger.getLogger(configurator.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
+        } 
+        catch (UnsupportedLookAndFeelException ex)
+        {
             Logger.getLogger(configurator.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     public static ClassLoader Classes;
-    public static void loadPlugins(){
+    public static void loadPlugins()
+    {
         loadPlugins(new File(System.getProperty("user.home")+"/.JavaBlock/plugins"));
         loadPlugins(new File("./plugins"));
     }
-    public static void loadPlugins(File dir){
-        //File dir=new File(System.getProperty("user.home")+"/.JavaBlock/plugins");
+    public static void loadPlugins(File dir)
+    {
         if(!dir.exists()) return;
         String[] children = dir.list();
-        for (String filename : children) {
-            try {
+        for (String filename : children)
+        {
+            try 
+            {
                 if (!filename.endsWith(".jar"))
                     continue;
                 System.out.println("[Plugin] load: "+filename);
@@ -258,29 +272,40 @@ public class global {
                                         newType.asSubclass(JBlock.class),
                                         newType.getMethod("getName")
                                             .invoke(null).toString()  
-                                        //newType.getName()
                                     );
                             }                           
                             
-                            else if(info[0].contains("method")){
+                            else if(info[0].contains("method"))
+                            {
                                 c.getMethod(info[1]).invoke(null);
                             }
                         }
-                    } catch (IllegalAccessException ex) {
-                        Logger.getLogger(global.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (IllegalArgumentException ex) {
-                        Logger.getLogger(global.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (InvocationTargetException ex) {
-                        Logger.getLogger(global.class.getName()).log(Level.SEVERE, null, ex);
+                    } 
+                    catch(IllegalAccessException ex)
+                    {
+                        Logger.getLogger(Global.class.getName()).log(Level.SEVERE, null, ex);
+                    } 
+                    catch (IllegalArgumentException ex)
+                    {
+                        Logger.getLogger(Global.class.getName()).log(Level.SEVERE, null, ex);
+                    } 
+                    catch (InvocationTargetException ex) 
+                    {
+                        Logger.getLogger(Global.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    catch (Exception ex) {
-                        Logger.getLogger(global.class.getName()).log(Level.SEVERE, null, ex);
+                    catch (Exception ex) 
+                    {
+                        Logger.getLogger(Global.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(global.class.getName()).log(Level.SEVERE, null, ex);
+                } 
+                catch (ClassNotFoundException ex)
+                {
+                    Logger.getLogger(Global.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (IOException ex) {
-                Logger.getLogger(global.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+            catch (IOException ex)
+            {
+                Logger.getLogger(Global.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
@@ -288,36 +313,43 @@ public class global {
     
 }
 
-final class ZipClassLoader extends ClassLoader {
+final class ZipClassLoader extends ClassLoader
+{
     private final ZipFile file;
-    public ZipClassLoader(String filename) throws IOException {
+    public ZipClassLoader(String filename) throws IOException 
+    {
         this.file = new ZipFile(filename);
     }
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
-        if(!name.startsWith("javablock.plugin")){
+        if(!name.startsWith("javablock.plugin"))
+        {
             
         }
         ZipEntry entry = this.file.getEntry(name.replace('.', '/') + ".class");
-        if (entry == null) {
-            return global.Classes.loadClass(name);
-            //throw new ClassNotFoundException(name);
+        if (entry == null) 
+        {
+            return Global.Classes.loadClass(name);
         }
-        try {
+        try
+        {
             byte[] array = new byte[1024];
             InputStream in = this.file.getInputStream(entry);
             ByteArrayOutputStream out = new ByteArrayOutputStream(array.length);
             int length = in.read(array);
-            while (length > 0) {
+            while (length > 0) 
+            {
                 out.write(array, 0, length);
                 length = in.read(array);
             }
             return defineClass(name, out.toByteArray(), 0, out.size());
         }
-        catch (IOException exception) {
+        catch (IOException exception) 
+        {
             throw new ClassNotFoundException(name, exception);
         }
-        catch (Exception exception) {
+        catch (Exception exception) 
+        {
             throw new ClassNotFoundException(name, exception);
         }
     }

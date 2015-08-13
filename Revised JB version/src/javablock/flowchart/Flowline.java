@@ -1,6 +1,6 @@
 package javablock.flowchart;
 
-import config.global;
+import config.Global;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Shape;
@@ -63,7 +63,7 @@ public class Flowline implements FlowElement {
 
         //float ang=(float) Math.atan2(from.getX()-to.getX(), from.getY()-to.getY());
 
-        if(global.bezierCurves && Math.abs(angle)!=0 &&
+        if(Global.bezierCurves && Math.abs(angle)!=0 &&
                 Math.abs(angle)!=Math.PI/2 && Math.abs(angle)!=Math.PI){
             curve.reset();
             curve.moveTo(from.getX(),from.getY());
@@ -90,49 +90,42 @@ public class Flowline implements FlowElement {
                 an=-Math.PI/2;
             else if(angle <= -Math.PI * 0.25 && angle >= -Math.PI * 0.75)
                 an=Math.PI/2;
-            //g.moveTo(to.getX(), to.getY());
             g.moveTo(to.getX()+Math.sin(an+0.3)*arrowLength, to.getY()+Math.cos(an+0.3)*arrowLength);
-            //g.moveTo(to.getX(), to.getY());
             g.lineTo(to.getX(), to.getY());
             g.lineTo(to.getX()+Math.sin(an-0.3)*arrowLength, to.getY()+Math.cos(an-0.3)*arrowLength);
-            //g.lineTo(to.getX(), to.getY());
             s=g;
         }
         else{
             lineS.setLine(from, to);
             line=lineS;
             GeneralPath g=new GeneralPath();
-            //g.moveTo(to.getX(), to.getY());
             g.moveTo(to.getX()+Math.sin(angleL+0.3)*arrowLength, to.getY()+Math.cos(angleL+0.3)*arrowLength);
-            //g.moveTo(to.getX(), to.getY());
             g.lineTo(to.getX(), to.getY());
-            g.lineTo(to.getX()+Math.sin(angleL-0.3)*arrowLength, to.getY()+Math.cos(angleL-0.3)*arrowLength);
-            
+            g.lineTo(to.getX()+Math.sin(angleL-0.3)*arrowLength, to.getY()+Math.cos(angleL-0.3)*arrowLength);    
             s=g;
         }
         String value=this.value;
         if(value.length()==0)
             value=" ";
         if(config.translator.misc.containsKey(value))
-            val=new TextLayout(config.translator.misc.getString(value), global.monoFont, f.flow.frc);
+            val=new TextLayout(config.translator.misc.getString(value), Global.monoFont, f.flow.frc);
         else
-            val=new TextLayout(value, global.monoFont, f.flow.frc);
-        //if(n.type==JBlock.Type.JUMP)
-        //    ((jumpBlock)n).needUpdate=true;
+            val=new TextLayout(value, Global.monoFont, f.flow.frc);
         needUpdate=false;
     }
     
     @Override
-    public void draw(Graphics2D g2d){
+    public void draw(Graphics2D g2d)
+    {
         if(n==null || f==null) return ;
         if(needUpdate==true)
             shape();
         g2d.setColor(f.borderColor);
-        if(global.fullConnectorValue==false){
+        if(Global.fullConnectorValue==false){
             if(value == null ? "false" == null : value.equals("false"))
-                g2d.setStroke(global.strokeSelection);
+                g2d.setStroke(Global.strokeSelection);
             else
-                g2d.setStroke(global.strokeNormal);
+                g2d.setStroke(Global.strokeNormal);
         }
         else{
             if(value.length()>1){
@@ -154,7 +147,7 @@ public class Flowline implements FlowElement {
             g2d.fill(s);
             //g2d.draw(s);
         g2d.draw(line);
-        g2d.setStroke(global.strokeNormal);
+        g2d.setStroke(Global.strokeNormal);
     }
 
     @Override

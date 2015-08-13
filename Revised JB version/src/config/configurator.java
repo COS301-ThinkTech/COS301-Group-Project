@@ -20,10 +20,10 @@ import widgets.ComboText;
 
 public final class configurator extends javax.swing.JFrame {
     String configPath=(System.getProperty("user.home")+"/.JavaBlock/config.jbc");
-    /** Creates new form configurator */
+    
     public configurator() {
         loadConfig();
-        global.setSystemLaF(true);
+        Global.setSystemLaF(true);
         initComponents();
         init();
         updateConfigGUI();
@@ -95,7 +95,7 @@ public final class configurator extends javax.swing.JFrame {
 
     public void saveConfig() {
         {
-            //if(global.applet) return ;
+            //if(Global.applet) return ;
             FileWriter fw = null;
             try {
                 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -105,32 +105,32 @@ public final class configurator extends javax.swing.JFrame {
 
                 //save settings
                 if(colorCheck()){
-                    global.colorPalette=this.colorPalette.getText();
-                    global.colors[0]=this.colorBlockBg.getText();
-                    global.colors[1]=this.colorBlockBorder.getText();
-                    global.colors[2]=this.colorBlockText.getText();
-                    global.colors[3]=this.colorFlowBg.getText();
-                    global.transparentPNG=this.colorTransparentPNG.isSelected();
+                    Global.colorPalette=this.colorPalette.getText();
+                    Global.colors[0]=this.colorBlockBg.getText();
+                    Global.colors[1]=this.colorBlockBorder.getText();
+                    Global.colors[2]=this.colorBlockText.getText();
+                    Global.colors[3]=this.colorFlowBg.getText();
+                    Global.transparentPNG=this.colorTransparentPNG.isSelected();
                 }
                 
                 // <editor-fold defaultstate="collapsed" desc="Color Tab">
                 {
-                    global.colorResolutionX=Integer.parseInt(colorHorPix.getValue().toString());
-                    global.colorResolutionY=Integer.parseInt(colorVertPix.getValue().toString());
+                    Global.colorResolutionX=Integer.parseInt(colorHorPix.getValue().toString());
+                    Global.colorResolutionY=Integer.parseInt(colorVertPix.getValue().toString());
                     Element colorPalletex = doc.createElement("colorPalette");
-                    colorPalletex.appendChild(doc.createTextNode(global.colorPalette));
+                    colorPalletex.appendChild(doc.createTextNode(Global.colorPalette));
                     root.appendChild(colorPalletex);
 
                     Element colorResolution = doc.createElement("colorPaletteResolution");
-                    colorResolution.setAttribute("x", ""+global.colorResolutionX);
-                    colorResolution.setAttribute("y", ""+global.colorResolutionY);
+                    colorResolution.setAttribute("x", ""+Global.colorResolutionX);
+                    colorResolution.setAttribute("y", ""+Global.colorResolutionY);
                     root.appendChild(colorResolution);
                     Element colors=doc.createElement("colors");
-                        colors.setAttribute("blockBg", global.colors[0]);
-                        colors.setAttribute("blockBorder", global.colors[1]);
-                        colors.setAttribute("blockText", global.colors[2]);
-                        colors.setAttribute("flowBg", global.colors[3]);
-                        colors.setAttribute("transparentPNG", global.transparentPNG+"");
+                        colors.setAttribute("blockBg", Global.colors[0]);
+                        colors.setAttribute("blockBorder", Global.colors[1]);
+                        colors.setAttribute("blockText", Global.colors[2]);
+                        colors.setAttribute("flowBg", Global.colors[3]);
+                        colors.setAttribute("transparentPNG", Global.transparentPNG+"");
                     root.appendChild(colors);
 
                 }
@@ -141,8 +141,8 @@ public final class configurator extends javax.swing.JFrame {
                 // <editor-fold defaultstate="collapsed" desc="General">
                 {
                     Element general = doc.createElement("general");
-                    general.setAttribute("lastFlow", global.lastFlow);
-                    general.setAttribute("checkUpdate", ""+global.checkUpdate);
+                    general.setAttribute("lastFlow", Global.lastFlow);
+                    general.setAttribute("checkUpdate", ""+Global.checkUpdate);
                     //general.setAttribute("scriptSingleCall", "" + scriptSingle.isSelected());
                     general.setAttribute("prerenderingGraphic", "" + drawingPrerender.isSelected());
                     general.setAttribute("gradients", "" + drawingGradients.isSelected());
@@ -161,12 +161,12 @@ public final class configurator extends javax.swing.JFrame {
                     general.setAttribute("highlight",
                             ((ComboText)this.highlighting.getSelectedItem()).getValue());
                     general.setAttribute("scriptEngine", engines.getSelectedItem().toString());
-                    if(global.Window!=null)
-                        global.WindowSize=global.Window.getBounds();
-                    general.setAttribute("windowX", "" + global.WindowSize.x);
-                    general.setAttribute("windowY", "" + global.WindowSize.y);
-                    general.setAttribute("windowW", "" + global.WindowSize.width);
-                    general.setAttribute("windowH", "" + global.WindowSize.height);
+                    if(Global.Window!=null)
+                        Global.WindowSize=Global.Window.getBounds();
+                    general.setAttribute("windowX", "" + Global.WindowSize.x);
+                    general.setAttribute("windowY", "" + Global.WindowSize.y);
+                    general.setAttribute("windowW", "" + Global.WindowSize.width);
+                    general.setAttribute("windowH", "" + Global.WindowSize.height);
 
                     general.setAttribute("flowMarks", "" + flowMarks.isSelected());
                     general.setAttribute("LaF", LaF.getSelectedItem().toString());
@@ -176,10 +176,10 @@ public final class configurator extends javax.swing.JFrame {
                 // <editor-fold defaultstate="collapsed" desc="Window">
                 {
                     Element wnd = doc.createElement("window");
-                    wnd.setAttribute("windowX", "" + global.WindowSize.x);
-                    wnd.setAttribute("windowY", "" + global.WindowSize.y);
-                    wnd.setAttribute("windowW", "" + global.WindowSize.width);
-                    wnd.setAttribute("windowH", "" + global.WindowSize.height);
+                    wnd.setAttribute("windowX", "" + Global.WindowSize.x);
+                    wnd.setAttribute("windowY", "" + Global.WindowSize.y);
+                    wnd.setAttribute("windowW", "" + Global.WindowSize.width);
+                    wnd.setAttribute("windowH", "" + Global.WindowSize.height);
                     root.appendChild(wnd);
                 }// </editor-fold>
 
@@ -210,60 +210,60 @@ public final class configurator extends javax.swing.JFrame {
 
     public void updateConfigGUI(){
         // <editor-fold defaultstate="collapsed" desc="Colors">
-        colorPalette.setText(global.colorPalette);
-        colorBlockBg.setText(global.colors[0]);
-        colorBlockBorder.setText(global.colors[1]);
-        colorBlockText.setText(global.colors[2]);
-        colorFlowBg.setText(global.colors[3]);
-        colorHorPix.setValue(global.colorResolutionX);
-        colorVertPix.setValue(global.colorResolutionY);
-        colorTransparentPNG.setSelected(global.transparentPNG);// </editor-fold>
+        colorPalette.setText(Global.colorPalette);
+        colorBlockBg.setText(Global.colors[0]);
+        colorBlockBorder.setText(Global.colors[1]);
+        colorBlockText.setText(Global.colors[2]);
+        colorFlowBg.setText(Global.colors[3]);
+        colorHorPix.setValue(Global.colorResolutionX);
+        colorVertPix.setValue(Global.colorResolutionY);
+        colorTransparentPNG.setSelected(Global.transparentPNG);// </editor-fold>
        
         // <editor-fold defaultstate="collapsed" desc="General">
-        //scriptSingle.setSelected(global.singleCall);
-        scriptHighlightAll.setSelected(global.highlightLinks);
-        scriptReplace.setSelected(global.scriptReplace);
-        drawingPrerender.setSelected(global.prerender);
-        drawingGradients.setSelected(global.gradients);
-        drawingBezier.setSelected(global.bezierCurves);
-        useJLabels.setSelected(global.useJLabels);
-        hwAccel.setSelected(global.accel);
-        exeBolderBorder.setSelected(global.bolderBorder);
+        //scriptSingle.setSelected(Global.singleCall);
+        scriptHighlightAll.setSelected(Global.highlightLinks);
+        scriptReplace.setSelected(Global.scriptReplace);
+        drawingPrerender.setSelected(Global.prerender);
+        drawingGradients.setSelected(Global.gradients);
+        drawingBezier.setSelected(Global.bezierCurves);
+        useJLabels.setSelected(Global.useJLabels);
+        hwAccel.setSelected(Global.accel);
+        exeBolderBorder.setSelected(Global.bolderBorder);
         
-        flowMarks.setSelected(global.flowMarks);
+        flowMarks.setSelected(Global.flowMarks);
 
-        editingAutojumps.setSelected(global.autoJumps);
-        snapToGrid.setSelected(global.snapToGrid);
+        editingAutojumps.setSelected(Global.autoJumps);
+        snapToGrid.setSelected(Global.snapToGrid);
         
-        animations.setSelected(global.animations);
+        animations.setSelected(Global.animations);
 
-        scriptMark.setSelected(global.markChanges);
-        LaF.setSelectedItem(global.LaF);
-        engines.setSelectedItem(global.scriptEngine);
+        scriptMark.setSelected(Global.markChanges);
+        LaF.setSelectedItem(Global.LaF);
+        engines.setSelectedItem(Global.scriptEngine);
 
         for(int i=0; i<highlighting.getItemCount(); i++){
             ComboText c=(ComboText)highlighting.getItemAt(i);
-            if(c.getValue().equals(global.hlight.toString())){
+            if(c.getValue().equals(Global.hlight.toString())){
                 highlighting.setSelectedItem(c);
                 break;
             }
         }
         //highlighting.setSelectedItem(
-        //        translator.config.getString("hlight."+global.hlight.toString())
+        //        translator.config.getString("hlight."+Global.hlight.toString())
         //        );
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="Startup">
-        startupSplash.setSelected(global.showSplash);
-        startupLoadLast.setSelected(global.loadLast);// </editor-fold>
+        startupSplash.setSelected(Global.showSplash);
+        startupLoadLast.setSelected(Global.loadLast);// </editor-fold>
     }
 
     public void loadConfig(){
         {
-            //if(global.applet) return ;
+            //if(Global.applet) return ;
             try {
                 BufferedReader reader = new BufferedReader(new FileReader(configPath));
                 // <editor-fold defaultstate="collapsed" desc="File opening">
-                global.reset();
+                Global.reset();
                 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder docBuilder;
                 String in = "";
@@ -283,23 +283,23 @@ public final class configurator extends javax.swing.JFrame {
                 set = main.getElementsByTagName("colorPalette");
                 if (set.getLength() != 0) {
                     Element c = (Element) set.item(0);
-                    global.colorPalette = c.getTextContent();
+                    Global.colorPalette = c.getTextContent();
                 }
 
                 set = main.getElementsByTagName("colorPaletteResolution");
                 if (set.getLength() != 0) {
                     Element c = (Element) set.item(0);
-                    global.colorResolutionX = Integer.parseInt(c.getAttribute("x"));
-                    global.colorResolutionY = Integer.parseInt(c.getAttribute("y"));
+                    Global.colorResolutionX = Integer.parseInt(c.getAttribute("x"));
+                    Global.colorResolutionY = Integer.parseInt(c.getAttribute("y"));
                 }
                 set = main.getElementsByTagName("colors");
                 if (set.getLength() != 0) {
                     Element c = (Element) set.item(0);
-                    global.colors[0] = c.getAttribute("blockBg");
-                    global.colors[1] = c.getAttribute("blockBorder");
-                    global.colors[2] = c.getAttribute("blockText");
-                    global.colors[3] = c.getAttribute("flowBg");
-                    global.transparentPNG = c.getAttribute("transparentPNG").equals("true");
+                    Global.colors[0] = c.getAttribute("blockBg");
+                    Global.colors[1] = c.getAttribute("blockBorder");
+                    Global.colors[2] = c.getAttribute("blockText");
+                    Global.colors[3] = c.getAttribute("flowBg");
+                    Global.transparentPNG = c.getAttribute("transparentPNG").equals("true");
                 }// </editor-fold>
                 
                 // <editor-fold defaultstate="collapsed" desc="General">
@@ -307,43 +307,43 @@ public final class configurator extends javax.swing.JFrame {
                 if (set.getLength() > 0) {
                     Element p = (Element) set.item(0);
                     if(p.hasAttribute("lastFlow"))
-                        global.lastFlow=p.getAttribute("lastFlow");
-                    global.checkUpdate=!p.getAttribute("checkUpdate").equals("false");
-                    global.singleCall = !p.getAttribute("scriptSingleCall").equals("false");
-                    global.prerender = !p.getAttribute("prerenderingGraphic").equals("false");
-                    global.highlightLinks = p.getAttribute("highlightLinks").equals("true");
-                    global.showToolbar = p.getAttribute("showToolbar").equals("true");
-                    global.scriptReplace = !p.getAttribute("replaceCommands").equals("false");
-                    global.gradients = !p.getAttribute("gradients").equals("false");
-                    global.autoJumps = !p.getAttribute("makeJumps").equals("false");
-                    //global.systemFont=p.getAttribute("TlwgMonoFont").equals("false");
-                    global.markChanges=p.getAttribute("markChanges").equals("true");
-                    global.bolderBorder=!p.getAttribute("bolderBorder").equals("false");
+                        Global.lastFlow=p.getAttribute("lastFlow");
+                    Global.checkUpdate=!p.getAttribute("checkUpdate").equals("false");
+                    Global.singleCall = !p.getAttribute("scriptSingleCall").equals("false");
+                    Global.prerender = !p.getAttribute("prerenderingGraphic").equals("false");
+                    Global.highlightLinks = p.getAttribute("highlightLinks").equals("true");
+                    Global.showToolbar = p.getAttribute("showToolbar").equals("true");
+                    Global.scriptReplace = !p.getAttribute("replaceCommands").equals("false");
+                    Global.gradients = !p.getAttribute("gradients").equals("false");
+                    Global.autoJumps = !p.getAttribute("makeJumps").equals("false");
+                    //Global.systemFont=p.getAttribute("TlwgMonoFont").equals("false");
+                    Global.markChanges=p.getAttribute("markChanges").equals("true");
+                    Global.bolderBorder=!p.getAttribute("bolderBorder").equals("false");
                     
-                    global.animations=!p.getAttribute("animations").equals("false");
+                    Global.animations=!p.getAttribute("animations").equals("false");
 
-                    global.snapToGrid=!p.getAttribute("snapToGrid").equals("false");
+                    Global.snapToGrid=!p.getAttribute("snapToGrid").equals("false");
 
                     if(p.hasAttribute("useJLabels"))
-                        global.useJLabels=!p.getAttribute("useJLabels").equals("false");
+                        Global.useJLabels=!p.getAttribute("useJLabels").equals("false");
                     if(p.hasAttribute("flowMarks"))
-                        global.flowMarks=p.getAttribute("flowMarks").equals("true");
+                        Global.flowMarks=p.getAttribute("flowMarks").equals("true");
                     if(p.hasAttribute("scriptEngine"))
-                        global.scriptEngine=p.getAttribute("scriptEngine");
+                        Global.scriptEngine=p.getAttribute("scriptEngine");
                     if(p.hasAttribute("highlight"))
-                        global.hlight=global.hlightT.valueOf(p.getAttribute("highlight"));
+                        Global.hlight=Global.hlight.valueOf(p.getAttribute("highlight"));
                     if(p.hasAttribute("bezierCurves"))
-                        global.bezierCurves=p.getAttribute("bezierCurves").equals("true");
+                        Global.bezierCurves=p.getAttribute("bezierCurves").equals("true");
                     if(p.hasAttribute("hwAccel"))
-                        global.accel=p.getAttribute("hwAccel").equals("true");
+                        Global.accel=p.getAttribute("hwAccel").equals("true");
                     if(p.hasAttribute("LaF"))
-                        global.LaF=p.getAttribute("LaF");
+                        Global.LaF=p.getAttribute("LaF");
                 }// </editor-fold>
                 // <editor-fold defaultstate="collapsed" desc="Window">
                 set = main.getElementsByTagName("window");
                 if (set.getLength() > 0) {
                     Element p = (Element) set.item(0);
-                    global.WindowSize=new Rectangle(
+                    Global.WindowSize=new Rectangle(
                             Integer.parseInt(p.getAttribute("windowX")),
                             Integer.parseInt(p.getAttribute("windowY")),
                             Integer.parseInt(p.getAttribute("windowW")),
@@ -354,8 +354,8 @@ public final class configurator extends javax.swing.JFrame {
                 set = main.getElementsByTagName("startup");
                 if (set.getLength() > 0) {
                     Element p = (Element) set.item(0);
-                    global.showSplash = p.getAttribute("showSplash").equals("true");
-                    global.loadLast = p.getAttribute("loadLast").equals("true");
+                    Global.showSplash = p.getAttribute("showSplash").equals("true");
+                    Global.loadLast = p.getAttribute("loadLast").equals("true");
               }// </editor-fold>
 
                 
@@ -954,7 +954,7 @@ public final class configurator extends javax.swing.JFrame {
         File f=new File(System.getProperty("user.home")+"/.JavaBlock/config.jbc");
         if(f.exists())
             f.delete();
-        global.Default();
+        Global.Default();
         loadConfig();
         this.updateConfigGUI();
     }//GEN-LAST:event_defaultButtonActionPerformed

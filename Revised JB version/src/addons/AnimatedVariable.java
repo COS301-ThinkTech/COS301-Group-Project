@@ -1,10 +1,10 @@
 package addons;
 
 /**
- * Variable used to animations, set new value, duration and method of approximation
- * 
+ * Variable used for animations, It is used to set the value, method and duration of the approximation
  */
 public class AnimatedVariable{
+    
     public AnimatedVariable(){
         timeStart=System.currentTimeMillis();
     }

@@ -1,6 +1,6 @@
 package javablock.gui;
 
-import config.global;
+import config.Global;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javablock.flowchart.JBlock;
@@ -15,7 +15,7 @@ public class ScriptRunner extends Thread {
     ScriptRunner(Interpreter gui){
         GUI=gui;
         setName("ScriptRunner");
-        global.runners.add(this);
+        Global.runners.add(this);
         start();
     }
 
@@ -24,50 +24,51 @@ public class ScriptRunner extends Thread {
         actual=GUI.actual;
         wait=-10;
     }
-    /**
-     *  -11  nothing
-     *  -10  stop
-     *   -2  wait for step
-     *    0  instant
-     *   0<  wait ms
-     */
     int wait=-10;
     
     instantRunner IR;
 
-    void pause(){
-        if( IR!=null){
+    void pause()
+    {
+        if( IR!=null)
+        {
             IR.interrupt();
         }
         wait=-11;
-        synchronized(this){
+        synchronized(this)
+        {
             notifyAll();
         }
     }
-    synchronized void step(){
+    synchronized void step()
+    {
         if(wait==-1 && IR!=null)
             IR.interrupt();
         if(wait<=-10)
             wait=-2;
         notifyAll();
     }
-    synchronized void running(){
+    synchronized void running()
+    {
         if(wait==-1 && IR!=null)
             IR.interrupt();
         int w=wait;
         notifyAll();
         wait=w;
     }
-    public void close(){
+    public void close()
+    {
         wait=-1000;
-        synchronized(this){
+        synchronized(this)
+        {
             notifyAll();
         }
         interrupt();
     }
     JBlock actual=null;
 
-    public boolean isRunning(){
+    public boolean isRunning()
+    {
         return wait>=0 || wait==-1;
     }
     
@@ -75,11 +76,14 @@ public class ScriptRunner extends Thread {
         return wait == -1000;
     }
 
-    void sleep(int ms){
-        try {
+    void sleep(int ms)
+    {
+        try 
+        {
             wait=ms;
             Thread.currentThread().wait((ms>=0?ms:0));
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException ex) 
+        {
             Logger.getLogger(ScriptRunner.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -105,12 +109,12 @@ public class ScriptRunner extends Thread {
                 if(wait==-1000) return;
                 Wait();
                 while(actual!=null){
-                    while(wait<-2){ //czekanie na krok
-                        if(wait==-1000) return; //zatrzymanie całkowite
-                        if(wait==-100) break; //reset
+                    while(wait<-2){ 
+                        if(wait==-1000) return; 
+                        if(wait==-100) break; 
                         Wait();
                     }
-                    if(wait==-1){ //instant
+                    if(wait==-1){ 
                         IR=new instantRunner(this, actual.flow.getName()+"_runFrom("+actual.ID+");", script);
                         IR.start();
                         while(wait==-1)
@@ -119,7 +123,7 @@ public class ScriptRunner extends Thread {
                             IR.interrupt();
                         wait=-11;
                     }
-                    if(wait==-2){ //Krok
+                    if(wait==-2){ 
                         GUI.addLines(actual.code.split("\n").length);
                         actual=actual.execute(script, (wait==-2 || wait>0));
                         GUI.updateVisual();
@@ -139,9 +143,9 @@ public class ScriptRunner extends Thread {
                         actual=null;
                         GUI.updateVisual();
                     }
-                }//while(actual!=null)
-            }//while(true)
-        }//synchronized
+                }
+            }
+        }
     }
 }
 
@@ -184,7 +188,7 @@ class instantRunner extends Thread{
             engine.eval(script);
         } catch (ScriptException ex) {
             if(M){
-                JOptionPane.showMessageDialog(global.Window,
+                JOptionPane.showMessageDialog(Global.Window,
                         "Error while instant evaluate\n Please use interval >0",
                         "Script Error", JOptionPane.ERROR_MESSAGE);
                 ex.printStackTrace();

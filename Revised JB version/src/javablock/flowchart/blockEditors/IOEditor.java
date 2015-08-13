@@ -1,6 +1,6 @@
 package javablock.flowchart.blockEditors;
 
-import config.global;
+import config.Global;
 import config.translator;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -192,7 +192,7 @@ public class IOEditor extends javax.swing.JPanel implements BlockEditor, ActionL
     }// </editor-fold>//GEN-END:initComponents
 
     String makeCode(){
-        String eng=global.getManager().scriptEngine;
+        String eng=Global.getManager().scriptEngine;
         String code="";
         String vars[]=variable.getText().replaceAll(", ", " ").split("[\\s,]");
         if(output.isSelected()){

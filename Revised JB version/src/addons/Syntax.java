@@ -15,7 +15,6 @@ public class Syntax {
     public static Object js;
     public static Object py;
     public static Object cpp;
-    //public static Object pascal;
     public static Object plain;
     public static Object xml;
     public static Object html;
@@ -98,7 +97,6 @@ public class Syntax {
                 c=loader.loadClass("jsyntaxpane.syntaxkits.JavaScriptSyntaxKit");
                 con = c.getConstructor();
                 js = con.newInstance();
-                //c.getMethod("initKit").invoke(js);
                 
                 c=loader.loadClass("jsyntaxpane.syntaxkits.PythonSyntaxKit");
                 con = c.getConstructor();
@@ -131,7 +129,7 @@ public class Syntax {
                 //c.getMethod("initKit").invoke(html);
                 
                 loaded=true;
-                config.global.jsyntaxpane=true;
+                config.Global.jsyntaxpane=true;
             } catch (InstantiationException ex) {Logger.getLogger(Syntax.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalAccessException ex) {Logger.getLogger(Syntax.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalArgumentException ex) {Logger.getLogger(Syntax.class.getName()).log(Level.SEVERE, null, ex);

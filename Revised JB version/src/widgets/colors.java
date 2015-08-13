@@ -32,8 +32,8 @@ public class colors extends JPanel implements MouseListener, MouseMotionListener
         this.setMinimumSize(new Dimension(50, 50));
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
-        col=global.colorPalette;
-        colors=global.colorPalette.split("\n");
+        col=Global.colorPalette;
+        colors=Global.colorPalette.split("\n");
         setLayout(new BorderLayout());
         Resizer res=new Resizer(this);
         res.setMin(20);
@@ -44,7 +44,6 @@ public class colors extends JPanel implements MouseListener, MouseMotionListener
 
     int wRes=3;
     int hRes=3;
-
     BufferedImage buf;
     Dimension oldDim=new Dimension(1000,1000);
     Dimension d;
@@ -53,6 +52,7 @@ public class colors extends JPanel implements MouseListener, MouseMotionListener
     Graphics g2;
     int w, h, ww;
     boolean rotated=false;
+    
     @Override
     public void paintComponent(Graphics g){
         Color c;
@@ -65,7 +65,7 @@ public class colors extends JPanel implements MouseListener, MouseMotionListener
             G.translate(d.height, 0);
             G.rotate(Math.PI/2);
         }
-        if(!d.equals(oldDim) || !col.equals(global.colorPalette)){
+        if(!d.equals(oldDim) || !col.equals(Global.colorPalette)){
             Color tab[]=new Color[colors.length];
             boolean error=false;
             for(int i=0; i<colors.length; i++){
@@ -86,25 +86,25 @@ public class colors extends JPanel implements MouseListener, MouseMotionListener
                     }
                 }
             }
-            colors=global.colorPalette.split("\n");
+            colors=Global.colorPalette.split("\n");
             oldDim=d;
             buf=new BufferedImage(d.width, d.height, BufferedImage.TYPE_3BYTE_BGR);
 
             g2=buf.getGraphics();
             w=d.width-10;
             h=d.height-10;
-            for(int x=0; x<w; x+=global.colorResolutionX){
-                for(int y=0; y<h; y+=global.colorResolutionY){
+            for(int x=0; x<w; x+=Global.colorResolutionX){
+                for(int y=0; y<h; y+=Global.colorResolutionY){
                     if(y<h/2)
                         g2.setColor(
-                                Color.getHSBColor(((float)(x+global.colorResolutionX/2)/w),
-                                ((float)(y+global.colorResolutionY/2)/(h/2)), 1f));
+                                Color.getHSBColor(((float)(x+Global.colorResolutionX/2)/w),
+                                ((float)(y+Global.colorResolutionY/2)/(h/2)), 1f));
                     else
                         g2.setColor(
-                                Color.getHSBColor(((float)(x+global.colorResolutionX/2)/w),
-                                1, (float)Math.sqrt(1-((float)((y+global.colorResolutionY/2)-h/2)/(h/2))))
+                                Color.getHSBColor(((float)(x+Global.colorResolutionX/2)/w),
+                                1, (float)Math.sqrt(1-((float)((y+Global.colorResolutionY/2)-h/2)/(h/2))))
                                 );
-                    g2.fillRect(x, y, global.colorResolutionX, global.colorResolutionY);
+                    g2.fillRect(x, y, Global.colorResolutionX, Global.colorResolutionY);
                 }
             }
             for(int y=0; y<h; y++){
@@ -152,10 +152,6 @@ public class colors extends JPanel implements MouseListener, MouseMotionListener
         int c=getCol(me.getX(), me.getY());
         if(c!=-1){
             if(m!=null){
-                //c*=-1;
-                //Color col=new Color(c%256, (c/256)%256, ((c/256)/256)%256);
-                //Color col=new Color(-((c/256)/256)%256, -(c/256)%256, -c%256);
-                //m.setColor(col, type);
                 m.setColor(new Color(c), type);
             }
         }
@@ -167,9 +163,9 @@ public class colors extends JPanel implements MouseListener, MouseMotionListener
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        //if (e.getClickCount() == 2 && !e.isConsumed()) {
+        
         if(e.getButton()==MouseEvent.BUTTON3){
-            //e.consume();
+          
             Color color=last;
             color =
                   JColorChooser.showDialog( this,
@@ -192,13 +188,16 @@ public class colors extends JPanel implements MouseListener, MouseMotionListener
     }
 
     @Override
-    public void mousePressed(MouseEvent me) {
+    public void mousePressed(MouseEvent me) 
+    {
         clicked=true;
     }
 
     @Override
-    public void mouseReleased(MouseEvent me) {
-        if(me.getButton()==MouseEvent.BUTTON1){
+    public void mouseReleased(MouseEvent me)
+    {
+        if(me.getButton()==MouseEvent.BUTTON1)
+        {
             type=0;
             if(me.isControlDown()) type=1;
             if(me.isShiftDown()) type=2;

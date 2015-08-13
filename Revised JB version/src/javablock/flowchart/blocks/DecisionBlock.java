@@ -4,7 +4,7 @@
  */
 
 package javablock.flowchart.blocks;
-import config.global;
+import config.Global;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 import javablock.flowchart.*;
@@ -128,11 +128,11 @@ public class DecisionBlock extends JBlock {
     }
     @Override
     public void drawText(Graphics2D g2d){
-        if(global.useJLabels){
+        if(Global.useJLabels){
             super.drawText(g2d);
             return ;
         }
-        g2d.setStroke(global.strokeNormal);
+        g2d.setStroke(Global.strokeNormal);
         g2d.translate(bound.getX(), bound.getY()+height+1);
         g2d.setColor(textColor);
         for (int i = 0; i < txtList.size(); i++) {

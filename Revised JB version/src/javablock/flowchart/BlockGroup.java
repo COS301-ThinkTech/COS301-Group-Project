@@ -1,6 +1,6 @@
 package javablock.flowchart;
 
-import config.global;
+import config.Global;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Area;
@@ -165,27 +165,28 @@ public final class BlockGroup extends JBlock {
     }
 
     @Override
-    public void draw(Graphics2D g2d){
+    public void draw(Graphics2D g2d)
+    {
         if(needUpdate)
             shape();
-        g2d.setStroke(global.strokeNormal);
+        g2d.setStroke(Global.strokeNormal);
         g2d.setColor(this.color);
-        //g2d.setPaint(gradient);
         g2d.fill(shape);
         g2d.setColor(this.borderColor);
         g2d.draw(shape);
     }
     @Override
-    public void drawSelection(Graphics2D g2d){
+    public void drawSelection(Graphics2D g2d)
+    {
         Rectangle2D b = shape.getBounds2D();
         Rectangle2D sel = new Rectangle2D.Double(
                 b.getX() - 2,
                 b.getY() - 2,
                 b.getWidth() + 4,
                 b.getHeight() + 4);
-        g2d.setStroke(global.strokeSelection);
+        g2d.setStroke(Global.strokeSelection);
         g2d.draw(sel);
-        g2d.setStroke(global.strokeNormal);
+        g2d.setStroke(Global.strokeNormal);
     }
 
     /**

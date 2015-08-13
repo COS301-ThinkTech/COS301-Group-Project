@@ -16,11 +16,12 @@ import java.net.URL;
 
 
 public class Main extends JApplet implements ActionListener, Runnable {
-    public Main(){
-        global.Classes=this.getClass().getClassLoader();
-        global.setSystemLaF(true);
-        global.setApplet(true);
-        global.init();
+    public Main()
+    {
+        Global.Classes=this.getClass().getClassLoader();
+        Global.setSystemLaF(true);
+        Global.setApplet(true);
+        Global.init();
         MainWindow w=new MainWindow();
         w.remove(w.menu);
         this.setLayout(new BorderLayout());
@@ -30,22 +31,27 @@ public class Main extends JApplet implements ActionListener, Runnable {
     }
 
     @Override
-    public void init(){
-        global.setSystemLaF(true);
+    public void init()
+    {
+        Global.setSystemLaF(true);
         if(getParameter("url")!=null)
-        if(!(getParameter("url").equals("none"))){
-            //loaders.WebFile file=null;
+        if(!(getParameter("url").equals("none")))
+        {
             String in;
-            try {
+            try 
+            {
                 URL url = new URL(getParameter("url"));
                 BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
                 in="";
                 String str;
-                while ((str = reader.readLine()) != null){
+                while ((str = reader.readLine()) != null)
+                {
                     in+=str;
                 } reader.close();
-                global.getManager().loadXml(in.toString());
-            } catch (IOException ex) {
+                Global.getManager().loadXml(in.toString());
+            } 
+            catch (IOException ex) 
+            {
             }
         }
         if(getParameter("editable")!=null)
@@ -54,9 +60,10 @@ public class Main extends JApplet implements ActionListener, Runnable {
 
     
     public static boolean judgeInited=false;
-    public static void judgeInit(){
-        global.GUI=false;
-        global.init();
+    public static void judgeInit()
+    {
+        Global.GUI=false;
+        Global.init();
         judgeInited=true;
     }
     public static void judgeStart(JTextArea console, String argv[]){
@@ -66,102 +73,104 @@ public class Main extends JApplet implements ActionListener, Runnable {
         boolean saveImages=false;
         String list[]=new String[100];
         int i=0;
-        //System.out.println(argv.length);
         for(String ar:argv){
             System.out.println(ar);
             if(ar.equals("-saveScripts"))
                 saveScripts=true;
             if(ar.equals("-saveImages"))
                 saveImages=true;
-            else{
-                if(ar.endsWith(".jbf")){
-                    global.lastFlow=ar;
+            else
+            {
+                if(ar.endsWith(".jbf"))
+                {
+                    Global.lastFlow=ar;
                     list[i]=ar;
                     i++;
                 }
             }
         }
         i--;
-        if(i>=0 && (saveScripts || saveImages)){
-            global.GUI=false;
+        if(i>=0 && (saveScripts || saveImages))
+        {
+            Global.GUI=false;
             while(i>=0){
                 MainWindow w=new MainWindow();
                 console.append("File: "+new File(list[i]).getName()+"\n");
                 console.append("\tLoading document\n");
-                global.getManager().loadFile(list[i]);
-                global.getManager().fc=new JFileChooser();
+                Global.getManager().loadFile(list[i]);
+                Global.getManager().fc=new JFileChooser();
                 File f=new File(list[i]);
-                global.getManager().fc.setSelectedFile(f);
-                if(saveImages){
+                Global.getManager().fc.setSelectedFile(f);
+                if(saveImages)
+                {
                     console.append("\tSaving image\n");
-                    global.prerender=true;
+                    Global.prerender=true;
                     System.out.println("Drawing");
-                    global.getManager().saveAsImages(f.getParent(),
+                    Global.getManager().saveAsImages(f.getParent(),
                             f.getName().substring(0, f.getName().length()-4));
                 }
-                if(saveScripts){
+                if(saveScripts)
+                {
                     console.append("\tSaving temporary script\n");
-                    global.getManager().savePython();
+                    Global.getManager().savePython();
                 }
                 i--;
             }
         }
     }
     
-    public static void main(String argv[]) {
-        //misc.javaInfo();
-        global.setApplet(false);
-        global.init();
-        global.setSystemLaF(true);
+    public static void main(String argv[]) 
+    {
+        Global.setApplet(false);
+        Global.init();
+        Global.setSystemLaF(true);
         boolean saveScripts=false;
         boolean saveImages=false;
         String list[]=new String[100];
         int i=0;
-        //System.out.println(argv.length);
-        for(String ar:argv){
+        for(String ar:argv)
+        {
             System.out.println(ar);
             if(ar.equals("-saveScripts"))
                 saveScripts=true;
             if(ar.equals("-saveImages"))
                 saveImages=true;
             else if(ar.equals("-uneditable"))
-                global.editable=false;
+                Global.editable=false;
             else{
                 if(ar.endsWith(".jbf")){
-                    global.lastFlow=ar;
+                    Global.lastFlow=ar;
                     list[i]=ar;
                     i++;
                 }
             }
         }
         i--;
-        if(i>=0 && (saveScripts || saveImages)){
-            global.GUI=false;
+        if(i>=0 && (saveScripts || saveImages))
+        {
+            Global.GUI=false;
             while(i>=0){
                 MainWindow w=new MainWindow();
-                global.getManager().loadFile(list[i]);
-                global.getManager().fc=new JFileChooser();
+                Global.getManager().loadFile(list[i]);
+                Global.getManager().fc=new JFileChooser();
                 File f=new File(list[i]);
-                global.getManager().fc.setSelectedFile(f);
+                Global.getManager().fc.setSelectedFile(f);
                 if(saveImages){
-                    global.prerender=true;
+                    Global.prerender=true;
                     System.out.println("Drawing");
-                    //global.getManager().saveAsImages(f.getParent(), 
-                    //        f.getAbsolutePath()
-                    //        .replaceAll(f.getParent(), "")
-                    //        .replaceAll(".jbf", "")
-                    //        );
-                    global.getManager().saveAsImages(f.getParent(),
+                    Global.getManager().saveAsImages(f.getParent(),
                             f.getName().substring(0, f.getName().length()-4));
                 }
                 if(saveScripts)
-                    global.getManager().savePython();
+                    Global.getManager().savePython();
                 i--;
             }
             System.exit(0);
         }
-        else{
-            if (global.showSplash) {
+        else
+        {
+            if (Global.showSplash) 
+            {
                 Splash spl = new Splash(4000);
                 spl.showSplash();
             }
@@ -173,39 +182,45 @@ public class Main extends JApplet implements ActionListener, Runnable {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) 
+    {
     }
     MainWindow w;
     @Override
-    public void run() {
+    public void run()
+    {
         javax.swing.SwingUtilities.invokeLater(new Runnable(){
             @Override
-            public void run(){
-            w=new MainWindow();
-            w.remove(w.menu);
-            setLayout(new BorderLayout());
-            add(w.menu, BorderLayout.PAGE_START);
-            add(w.getContentPane(), BorderLayout.CENTER);
-            repaint();
+            public void run()
+            {
+                w=new MainWindow();
+                w.remove(w.menu);
+                setLayout(new BorderLayout());
+                add(w.menu, BorderLayout.PAGE_START);
+                add(w.getContentPane(), BorderLayout.CENTER);
+                repaint();
             }
         });
-
     }
     @Override
-    public void destroy(){
-        try {
-            for (ScriptRunner run : global.runners) {
+    public void destroy()
+    {
+        try 
+        {
+            for (ScriptRunner run : Global.runners) 
+            {
                 run.close();
             }
-            if(global.getManager()!=null)
-                global.getManager().saveExit();
-            global.conf.saveConfig();
+            if(Global.getManager()!=null)
+                Global.getManager().saveExit();
+            Global.conf.saveConfig();
             super.finalize();
             System.exit(0);
-        } catch (Throwable ex) {
+        } 
+        catch (Throwable ex) 
+        {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }     
 }
 

@@ -1,6 +1,6 @@
 package javablock.flowchart.blockEditors;
 
-import config.global;
+import config.Global;
 import javablock.flowchart.*;
 import javax.swing.text.EditorKit;
 
@@ -99,12 +99,12 @@ public class StandardEditor extends javax.swing.JPanel implements BlockEditor {
 
     String lastEngine="";
     private void setKit(){
-        if(global.getManager().scriptEngine.equals(lastEngine))
+        if(Global.getManager().scriptEngine.equals(lastEngine))
             return ;
         if(addons.Syntax.loaded){
-            if (global.getManager().scriptEngine.equals("JavaScript"))
+            if (Global.getManager().scriptEngine.equals("JavaScript"))
                 Content.setEditorKit((EditorKit) addons.Syntax.js);
-            else if (global.getManager().scriptEngine.equals("python"))
+            else if (Global.getManager().scriptEngine.equals("python"))
                 Content.setEditorKit((EditorKit) addons.Syntax.py);
             else
                 Content.setEditorKit((EditorKit) addons.Syntax.plain);

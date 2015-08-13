@@ -4,7 +4,7 @@
  */
 
 package javablock.flowchart.blocks;
-import config.global;
+import config.Global;
 import config.translator;
 import java.awt.geom.Area;
 import java.awt.geom.Ellipse2D;
@@ -18,10 +18,7 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 import org.w3c.dom.Element;
 
-/**
- *
- * 
- */
+
 public class ReturnBlock extends JBlock {
     public ReturnBlock(Flowchart parent){
         super(Type.RETURN, parent);
@@ -64,7 +61,6 @@ public class ReturnBlock extends JBlock {
     @Override
     public String getScriptFragmentForJavaScript(){
         String code="";
-        ///code+="case "+ID+":\n";
         String c=getCode();
         if(c.length()>0)
             if (c.startsWith("return")) {
@@ -133,16 +129,10 @@ public class ReturnBlock extends JBlock {
 
     @Override
     protected void specialXmlSave(Element xml){
-        //if (code.length()>0) {
-        //    Element ex = xml.getOwnerDocument().createElement("extra");
-        //    xml.appendChild(ex);
-        //}
+  
     }
     @Override
     protected void specialXmlLoad(Element xml, boolean connect){
-        //NodeList l=xml.getElementsByTagName("extra");
-        //if(l.getLength()>0) extra=true;
-        //else code="";
-        //extra=true;
+ 
     }
 }

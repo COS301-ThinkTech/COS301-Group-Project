@@ -9,9 +9,9 @@ import javax.swing.JSplitPane;
 import org.w3c.dom.Element;
 
 
-public abstract class Sheet extends JComponent{
+public abstract class Sheet extends JComponent
+{
     protected FlowchartManager manager;
-    
     public Interpreter I;
     public int interval=200;
     public JSplitPane split;
@@ -26,13 +26,14 @@ public abstract class Sheet extends JComponent{
     }
     
     JComponent workspaceInstance;
-    public JComponent getWorkspace(){
+    public JComponent getWorkspace()
+    {
         return workspaceInstance;
     }
-    public void setWorkspace(JComponent set){
+    public void setWorkspace(JComponent set)
+    {
         workspaceInstance=set;
     }
-    
     /**
      * Method called to close sheet and end working over it<br/>
      * Should close all running threads
@@ -50,7 +51,6 @@ public abstract class Sheet extends JComponent{
      */
     @Override
     public abstract String getName();
-    
     /**
      * Set new name
      */
@@ -70,7 +70,7 @@ public abstract class Sheet extends JComponent{
      */
     public abstract void setEditable(boolean editing);
     /**
-     * optimize all sheet's elements id's
+     * optimize all sheets elements id's
      * 
      */
    
@@ -81,24 +81,14 @@ public abstract class Sheet extends JComponent{
      * @return 
      * 
      */
-    
     public abstract List<JBlock> getSelected();
-    
-    
     public abstract List<JBlock> getBlocks();
-    
-    public void generateBlocks(){
-    }
-    
     public  abstract void copy();
     public  abstract void cut();
     public  abstract void paste();
-    
-    
     public abstract void update();
-    
     /**
-     * Method used to save sheet as image do file (definied by url)
+     * Method used to save sheet as image do file (defined by url)
      * @param url
      * @param name
      */
@@ -107,31 +97,28 @@ public abstract class Sheet extends JComponent{
      * Method used to save sheet as image do file (opens dialog)
      */
     public abstract void saveAsImage();
-
     /**
      * Saves sheet to exists XML DOM
      * @param root 
      */
     public abstract void saveXml(Element root);
-    
     /**
      * 
      * @param f - node
      */
-    public abstract void parseXml(Element f);
-    
+    public abstract void parseXml(Element f); 
     /**
-     * Generates Python script to use in global scope
+     * Generates Python script to use in Global scope
      * @return Ready Python script
      */
     public abstract String makePythonFunctions();
-    
     /**
-     * Generates JavaScript script to use in global scope
+     * Generates JavaScript script to use in Global scope
      * @return Ready Python script
      */
     public abstract String makeJavaScriptFunctions();
-    
+    public void generateBlocks()
+    {}
 }
 
 

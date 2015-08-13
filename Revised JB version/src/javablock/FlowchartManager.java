@@ -6,7 +6,6 @@ import config.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
-
 import javablock.gui.*;
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -27,62 +26,62 @@ public final class FlowchartManager extends JPanel implements ActionListener{
     
     public Flowchart flow;
     public List<Sheet> flows=new ArrayList();
-
-    //JTabbedPane tabs=new JTabbedPane();
-    Workspace workspace;
     public JSplitPane MainSplit=new JSplitPane();
     public JSplitPane SecSplit=new JSplitPane();
-
     public String scriptEngine="JavaScript";
     public boolean isReady=false;
+    public boolean historyArchive=false;
+    public boolean keepHistory=true;
     public JFileChooser fc;
-
+    private final List<String> history=new ArrayList();
+    int historyPos;
     MainWindow gui;
-    public FlowchartManager(MainWindow gui){
+    Workspace workspace;
+    
+   
+    public FlowchartManager(MainWindow gui)
+    {
         this.gui=gui;
         gui.Manager=this;
-        //tabs.setTabPlacement(JTabbedPane.BOTTOM);
-        workspace=new Workspace(this, global.workspaceType);
+        workspace=new Workspace(this, Global.workspaceType);
         workspace.setSheetList(flows);
         setLayout(new BorderLayout());
         New();
         isReady=true;
     }
 
-    public void close(){
-        for(Sheet f:flows){
+    public void close()
+    {
+        for(Sheet f:flows)
+        {
             f.close();
         }
     }
-    public boolean hasRunner(ScriptRunner r){
-        for(Sheet f: flows){
-        //    if(f.getRunner()==r)
-        //        return true;
-        }
+    public boolean hasRunner(ScriptRunner r)
+    {
+        for(Sheet f: flows)
+        {}
         return false;
     }
     
-   
-
-    /**
-     * Call before program exit
-     * @return -1 when user choosed "Cancel"<br/>
-     * 0 when user choosed "No"<br/>
-     * 1 when user choosed "Yes"
-     */
-    public int saveExit(){
-        try {
-            if(global.applet){
-                file=new File(global.confDir+"/last.jbf");
+    public int saveExit()
+    {
+        try 
+        {
+            
+            if(Global.applet)
+            {
+                file=new File(Global.confDir+"/last.jbf");
                 Writer fw = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
                 fw.write(saveXml());
                 return 1;
             }
             file=fc.getSelectedFile();
             if(file==null)
-                file=new File(global.confDir+"/last.jbf");
-            else{
-                int o=JOptionPane.showConfirmDialog(global.Window, 
+                file=new File(Global.confDir+"/last.jbf");
+            else
+            {
+                int o=JOptionPane.showConfirmDialog(Global.Window, 
                         "Save Project?");
                 if(o==JOptionPane.NO_OPTION)
                     return 0;
@@ -92,21 +91,27 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             Writer fw = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
             fw.write(saveXml());
             fw.close();
-            global.lastFlow=file.getAbsolutePath();
+            Global.lastFlow=file.getAbsolutePath();
             return 1;
-        } catch (HeadlessException ex) {
+        } 
+        catch (HeadlessException ex)
+        {
             Logger.getLogger(FlowchartManager.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } 
+        catch (IOException ex)
+        {
             Logger.getLogger(FlowchartManager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 1;
     }
-    public int saveClose(){
-        if(global.applet){
+    public int saveClose()
+    {
+        if(Global.applet)
+        {
             saveFile();
             return 1;
         }
-        int o = JOptionPane.showConfirmDialog(global.Window,
+        int o = JOptionPane.showConfirmDialog(Global.Window,
                 "Czy chcesz zapisać zmiany?");
         if (o == JOptionPane.NO_OPTION)
             return 0;
@@ -117,25 +122,31 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         return 1;
     }
     
-    public void loadLast(){
-        try{
+    public void loadLast()
+    {
+        try
+        {
             newFileChooser();
-            file=new File(global.lastFlow);
-            if(file.exists()){
-                System.out.println("load: "+global.lastFlow);
-                loadFile(global.lastFlow);
-                if(!global.lastFlow.equals(global.confDir+"/last.jbf"))
-                    fc.setSelectedFile(new File(global.lastFlow));
+            file=new File(Global.lastFlow);
+            if(file.exists())
+            {
+                System.out.println("load: "+Global.lastFlow);
+                loadFile(Global.lastFlow);
+                if(!Global.lastFlow.equals(Global.confDir+"/last.jbf"))
+                    fc.setSelectedFile(new File(Global.lastFlow));
                 else
                     fc.setSelectedFile(null);
-                if(flows.isEmpty()){
-                    JOptionPane.showMessageDialog(global.Window, translator.get("popup.loadLastError"),
+                if(flows.isEmpty())
+                {
+                    JOptionPane.showMessageDialog(Global.Window, translator.get("popup.loadLastError"),
                         translator.get("popup.loadError.head"), JOptionPane.ERROR_MESSAGE);
                     New();
                 }
             }
-        } catch (HeadlessException e){
-            JOptionPane.showMessageDialog(global.Window, translator.get("popup.loadLastError"),
+        } 
+        catch (HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(Global.Window, translator.get("popup.loadLastError"),
                     translator.get("popup.loadError.head"), JOptionPane.ERROR_MESSAGE);
             New();
         }
@@ -143,60 +154,62 @@ public final class FlowchartManager extends JPanel implements ActionListener{
     }
 
     
-    public void makeUI(boolean floated){
+    public void makeUI(boolean floated)
+    {
         removeAll();
             add(workspace.getComponent());
         this.validate();
     }
 
     
-    public void setInterpreter(Interpreter set){
+    public void setInterpreter(Interpreter set)
+    {
         gui.updateConfig();
     }
     
-    public void setActiveSheet(Sheet f){
+    public void setActiveSheet(Sheet f)
+    {
         flow=(Flowchart)f;
         gui.updateConfig(this);
     }
-
-    private final List<String> history=new ArrayList();
-    int historyPos;
-    public boolean historyArchive=false;
-
-
-    void newFileChooser(){
+    
+    void newFileChooser()
+    {
         fc = new JFileChooser();
         javax.swing.filechooser.FileFilter ff = new javax.swing.filechooser.FileFilter() {
             @Override
-            public boolean accept(File f) {
+            public boolean accept(File f)
+            {
                 return f.isDirectory() || f.getName().toLowerCase().endsWith(".jbf");
             }
-            public String getDescription() {
+            public String getDescription() 
+            {
                 return "JavaBlock File (*.jbf)";
             }
         };
         fc.setFileFilter((javax.swing.filechooser.FileFilter) ff);
     }
 
-    public void New(){
+    public void New()
+    {
         New("flowchart");
     }
-    public void New(String type){
+    public void New(String type)
+    {
         workspace.removeAll();
-        for(Sheet f:flows){
+        for(Sheet f:flows)
+        {
             f.delete();
         }
-        scriptEngine=global.scriptEngine;
+        scriptEngine=Global.scriptEngine;
         historyArchive=false;
-        global.reset();
+        Global.reset();
         history.clear();
         historyPos=0;
         workspace.removeAll();
         flows.clear();
         if(type.equals("flowchart"))
-            flow=new javablock.flowchart.Flowchart(this);
-        //else if(type.equals("NS"))
-        //    flow=new javablock.ns.NS(this);
+        flow=new javablock.flowchart.Flowchart(this);
         flows.add(flow);
         workspace.setSheetList(flows);
         updateFocus();
@@ -212,24 +225,24 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         System.gc();
     }
 
-    public void addFlowchart(){
+    public void addFlowchart()
+    {
         flow=new javablock.flowchart.Flowchart(this);
         flows.add(flow);
         workspace.addSheet(flow);
-        //tabs.setSelectedComponent(flow);
         renameFlowchart();
         selectedBlock(flow);
     }
-    public void removeFlowchart(){
+    public void removeFlowchart()
+    {
         if(flows.size()==1) return ;
         workspace.removeSheet(flow);
         flows.remove(flow);
-        //flow=(Sheet)tabs.getSelectedComponent();
         flow=(Flowchart)workspace.getActive();
         selectedBlock(flow);
     }
-    public void renameFlowchart(){
-        //flow=(Sheet)tabs.getSelectedComponent();
+    public void renameFlowchart()
+    {
         flow=(Flowchart)workspace.getActive();
         do{
             flow.setName(JOptionPane.showInputDialog(
@@ -237,9 +250,11 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                     flow.getName()
                     ));
             boolean is=false;
-            for(Sheet f:flows){
+            for(Sheet f:flows)
+            {
                 if(f==flow) continue;
-                if(f.getName().equals(flow.getName())){
+                if(f.getName().equals(flow.getName()))
+                {
                     JOptionPane.showMessageDialog(MainSplit, translator.get("popup.flowMustBeUnique"),
                             translator.get("popup.flowMustBeUnique.head"),JOptionPane.WARNING_MESSAGE);
                     is=true;
@@ -248,24 +263,28 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             }
             if(is) continue;
             break;
-        }while(true);
-        //tabs.setTitleAt(tabs.getSelectedIndex(), flow.getName());
+        }
+        while(true);
         workspace.renameSheetName(flow.getName(), workspace.getActive());
     }
 
     public Element clipBoard=null;
-    public void copy(){
+    public void copy()
+    {
         flow.copy();
     }
-    public void cut(){
+    public void cut()
+    {
         flow.cut();
     }
-    public void paste(){
+    public void paste()
+    {
         flow.paste();
     }
 
     @Deprecated
-    public JBlock addNewBySelected(){
+    public JBlock addNewBySelected()
+    {
         if(flow.getSelected().size()!=1) return null;
         if(flow.getSelected().get(0).type==JBlock.Type.START) return null;
         Element clipBoardTMP=clipBoard;
@@ -277,7 +296,6 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             n.connectTo(editing.connects.get(0).n);
         }
         editing.connectTo(n);
-        //global.getManager().cancelMoving();
         cancelMoving();
         n.translate(0,
                 n.shape.getBounds().height/2+editing.shape.getBounds().height/2+30);
@@ -285,14 +303,14 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         clipBoard= clipBoardTMP;
         return n;
     }
-
-    public boolean keepHistory=true;
-    public void historyAdd(){
+    public void historyAdd()
+    {
         if(!keepHistory) return ;
-        if(global.applet) return ;
+        if(Global.applet) return ;
         if(!historyArchive) return ;
         String n=saveXml();
-        if(true){
+        if(true)
+        {
             if(history.size()>0 && historyPos<history.size())
             if(n.equals(history.get(historyPos)))
                 return ;
@@ -302,15 +320,17 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             history.add(n);
             historyPos++;
         }
-        while(history.size()>11){
+        while(history.size()>11)
+        {
             history.remove(0);
             historyPos--;
         }
         gui.undoAvaiable(historyPos>0);
         gui.redoAvaiable(false);
     }
-    public void historyUndo(){
-        if(global.applet) return ;
+    public void historyUndo()
+    {
+        if(Global.applet) return ;
         if(historyPos==0){
             gui.redoAvaiable(historyPos+1<history.size());
             gui.undoAvaiable(historyPos>0);
@@ -324,8 +344,9 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         gui.undoAvaiable(historyPos>0);
         gui.updateConfig();
     }
-    public void historyRedo(){
-        if(global.applet) return ;
+    public void historyRedo()
+    {
+        if(Global.applet) return ;
         if(historyPos+1==history.size()){
             gui.redoAvaiable(historyPos+1<history.size());
             gui.undoAvaiable(historyPos>0);
@@ -339,7 +360,8 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         gui.undoAvaiable(historyPos>0);
         gui.updateConfig();
     }
-    public void historyClear(){
+    public void historyClear()
+    {
         while(history.size()>1)
             history.remove(0);
         historyPos=0;
@@ -348,24 +370,31 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         gui.updateConfig();
     }
 
-    public void cancelMoving(){
-        //flow.cancelMoving();
+    public void cancelMoving()
+    {
+       
     }
 
     String path="";
     File file=null;
     boolean saveAs=false;
     
-    public void saveAsImages(String url, String name){
-        try{
-        for(Sheet f:flows){
+    public void saveAsImages(String url, String name)
+    {
+        try
+        {
+        for(Sheet f:flows)
+        {
             f.saveAsImage(url, name);
         }
-        }catch(Exception e){
+        }
+        catch(Exception e)
+        {
         }
     }
     
-    public void saveFileAs(){
+    public void saveFileAs()
+    {
         file=null;
         fc.setSelectedFile(null);
         saveAs=true;
@@ -373,9 +402,11 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         saveAs=false;
     }
     public void saveFile(){saveFile(false);}
-    public void saveFile(boolean exp){
+    public void saveFile(boolean exp)
+    {
         String s=saveXml();
-        if(exp){
+        if(exp)
+        {
             JEditorPane area=new JEditorPane();
             JScrollPane scroll=new JScrollPane();
             scroll.setViewportView(area);
@@ -387,14 +418,17 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             f.setSize(550, 500);//f.pack();
             f.setVisible(true);
         }
-        else{
-            if(fc.getSelectedFile()==null){
+        else
+        {
+            if(fc.getSelectedFile()==null)
+            {
                 int returnVal = fc.showSaveDialog(this);
                 if(returnVal==0)
                     file = fc.getSelectedFile();
                 else return ;
             }
-            try {
+            try 
+            {
                 File f=fc.getSelectedFile();
                 String fname[]=f.getPath().split("\\.");
                 if(fname.length<1)
@@ -413,28 +447,31 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                 Writer w = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
                 w.write(s);
                 w.close();
-                //FileWriter fw = new FileWriter(fc.getSelectedFile());
-                //fw.write(s);
-                //fw.close();
-            } catch (IOException ex) {
+            } 
+            catch (IOException ex)
+            {
                 JOptionPane.showMessageDialog(this, translator.get("popup.saveError"),
                         translator.get("popup.saveError"), JOptionPane.ERROR_MESSAGE);
             }
         }
     }
     public int loadFile(){ return loadFile(false);}
-    public int loadFile(boolean imp){
+    public int loadFile(boolean imp)
+    {
         String in;
-        if(imp){
+        if(imp)
+        {
             in=JOptionPane.showInputDialog(null);
-            if(in!=null){
+            if(in!=null)
+            {
                 boolean ok=loadXml(in);
                 if(ok) return 1;
                 return -1;
             }
             return 0;
         }
-        else{
+        else
+        {
             int returnVal = fc.showOpenDialog(this);
             if(returnVal != 0) 
                 return 0;
@@ -446,45 +483,54 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         }
     }
     
-    public boolean loadFile(String url){
+    public boolean loadFile(String url)
+    {
         String in="";
         File f = new File(url);
-        if (fc != null) {
+        if (fc != null) 
+        {
             fc.setSelectedFile(f);
         }
-        if (!f.exists()) {
+        if (!f.exists())
+        {
             return false;
         }
         return loadXml(f);
     }
 
 
-    public String saveXml(){
-        try {
+    public String saveXml()
+    {
+        try 
+        {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = factory.newDocumentBuilder();
             Document doc = docBuilder.newDocument();
             Element root = doc.createElement("JavaBlocks");
-            root.setAttribute("version", ""+global.version);
+            root.setAttribute("version", ""+Global.version);
             root.setAttribute("scriptEngine", scriptEngine);
             doc.appendChild(root);
             Element options=doc.createElement("option");
-            options.setAttribute("pascal", global.pascalMode+"");
-            options.setAttribute("grid", global.grid+"");
-            options.setAttribute("fullConnectorValues", global.fullConnectorValue+"");
+            options.setAttribute("pascal", Global.pascalMode+"");
+            options.setAttribute("grid", Global.grid+"");
+            options.setAttribute("fullConnectorValues", Global.fullConnectorValue+"");
             root.appendChild(options);
             for(int i=0; i<flows.size(); i++)
                 flows.get(i).saveXml(root);
             String out=misc.DoctoString(doc);
             return out;
-        } catch (ParserConfigurationException ex) {
+        } 
+        catch (ParserConfigurationException ex) 
+        {
             Logger.getLogger(FlowchartManager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-    public void loadHistoryXml(String in){
-        try {
-            global.reset();
+    public void loadHistoryXml(String in)
+    {
+        try
+        {
+            Global.reset();
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder;
             docBuilder = factory.newDocumentBuilder();
@@ -500,47 +546,52 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             for(int i=0; i<options.getLength(); i++){
                 Element o=(Element)options.item(i);
                 if(o.getAttribute("pascal").equals("true"))
-                    global.pascalMode=true;
+                    Global.pascalMode=true;
                 if(o.hasAttribute("grid"))
-                    global.grid=Boolean.parseBoolean(o.getAttribute("grid"));
+                    Global.grid=Boolean.parseBoolean(o.getAttribute("grid"));
                 if(o.hasAttribute("fullConnectorValues"))
-                    global.fullConnectorValue=
+                    Global.fullConnectorValue=
                             Boolean.parseBoolean(o.getAttribute("fullConnectorValues"));
             }
             NodeList flowList=main.getElementsByTagName("flowchart");
-            for(int i=0; i<flowList.getLength(); i++){
+            for(int i=0; i<flowList.getLength(); i++)
+            {
                 Sheet f=new javablock.flowchart.Flowchart(this, (Element)flowList.item(i));
-                //f.parseXml((Element)flowList.item(i));
                 flow=(Flowchart)f;
                 flows.add(f);
                 
             }
-            //while(tab>=tabs.getTabCount()) tab--;
-            //tabs.setSelectedIndex(tab);
-            //workspace.setActive(oldActive);
             workspace.removeAll();
             workspace.addSheet(flow);
             updateFocus();
             repaint();
             gui.updateConfig();
-        } catch (SAXException ex) {
+        } 
+        catch (SAXException ex)
+        {
             JOptionPane.showMessageDialog(MainSplit, "[h] SAXException\n"+ex.getMessage(),
                     "Load error", JOptionPane.ERROR_MESSAGE);
-        } catch (IOException ex) {
+        } 
+        catch (IOException ex)
+        {
             JOptionPane.showMessageDialog(MainSplit, "[h] IOException\n"+ex.getMessage(),
                     "Load error", JOptionPane.ERROR_MESSAGE);
-        } catch (ParserConfigurationException ex) {
+        } 
+        catch (ParserConfigurationException ex)
+        {
             JOptionPane.showMessageDialog(MainSplit, "[h] ParserConfigurationException\n"+ex.getMessage(),
                     "Load error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public boolean loadXml(String in){
-        try {
+    public boolean loadXml(String in)
+    {
+        try
+        {
             historyArchive=false;
             history.clear();
             historyPos=0;
-            global.reset();
+            Global.reset();
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder;
             docBuilder = factory.newDocumentBuilder();
@@ -550,32 +601,39 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             File fi=file;
             New();
             fc.setSelectedFile(fi);
-            //tabs.removeAll();
             flows.clear();
             Element main=doc.getDocumentElement();
             return parseXml(main);
-        } catch (SAXException ex) {
+        }
+        catch (SAXException ex) 
+        {
             JOptionPane.showMessageDialog(MainSplit, "SAXException\n"+ex.getMessage(),
                     "Load error", JOptionPane.ERROR_MESSAGE);
             return false;
-        } catch (IOException ex) {
+        } 
+        catch (IOException ex) 
+        {
             if(ex.getMessage().equals("Invalid byte 2 of 3-byte UTF-8 sequence.")) return true;
             JOptionPane.showMessageDialog(MainSplit, "Read file error\n"+ex.getMessage(),
                     "Load error", JOptionPane.ERROR_MESSAGE);
             return false;
-        } catch (ParserConfigurationException ex) {
+        } 
+        catch (ParserConfigurationException ex)
+        {
             JOptionPane.showMessageDialog(MainSplit, "Error while parsing XML\n"+ex.getMessage(),
                     "Load error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
     }
 
-    public boolean loadXml(File in){
-        try{
+    public boolean loadXml(File in)
+    {
+        try
+        {
             historyArchive=false;
             history.clear();
             historyPos=0;
-            global.reset();
+            Global.reset();
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder;
             docBuilder = factory.newDocumentBuilder();
@@ -587,61 +645,69 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             flows.clear();
             Element main=doc.getDocumentElement();
             return parseXml(main);
-        } catch (SAXException ex) {
+        } 
+        catch (SAXException ex)
+        {
             JOptionPane.showMessageDialog(MainSplit, "SAXException\n"+ex.getMessage(),
                     "Load error", JOptionPane.ERROR_MESSAGE);
             return false;
-        } catch (IOException ex) {
+        } 
+        catch (IOException ex)
+        {
             if(ex.getMessage().equals("Invalid byte 2 of 3-byte UTF-8 sequence.")) return true;
             JOptionPane.showMessageDialog(MainSplit, "Read file error\n"+ex.getMessage(),
                     "Load error", JOptionPane.ERROR_MESSAGE);
             return false;
-        } catch (ParserConfigurationException ex) {
+        }
+        catch (ParserConfigurationException ex)
+        {
             JOptionPane.showMessageDialog(MainSplit, "Error while parsing XML\n"+ex.getMessage(),
                     "Load error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
     }
     
-    private boolean parseXml(Element main){
-        try {
-            if (main.hasAttribute("version")) {
+    private boolean parseXml(Element main)
+    {
+        try 
+        {
+            if (main.hasAttribute("version")) 
+            {
                 int v = Integer.parseInt(main.getAttribute("version"));
-                if (v / 10 > global.version / 10) {
-                    JOptionPane.showMessageDialog(global.Window, 
+                if (v / 10 > Global.version / 10) {
+                    JOptionPane.showMessageDialog(Global.Window, 
                             translator.get("popup.flowchartNewer"));
                 }
             }
            
-            if (main.hasAttribute("scriptEngine")) {
+            if (main.hasAttribute("scriptEngine")) 
+            {
                 scriptEngine = main.getAttribute("scriptEngine");
             }
 
-            {
-                
-            }
-
             NodeList options = main.getElementsByTagName("option");
-            for (int i = 0; i < options.getLength(); i++) {
+            for (int i = 0; i < options.getLength(); i++) 
+            {
                 Element o = (Element) options.item(i);
-                if (o.getAttribute("pascal").equals("true")) {
-                    global.pascalMode = true;
+                if (o.getAttribute("pascal").equals("true")) 
+                {
+                    Global.pascalMode = true;
                 }
-                if (o.hasAttribute("grid")) {
-                    global.grid = Boolean.parseBoolean(o.getAttribute("grid"));
+                if (o.hasAttribute("grid"))
+                {
+                    Global.grid = Boolean.parseBoolean(o.getAttribute("grid"));
                 }
-                if (o.hasAttribute("fullConnectorValues")) {
-                    global.fullConnectorValue =
+                if (o.hasAttribute("fullConnectorValues"))
+                {
+                    Global.fullConnectorValue =
                             Boolean.parseBoolean(o.getAttribute("fullConnectorValues"));
                 }
             }
             NodeList flowList = main.getElementsByTagName("flowchart");
-            for (int i = 0; i < flowList.getLength(); i++) {
-                Sheet f = new javablock.flowchart.Flowchart(this, (Element) flowList.item(i));
-                //f.parseXml((Element)flowList.item(i));
+            for (int i = 0; i < flowList.getLength(); i++)
+            {
+                Sheet f = new javablock.flowchart.Flowchart(this, (Element) flowList.item(i));   
                 flow = (Flowchart)f;
-                // TODO: Remove!!
-                //setInterpreter(flow.I);
                 flows.add(f);
                 workspace.addSheet(flow);
             }
@@ -653,28 +719,32 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             history.add(saveXml());
             historyClear();
             return true;
-        } catch(NumberFormatException e){
-
-        } catch (HeadlessException e) {
+        }
+        catch(NumberFormatException e)
+        {
+        }
+        catch (HeadlessException e) 
+        {
         }
         return true;
     }
 
-    public void savePython(){
+    public void savePython()
+    {
         File fn=new File(fc.getSelectedFile().getAbsolutePath()+".py");
         System.out.println("path:"+fn.getAbsolutePath());
-        String py="";//from JavaBlock import *\n";
+        String py="";
         for(Sheet fl: flows){
             py+=fl.makePythonFunctions();
         }
         py+="\n\n";
         py+="def getAuthor():"
                 + "\treturn \""+"\"\n";
-        //py+=flows.get(0).getName()+"()\n";
         misc.saveToFile(fn, py);
     }
 
-    private void showScript(){
+    private void showScript()
+    {
         JFrame f=new JFrame();
         f.setLayout(new BorderLayout());
         JTabbedPane t=new JTabbedPane();
@@ -684,11 +754,13 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         JScrollPane jss=new JScrollPane(js);
         JScrollPane pys=new JScrollPane(py);
         String j="", p="";
-        for(Sheet fl: flows){
+        for(Sheet fl: flows)
+        {
             j+=fl.makeJavaScriptFunctions();
             p+=fl.makePythonFunctions();
         }
-        if(addons.Syntax.loaded){
+        if(addons.Syntax.loaded)
+        {
             js.setEditorKit((EditorKit)addons.Syntax.js);
             py.setEditorKit((EditorKit)addons.Syntax.py);
         }
@@ -701,8 +773,8 @@ public final class FlowchartManager extends JPanel implements ActionListener{
     }
     BlockEditor editor=null;
     
-    public void updateFocus(){
-        //flow=(Flowchart)tabs.getSelectedComponent();
+    public void updateFocus()
+    { 
         flow=(Flowchart) workspace.getActive();
         if(flow==null) return;
         int w=SecSplit.getDividerLocation();
@@ -711,33 +783,41 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         SecSplit.setDividerLocation(w);
        
             boolean resize=true;
-            if (flow.getSelected().size() == 1) {
+            if (flow.getSelected().size() == 1) 
+            {
                 JBlock selected=flow.getSelected().get(0);
                 if (selected.isEditable()) {
-                    if (editor != null) {
+                    if (editor != null) 
+                    {
                         resize=false;
                         editor.finnishEdit();
-                        if (editor.getBlock() == selected) {
-                        } else {
+                        if (editor.getBlock() == selected)
+                        {
+                        } 
+                        else 
+                        {
                             ((Flowchart)flow).editorPane.remove((Component) editor);
                         }
                     }
                     editor = selected.getEditor();
                     editor.setEditedBlock(selected);
-                    // TODO: Remove
                     flow.editorPane.add((Component) editor, BorderLayout.CENTER);
                     selected.getEditor().setEditedBlock(flow.selected.get(0));
                     flow.editorPane.setVisible(true);
                     flow.editorPane.setType(selected.type);
                     flow.editorPane.revalidate();
-                    if(resize){
+                    if(resize)
+                    {
                         flow.cur.setLocation(flow.cur.getX()+flow.editorPane.getWidth()
                                 , flow.cur.getY());
                     }
                     flow.repaint();
                     this.historyAdd();
-                } else {
-                    if (editor != null) {
+                } 
+                else 
+                {
+                    if (editor != null) 
+                    {
                         editor.finnishEdit();
                         flow.editorPane.remove((Component) editor);
                         this.historyAdd();
@@ -745,8 +825,11 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                     editor = null;
                     flow.editorPane.setVisible(false);
                 }
-            } else {
-                if (editor != null) {
+            }
+            else
+            {
+                if (editor != null)
+                {
                     flow.editorPane.remove((Component) editor);
                     editor.finnishEdit();
                     this.historyAdd();
@@ -754,41 +837,46 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                 editor = null;
                 flow.editorPane.setVisible(false);
             }
-        
         flow.flow.requestFocusInWindow();
         flow.flow.requestFocus();
     }
-    public void selectedBlock(Sheet f){
+    
+    public void selectedBlock(Sheet f)
+    {
         flow = (Flowchart)f;
         updateFocus();
     }
 
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e)
+    {
         String[] action=e.getActionCommand().split("/");
-        if(action[0].equals("history")){
+        if(action[0].equals("history"))
+        {
             if(action[1].equals("undo"))
                 historyUndo();
             else if(action[1].equals("redo"))
                 historyRedo();
         }
-        else if(action[0].equals("manage")){
+        else if(action[0].equals("manage"))
+        {
             if(action[1].equals("new"))
                 New();
             if(action[1].equals("save"))
                 saveFile(action[2].equals("true"));
             if(action[1].equals("saveas"))
                 saveFileAs();
-            if(action[1].equals("saveImage")){
+            if(action[1].equals("saveImage"))
+            {
                 Sheet f=(Sheet)workspace.getActive();
                 f.saveAsImage();
             }
             if(action[1].equals("savePython"))
                 savePython();
         }
-
-        else if(action[0].equals("flowcharts")){
+        else if(action[0].equals("flowcharts"))
+        {
             if(action[1].equals("add"))
                 this.addFlowchart();
             if(action[1].equals("remove"))
@@ -798,13 +886,13 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             if(action[1].equals("script"))
                 this.showScript();
         }
-
-        else if(action[0].equals("show")){
+        else if(action[0].equals("show"))
+        {
             if(action[1].equals("help"))
                 help.showHelp();
         }
-
-        else if(action[0].equals("clp")){
+        else if(action[0].equals("clp"))
+        {
             if(action[1].equals("cut"))
                 cut();
             if(action[1].equals("copy"))
@@ -812,8 +900,6 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             if(action[1].equals("paste"))
                 paste();
         }
-
-                
         if(action[0].equals("add"))
             flow.actionPerformed(e);
         else if(action[0].equals("foraction"))

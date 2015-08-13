@@ -1,8 +1,7 @@
 package addons;
 
-
-
-public class Geometry {
+public class Geometry
+{
     public static Point Point(double x, double y){
         return new Point(x, y);
     }
@@ -42,6 +41,7 @@ class Point{
     public void setX(double x){this.x=x;}
     public void setY(double y){this.y=x;}
     public Point set(double x, double y){this.x=x; this.y=y; return this;}
+    
     @Override
     public String toString(){
         return "("+x+";"+y+")";
