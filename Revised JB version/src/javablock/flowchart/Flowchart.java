@@ -1283,6 +1283,18 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     @Override
     public void mouseDragged(MouseEvent e)
     {
+        System.out.println("ouch! you dragged me..." + e.getComponent().getName());
+        
+        if(e.getComponent().getName() != null){
+            String [] section = e.getComponent().getName().split("/");
+        
+            if(section[0].contains("add")){
+
+                addBlock(section[1]);
+                return;
+            }
+        }
+        
         if(moving)
         
         {
@@ -1568,11 +1580,12 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     {
         return name;
     }
-    public JBlock addBlock(String type){return addBlock(type, true);}
+    public JBlock addBlock(String type){return addBlock(type, false);}
     public JBlock addBlock(String type, boolean connect)
     {
         JBlock b = null;
         JBlock s=null;
+        System.out.println("selected size is " + selected.size());
         if(selected.size()==1)
             s=selected.get(0);
         if(type.equals("SAME"))
@@ -1800,9 +1813,12 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     @Override
     public void actionPerformed(ActionEvent e) 
     {
+
         String[] action=e.getActionCommand().split("/");
-        if(action[0].equals("add"))
+        if(action[0].equals("add")){
+                    System.out.println("Adding " + action[1]);
             addBlock(action[1]);
+        }
         else if(action[0].equals("foraction"))
             addBlocksGroup(new For().get(this));
         else if(action[0].equals("align"))

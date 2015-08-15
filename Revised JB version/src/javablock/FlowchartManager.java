@@ -850,7 +850,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e)
-    {
+    {         
         String[] action=e.getActionCommand().split("/");
         if(action[0].equals("history"))
         {

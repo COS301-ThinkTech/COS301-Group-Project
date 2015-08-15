@@ -50,6 +50,7 @@ public class Flowline implements FlowElement {
 
     @Override
     public void shape(){
+
         needUpdate=true;
         if(n.needUpdate)
             n.shape();
