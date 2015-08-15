@@ -134,7 +134,7 @@ public final class StartEditor extends javax.swing.JPanel implements BlockEditor
         for(Field field:fields)
             fieldsPane.add(field);
         fieldsPane.add(addButton);
-        //fieldsScroll.se
+        
         repaint();
     }
 
