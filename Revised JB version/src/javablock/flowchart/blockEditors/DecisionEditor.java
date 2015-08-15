@@ -6,6 +6,7 @@
 package javablock.flowchart.blockEditors;
 import javablock.flowchart.blocks.DecisionBlock;
 import javablock.flowchart.*;
+import javablock.flowchart.blocks.StartBlock;
 import widgets.ComboText;
 
 /**
@@ -123,32 +124,37 @@ public class DecisionEditor extends javax.swing.JPanel implements BlockEditor{
 
      @Override
     public void saveBlock() {
-        //if(name.getText().indexOf(" ")>=0){ error(true); return;}
-        editing.clear();
-       // editing.name=name.getText();
-        //editing.silent=silent.isSelected();
-        //editing.displayName=displayName.isSelected();
-        /*for(StartEditor.Field field:fields){
-            if(field.name.getText().length()==0) continue;
-            editing.addField(field.name.getText(),
-                    ((ComboText)field.type.getSelectedItem()).getValue());
-        }*/
+      
         editing.shape();
         editing.flow.update();
     }
 
     @Override
     public void setEditedBlock(JBlock b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(b==editing) return ;
+        if(editing!=null)
+            finnishEdit();
+        editing=(DecisionBlock)b;
+
+       
+//            for(ComboText c: types){
+//                if(c.getValue().equals(f[1])){
+//                    field.type.setSelectedItem(c);
+//                    break;
+//                }
+//            }
+//            fields.add(field);
+//        } Templates.
     }
 
     @Override
     public void finnishEdit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         saveBlock();
+         editing=null;
     }
 
     @Override
     public boolean changes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
     }
 }
