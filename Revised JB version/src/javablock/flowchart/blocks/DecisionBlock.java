@@ -11,15 +11,21 @@ import javablock.flowchart.*;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 import javax.swing.JOptionPane;
-
+import javablock.flowchart.blockEditors.DecisionEditor;
 
 public class DecisionBlock extends JBlock {
+    public static DecisionEditor editor = new DecisionEditor();
     public DecisionBlock(Flowchart parent){
         super(Type.DECISION, parent);
     }
     
     @Override
     public boolean isSwitchable(){return false;}
+    
+     @Override
+    public BlockEditor getEditor(){
+        return editor;
+    }
 
     @Override
     public Flowline connectTo(JBlock n){
@@ -140,6 +146,10 @@ public class DecisionBlock extends JBlock {
             txtList.get(i).draw(g2d, (float) (bound.getWidth() / 2 - w / 2), (height + 2) * i);
         }
         g2d.translate(-bound.getX(), -bound.getY()-height-1);
+    }
+
+    public void clear() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
