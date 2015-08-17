@@ -178,7 +178,7 @@ public final class StartEditor extends javax.swing.JPanel implements BlockEditor
     public void setEditedBlock(JBlock b) {
         if(b==editing) return ;
         if(editing!=null)
-            finnishEdit();
+            finishEdit();
         editing=(StartBlock)b;
         fields.clear();
         fieldsPane.removeAll();
@@ -201,7 +201,7 @@ public final class StartEditor extends javax.swing.JPanel implements BlockEditor
     }
 
     @Override
-    public void finnishEdit() {
+    public void finishEdit() {
         saveBlock();
         editing=null;
     }

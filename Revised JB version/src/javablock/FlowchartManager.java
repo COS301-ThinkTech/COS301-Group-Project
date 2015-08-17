@@ -790,7 +790,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                     if (editor != null) 
                     {
                         resize=false;
-                        editor.finnishEdit();
+                        editor.finishEdit();
                         if (editor.getBlock() == selected)
                         {
                         } 
@@ -818,7 +818,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                 {
                     if (editor != null) 
                     {
-                        editor.finnishEdit();
+                        editor.finishEdit();
                         flow.editorPane.remove((Component) editor);
                         this.historyAdd();
                     }
@@ -831,7 +831,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                 if (editor != null)
                 {
                     flow.editorPane.remove((Component) editor);
-                    editor.finnishEdit();
+                    editor.finishEdit();
                     this.historyAdd();
                 }
                 editor = null;

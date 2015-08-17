@@ -22,6 +22,8 @@ public class DecisionEditor extends javax.swing.JPanel implements BlockEditor{
         initComponents();
     }
     DecisionBlock editing;
+    private String beforeCode="";
+    private String beforeComment="";
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -153,22 +155,18 @@ public class DecisionEditor extends javax.swing.JPanel implements BlockEditor{
     public void setEditedBlock(JBlock b) {
         if(b==editing) return ;
         if(editing!=null)
-            finnishEdit();
+            finishEdit();
+        beforeCode=b.code;
+        beforeComment=b.comment;
+        addons.Syntax.clearUndos(Comment);
+        //addons.Syntax.clearUndos();
+      
         editing=(DecisionBlock)b;
 
-       
-//            for(ComboText c: types){
-//                if(c.getValue().equals(f[1])){
-//                    field.type.setSelectedItem(c);
-//                    break;
-//                }
-//            }
-//            fields.add(field);
-//        } Templates.
     }
 
     @Override
-    public void finnishEdit() {
+    public void finishEdit() {
          saveBlock();
          editing=null;
     }
