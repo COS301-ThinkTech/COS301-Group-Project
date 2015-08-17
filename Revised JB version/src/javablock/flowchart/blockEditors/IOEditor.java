@@ -370,7 +370,7 @@ public class IOEditor extends javax.swing.JPanel implements BlockEditor, ActionL
     }
 
     @Override
-    public void finnishEdit() {
+    public void finishEdit() {
         saveBlock();
         editing=null;
     }

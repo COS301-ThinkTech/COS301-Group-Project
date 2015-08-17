@@ -156,8 +156,7 @@ public class StandardEditor extends javax.swing.JPanel implements BlockEditor {
         if(editing!=null)
         if(b==editing) return;
         //if(editing!=null)
-            saveBlock();
-        editing=null;
+            finishEdit();
         //System.out.println("setEditedBlock");
         beforeCode=b.code;
         beforeComment=b.comment;
@@ -172,7 +171,7 @@ public class StandardEditor extends javax.swing.JPanel implements BlockEditor {
     }
 
     @Override
-    public void finnishEdit() {
+    public void finishEdit() {
         saveBlock();
         editing=null;
     }

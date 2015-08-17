@@ -6,6 +6,7 @@
 package javablock.flowchart.blockEditors;
 import javablock.flowchart.blocks.DecisionBlock;
 import javablock.flowchart.*;
+import javablock.flowchart.blocks.StartBlock;
 import widgets.ComboText;
 
 /**
@@ -21,6 +22,8 @@ public class DecisionEditor extends javax.swing.JPanel implements BlockEditor{
         initComponents();
     }
     DecisionBlock editing;
+    private String beforeCode="";
+    private String beforeComment="";
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,14 +39,18 @@ public class DecisionEditor extends javax.swing.JPanel implements BlockEditor{
         comparisonVariable1 = new javax.swing.JTextField();
         comparisonOperators = new javax.swing.JComboBox();
         comparisonVariable2 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
+        logicalOperators = new javax.swing.JComboBox();
         commentPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Comment = new javax.swing.JEditorPane();
+
+        jTabbedPane1.setPreferredSize(new java.awt.Dimension(212, 331));
 
         jLabel1.setText("if:");
 
         comparisonOperators.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "==", ">", "<", ">=", "!=" }));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "&&", "||" }));
+        logicalOperators.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "&&", "||" }));
 
         javax.swing.GroupLayout codePanelLayout = new javax.swing.GroupLayout(codePanel);
         codePanel.setLayout(codePanelLayout);
@@ -54,13 +61,13 @@ public class DecisionEditor extends javax.swing.JPanel implements BlockEditor{
                 .addComponent(jLabel1)
                 .addGap(4, 4, 4)
                 .addGroup(codePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox1, 0, 55, Short.MAX_VALUE)
+                    .addComponent(logicalOperators, 0, 55, Short.MAX_VALUE)
                     .addComponent(comparisonVariable1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(comparisonOperators, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(comparisonVariable2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         codePanelLayout.setVerticalGroup(
             codePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,21 +79,23 @@ public class DecisionEditor extends javax.swing.JPanel implements BlockEditor{
                     .addComponent(comparisonOperators, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comparisonVariable2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addComponent(logicalOperators, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(263, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Code", codePanel);
+
+        jScrollPane1.setViewportView(Comment);
 
         javax.swing.GroupLayout commentPanelLayout = new javax.swing.GroupLayout(commentPanel);
         commentPanel.setLayout(commentPanelLayout);
         commentPanelLayout.setHorizontalGroup(
             commentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 234, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
         );
         commentPanelLayout.setVerticalGroup(
             commentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 289, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Comment", commentPanel);
@@ -95,11 +104,11 @@ public class DecisionEditor extends javax.swing.JPanel implements BlockEditor{
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("");
@@ -111,44 +120,59 @@ public class DecisionEditor extends javax.swing.JPanel implements BlockEditor{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JEditorPane Comment;
     private javax.swing.JPanel codePanel;
     private javax.swing.JPanel commentPanel;
     private javax.swing.JComboBox comparisonOperators;
     private javax.swing.JTextField comparisonVariable1;
     private javax.swing.JTextField comparisonVariable2;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JComboBox logicalOperators;
     // End of variables declaration//GEN-END:variables
 
      @Override
     public void saveBlock() {
-        //if(name.getText().indexOf(" ")>=0){ error(true); return;}
-        editing.clear();
-       // editing.name=name.getText();
-        //editing.silent=silent.isSelected();
-        //editing.displayName=displayName.isSelected();
-        /*for(StartEditor.Field field:fields){
-            if(field.name.getText().length()==0) continue;
-            editing.addField(field.name.getText(),
-                    ((ComboText)field.type.getSelectedItem()).getValue());
-        }*/
+        if(editing==null)
+            return ;
+        if(editing.deleted)
+            return ;
+        System.out.println("SAVE");
+        editing.variable1 = comparisonVariable1.getText();
+        editing.variable2 = comparisonVariable2.getText();
+        editing.compOperator = comparisonOperators.getSelectedItem().toString();
+        editing.logicalOperator = logicalOperators.getSelectedItem().toString();
+        editing.setCode(editing.variable1 + " " + editing.compOperator + " " + editing.variable2);
+        editing.setComment(Comment.getText());
         editing.shape();
         editing.flow.update();
+        editing.requestRepaint();
+        editing=null;
     }
 
     @Override
     public void setEditedBlock(JBlock b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(b==editing) return ;
+        if(editing!=null)
+            finishEdit();
+        beforeCode=b.code;
+        beforeComment=b.comment;
+        addons.Syntax.clearUndos(Comment);
+        //addons.Syntax.clearUndos();
+      
+        editing=(DecisionBlock)b;
+
     }
 
     @Override
-    public void finnishEdit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void finishEdit() {
+         saveBlock();
+         editing=null;
     }
 
     @Override
     public boolean changes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
     }
 }

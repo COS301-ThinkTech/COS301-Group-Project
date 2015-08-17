@@ -21,7 +21,9 @@ public class DecisionBlock extends JBlock {
     
     @Override
     public boolean isSwitchable(){return false;}
-    
+    public String variable1, variable2;
+    public String compOperator;
+    public String logicalOperator;
      @Override
     public BlockEditor getEditor(){
         return editor;

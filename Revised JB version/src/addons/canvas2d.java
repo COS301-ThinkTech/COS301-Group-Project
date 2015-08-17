@@ -10,14 +10,14 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public class canvas2d extends JPanel 
+public class Canvas2d extends JPanel 
 {
     protected int w, h;
     protected JFrame f;
     protected JApplet f2;
     public boolean autoUpdate=true;
     JMenuBar menu;
-    public canvas2d(int width, int height)
+    public Canvas2d(int width, int height)
     {
         Global.setSystemLaF(true);
         img=new BufferedImage(width, height, BufferedImage.TYPE_4BYTE_ABGR);
