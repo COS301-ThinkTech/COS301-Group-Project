@@ -5,13 +5,21 @@
 
 package javablock.flowchart.blocks;
 import config.Global;
+import config.translator;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
+import java.util.ArrayList;
+import java.util.List;
 import javablock.flowchart.*;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 import javax.swing.JOptionPane;
 import javablock.flowchart.blockEditors.DecisionEditor;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import widgets.ComboText;
 
 public class DecisionBlock extends JBlock {
     public static DecisionEditor editor = new DecisionEditor();
@@ -24,6 +32,7 @@ public class DecisionBlock extends JBlock {
     public String variable1, variable2;
     public String compOperator;
     public String logicalOperator;
+    public List<Comparison> comparisons = new ArrayList();
      @Override
     public BlockEditor getEditor(){
         return editor;
@@ -153,5 +162,41 @@ public class DecisionBlock extends JBlock {
     public void clear() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+       public void addComparison(String variable1, String variable2, String compOperator, String logicalOperator){
+        Comparison c=new Comparison();
+        c.setVar1(variable1);
+        c.setVar2(variable2);
+       // fields.add(f);
+    }
+       
+       public String[][] getComparisons(){
+        String f[][]=new String[comparisons.size()][2];
+        int i=0;
+        for(Comparison comp:comparisons){
+            f[i][0]=comp.var1;
+            f[i][1]=comp.var2;
+            i++;
+        }
+        return f;
+    }
+    class Comparison{
+         String var1, var2;
+        Comparison()
+        {
+            
+        }
+        public void setVar1(String v1)
+        {
+            var1 = v1;
+        }
+        public void setVar2(String v2)
+        {
+            var2 = v2;
+        }
+     
+     
+        }
+    
 
 }

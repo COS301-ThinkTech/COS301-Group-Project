@@ -200,15 +200,16 @@ public final class StartEditor extends javax.swing.JPanel implements BlockEditor
         makeList();
     }
 
-    @Override
-    public void finishEdit() {
-        saveBlock();
-        editing=null;
-    }
+
 
     @Override
     public boolean changes() {
         return false;
+    }
+
+    @Override
+    public void finishEdit() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     class Field extends JPanel{
