@@ -1054,7 +1054,8 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             moving=true;
         }
         if(e.getButton()==MouseEvent.BUTTON1||e.getButton()==MouseEvent.BUTTON3){
-        
+            
+            
             if(!blockEdit) return;
             if(this.moving) return;
             selectedNow=false;
