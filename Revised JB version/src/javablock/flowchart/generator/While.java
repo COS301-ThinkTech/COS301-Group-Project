@@ -5,8 +5,14 @@
  */
 package javablock.flowchart.generator;
 
+import config.Global;
+import config.translator;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
+import javablock.flowchart.blocks.CPUBlock;
+import javablock.flowchart.blocks.DecisionBlock;
+import javablock.flowchart.blocks.JumpBlock;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,8 +27,67 @@ public class While extends javax.swing.JPanel implements Generator{
         initComponents();
     }
     
+    /**
+     *
+     * @param f
+     * @return
+     */
+    @Override
     public JBlock[] get(Flowchart f){
-        
+        While g=this;
+        int res=JOptionPane.showConfirmDialog(Global.Window, g, 
+                translator.get("generator.for.title"),
+                JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        if(res==JOptionPane.OK_OPTION){
+            int p=0;
+
+            JBlock[] list=new JBlock[8];
+            CPUBlock init=(CPUBlock) JBlock.make(JBlock.Type.CPU, f);
+            init.setCode("");
+            init.setPos(0,-90);
+            list[p++]=init; //-----1
+
+            DecisionBlock condition=(DecisionBlock) JBlock.make(JBlock.Type.DECISION, f);
+            condition.setCode("");
+            list[p++]=condition;   //-----2
+
+            CPUBlock process=(CPUBlock) JBlock.make(JBlock.Type.CPU, f);
+            process.setCode("");
+            process.setPos(100,100);
+            list[p++]=process;
+
+            JumpBlock jump, jump2;
+
+            jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
+            jump.setPos(0, -50);
+            init.connectTo(jump);
+            jump.connectTo(condition);
+            list[p++]=jump; //-----3
+
+            jump2=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
+            jump2.setPos(100,0);
+            condition.connectTo(jump2);
+            jump2.connectTo(process);
+            list[p++]=jump2;    //-----4
+
+            jump2=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
+            jump2.setPos(200,-50);
+            jump2.connectTo(jump);
+            list[p++]=jump2;    //-----5
+
+            jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
+            jump.setPos(200, 100);
+            jump.connectTo(jump2);
+            process.connectTo(jump);
+            list[p++]=jump; //-----6
+
+            jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
+            jump.setPos(0,100);
+            condition.connectTo(jump);
+            list[p++]=jump; //-----7
+
+            return list;
+        }
         return null;
     }
 
@@ -36,18 +101,18 @@ public class While extends javax.swing.JPanel implements Generator{
     private void initComponents() {
 
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        variable = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        comp = new javax.swing.JComboBox();
         jTextField3 = new javax.swing.JTextField();
 
         jLabel4.setText("Variable:");
 
-        jTextField1.setText("i");
+        variable.setText("i");
 
         jLabel1.setText("Condition:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<", "≤", "=", "≥", ">", "≠" }));
+        comp.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<", "≤", "=", "≥", ">", "≠" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -59,11 +124,11 @@ public class While extends javax.swing.JPanel implements Generator{
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(variable, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -73,27 +138,24 @@ public class While extends javax.swing.JPanel implements Generator{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(variable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(comp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JComboBox comp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField variable;
     // End of variables declaration//GEN-END:variables
 }

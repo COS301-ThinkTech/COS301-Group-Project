@@ -34,7 +34,7 @@ public class For extends javax.swing.JPanel implements Generator{
         comp.setSelectedIndex(0);
         iterType.setSelectedIndex(0);
         iterNum.setText("1");
-        useClips.setSelected(false);
+
         declare.setSelected(true);
     }
     @Override
@@ -183,6 +183,11 @@ public class For extends javax.swing.JPanel implements Generator{
 
         declare.setSelected(true);
         declare.setText(bundle.getString("generator.for.declare")); // NOI18N
+        declare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                declareActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("←");
 
@@ -249,6 +254,11 @@ public class For extends javax.swing.JPanel implements Generator{
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void declareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_declareActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_declareActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox comp;
     private javax.swing.JCheckBox declare;
