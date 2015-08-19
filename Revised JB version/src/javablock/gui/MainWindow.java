@@ -187,6 +187,7 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         menuGridBool = new javax.swing.JCheckBoxMenuItem();
@@ -579,6 +580,10 @@ public final class MainWindow extends javax.swing.JFrame
         jMenuItem2.setText("Module");
         jMenu7.add(jMenuItem2);
 
+        jMenuItem3.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.COMMENT)));
+        jMenuItem3.setText("Comment");
+        jMenu7.add(jMenuItem3);
+
         menu.add(jMenu7);
 
         jMenu3.setText(bundle.getString("main.settings")); // NOI18N
@@ -857,6 +862,7 @@ Rectangle windowSize;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
