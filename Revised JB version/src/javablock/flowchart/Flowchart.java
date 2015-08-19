@@ -1284,7 +1284,6 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     @Override
     public void mouseDragged(MouseEvent e)
     {
-        System.out.println("ouch! you dragged me..." + e.getComponent().getName());
         
         if(e.getComponent().getName() != null){
             String [] section = e.getComponent().getName().split("/");
@@ -1495,11 +1494,11 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         cur=cursorInScene(e.getPoint());
         if (e.getScrollType() == MouseWheelEvent.WHEEL_UNIT_SCROLL){
             if(e.getWheelRotation()>0){
-                System.out.println("outting..." + cur);
+               
                 zoomOut(cur);
             }
             else if(e.getWheelRotation()<0){
-                System.out.println("Inning..." + cur);
+                
                 zoomIn(cur);
             }
         }
@@ -1507,18 +1506,18 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     }
     
     public void slideZoomIn(int value){
-        System.out.println("slide zoom in " + value);
+        //System.out.println("slide zoom in " + value);
         //zoomIn(value);
     }
     
     public void slideZoomOut(int value){
-        System.out.println("slide zoom out " + value);
+        //System.out.println("slide zoom out " + value);
         //zoomOut(value);
     }
     
     public void zoomOut(Point2D... t)
     {
-        System.out.println("Zooming out!!" + t[0].getX() + ","+ t[0].getY());
+        //System.out.println("Zooming out!!" + t[0].getX() + ","+ t[0].getY());
         if(actZoom==Zooms.length-1) return ;
         zooming=true;
         posX/=Zooms[actZoom];
@@ -1539,7 +1538,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     }
     public void zoomIn(Point2D... t)
     {
-        System.out.println("Zooming in!!" + t[0].getX() + ","+ t[0].getY());
+        //System.out.println("Zooming in!!" + t[0].getX() + ","+ t[0].getY());
         if(actZoom==0) return;
         zooming=true;
         posX/=Zooms[actZoom];
