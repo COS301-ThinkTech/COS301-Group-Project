@@ -455,6 +455,11 @@
                 <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="jMenuItem10.addActionListener(this);"/>
               </AuxValues>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Module"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
