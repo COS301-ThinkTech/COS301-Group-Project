@@ -575,6 +575,7 @@ public final class MainWindow extends javax.swing.JFrame
         jMenu7.add(jMenuItem10);
         jMenuItem10.addActionListener(this);
 
+        jMenuItem2.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.MODULE)));
         jMenuItem2.setText("Module");
         jMenu7.add(jMenuItem2);
 

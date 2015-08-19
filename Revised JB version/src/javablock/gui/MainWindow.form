@@ -457,6 +457,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new ImageIcon(JBlock.getIcon(JBlock.Type.MODULE))" type="code"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Module"/>
               </Properties>
             </MenuItem>
