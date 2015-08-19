@@ -39,6 +39,7 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
     DecisionBlock editing;
     private String beforeCode="";
     private String beforeComment="";
+     List<Comparison> comparisons = new ArrayList();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,10 +52,6 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         jTabbedPane1 = new javax.swing.JTabbedPane();
         codePanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        comparisonVariable1 = new javax.swing.JTextField();
-        comparisonOperators = new javax.swing.JComboBox();
-        comparisonVariable2 = new javax.swing.JTextField();
-        logicalOperators = new javax.swing.JComboBox();
         addButton = new javax.swing.JButton();
         commentPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -63,10 +60,6 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(212, 331));
 
         jLabel1.setText("if:");
-
-        comparisonOperators.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "==", ">", "<", ">=", "!=" }));
-
-        logicalOperators.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "&&", "||" }));
 
         addButton.setText("Add comparison");
         addButton.addActionListener(new java.awt.event.ActionListener() {
@@ -82,30 +75,15 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
             .addGroup(codePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(4, 4, 4)
-                .addComponent(comparisonVariable1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(codePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(codePanelLayout.createSequentialGroup()
-                        .addComponent(comparisonOperators, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comparisonVariable2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(logicalOperators, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
-            .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
         );
         codePanelLayout.setVerticalGroup(
             codePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(codePanelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(codePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(comparisonVariable1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comparisonOperators, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comparisonVariable2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(logicalOperators, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addGap(40, 40, 40)
                 .addComponent(addButton)
                 .addContainerGap(197, Short.MAX_VALUE))
         );
@@ -159,21 +137,20 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
     private javax.swing.JButton addButton;
     private javax.swing.JPanel codePanel;
     private javax.swing.JPanel commentPanel;
-    private javax.swing.JComboBox comparisonOperators;
-    private javax.swing.JTextField comparisonVariable1;
-    private javax.swing.JTextField comparisonVariable2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JComboBox logicalOperators;
     // End of variables declaration//GEN-END:variables
-    List<Comparison> comparisons = new ArrayList();
+   
      
         void makeList(){
         codePanel.removeAll();
         //fieldsPane.setPreferredSize(new Dimension(1,1));
         for(Comparison comp:comparisons)
+        {
             codePanel.add(comp);
+        }
+            
         codePanel.add(addButton);
         //fieldsScroll.se
         repaint();
@@ -181,7 +158,7 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
     @Override
     public void saveBlock() {
         editing.clear();
-        //editing.variable1 = comparisonVariable1.getText();
+       // editing.variable1 = comparisonVariable1.getText();
         //editing.variable2 = comparisonVariable2.getText();
 //        if(editing==null)
 //            return ;
@@ -191,7 +168,7 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         for(Comparison comp:comparisons)
         {
              editing.addComparison(comp.comparisonVariable1.getText(), comp.comparisonVariable2.getText());
-             editing.setCode(comp.comparisonVariable1.getText() + " " + comp.comparisonOperators.getSelectedItem().toString() + " " + comp.comparisonVariable2.getText());
+             editing.setCode(comp.comparisonVariable1.getText() + " " /*+ comp.comparisonOperators.getSelectedItem().toString() + " "*/ + comp.comparisonVariable2.getText());
         }
         editing.setComment(Comment.getText());
         editing.shape();
@@ -207,16 +184,16 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         if(b==editing) return ;
         if(editing!=null)
             finishEdit();
-//        beforeCode=b.code;
-//        beforeComment=b.comment;
-//        addons.Syntax.clearUndos(Comment);
-        //addons.Syntax.clearUndos();
+        beforeCode=b.code;
+        beforeComment=b.comment;
+        addons.Syntax.clearUndos(Comment);
+        addons.Syntax.clearUndos();
       
         editing=(DecisionBlock)b;
         comparisons.clear();
         codePanel.removeAll();
-        comparisonVariable1.setText(editing.variable1);
-        comparisonVariable2.setText(editing.variable2);
+       // comparisonVariable1.setText(editing.variable1);
+        //comparisonVariable2.setText(editing.variable2);
         String I[][] = editing.getComparisons();
         
         for(String c[]:I)
@@ -270,7 +247,7 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
             JButton delete = new JButton();
             delete.setIcon(delIcon);
             this.setLayout(new BorderLayout());
-            add(comparisonVariable1, BorderLayout.WEST);
+            codePanel.add(comparisonVariable1, BorderLayout.WEST);
             add(comparisonVariable2, BorderLayout.EAST);
             add(comparisonOperators, BorderLayout.CENTER);
             add(delete, BorderLayout.EAST);
