@@ -12,6 +12,7 @@ import javablock.flowchart.JBlock;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JSlider;
 import javax.swing.SwingUtilities;
 
 public final class MainWindow extends javax.swing.JFrame 
@@ -138,6 +139,7 @@ public final class MainWindow extends javax.swing.JFrame
         toolUndo = new javax.swing.JButton();
         toolRedo = new javax.swing.JButton();
         scriptTools = new javax.swing.JToolBar();
+        zoomSlider = new javax.swing.JSlider();
         scriptStop = new javax.swing.JButton();
         scriptStart = new javax.swing.JButton();
         scriptStep = new javax.swing.JButton();
@@ -267,6 +269,15 @@ public final class MainWindow extends javax.swing.JFrame
         scriptTools.setRollover(true);
         scriptTools.setMaximumSize(new java.awt.Dimension(350, 33));
         scriptTools.setMinimumSize(new java.awt.Dimension(350, 33));
+
+        zoomSlider.setToolTipText("ZoomIn/Out");
+        zoomSlider.setPreferredSize(new java.awt.Dimension(300, 54));
+        zoomSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                zoomSliderStateChanged(evt);
+            }
+        });
+        scriptTools.add(zoomSlider);
 
         scriptStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-stop.png"))); // NOI18N
         scriptStop.setFocusable(false);
@@ -665,7 +676,7 @@ public final class MainWindow extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(FLOW, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE))
+                .addComponent(FLOW, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE))
         );
 
         pack();
@@ -720,6 +731,13 @@ public final class MainWindow extends javax.swing.JFrame
         else
             Manager.flow.split.setDividerLocation(2000);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void zoomSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_zoomSliderStateChanged
+        // TODO add your handling code here:Sys
+        
+        JSlider source = (JSlider)evt.getSource();
+        Manager.zoom(source.getValue());
+    }//GEN-LAST:event_zoomSliderStateChanged
 
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
@@ -887,6 +905,7 @@ Rectangle windowSize;
     private javax.swing.JButton toolRedo;
     private javax.swing.JButton toolSave;
     private javax.swing.JButton toolUndo;
+    private javax.swing.JSlider zoomSlider;
     // End of variables declaration//GEN-END:variables
     
     public void updateConfig(FlowchartManager men) {

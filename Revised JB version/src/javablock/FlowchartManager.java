@@ -728,6 +728,19 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         }
         return true;
     }
+    
+    private int previousValue = 50;
+    
+    public void zoom(int value){
+        
+            if(previousValue < value){
+                flow.slideZoomIn(value);
+                previousValue = value;
+            }else{
+                flow.slideZoomOut(value);
+                previousValue = value;
+            }
+    }
 
     public void savePython()
     {
