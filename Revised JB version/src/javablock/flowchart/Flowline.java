@@ -17,6 +17,7 @@ public class Flowline implements FlowElement {
     public String value="";
 
     public Flowline(JBlock from, JBlock to){
+        System.out.println("From "+from.typeInString + ", to " + to.typeInString);
         f=from; n=to;
         needUpdate=true;
     }

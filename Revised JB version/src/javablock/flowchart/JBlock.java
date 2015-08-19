@@ -62,7 +62,7 @@ public abstract class JBlock implements FlowElement{
         return Type.CUSTOM;
     }
     public static Type StandardTypes[]={
-        Type.CPU/*, Type.IOin, Type.IOout*/, Type.DECISION, Type.RETURN, Type.MODULE, Type.FORLOOP, Type.COMMENT
+        Type.CPU/*, Type.IOin, Type.IOout*/, Type.DECISION, Type.RETURN, Type.MODULE, Type.FORLOOP, Type.COMMENT,
     };
     public static Type HelpingTypes[]={
         Type.IO, Type.JUMP, Type.LINK
@@ -828,6 +828,7 @@ public abstract class JBlock implements FlowElement{
         return ico;
     }
     public static BufferedImage getIcon(Type t){
+        System.out.println("Type " + t);
         if(icons[t.ordinal()]!=null)
             return icons[t.ordinal()];
         JBlock b=make(t,null);
