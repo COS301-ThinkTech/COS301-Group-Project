@@ -160,10 +160,10 @@ public class DecisionBlock extends JBlock {
     }
 
     public void clear() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        comparisons.clear();
     }
     
-       public void addComparison(String variable1, String variable2, String compOperator, String logicalOperator){
+       public void addComparison(String variable1, String variable2){
         Comparison c=new Comparison();
         c.setVar1(variable1);
         c.setVar2(variable2);

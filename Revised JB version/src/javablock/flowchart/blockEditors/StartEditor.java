@@ -209,7 +209,8 @@ public final class StartEditor extends javax.swing.JPanel implements BlockEditor
 
     @Override
     public void finishEdit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        saveBlock();
+         editing=null;
     }
 
     class Field extends JPanel{

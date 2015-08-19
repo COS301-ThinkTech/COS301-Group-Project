@@ -69,6 +69,11 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         logicalOperators.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "&&", "||" }));
 
         addButton.setText("Add comparison");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout codePanelLayout = new javax.swing.GroupLayout(codePanel);
         codePanel.setLayout(codePanelLayout);
@@ -136,6 +141,13 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         jTabbedPane1.getAccessibleContext().setAccessibleName("");
         jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        // TODO add your handling code here:
+        Comparison c = new Comparison(this);
+        comparisons.add(c);
+        makeList();
+    }//GEN-LAST:event_addButtonActionPerformed
     
     @Override
      public JBlock getBlock(){
@@ -168,14 +180,17 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
     }
     @Override
     public void saveBlock() {
-        if(editing==null)
-            return ;
-        if(editing.deleted)
-            return ;
-        System.out.println("SAVE");
+        editing.clear();
+        //editing.variable1 = comparisonVariable1.getText();
+        //editing.variable2 = comparisonVariable2.getText();
+//        if(editing==null)
+//            return ;
+//        if(editing.deleted)
+//            return ;
+//        System.out.println("SAVE");
         for(Comparison comp:comparisons)
         {
-             editing.addComparison(comp.comparisonVariable1.getText(), comp.comparisonVariable2.getText(), comp.comparisonOperators.getSelectedItem().toString(), comp.logicalOperators.getSelectedItem().toString());
+             editing.addComparison(comp.comparisonVariable1.getText(), comp.comparisonVariable2.getText());
              editing.setCode(comp.comparisonVariable1.getText() + " " + comp.comparisonOperators.getSelectedItem().toString() + " " + comp.comparisonVariable2.getText());
         }
         editing.setComment(Comment.getText());
@@ -184,7 +199,7 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         editing.requestRepaint();
         editing=null;
         
-        makeList();
+       // makeList();
     }
 
     @Override
@@ -198,9 +213,20 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         //addons.Syntax.clearUndos();
       
         editing=(DecisionBlock)b;
+        comparisons.clear();
         codePanel.removeAll();
         comparisonVariable1.setText(editing.variable1);
         comparisonVariable2.setText(editing.variable2);
+        String I[][] = editing.getComparisons();
+        
+        for(String c[]:I)
+        {
+            Comparison comparison = new Comparison(this);
+            comparison.comparisonVariable1.setText(c[0]);
+            comparison.comparisonVariable2.setText(c[1]);
+            
+            comparisons.add(comparison);
+        }
         
         makeList();
     }
