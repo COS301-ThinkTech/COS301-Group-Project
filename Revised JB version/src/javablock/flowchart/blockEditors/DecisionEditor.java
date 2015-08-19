@@ -25,7 +25,7 @@ import widgets.ComboText;
  *
  * @author Goodness
  */
-public class DecisionEditor extends javax.swing.JPanel implements BlockEditor{
+public final class DecisionEditor extends javax.swing.JPanel implements BlockEditor{
 
     /**
      * Creates new form DecisionEditor
@@ -137,6 +137,7 @@ public class DecisionEditor extends javax.swing.JPanel implements BlockEditor{
         jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
     }// </editor-fold>//GEN-END:initComponents
     
+    @Override
      public JBlock getBlock(){
         return editing;
     }
@@ -182,6 +183,8 @@ public class DecisionEditor extends javax.swing.JPanel implements BlockEditor{
         editing.flow.update();
         editing.requestRepaint();
         editing=null;
+        
+        makeList();
     }
 
     @Override
@@ -198,7 +201,8 @@ public class DecisionEditor extends javax.swing.JPanel implements BlockEditor{
         codePanel.removeAll();
         comparisonVariable1.setText(editing.variable1);
         comparisonVariable2.setText(editing.variable2);
-
+        
+        makeList();
     }
 
     @Override
