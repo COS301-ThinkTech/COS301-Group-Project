@@ -26,7 +26,7 @@ public abstract class JBlock implements FlowElement{
     public enum Type { START, RETURN,
         IO, CPU, DECISION, LINK,
         JUMP, NULL, GROUP, 
-        CUSTOM, MODULE, FORLOOP,COMMENT
+        CUSTOM, MODULE, FORLOOP,COMMENT,WHILELOOP
     };
     static final ArrayList<Class<JBlock>> customTypes=new ArrayList<Class<JBlock>>();
     static HashMap<Class, String> customTypesNames=new HashMap<Class, String>();
@@ -62,7 +62,7 @@ public abstract class JBlock implements FlowElement{
         return Type.CUSTOM;
     }
     public static Type StandardTypes[]={
-        Type.CPU/*, Type.IOin, Type.IOout*/, Type.DECISION, Type.RETURN, Type.MODULE, Type.FORLOOP, Type.COMMENT,
+        Type.CPU/*, Type.IOin, Type.IOout*/, Type.DECISION, Type.RETURN, Type.MODULE, Type.FORLOOP, Type.COMMENT, //Type.WHILELOOP
     };
     public static Type HelpingTypes[]={
         Type.IO, Type.JUMP, Type.LINK
@@ -70,7 +70,7 @@ public abstract class JBlock implements FlowElement{
    
     
     public static String leftLineTypes=
-        "CPU IOin IOout DECISION RETURN MODULE FORLOOP";
+        "CPU IOin IOout DECISION RETURN MODULE FORLOOP WHILELOOP";
     public static String rightLineTypes=
         "IO JUMP LINK BRACE STRUCT SCRIPT";
     public static String[] getLeftLine(){
@@ -166,7 +166,8 @@ public abstract class JBlock implements FlowElement{
             case RETURN: b= new ReturnBlock(parent); break;
             case DECISION: b= new DecisionBlock(parent); break;
             case MODULE: b= new ModuleBlock(parent);  break;
-            case FORLOOP: b= new ForLoopBlock(parent);  break;                
+            case FORLOOP: b= new ForLoopBlock(parent);  break; 
+            case WHILELOOP: b= new WhileLoopBlock(parent);  break; 
             case LINK: b= new LinkBlock(parent); break;
             case JUMP: b= new JumpBlock(parent); break;
             case GROUP: b= new BlockGroup(parent); break;
@@ -358,8 +359,6 @@ public abstract class JBlock implements FlowElement{
     public String getCode(){
         if(getManager().scriptEngine.equals("JavaScript"))
             return getCodeForJavaScript();
-//        if(getManager().scriptEngine.equals("python"))
-//            return getCodeForPython();
         return "";
     }
 
@@ -485,25 +484,8 @@ public abstract class JBlock implements FlowElement{
         return jsRecoded;
     }
 
-    private String pyRecoded="", pyBeforeRecoded="";
-    private String getCodeForPython(){
-        rep=Global.scriptReplace;
-        if(code.equals(pyBeforeRecoded)) return pyRecoded;
-        String c=parseCode('p');
-        c=c.replaceAll("([a-zA-Z0-9_])\\+\\+", "$1+=1")
-            .replaceAll("([a-zA-Z0-9_])\\-\\-", "$1-=1")
-            .replaceAll("new Array", "newArray")
-            .replaceAll("var\\s([a-zA-Z0-9_]*)\n", "")
-            .replaceAll("var\\s([a-zA-Z0-9_]*)([^$])", "$1$2")
-            .replaceAll("\\&\\&", " and ")
-            .replaceAll("\\|\\|", " or ")
-            ;
-        
-        pyRecoded=c.replaceAll("\" ", "\"");
-        //if(Global.scriptReplace)
-            pyBeforeRecoded=this.code;
-        return pyRecoded;
-    }
+    
+    
     public String getScriptFragmentForJavaScript(){
         String code="";
         for(String line: (getCodeForJavaScript().split("\\n")) ){
@@ -517,24 +499,7 @@ public abstract class JBlock implements FlowElement{
         return code;
     }
 
-    public String getScriptFragmentForPython(){
-        String code="";
-        String c[]=getCodeForPython().split("\n");
-        code+="\t\t\t";
-        for(String l: c){
-            if(l.length()>1){
-                code+=l.replaceAll(";[\\s]*?$", "");
-                if(!l.endsWith("  "))
-                    code+="; ";
-            }
-        }
-        if(connects.size()==1)
-            code+="\n\t\t\t"+flow.getName()+"_block="+connects.get(0).n.nextExe().ID+"\n";
-        else
-            code+="\t\t\treturn 0\n";
-        return code;
-    }
-
+    
     public JBlock executeCode(ScriptEngine script){
         if(script==null) return null;
         if(type==Type.NULL){
