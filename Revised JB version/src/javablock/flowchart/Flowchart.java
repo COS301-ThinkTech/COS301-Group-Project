@@ -1831,23 +1831,28 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     public void actionPerformed(ActionEvent e) 
     {
 
-        String[] action=e.getActionCommand().split("/");
-        if(action[0].equals("add")){
-                    System.out.println("Adding " + action[1]);
-            addBlock(action[1]);
+        String[] actionPerformed=e.getActionCommand().split("/");
+        if(actionPerformed[0].equals("add")){
+                    System.out.println("Adding " + actionPerformed[1]);
+            addBlock(actionPerformed[1]);
         }
-        else if(action[0].equals("foraction"))
+        else if(actionPerformed[0].equals("foraction"))
             addBlocksGroup(new For().get(this));
-        else if(action[0].equals("align"))
-            align(action[1]);
-        else if(action[0].equals("history"))
+        else if(actionPerformed[0].equals("moduleaction"))
+        {   
+            addBlock(actionPerformed[1]);
+            action.addFlowchart();
+        }
+        else if(actionPerformed[0].equals("align"))
+            align(actionPerformed[1]);
+        else if(actionPerformed[0].equals("history"))
         {
-            if(action[1].equals("undo"))
+            if(actionPerformed[1].equals("undo"))
                 this.action.historyUndo();
-            else if(action[1].equals("redo"))
+            else if(actionPerformed[1].equals("redo"))
                 this.action.historyRedo();
         }
-        else if(action[0].equals("delete"))
+        else if(actionPerformed[0].equals("delete"))
             deleteSelectedBlocks();
     }
 
