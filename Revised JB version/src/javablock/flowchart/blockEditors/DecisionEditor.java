@@ -33,6 +33,11 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         delIcon = new javax.swing.ImageIcon(getClass().getResource("/icons/16/list-remove.png"));
         Comparison c = new Comparison(this);
         comparisons.add(c);
+        
+        //JLabel l = new JLabel("if");
+        JButton b = new JButton("Test Button");
+        System.out.println("This is the decision editor consructor");
+        codePanel.add(b);
         makeList();
     }
     DecisionBlock editing;
@@ -50,12 +55,15 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         codePanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         addButton = new javax.swing.JButton();
         commentPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Comment = new javax.swing.JEditorPane();
 
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(212, 331));
+
+        jLabel1.setText("if:");
 
         addButton.setText("Add comparison");
         addButton.addActionListener(new java.awt.event.ActionListener() {
@@ -68,12 +76,18 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         codePanel.setLayout(codePanelLayout);
         codePanelLayout.setHorizontalGroup(
             codePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(codePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
         );
         codePanelLayout.setVerticalGroup(
             codePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(codePanelLayout.createSequentialGroup()
-                .addGap(82, 82, 82)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addGap(40, 40, 40)
                 .addComponent(addButton)
                 .addContainerGap(197, Short.MAX_VALUE))
         );
@@ -127,6 +141,7 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
     private javax.swing.JButton addButton;
     private javax.swing.JPanel codePanel;
     private javax.swing.JPanel commentPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
@@ -137,12 +152,14 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         //fieldsPane.setPreferredSize(new Dimension(1,1));
         for(Comparison comp:comparisons)
         {
+            System.out.println("In makeList forloop");
             codePanel.add(comp);
+            System.out.println(comp);
         }
             
         codePanel.add(addButton);
-        JLabel l = new JLabel("if");
-        codePanel.add(l);
+        
+        
         //fieldsScroll.se
         repaint();
     }
@@ -176,8 +193,8 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
 //        addons.Syntax.clearUndos();
       
         editing=(DecisionBlock)b;
-        comparisons.clear();
-        codePanel.removeAll();
+//        comparisons.clear();
+//        codePanel.removeAll();
        // comparisonVariable1.setText(editing.variable1);
         //comparisonVariable2.setText(editing.variable2);
         String I[][] = editing.getComparisons();
