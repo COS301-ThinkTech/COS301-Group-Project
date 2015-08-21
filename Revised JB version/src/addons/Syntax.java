@@ -46,7 +46,7 @@ public class Syntax {
             c = loader.loadClass("jsyntaxpane.syntaxkits.JavaScriptSyntaxKit");
             c.getMethod("initKit").invoke(js);
 
-            c = loader.loadClass("jsyntaxpane.syntaxkits.PythonSyntaxKit");
+            
 
             c = loader.loadClass("jsyntaxpane.syntaxkits.PlainSyntaxKit");
 
@@ -98,11 +98,7 @@ public class Syntax {
                 con = c.getConstructor();
                 js = con.newInstance();
                 
-                c=loader.loadClass("jsyntaxpane.syntaxkits.PythonSyntaxKit");
-                con = c.getConstructor();
-                py = con.newInstance();
-                //c.getMethod("initKit").invoke(py);
-                
+                                
                 c=loader.loadClass("jsyntaxpane.syntaxkits.CppSyntaxKit");
                 con = c.getConstructor();
                 cpp = con.newInstance();

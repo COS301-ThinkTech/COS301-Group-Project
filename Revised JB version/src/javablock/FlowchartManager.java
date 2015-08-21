@@ -20,7 +20,7 @@ import javax.xml.parsers.*;
 import org.w3c.dom.*;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-import widgets.help;
+import widgets.Help;
 
 public final class FlowchartManager extends JPanel implements ActionListener{
     
@@ -182,6 +182,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             {
                 return f.isDirectory() || f.getName().toLowerCase().endsWith(".jbf");
             }
+            @Override
             public String getDescription() 
             {
                 return "JavaBlock File (*.jbf)";
@@ -227,11 +228,11 @@ public final class FlowchartManager extends JPanel implements ActionListener{
 
     public void addFlowchart()
     {
-        javablock.flowchart.Flowchart newflow=new javablock.flowchart.Flowchart(this);
-        flows.add(newflow);
-        workspace.addSheet(newflow);
-        renameFlowchart(newflow);
-        selectedBlock(newflow);
+        flow=new javablock.flowchart.Flowchart(this);
+        renameFlowchart(flow);
+        flows.add(flow); 
+        workspace.addSheet(flow);
+        workspace.setActive(flow.getName());
     }
     public void removeFlowchart()
     {
@@ -312,11 +313,16 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         if(true)
         {
             if(history.size()>0 && historyPos<history.size())
-            if(n.equals(history.get(historyPos)))
-                return ;
-            if(history.size()>historyPos+1)
-                while(history.size()-1>historyPos)
-                    history.remove(historyPos+1);
+            {
+                if(n.equals(history.get(historyPos)))
+                return;
+            }
+            
+            if(history.size() > historyPos+1)
+            {
+                while(history.size()-1>historyPos){
+                    history.remove(historyPos+1);}
+            }
             history.add(n);
             historyPos++;
         }
@@ -742,20 +748,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             }
     }
 
-    public void savePython()
-    {
-        File fn=new File(fc.getSelectedFile().getAbsolutePath()+".py");
-        System.out.println("path:"+fn.getAbsolutePath());
-        String py="";
-        for(Sheet fl: flows){
-            py+=fl.makePythonFunctions();
-        }
-        py+="\n\n";
-        py+="def getAuthor():"
-                + "\treturn \""+"\"\n";
-        misc.saveToFile(fn, py);
-    }
-
+    
     private void showScript()
     {
         JFrame f=new JFrame();
@@ -770,17 +763,13 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         for(Sheet fl: flows)
         {
             j+=fl.makeJavaScriptFunctions();
-            p+=fl.makePythonFunctions();
         }
         if(addons.Syntax.loaded)
         {
             js.setEditorKit((EditorKit)addons.Syntax.js);
-            py.setEditorKit((EditorKit)addons.Syntax.py);
         }
         js.setText(j);
-        py.setText(p);
         t.add("JavaScript", jss);
-        t.add("python", pys);
         f.setSize(500, 500);
         f.setVisible(true);
     }
@@ -885,8 +874,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                 Sheet f=(Sheet)workspace.getActive();
                 f.saveAsImage();
             }
-            if(action[1].equals("savePython"))
-                savePython();
+            
         }
         else if(action[0].equals("flowcharts"))
         {
@@ -902,7 +890,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         else if(action[0].equals("show"))
         {
             if(action[1].equals("help"))
-                help.showHelp();
+                Help.showHelp();
         }
         else if(action[0].equals("clp"))
         {
@@ -916,6 +904,8 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         if(action[0].equals("add"))
             flow.actionPerformed(e);
         else if(action[0].equals("foraction"))
+            flow.actionPerformed(e);
+        else if(action[0].equals("whileaction"))
             flow.actionPerformed(e);
         else if(action[0].equals("moduleaction"))
             flow.actionPerformed(e);

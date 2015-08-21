@@ -112,7 +112,6 @@ public class Main extends JApplet implements ActionListener, Runnable {
                 if(saveScripts)
                 {
                     console.append("\tSaving temporary script\n");
-                    Global.getManager().savePython();
                 }
                 i--;
             }
@@ -161,8 +160,7 @@ public class Main extends JApplet implements ActionListener, Runnable {
                     Global.getManager().saveAsImages(f.getParent(),
                             f.getName().substring(0, f.getName().length()-4));
                 }
-                if(saveScripts)
-                    Global.getManager().savePython();
+                
                 i--;
             }
             System.exit(0);

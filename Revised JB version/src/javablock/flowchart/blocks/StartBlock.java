@@ -140,32 +140,7 @@ public class StartBlock extends JBlock {
         code+="\t\t\tbreak\n";
         return code;
     }
-    @Override
-    public String getScriptFragmentForPython(){
-        String code="";
-        code+="\t\t\tInputReader.reset()\n";
-        for(Field field:fields){
-            code+="\t\t\t"+field.name+"=";
-            switch(field.type){
-                case NUMBER: code+="toFloat(InputReader.readArgument(\""+field.name+": \"))\n";
-                    break;
-                case INTEGER: code+="toInt(InputReader.readArgument(\""+field.name+": \"))\n";
-                    break;
-                case STRING: code+="str(InputReader.readArgument(\""+field.name+": \"))\n";
-                    break;
-                case LOGIC: code+="toLogic(InputReader.readArgument(\""+field.name+": \"))\n";
-                    break;
-                case CHARARRAY: code+="toCharArray(InputReader.readArgument(\""+field.name+": \"))\n";
-                    break;
-                default: code+=" InputReader.readArgument(\""+field.name+": \")\n";
-            }
-        }
-        if(connects.size()==1)
-            code+="\t\t\t"+flow.getName()+"_block="+connects.get(0).n.nextExe().ID+"\n";
-        else
-            code+="\t\t\treturn 0\n";
-        return code;
-    }
+    
     public String generateIntro(boolean var){
         String code="";
         int arg=0;
