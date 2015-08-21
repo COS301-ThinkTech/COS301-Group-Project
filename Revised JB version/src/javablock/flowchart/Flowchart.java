@@ -1839,8 +1839,9 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         else if(actionPerformed[0].equals("foraction"))
             addBlocksGroup(new For().get(this));
         else if(actionPerformed[0].equals("moduleaction"))
-        {   action.New();
+        {   
             addBlock(actionPerformed[1]);
+            action.addFlowchart();
         }
         else if(actionPerformed[0].equals("align"))
             align(actionPerformed[1]);
