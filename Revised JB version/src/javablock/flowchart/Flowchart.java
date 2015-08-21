@@ -552,79 +552,8 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         code+="\t}\n}";
         return code;
     }
-    public String makePythonScript(){
-        String code="";
-        for(JBlock b:blocks){
-            if(b.isDefinitionBlock()){
-                code+=b.getScriptFragmentForPython()+"\n";
-            }
-        }
-        code+="def "+getName()+"(";
-        String args[]=getArgumentsList();
-        String types[]=getArgumentsTypes();
-        int i;
-        if(args!=null){
-            for(i=0; i<args.length; i++){
-                if(i>0) code+=",";
-                code+="arg"+i;
-            }
-        }
-        code+="):\n";
-        i=0;
-        code+=((StartBlock)blocks.get(0)).generateIntro(false);
-        code+="\t"+getName()+"_block="+blocks.get(0).nextBlock().nextExe().ID+"\n";
-        code+="\twhile true:\n";
-        for(JBlock b:blocks){
-            if(b.isDefinitionBlock()) continue;
-            if(!Global.highlightLinks)
-                if(b.type==JBlock.Type.JUMP) continue;
-            code+="\t\tif "+getName()+"_block=="+b.ID+": #"+b.type+"\n";
-            code+=b.getScriptFragmentForPython();
-        }
-        code+="def "+getName()+"_runFrom(__from):\n";
-        code+="\t"+getName()+"_block=__from\n"
-                + "\twhile(true):\n";
-        for(JBlock b:blocks){
-            if(b.isDefinitionBlock()) continue;
-            if(!Global.highlightLinks)
-                if(b.type==JBlock.Type.JUMP) continue;
-            code+="\t\tif "+getName()+"_block=="+b.ID+": #"+b.type+"\n";
-            code+=b.getScriptFragmentForPython();
-        }
-        return code;
-    }
-    public String makePythonFunctions(){
-        System.out.println("pythonMakeFunctions");
-        String code="";
-        for(JBlock b:blocks){
-            if(b.isDefinitionBlock())
-                code+=b.getScriptFragmentForPython();
-        }
-        code+="def "+getName()+"(";
-        String args[]=getArgumentsList();
-        int i;
-        if(args!=null){
-            for(i=0; i<args.length; i++){
-                if(i>0) code+=",";
-                code+="arg"+i;
-            }
-        }
-        code+="):\n";
-        i=0;
-        code+=((StartBlock)blocks.get(0)).generateIntro(false);
-        code+="\t"+getName()+"_block="+blocks.get(0).nextBlock().nextExe().ID+"\n";
-        code+="\twhile true:\n";
-        for(JBlock b:blocks){
-
-            if(!Global.highlightLinks)
-                if(b.type==JBlock.Type.JUMP) continue;
-            if(b.isDefinitionBlock()) continue;
-            code+="\t\tif "+getName()+"_block=="+b.ID+": #"+b.type+"\n";
-            code+=b.getScriptFragmentForPython();
-        }
-        code+="\n";
-        return code;
-    }
+    
+    
 
     private long lastClick=0;
     /**
