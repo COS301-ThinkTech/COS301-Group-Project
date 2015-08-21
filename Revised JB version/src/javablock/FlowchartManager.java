@@ -917,6 +917,8 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             flow.actionPerformed(e);
         else if(action[0].equals("foraction"))
             flow.actionPerformed(e);
+        else if(action[0].equals("moduleaction"))
+            flow.actionPerformed(e);
     }
 
 }
