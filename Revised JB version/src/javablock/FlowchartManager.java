@@ -227,11 +227,11 @@ public final class FlowchartManager extends JPanel implements ActionListener{
 
     public void addFlowchart()
     {
-        flow=new javablock.flowchart.Flowchart(this);
-        flows.add(flow);
-        workspace.addSheet(flow);
-        renameFlowchart();
-        selectedBlock(flow);
+        javablock.flowchart.Flowchart newflow=new javablock.flowchart.Flowchart(this);
+        flows.add(newflow);
+        workspace.addSheet(newflow);
+        renameFlowchart(newflow);
+        selectedBlock(newflow);
     }
     public void removeFlowchart()
     {
@@ -241,19 +241,19 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         flow=(Flowchart)workspace.getActive();
         selectedBlock(flow);
     }
-    public void renameFlowchart()
+    public void renameFlowchart(Flowchart fl)
     {
-        flow=(Flowchart)workspace.getActive();
+        
         do{
-            flow.setName(JOptionPane.showInputDialog(
+            fl.setName(JOptionPane.showInputDialog(
                     translator.get("main.flowcharts.rename.info"),
-                    flow.getName()
+                    fl.getName()
                     ));
             boolean is=false;
             for(Sheet f:flows)
             {
-                if(f==flow) continue;
-                if(f.getName().equals(flow.getName()))
+                if(f==fl) continue;
+                if(f.getName().equals(fl.getName()))
                 {
                     JOptionPane.showMessageDialog(MainSplit, translator.get("popup.flowMustBeUnique"),
                             translator.get("popup.flowMustBeUnique.head"),JOptionPane.WARNING_MESSAGE);
@@ -265,7 +265,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             break;
         }
         while(true);
-        workspace.renameSheetName(flow.getName(), workspace.getActive());
+        workspace.renameSheetName(fl.getName(), workspace.getActive());
     }
 
     public Element clipBoard=null;
@@ -856,7 +856,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
     
     public void selectedBlock(Sheet f)
     {
-        flow = (Flowchart)f;
+        //flow = (Flowchart)f;
         updateFocus();
     }
 
@@ -895,7 +895,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             if(action[1].equals("remove"))
                 this.removeFlowchart();
             if(action[1].equals("rename"))
-                this.renameFlowchart();
+                this.renameFlowchart(this.flow);
             if(action[1].equals("script"))
                 this.showScript();
         }
