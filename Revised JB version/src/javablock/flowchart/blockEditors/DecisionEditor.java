@@ -31,6 +31,8 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
     public DecisionEditor() {
         initComponents();
         delIcon = new javax.swing.ImageIcon(getClass().getResource("/icons/16/list-remove.png"));
+        Comparison c = new Comparison(this);
+        comparisons.add(c);
         makeList();
     }
     DecisionBlock editing;
@@ -48,15 +50,12 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         codePanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         addButton = new javax.swing.JButton();
         commentPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Comment = new javax.swing.JEditorPane();
 
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(212, 331));
-
-        jLabel1.setText("if:");
 
         addButton.setText("Add comparison");
         addButton.addActionListener(new java.awt.event.ActionListener() {
@@ -69,18 +68,12 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         codePanel.setLayout(codePanelLayout);
         codePanelLayout.setHorizontalGroup(
             codePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(codePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
         );
         codePanelLayout.setVerticalGroup(
             codePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(codePanelLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addGap(40, 40, 40)
+                .addGap(82, 82, 82)
                 .addComponent(addButton)
                 .addContainerGap(197, Short.MAX_VALUE))
         );
@@ -134,14 +127,13 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
     private javax.swing.JButton addButton;
     private javax.swing.JPanel codePanel;
     private javax.swing.JPanel commentPanel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
    
      
         void makeList(){
-        codePanel.removeAll();
+        //codePanel.removeAll();
         //fieldsPane.setPreferredSize(new Dimension(1,1));
         for(Comparison comp:comparisons)
         {
@@ -149,19 +141,16 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         }
             
         codePanel.add(addButton);
+        JLabel l = new JLabel("if");
+        codePanel.add(l);
         //fieldsScroll.se
         repaint();
     }
     @Override
     public void saveBlock() {
         editing.clear();
-       // editing.variable1 = comparisonVariable1.getText();
-        //editing.variable2 = comparisonVariable2.getText();
-//        if(editing==null)
-//            return ;
-//        if(editing.deleted)
-//            return ;
-//        System.out.println("SAVE");
+       
+        System.out.println("SAVE");
         for(Comparison comp:comparisons)
         {
              editing.addComparison(comp.comparisonVariable1.getText(), comp.comparisonVariable2.getText());
@@ -170,8 +159,8 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         editing.setComment(Comment.getText());
         editing.shape();
         editing.flow.update();
-        editing.requestRepaint();
-        editing=null;
+       // editing.requestRepaint();
+        //editing=null;
         
        // makeList();
     }
@@ -181,10 +170,10 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         if(b==editing) return ;
         if(editing!=null)
             finishEdit();
-        beforeCode=b.code;
-        beforeComment=b.comment;
-        addons.Syntax.clearUndos(Comment);
-        addons.Syntax.clearUndos();
+//        beforeCode=b.code;
+//        beforeComment=b.comment;
+//        addons.Syntax.clearUndos(Comment);
+//        addons.Syntax.clearUndos();
       
         editing=(DecisionBlock)b;
         comparisons.clear();
