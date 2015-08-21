@@ -38,6 +38,7 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         JButton b = new JButton("Test Button");
         System.out.println("This is the decision editor consructor");
         codePanel.add(b);
+        System.out.println(codePanel.toString());
         makeList();
     }
     DecisionBlock editing;
@@ -251,6 +252,7 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
             delete.setIcon(delIcon);
             this.setLayout(new BorderLayout());
             codePanel.add(comparisonVariable1, BorderLayout.WEST);
+            
             add(comparisonVariable2, BorderLayout.EAST);
             add(comparisonOperators, BorderLayout.CENTER);
             add(delete, BorderLayout.EAST);
