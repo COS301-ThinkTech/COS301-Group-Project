@@ -31,12 +31,7 @@ public class BlocksToolBar extends JToolBar{
                 {
                     b.setActionCommand("foraction/FORLOOP" + T.toString());
                     b.setName("foraction/FORLOOP" + T.toString());
-                }
-                else if(T == JBlock.StandardTypes[6])
-                {
-                    b.setActionCommand("whileaction/WHILELOOP" + T.toString());
-                    b.setName("whileaction/WHILELOOP" + T.toString());
-                }
+                }                
                 else if(T == JBlock.StandardTypes[3])
                 {
                     b.setActionCommand("moduleaction/MODULE" + T.toString());
