@@ -228,8 +228,9 @@ public final class FlowchartManager extends JPanel implements ActionListener{
     public void addFlowchart()
     {
         javablock.flowchart.Flowchart newflow=new javablock.flowchart.Flowchart(this);
-        flows.add(newflow);
+        flows.add(newflow);       
         workspace.addSheet(newflow);
+        workspace.setActive(newflow.getName());
         renameFlowchart(newflow);
         selectedBlock(newflow);
     }
@@ -742,20 +743,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             }
     }
 
-    public void savePython()
-    {
-        File fn=new File(fc.getSelectedFile().getAbsolutePath()+".py");
-        System.out.println("path:"+fn.getAbsolutePath());
-        String py="";
-        for(Sheet fl: flows){
-            py+=fl.makePythonFunctions();
-        }
-        py+="\n\n";
-        py+="def getAuthor():"
-                + "\treturn \""+"\"\n";
-        misc.saveToFile(fn, py);
-    }
-
+    
     private void showScript()
     {
         JFrame f=new JFrame();
