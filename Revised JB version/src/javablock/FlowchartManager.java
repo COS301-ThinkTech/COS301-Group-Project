@@ -282,7 +282,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         flow.paste();
     }
 
-    @Deprecated
+    
     public JBlock addNewBySelected()
     {
         if(flow.getSelected().size()!=1) return null;
