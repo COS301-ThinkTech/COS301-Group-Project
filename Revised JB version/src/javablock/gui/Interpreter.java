@@ -5,10 +5,7 @@ import java.awt.BorderLayout;
 import java.awt.Rectangle;
 import java.awt.event.*;
 import java.io.*;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.net.*;
-import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -91,10 +88,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
                 allScripts+=config.scriptLoader.getScript(Global.getManager().scriptEngine);
                 File dir = new File(System.getProperty("user.home") + "/.JavaBlock/scripts");
                 String ex="js";
-                if(Global.getManager().scriptEngine.equals("python")){
-                    ex="py";
-                    
-                }
+                
                 if (dir.exists()) {
                     String[] children = dir.list();
                     if (children == null) {
@@ -147,9 +141,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         if(Global.applet){
             return ;
         }
-        //if (m.getEngineByName("python") != null) {
-        //    return;
-        //}
+       
         File f = new File(System.getProperty("user.home") + "/.JavaBlock/modules/jython.jar");
         if(!f.exists())
             f = new File(new File(Global.Window.getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent()+"/lib/jython.jar");
@@ -162,15 +154,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
                 };
                 ClassLoader load = new URLClassLoader(urls);
                 m = new ScriptEngineManager(load);
-                if(false){//Python
-                    Class PythonInterpreter=load.loadClass("org.python.util.PythonInterpreter");
-                    Method initialize=PythonInterpreter.getDeclaredMethod(
-                            "initialize", Properties.class, Properties.class , String[].class);
-                    Properties props = new Properties();
-                    props.setProperty("python.path", f.getParent());
-                    initialize.invoke(null, System.getProperties(), props,
-                            new String[]{""});
-                }
+                
             } catch (SecurityException ex) {
                 Logger.getLogger(Interpreter.class.getName()).log(Level.SEVERE, null, ex);
                 m = new ScriptEngineManager();
@@ -179,14 +163,6 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
                 m = new ScriptEngineManager();
             } catch (MalformedURLException ex) {
                 System.out.println("Error");
-                m = new ScriptEngineManager();
-            } catch (ClassNotFoundException ex) {
-                m = new ScriptEngineManager();
-            } catch (NoSuchMethodException ex) {
-                m = new ScriptEngineManager();
-            } catch (IllegalAccessException ex) {
-                m = new ScriptEngineManager();
-            } catch (InvocationTargetException ex) {
                 m = new ScriptEngineManager();
             }
         } else {
@@ -718,8 +694,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
                 Flowchart ff=(Flowchart)f;
                 if(flow.getManager().scriptEngine.equals("JavaScript"))
                     code+=ff.makeJavaScript();
-                else if(flow.getManager().scriptEngine.equals("python"))
-                    code+=ff.makePythonScript();
+                
             }
         }
         try {

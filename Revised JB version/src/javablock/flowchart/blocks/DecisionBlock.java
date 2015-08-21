@@ -103,29 +103,7 @@ public class DecisionBlock extends JBlock {
         code+="\t\t\tbreak;\n";
         return code;
     }
-    @Override
-    public String getScriptFragmentForPython(){
-        String code="";
-        String c[]=getCode().split("\n");
-        String w="";
-        for(String l: c){
-            while(l.charAt(0)==' '||l.charAt(0)=='\t')
-                l=l.substring(1);
-            w+=l+" ";
-        }
-        if(connects.size()==2){
-            int T=nextCon("true").ID, F=nextCon("false").ID;
-            code+="\t\t\tif ("+w+"): "+flow.getName()+"_block="+T+"\n";
-            code+="\t\t\telse: "+flow.getName()+"_block="+F+"\n";
-        }
-        else if(connects.size()==1)
-            code+="\t\t\t"+flow.getName()+"_block="+connects.get(0).n.nextExe().ID+"\n";
-        else
-            code+="\t\t\treturn 0\n";
-        //code+="\t\tbreak";
-        return code;
-    }
-
+    
     @Override
     public void shape(){
         prepareText();

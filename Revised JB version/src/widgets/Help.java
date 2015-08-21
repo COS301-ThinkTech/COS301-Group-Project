@@ -5,6 +5,10 @@
 
 package widgets;
 
+/**
+ *
+ * 
+ */
 public class Help extends javax.swing.JFrame {
 
     /** Creates new form help */

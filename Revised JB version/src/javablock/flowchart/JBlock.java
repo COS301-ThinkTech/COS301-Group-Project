@@ -219,7 +219,6 @@ public abstract class JBlock implements FlowElement{
             c.n.removeConnectFrom(this);
         connects.clear();
         Flowline c=new Flowline(this, n);
-        if(c==null) return null;
         flow.historyAdd();
         connects.add(c);
         n.addInConnect(c);

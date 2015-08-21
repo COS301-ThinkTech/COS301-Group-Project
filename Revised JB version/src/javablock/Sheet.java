@@ -111,7 +111,7 @@ public abstract class Sheet extends JComponent
     
     /**
      * Generates JavaScript script to use in Global scope
-     * @return Ready Python script
+     * @return Ready JavaScript script
      */
     public abstract String makeJavaScriptFunctions();
     public void generateBlocks()

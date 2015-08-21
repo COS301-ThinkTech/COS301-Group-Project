@@ -783,7 +783,7 @@ public final class MainWindow extends javax.swing.JFrame
                                   
 
     private void menuHelpActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        widgets.help.showHelp();
+        widgets.Help.showHelp();
     }                                
 
     private void menuExitActionPerformed(java.awt.event.ActionEvent evt) {                                         

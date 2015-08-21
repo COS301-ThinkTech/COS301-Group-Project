@@ -103,9 +103,7 @@ public class StandardEditor extends javax.swing.JPanel implements BlockEditor {
             return ;
         if(addons.Syntax.loaded){
             if (Global.getManager().scriptEngine.equals("JavaScript"))
-                Content.setEditorKit((EditorKit) addons.Syntax.js);
-            else if (Global.getManager().scriptEngine.equals("python"))
-                Content.setEditorKit((EditorKit) addons.Syntax.py);
+                Content.setEditorKit((EditorKit) addons.Syntax.js);            
             else
                 Content.setEditorKit((EditorKit) addons.Syntax.plain);
             if(isHTML.isSelected())
