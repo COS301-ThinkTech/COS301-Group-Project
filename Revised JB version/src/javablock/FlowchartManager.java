@@ -873,8 +873,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                 Sheet f=(Sheet)workspace.getActive();
                 f.saveAsImage();
             }
-            if(action[1].equals("savePython"))
-                savePython();
+            
         }
         else if(action[0].equals("flowcharts"))
         {
