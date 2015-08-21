@@ -45,7 +45,7 @@ public class For extends javax.swing.JPanel implements Generator{
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if(res==JOptionPane.OK_OPTION){
             int p=0;
-            if(!g.useClips.isSelected()){
+            
                 JBlock[] list=new JBlock[8];
                 CPUBlock init=(CPUBlock) JBlock.make(JBlock.Type.CPU, f);
                 init.setCode((g.declare.isSelected()?"var ":"")+
@@ -95,42 +95,8 @@ public class For extends javax.swing.JPanel implements Generator{
                 list[p++]=jump;
                 
                 return list;
-            }
-            else{
-                JBlock[] list=new JBlock[7];
-                CPUBlock init=(CPUBlock) JBlock.make(JBlock.Type.CPU, f);
-                init.setCode((g.declare.isSelected()?"var ":"")+
-                        g.variable.getText()+" = "+g.initial.getText());
-                init.setPos(0,-90);
-                list[p++]=init;
-                
-                DecisionBlock condition=(DecisionBlock) JBlock.make(JBlock.Type.DECISION, f);
-                condition.setCode(g.variable.getText()+" "+g.comp.getSelectedItem()+" "+
-                        g.end.getText());
-                init.connectTo(condition);
-                list[p++]=condition;
-                
-                CPUBlock iter=(CPUBlock) JBlock.make(JBlock.Type.CPU, f);
-                iter.setCode(g.variable.getText()+" "+g.iterType.getSelectedItem()
-                        +"= "+g.iterNum.getText());
-                iter.setPos(180,100);
-                list[p++]=iter;
-                
-                JumpBlock jump;
-                
-                
-                jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
-                jump.setPos(180, 0);
-                jump.connectTo(iter);
-                list[p++]=jump;
-                
-                jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
-                jump.setPos(0, 100);
-                condition.connectTo(jump);
-                list[p++]=jump;
-                
-                return list;
-            }
+            
+            
         }
         return null;
     }
@@ -154,7 +120,6 @@ public class For extends javax.swing.JPanel implements Generator{
         comp = new javax.swing.JComboBox();
         iterNum = new javax.swing.JTextField();
         iterType = new javax.swing.JComboBox();
-        useClips = new javax.swing.JCheckBox();
         declare = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
 
@@ -179,8 +144,6 @@ public class For extends javax.swing.JPanel implements Generator{
 
         iterType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "+", "-", "*", "/" }));
 
-        useClips.setText(bundle.getString("generator.for.useBraces")); // NOI18N
-
         declare.setSelected(true);
         declare.setText(bundle.getString("generator.for.declare")); // NOI18N
         declare.addActionListener(new java.awt.event.ActionListener() {
@@ -200,8 +163,7 @@ public class For extends javax.swing.JPanel implements Generator{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(declare)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(useClips))
+                        .addGap(79, 79, 79))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5)
@@ -248,9 +210,7 @@ public class For extends javax.swing.JPanel implements Generator{
                     .addComponent(iterType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(iterNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(useClips)
-                    .addComponent(declare))
+                .addComponent(declare)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -271,7 +231,6 @@ public class For extends javax.swing.JPanel implements Generator{
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JCheckBox useClips;
     private javax.swing.JTextField variable;
     // End of variables declaration//GEN-END:variables
 }
