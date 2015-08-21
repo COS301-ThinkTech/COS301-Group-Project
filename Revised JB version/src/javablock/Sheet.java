@@ -107,11 +107,8 @@ public abstract class Sheet extends JComponent
      * @param f - node
      */
     public abstract void parseXml(Element f); 
-    /**
-     * Generates Python script to use in Global scope
-     * @return Ready Python script
-     */
-    public abstract String makePythonFunctions();
+    
+    
     /**
      * Generates JavaScript script to use in Global scope
      * @return Ready Python script
