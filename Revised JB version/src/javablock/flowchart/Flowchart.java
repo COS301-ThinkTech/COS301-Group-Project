@@ -22,6 +22,7 @@ import java.io.File;
 import javablock.*;
 import javablock.flowchart.blocks.StartBlock;
 import javablock.flowchart.generator.For;
+import javablock.flowchart.generator.While;
 import javax.imageio.ImageIO;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
