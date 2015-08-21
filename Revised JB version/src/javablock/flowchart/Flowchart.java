@@ -485,8 +485,8 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     public String[] getPredefiniedArguments(){
         String s[]=getArgumentsList();
         if(s==null){
-            String r[]={""};
-            return r;
+            String rr[]={""};
+            return rr;
         }
         String args[]=new String[s.length];
         String preArgs[]=I.arguments.getText().split("[\\n]");
@@ -613,9 +613,10 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         int xFrom=(int)((-40-posX-canvasSize.width/2))/10; xFrom/=Zooms[actZoom]; xFrom*=10;
         int xTo=(int)((40-posX+canvasSize.width/2))/10; xTo/=Zooms[actZoom]; xTo*=10;
         for(y=yFrom; y<yTo; y+=10){
-            if(y%100==0)
+            if(y%100==0){
                 g2d.drawLine(xFrom, y+1, xTo, y+1);
                 g2d.drawLine(xFrom, y, xTo, y);
+            }
         }
         for(x=xFrom; x<xTo; x+=10){
             if(x%100==0)
@@ -1767,6 +1768,8 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         }
         else if(actionPerformed[0].equals("foraction"))
             addBlocksGroup(new For().get(this));
+        else if(actionPerformed[0].equals("whileaction"))
+            addBlocksGroup(new While().get(this));
         else if(actionPerformed[0].equals("moduleaction"))
         {   
             addBlock(actionPerformed[1]);
