@@ -36,7 +36,7 @@ public class While extends javax.swing.JPanel implements Generator{
     public JBlock[] get(Flowchart f){
         While g=this;
         int res=JOptionPane.showConfirmDialog(Global.Window, g, 
-                translator.get("generator.for.title"),
+                translator.get("generator.while.title"),
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if(res==JOptionPane.OK_OPTION){
             int p=0;
