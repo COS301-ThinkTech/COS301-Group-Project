@@ -30,15 +30,27 @@ public class BlocksToolBar extends JToolBar{
                 if(T == JBlock.StandardTypes[4])
                 {
                     b.setActionCommand("foraction/FORLOOP" + T.toString());
-                }
-                else
+                    b.setName("foraction/FORLOOP" + T.toString());
+                }                
+                else if(T == JBlock.StandardTypes[3])
                 {
+                    b.setActionCommand("moduleaction/MODULE" + T.toString());
+                    b.setName("moduleaction/MODULE" + T.toString());
+                }
+                else if(T == JBlock.StandardTypes[6]){
+                    b.setActionCommand("whileaction/" + T.toString());
+                    //System.out.println("Printing : -->" + T.toString());
+                    b.setName("whileaction/" + T.toString());
+                }
+                else{
                      b.setActionCommand("add/" + T.toString());
+                     b.setName("add/" + T.toString());
                 }
                 b.setPreferredSize(new Dimension(32, 32));
                 b.setIcon(new javax.swing.ImageIcon(JBlock.getIcon(T)));
                 std.add(b);
                 b.addActionListener(flow);
+                b.addMouseMotionListener(flow);
             }
             for (JBlock.Type T : JBlock.HelpingTypes) {
                 b = new JButton();
@@ -48,6 +60,7 @@ public class BlocksToolBar extends JToolBar{
                 b.setIcon(new javax.swing.ImageIcon(JBlock.getIcon(T)));
                 std.add(b);
                 b.addActionListener(flow);
+                b.addMouseMotionListener(flow);
             }
             blocks.add(std);
             add(blocks);       

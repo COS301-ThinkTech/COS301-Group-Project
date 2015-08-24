@@ -6,6 +6,7 @@
 package javablock.flowchart.blocks;
 
 import java.awt.geom.GeneralPath;
+import java.awt.geom.RoundRectangle2D;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
 
@@ -22,20 +23,14 @@ public class CommentBlock extends JBlock{
     @Override
     public void shape(){
         prepareText();
-        GeneralPath commentPolygon = new GeneralPath();
-        double xPoints[] = {bound.getX()+15,bound.getX()+30,bound.getX()+35,bound.getX()+35,bound.getX()+15,bound.getX()+15};
-        double yPoints[] = {bound.getY()+15,bound.getY()+15,bound.getY()+20,bound.getY()+35,bound.getY()+35,bound.getY()+15};
-        
-        commentPolygon.moveTo(xPoints[0], yPoints[0]);
-        
-        for(int index = 1; index < xPoints.length; index++){
-            commentPolygon.lineTo(xPoints[index], yPoints[index]);
-        }
-        
-        commentPolygon.moveTo(bound.getX()+30, bound.getY()+15);
-        commentPolygon.lineTo(bound.getX()+30, bound.getY()+20);
-        commentPolygon.lineTo(bound.getX()+35, bound.getY()+20);
-        shape = commentPolygon;
+        RoundRectangle2D cpu=new RoundRectangle2D.Double(
+                        bound.getX()-10,
+                        bound.getY()-10,
+                        bound.getWidth()+20,
+                        bound.getHeight()+20,
+                        25,25
+                        );
+                shape=cpu;
         afterShape();
     }    
 }

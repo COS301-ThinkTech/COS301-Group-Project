@@ -14,21 +14,21 @@ import java.util.logging.Logger;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 
-public class addons 
+public class Addons 
 {
     public ScriptEngine engine;
     public Interpreter interpreter;
-    public canvas2d canvas2d(int x, int y)
+    public Canvas2d canvas2d(int x, int y)
     {
-        return new canvas2d(x,y);
+        return new Canvas2d(x,y);
     }
-    public logo logo(int x, int y)
+    public Logo logo(int x, int y)
     {
-        return new logo(x,y);
+        return new Logo(x,y);
     }
-    public logo logo(int x, int y, int sub)
+    public Logo logo(int x, int y, int sub)
     {
-        return new logo(x,y, sub);
+        return new Logo(x,y, sub);
     }
 
     public File dir = new File(System.getProperty("user.home") + "/.JavaBlock/classes/");
@@ -50,16 +50,16 @@ public class addons
                 o=con.newInstance(engine);
             } catch (InstantiationException ex) 
             {
-                Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalAccessException ex)
             {
-                Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalArgumentException ex) 
             {
-                Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
             } catch (InvocationTargetException ex) 
             {
-                Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
             } catch (NoSuchMethodException ex) 
             {
                 o=c.newInstance();
@@ -68,15 +68,15 @@ public class addons
         }  
         catch (SecurityException ex)
         {
-            Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
         }
         catch (InstantiationException ex)
         {
-            Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
         } 
         catch (IllegalAccessException ex) 
         {
-            Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
         }
         catch (ClassNotFoundException ex) 
         {
@@ -87,10 +87,10 @@ public class addons
             } 
             catch (ScriptException ex1) 
             {
-                Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex1);
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex1);
             }
         } catch (MalformedURLException ex) {
-            Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -113,19 +113,19 @@ public class addons
             }
             catch (InstantiationException ex) 
             {
-                Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
             }
             catch (IllegalAccessException ex) 
             {
-                Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
             }
             catch (IllegalArgumentException ex) 
             {
-                Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
             }
             catch (InvocationTargetException ex)
             {
-                Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
             }
             catch (NoSuchMethodException ex) {
                 o=c.newInstance();
@@ -134,15 +134,15 @@ public class addons
         } 
         catch (SecurityException ex)
         {
-            Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
         }
         catch (InstantiationException ex)
         {
-            Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
         } 
         catch (IllegalAccessException ex)
         {
-            Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
         } 
         catch (ClassNotFoundException ex) 
         {
@@ -153,12 +153,12 @@ public class addons
             }
             catch (ScriptException ex1) 
             {
-                Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex1);
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex1);
             }
         }
         catch (MalformedURLException ex) 
         {
-            Logger.getLogger(addons.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

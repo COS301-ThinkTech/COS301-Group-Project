@@ -22,6 +22,7 @@ import java.io.File;
 import javablock.*;
 import javablock.flowchart.blocks.StartBlock;
 import javablock.flowchart.generator.For;
+import javablock.flowchart.generator.While;
 import javax.imageio.ImageIO;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
@@ -485,8 +486,8 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     public String[] getPredefiniedArguments(){
         String s[]=getArgumentsList();
         if(s==null){
-            String r[]={""};
-            return r;
+            String rr[]={""};
+            return rr;
         }
         String args[]=new String[s.length];
         String preArgs[]=I.arguments.getText().split("[\\n]");
@@ -552,79 +553,8 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         code+="\t}\n}";
         return code;
     }
-    public String makePythonScript(){
-        String code="";
-        for(JBlock b:blocks){
-            if(b.isDefinitionBlock()){
-                code+=b.getScriptFragmentForPython()+"\n";
-            }
-        }
-        code+="def "+getName()+"(";
-        String args[]=getArgumentsList();
-        String types[]=getArgumentsTypes();
-        int i;
-        if(args!=null){
-            for(i=0; i<args.length; i++){
-                if(i>0) code+=",";
-                code+="arg"+i;
-            }
-        }
-        code+="):\n";
-        i=0;
-        code+=((StartBlock)blocks.get(0)).generateIntro(false);
-        code+="\t"+getName()+"_block="+blocks.get(0).nextBlock().nextExe().ID+"\n";
-        code+="\twhile true:\n";
-        for(JBlock b:blocks){
-            if(b.isDefinitionBlock()) continue;
-            if(!Global.highlightLinks)
-                if(b.type==JBlock.Type.JUMP) continue;
-            code+="\t\tif "+getName()+"_block=="+b.ID+": #"+b.type+"\n";
-            code+=b.getScriptFragmentForPython();
-        }
-        code+="def "+getName()+"_runFrom(__from):\n";
-        code+="\t"+getName()+"_block=__from\n"
-                + "\twhile(true):\n";
-        for(JBlock b:blocks){
-            if(b.isDefinitionBlock()) continue;
-            if(!Global.highlightLinks)
-                if(b.type==JBlock.Type.JUMP) continue;
-            code+="\t\tif "+getName()+"_block=="+b.ID+": #"+b.type+"\n";
-            code+=b.getScriptFragmentForPython();
-        }
-        return code;
-    }
-    public String makePythonFunctions(){
-        System.out.println("pythonMakeFunctions");
-        String code="";
-        for(JBlock b:blocks){
-            if(b.isDefinitionBlock())
-                code+=b.getScriptFragmentForPython();
-        }
-        code+="def "+getName()+"(";
-        String args[]=getArgumentsList();
-        int i;
-        if(args!=null){
-            for(i=0; i<args.length; i++){
-                if(i>0) code+=",";
-                code+="arg"+i;
-            }
-        }
-        code+="):\n";
-        i=0;
-        code+=((StartBlock)blocks.get(0)).generateIntro(false);
-        code+="\t"+getName()+"_block="+blocks.get(0).nextBlock().nextExe().ID+"\n";
-        code+="\twhile true:\n";
-        for(JBlock b:blocks){
-
-            if(!Global.highlightLinks)
-                if(b.type==JBlock.Type.JUMP) continue;
-            if(b.isDefinitionBlock()) continue;
-            code+="\t\tif "+getName()+"_block=="+b.ID+": #"+b.type+"\n";
-            code+=b.getScriptFragmentForPython();
-        }
-        code+="\n";
-        return code;
-    }
+    
+    
 
     private long lastClick=0;
     /**
@@ -684,9 +614,10 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         int xFrom=(int)((-40-posX-canvasSize.width/2))/10; xFrom/=Zooms[actZoom]; xFrom*=10;
         int xTo=(int)((40-posX+canvasSize.width/2))/10; xTo/=Zooms[actZoom]; xTo*=10;
         for(y=yFrom; y<yTo; y+=10){
-            if(y%100==0)
+            if(y%100==0){
                 g2d.drawLine(xFrom, y+1, xTo, y+1);
                 g2d.drawLine(xFrom, y, xTo, y);
+            }
         }
         for(x=xFrom; x<xTo; x+=10){
             if(x%100==0)
@@ -1054,7 +985,8 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             moving=true;
         }
         if(e.getButton()==MouseEvent.BUTTON1||e.getButton()==MouseEvent.BUTTON3){
-        
+            
+            
             if(!blockEdit) return;
             if(this.moving) return;
             selectedNow=false;
@@ -1283,6 +1215,17 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     @Override
     public void mouseDragged(MouseEvent e)
     {
+        
+        if(e.getComponent().getName() != null){
+            String [] section = e.getComponent().getName().split("/");
+        
+            if(section[0].contains("add")){
+
+                addBlock(section[1]);
+                return;
+            }
+        }
+        
         if(moving)
         
         {
@@ -1481,15 +1424,31 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         if(this.selecting) return ;
         cur=cursorInScene(e.getPoint());
         if (e.getScrollType() == MouseWheelEvent.WHEEL_UNIT_SCROLL){
-            if(e.getWheelRotation()>0)
+            if(e.getWheelRotation()>0){
+               
                 zoomOut(cur);
-            else if(e.getWheelRotation()<0)
+            }
+            else if(e.getWheelRotation()<0){
+                
                 zoomIn(cur);
+            }
         }
         
     }
+    
+    public void slideZoomIn(int value){
+        //System.out.println("slide zoom in " + value);
+        //zoomIn(value);
+    }
+    
+    public void slideZoomOut(int value){
+        //System.out.println("slide zoom out " + value);
+        //zoomOut(value);
+    }
+    
     public void zoomOut(Point2D... t)
     {
+        //System.out.println("Zooming out!!" + t[0].getX() + ","+ t[0].getY());
         if(actZoom==Zooms.length-1) return ;
         zooming=true;
         posX/=Zooms[actZoom];
@@ -1510,6 +1469,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     }
     public void zoomIn(Point2D... t)
     {
+        //System.out.println("Zooming in!!" + t[0].getX() + ","+ t[0].getY());
         if(actZoom==0) return;
         zooming=true;
         posX/=Zooms[actZoom];
@@ -1568,11 +1528,12 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     {
         return name;
     }
-    public JBlock addBlock(String type){return addBlock(type, true);}
+    public JBlock addBlock(String type){return addBlock(type, false);}
     public JBlock addBlock(String type, boolean connect)
     {
         JBlock b = null;
         JBlock s=null;
+        System.out.println("selected size is " + selected.size());
         if(selected.size()==1)
             s=selected.get(0);
         if(type.equals("SAME"))
@@ -1800,21 +1761,31 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     @Override
     public void actionPerformed(ActionEvent e) 
     {
-        String[] action=e.getActionCommand().split("/");
-        if(action[0].equals("add"))
-            addBlock(action[1]);
-        else if(action[0].equals("foraction"))
+
+        String[] actionPerformed=e.getActionCommand().split("/");
+        if(actionPerformed[0].equals("add")){
+                    System.out.println("Adding " + actionPerformed[1]);
+            addBlock(actionPerformed[1]);
+        }
+        else if(actionPerformed[0].equals("foraction"))
             addBlocksGroup(new For().get(this));
-        else if(action[0].equals("align"))
-            align(action[1]);
-        else if(action[0].equals("history"))
+        else if(actionPerformed[0].equals("whileaction"))
+            addBlocksGroup(new While().get(this));
+        else if(actionPerformed[0].equals("moduleaction"))
+        {   
+            addBlock(actionPerformed[1]);
+            action.addFlowchart();
+        }
+        else if(actionPerformed[0].equals("align"))
+            align(actionPerformed[1]);
+        else if(actionPerformed[0].equals("history"))
         {
-            if(action[1].equals("undo"))
+            if(actionPerformed[1].equals("undo"))
                 this.action.historyUndo();
-            else if(action[1].equals("redo"))
+            else if(actionPerformed[1].equals("redo"))
                 this.action.historyRedo();
         }
-        else if(action[0].equals("delete"))
+        else if(actionPerformed[0].equals("delete"))
             deleteSelectedBlocks();
     }
 

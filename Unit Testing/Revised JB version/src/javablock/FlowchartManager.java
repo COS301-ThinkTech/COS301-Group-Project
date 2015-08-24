@@ -20,7 +20,7 @@ import javax.xml.parsers.*;
 import org.w3c.dom.*;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-import widgets.help;
+import widgets.Help;
 
 public final class FlowchartManager extends JPanel implements ActionListener{
     
@@ -182,6 +182,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             {
                 return f.isDirectory() || f.getName().toLowerCase().endsWith(".jbf");
             }
+            @Override
             public String getDescription() 
             {
                 return "JavaBlock File (*.jbf)";
@@ -228,10 +229,10 @@ public final class FlowchartManager extends JPanel implements ActionListener{
     public void addFlowchart()
     {
         flow=new javablock.flowchart.Flowchart(this);
-        flows.add(flow);
+        renameFlowchart(flow);
+        flows.add(flow); 
         workspace.addSheet(flow);
-        renameFlowchart();
-        selectedBlock(flow);
+        workspace.setActive(flow.getName());
     }
     public void removeFlowchart()
     {
@@ -241,19 +242,19 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         flow=(Flowchart)workspace.getActive();
         selectedBlock(flow);
     }
-    public void renameFlowchart()
+    public void renameFlowchart(Flowchart fl)
     {
-        flow=(Flowchart)workspace.getActive();
+        
         do{
-            flow.setName(JOptionPane.showInputDialog(
+            fl.setName(JOptionPane.showInputDialog(
                     translator.get("main.flowcharts.rename.info"),
-                    flow.getName()
+                    fl.getName()
                     ));
             boolean is=false;
             for(Sheet f:flows)
             {
-                if(f==flow) continue;
-                if(f.getName().equals(flow.getName()))
+                if(f==fl) continue;
+                if(f.getName().equals(fl.getName()))
                 {
                     JOptionPane.showMessageDialog(MainSplit, translator.get("popup.flowMustBeUnique"),
                             translator.get("popup.flowMustBeUnique.head"),JOptionPane.WARNING_MESSAGE);
@@ -265,7 +266,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             break;
         }
         while(true);
-        workspace.renameSheetName(flow.getName(), workspace.getActive());
+        workspace.renameSheetName(fl.getName(), workspace.getActive());
     }
 
     public Element clipBoard=null;
@@ -282,7 +283,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         flow.paste();
     }
 
-    @Deprecated
+    
     public JBlock addNewBySelected()
     {
         if(flow.getSelected().size()!=1) return null;
@@ -312,11 +313,16 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         if(true)
         {
             if(history.size()>0 && historyPos<history.size())
-            if(n.equals(history.get(historyPos)))
-                return ;
-            if(history.size()>historyPos+1)
-                while(history.size()-1>historyPos)
-                    history.remove(historyPos+1);
+            {
+                if(n.equals(history.get(historyPos)))
+                return;
+            }
+            
+            if(history.size() > historyPos+1)
+            {
+                while(history.size()-1>historyPos){
+                    history.remove(historyPos+1);}
+            }
             history.add(n);
             historyPos++;
         }
@@ -728,21 +734,21 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         }
         return true;
     }
-
-    public void savePython()
-    {
-        File fn=new File(fc.getSelectedFile().getAbsolutePath()+".py");
-        System.out.println("path:"+fn.getAbsolutePath());
-        String py="";
-        for(Sheet fl: flows){
-            py+=fl.makePythonFunctions();
-        }
-        py+="\n\n";
-        py+="def getAuthor():"
-                + "\treturn \""+"\"\n";
-        misc.saveToFile(fn, py);
+    
+    private int previousValue = 50;
+    
+    public void zoom(int value){
+        
+            if(previousValue < value){
+                flow.slideZoomIn(value);
+                previousValue = value;
+            }else{
+                flow.slideZoomOut(value);
+                previousValue = value;
+            }
     }
 
+    
     private void showScript()
     {
         JFrame f=new JFrame();
@@ -757,17 +763,13 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         for(Sheet fl: flows)
         {
             j+=fl.makeJavaScriptFunctions();
-            p+=fl.makePythonFunctions();
         }
         if(addons.Syntax.loaded)
         {
             js.setEditorKit((EditorKit)addons.Syntax.js);
-            py.setEditorKit((EditorKit)addons.Syntax.py);
         }
         js.setText(j);
-        py.setText(p);
         t.add("JavaScript", jss);
-        t.add("python", pys);
         f.setSize(500, 500);
         f.setVisible(true);
     }
@@ -790,7 +792,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                     if (editor != null) 
                     {
                         resize=false;
-                        editor.finnishEdit();
+                        editor.finishEdit();
                         if (editor.getBlock() == selected)
                         {
                         } 
@@ -818,7 +820,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                 {
                     if (editor != null) 
                     {
-                        editor.finnishEdit();
+                        editor.finishEdit();
                         flow.editorPane.remove((Component) editor);
                         this.historyAdd();
                     }
@@ -831,7 +833,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                 if (editor != null)
                 {
                     flow.editorPane.remove((Component) editor);
-                    editor.finnishEdit();
+                    editor.finishEdit();
                     this.historyAdd();
                 }
                 editor = null;
@@ -843,14 +845,14 @@ public final class FlowchartManager extends JPanel implements ActionListener{
     
     public void selectedBlock(Sheet f)
     {
-        flow = (Flowchart)f;
+        //flow = (Flowchart)f;
         updateFocus();
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e)
-    {
+    {         
         String[] action=e.getActionCommand().split("/");
         if(action[0].equals("history"))
         {
@@ -872,8 +874,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                 Sheet f=(Sheet)workspace.getActive();
                 f.saveAsImage();
             }
-            if(action[1].equals("savePython"))
-                savePython();
+            
         }
         else if(action[0].equals("flowcharts"))
         {
@@ -882,14 +883,14 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             if(action[1].equals("remove"))
                 this.removeFlowchart();
             if(action[1].equals("rename"))
-                this.renameFlowchart();
+                this.renameFlowchart(this.flow);
             if(action[1].equals("script"))
                 this.showScript();
         }
         else if(action[0].equals("show"))
         {
             if(action[1].equals("help"))
-                help.showHelp();
+                Help.showHelp();
         }
         else if(action[0].equals("clp"))
         {
@@ -903,6 +904,10 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         if(action[0].equals("add"))
             flow.actionPerformed(e);
         else if(action[0].equals("foraction"))
+            flow.actionPerformed(e);
+        else if(action[0].equals("whileaction"))
+            flow.actionPerformed(e);
+        else if(action[0].equals("moduleaction"))
             flow.actionPerformed(e);
     }
 

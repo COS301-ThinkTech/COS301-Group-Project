@@ -229,9 +229,7 @@ public class IOEditor extends javax.swing.JPanel implements BlockEditor, ActionL
             for(String var:vars){
                 if(inArray.isSelected()){
                     if(eng.equals("JavaScript"))
-                        code+="var "+var+"=new Array("+inArrEl.getValue()+")\n";
-                    if(eng.equals("Python"))
-                        code+=var+"=Array("+inArrEl.getValue()+")\n";
+                        code+="var "+var+"=new Array("+inArrEl.getValue()+")\n";                    
                     for(int i=0; i<(Integer)inArrEl.getValue(); i++){
                         code+=""+var+"["+i+"]=";
                         code+="Read";
@@ -370,7 +368,7 @@ public class IOEditor extends javax.swing.JPanel implements BlockEditor, ActionL
     }
 
     @Override
-    public void finnishEdit() {
+    public void finishEdit() {
         saveBlock();
         editing=null;
     }

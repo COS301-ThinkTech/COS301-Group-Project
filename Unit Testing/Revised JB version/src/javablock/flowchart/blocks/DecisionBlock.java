@@ -5,21 +5,38 @@
 
 package javablock.flowchart.blocks;
 import config.Global;
+import config.translator;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
+import java.util.ArrayList;
+import java.util.List;
 import javablock.flowchart.*;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 import javax.swing.JOptionPane;
-
+import javablock.flowchart.blockEditors.DecisionEditor;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import widgets.ComboText;
 
 public class DecisionBlock extends JBlock {
+    public static DecisionEditor editor = new DecisionEditor();
     public DecisionBlock(Flowchart parent){
         super(Type.DECISION, parent);
     }
     
     @Override
     public boolean isSwitchable(){return false;}
+    public String variable1, variable2;
+    public String compOperator;
+    public String logicalOperator;
+    public List<Comparison> comparisons = new ArrayList();
+     @Override
+    public BlockEditor getEditor(){
+        return editor;
+    }
 
     @Override
     public Flowline connectTo(JBlock n){
@@ -86,29 +103,7 @@ public class DecisionBlock extends JBlock {
         code+="\t\t\tbreak;\n";
         return code;
     }
-    @Override
-    public String getScriptFragmentForPython(){
-        String code="";
-        String c[]=getCode().split("\n");
-        String w="";
-        for(String l: c){
-            while(l.charAt(0)==' '||l.charAt(0)=='\t')
-                l=l.substring(1);
-            w+=l+" ";
-        }
-        if(connects.size()==2){
-            int T=nextCon("true").ID, F=nextCon("false").ID;
-            code+="\t\t\tif ("+w+"): "+flow.getName()+"_block="+T+"\n";
-            code+="\t\t\telse: "+flow.getName()+"_block="+F+"\n";
-        }
-        else if(connects.size()==1)
-            code+="\t\t\t"+flow.getName()+"_block="+connects.get(0).n.nextExe().ID+"\n";
-        else
-            code+="\t\t\treturn 0\n";
-        //code+="\t\tbreak";
-        return code;
-    }
-
+    
     @Override
     public void shape(){
         prepareText();
@@ -141,5 +136,45 @@ public class DecisionBlock extends JBlock {
         }
         g2d.translate(-bound.getX(), -bound.getY()-height-1);
     }
+
+    public void clear() {
+        comparisons.clear();
+    }
+    
+       public void addComparison(String variable1, String variable2){
+        Comparison c=new Comparison();
+        c.setVar1(variable1);
+        c.setVar2(variable2);
+       // fields.add(f);
+    }
+       
+       public String[][] getComparisons(){
+        String f[][]=new String[comparisons.size()][2];
+        int i=0;
+        for(Comparison comp:comparisons){
+            f[i][0]=comp.var1;
+            f[i][1]=comp.var2;
+            i++;
+        }
+        return f;
+    }
+    class Comparison{
+         String var1, var2;
+        Comparison()
+        {
+            
+        }
+        public void setVar1(String v1)
+        {
+            var1 = v1;
+        }
+        public void setVar2(String v2)
+        {
+            var2 = v2;
+        }
+     
+     
+        }
+    
 
 }
