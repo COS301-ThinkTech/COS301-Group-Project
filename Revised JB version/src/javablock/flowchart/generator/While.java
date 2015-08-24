@@ -44,7 +44,7 @@ public class While extends javax.swing.JPanel implements Generator{
             JBlock[] list=new JBlock[8];
 
             DecisionBlock condition=(DecisionBlock) JBlock.make(JBlock.Type.DECISION, f);
-            condition.setCode("");
+            condition.setCode(g.variable.getText()+" "+g.comp.getSelectedItem() + " " + g.jTextField3.getText());
             list[p++]=condition;   //-----2
 
             CPUBlock process=(CPUBlock) JBlock.make(JBlock.Type.CPU, f);
