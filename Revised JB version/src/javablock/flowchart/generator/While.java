@@ -42,10 +42,6 @@ public class While extends javax.swing.JPanel implements Generator{
             int p=0;
 
             JBlock[] list=new JBlock[8];
-            CPUBlock init=(CPUBlock) JBlock.make(JBlock.Type.CPU, f);
-            init.setCode("");
-            init.setPos(0,-90);
-            list[p++]=init; //-----1
 
             DecisionBlock condition=(DecisionBlock) JBlock.make(JBlock.Type.DECISION, f);
             condition.setCode("");
@@ -60,7 +56,6 @@ public class While extends javax.swing.JPanel implements Generator{
 
             jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
             jump.setPos(0, -50);
-            init.connectTo(jump);
             jump.connectTo(condition);
             list[p++]=jump; //-----3
 
