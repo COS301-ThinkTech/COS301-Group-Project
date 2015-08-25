@@ -39,8 +39,11 @@ public class BlocksToolBar extends JToolBar{
                 }
                 else if(T == JBlock.StandardTypes[6]){
                     b.setActionCommand("whileaction/" + T.toString());
-                    //System.out.println("Printing : -->" + T.toString());
                     b.setName("whileaction/" + T.toString());
+                }
+                else if(T == JBlock.StandardTypes[7]){
+                    b.setActionCommand("dowhileaction/" + T.toString());
+                    b.setName("dowhileaction/" + T.toString());
                 }
                 else{
                      b.setActionCommand("add/" + T.toString());
