@@ -21,6 +21,7 @@ import java.awt.image.VolatileImage;
 import java.io.File;
 import javablock.*;
 import javablock.flowchart.blocks.StartBlock;
+import javablock.flowchart.generator.DoWhile;
 import javablock.flowchart.generator.For;
 import javablock.flowchart.generator.While;
 import javax.imageio.ImageIO;
@@ -1771,6 +1772,8 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             addBlocksGroup(new For().get(this));
         else if(actionPerformed[0].equals("whileaction"))
             addBlocksGroup(new While().get(this));
+        else if(actionPerformed[0].equals("dowhileaction"))
+            addBlocksGroup(new DoWhile().get(this));
         else if(actionPerformed[0].equals("moduleaction"))
         {   
             addBlock(actionPerformed[1]);

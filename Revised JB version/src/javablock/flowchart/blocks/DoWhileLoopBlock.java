@@ -26,13 +26,13 @@ public class DoWhileLoopBlock extends JBlock{
     @Override
     public void shape(){
         prepareText();
-        Rectangle2D cpu=new Rectangle.Double(
+        Rectangle2D doWhile=new Rectangle.Double(
                         bound.getX()-10,
                         bound.getY()-10,
                         bound.getWidth()+20,
                         bound.getHeight()+20
                         );
-                shape=cpu;
+                shape=doWhile;
         afterShape();
     }
 
