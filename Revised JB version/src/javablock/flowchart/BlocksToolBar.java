@@ -27,7 +27,7 @@ public class BlocksToolBar extends JToolBar{
             for (JBlock.Type T : JBlock.StandardTypes) {
                 b = new JButton(); 
                 b.setToolTipText(translator.tooltips.getString(T.toString() + ".help"));
-                if(T == JBlock.StandardTypes[4])
+                if(T == JBlock.StandardTypes[5])
                 {
                     b.setActionCommand("foraction/FORLOOP" + T.toString());
                     b.setName("foraction/FORLOOP" + T.toString());
