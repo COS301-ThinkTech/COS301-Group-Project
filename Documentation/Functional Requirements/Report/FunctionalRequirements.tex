@@ -71,16 +71,11 @@ Only the basic components of standard flowcharts are necessary.\\
 
 \begin{table}[h!]  
     \caption{Use case prioritization}
-
     \label{tab:table1}
     \begin{tabular}{ccc}
-
       \toprule
-
       Critical & Important & Nice-To-Have\\
-
       \midrule	
-
       createFlowchartProject & addFlowchartComponent &  drag-and-drop flowchart into bin\\
       deleteFlowchart & editFlowchartComponent & \\
        & deleteFlowchartComponent & \\
@@ -88,9 +83,7 @@ Only the basic components of standard flowcharts are necessary.\\
        & loadFlowchart & \\
        & runSimulationTool & \\
       \bottomrule
-
-    \end{tabular}
-  
+    \end{tabular}  
 \end{table}
 
 
@@ -135,9 +128,12 @@ The editFlowchartComponent use case provides functionality for the user to edit 
 \subsubsection{Activity diagram}
 \includegraphics[width=500px]{editFowchartComponent.jpg}
 
-
-\subsection{deleteFlowchartProject}
-The deleteFlowchartProject use case serves the purpose of removing a flowchart project.
+\newpage
+\subsection{deleteFlowchart}
+The deleteFlowchartProject use case serves the purpose of removing a flowchart project.\newline\newline
+\textbf{Pre Condition:} The flowchart to be deleted must exist\newline
+\textbf{Pre Condition:} The flowchart to be deleted must be active\newline\newline
+\textbf{Post Condition:} The flowchart must be removed from the workspace and a new flowchart must be active
 
 \subsubsection{Use case diagram}
 \includegraphics[width=500px]{deleteFlowchart.eps}
@@ -145,6 +141,7 @@ The deleteFlowchartProject use case serves the purpose of removing a flowchart p
 \subsubsection{Activity diagram}
 \includegraphics[width=500px]{deleteFlowchartActivity.eps}
 
+\newpage
 \subsection{saveFlowchart}
 The saveFlowchart use case provides functionality for the user to save a flowchart.\newline\newline
 \textbf{Pre Condition:} Canvas is open\newline\newline
