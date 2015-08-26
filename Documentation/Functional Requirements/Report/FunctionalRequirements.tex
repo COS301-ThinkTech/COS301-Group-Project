@@ -2,6 +2,7 @@
 \usepackage{graphicx}
 \usepackage[margin=1in]{geometry}
 %\usepackage{titling}
+\usepackage{booktabs}
 \usepackage[hidelinks]{hyperref}
 
 
@@ -66,24 +67,32 @@ Only the basic components of standard flowcharts are necessary.\\
 
 \newpage	
 \section{Use case prioritization}
-\subsection{Critical}
-\begin{itemize}
-  \item createFlowchartProject
-  \item deleteFlowchartProject
-\end{itemize}
-\subsection{Important}
-\begin{itemize}
-  \item addFlowchartComponent
-  \item editFlowchartComponent
-  \item deleteFlowchartComponent
-  \item saveFlowchart
-  \item loadFlowchart
-  \item runSimulationTool
-\end{itemize}
-\subsection{Nice to have}
-\begin{itemize}
-  \item deleteFlowchartComponent(By dragging and dropping into bin)
-\end{itemize}
+
+
+\begin{table}[h!]  
+    \caption{Use case prioritization}
+
+    \label{tab:table1}
+    \begin{tabular}{ccc}
+
+      \toprule
+
+      Critical & Important & Nice-To-Have\\
+
+      \midrule	
+
+      createFlowchartProject & addFlowchartComponent &  drag-and-drop flowchart into bin\\
+      deleteFlowchart & editFlowchartComponent & \\
+       & deleteFlowchartComponent & \\
+       & saveFlowchart & \\
+       & loadFlowchart & \\
+       & runSimulationTool & \\
+      \bottomrule
+
+    \end{tabular}
+  
+\end{table}
+
 
 \newpage
 \section{Use cases}
