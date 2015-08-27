@@ -6,12 +6,12 @@
 \contentsline {section}{\numberline {3}Getting Started}{1}
 \contentsline {subsection}{\numberline {3.1}Running Software}{1}
 \contentsline {subsection}{\numberline {3.2}Software Layout}{2}
-\contentsline {section}{\numberline {4}Using the System}{3}
-\contentsline {subsection}{\numberline {4.1}Creating New Project}{3}
-\contentsline {subsection}{\numberline {4.2}Adding Components to Canvas}{3}
-\contentsline {subsection}{\numberline {4.3}Editing Component}{3}
-\contentsline {subsection}{\numberline {4.4}Removing Components from Canvas}{3}
-\contentsline {subsection}{\numberline {4.5}Saving Project}{3}
-\contentsline {subsection}{\numberline {4.6}Run Simulation}{3}
-\contentsline {subsection}{\numberline {4.7}Opening Existing Project}{3}
-\contentsline {section}{\numberline {5}Troubleshooting}{4}
+\contentsline {section}{\numberline {4}Using the System}{4}
+\contentsline {subsection}{\numberline {4.1}Creating New Project}{4}
+\contentsline {subsection}{\numberline {4.2}Adding Components to Canvas}{4}
+\contentsline {subsection}{\numberline {4.3}Editing Component}{4}
+\contentsline {subsection}{\numberline {4.4}Removing Components from Canvas}{4}
+\contentsline {subsection}{\numberline {4.5}Saving Project}{4}
+\contentsline {subsection}{\numberline {4.6}Run Simulation}{4}
+\contentsline {subsection}{\numberline {4.7}Opening Existing Project}{4}
+\contentsline {section}{\numberline {5}Troubleshooting}{5}
