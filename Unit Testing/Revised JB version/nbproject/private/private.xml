@@ -4,7 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Hlavutello/Documents/Main%20Project/Unit%20Testing/Revised%20JB%20version/src/javablock/FlowchartManager.java</file>
+            <file>file:/C:/Users/Hlavutello/Documents/Main%20Project/Unit%20Testing/Revised%20JB%20version/src/javablock/flowchart/JBlock.java</file>
+            <file>file:/C:/Users/Hlavutello/Documents/Main%20Project/Unit%20Testing/Revised%20JB%20version/test/javablock/flowchart/blocks/CPUBlockTest.java</file>
             <file>file:/C:/Users/Hlavutello/Documents/Main%20Project/Unit%20Testing/Revised%20JB%20version/test/javablock/FlowchartManagerTest.java</file>
+            <file>file:/C:/Users/Hlavutello/Documents/Main%20Project/Unit%20Testing/Revised%20JB%20version/test/javablock/flowchart/JBlockTest.java</file>
         </group>
     </open-files>
 </project-private>

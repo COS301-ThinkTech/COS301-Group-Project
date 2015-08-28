@@ -11,7 +11,7 @@ import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
 import javablock.gui.Interpreter;
 import javablock.gui.ScriptRunner;
-import static junit.framework.Assert.assertTrue;
+import static junit.framework.Assert.*;
 import junit.framework.TestCase;
 
 /**
