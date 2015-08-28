@@ -84,7 +84,7 @@ Only the basic components of standard flowcharts are necessary.\\
        & deleteFlowchartComponent & \\
        & saveFlowchart & \\
        & loadFlowchart & \\
-       & runSimulationTool & \\
+       & executeFlowchart & \\
       \bottomrule
     \end{tabular}  
 \end{table}
@@ -213,32 +213,32 @@ The deleteFlowchartComponent use case enables the functionality to delete indivi
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=500px]{deleteFlowchartComponentUseCase.eps}
-\caption{loadFlowchart Use Case Diagram}
+\includegraphics[width=500px]{delete.eps}
+\caption{deleteFlowchartComponent Use Case Diagram}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=500px]{deleteFlowchartComponentActivity.eps}
-\caption{loadFlowchart Activity Diagram}
+\includegraphics[width=500px]{deleteAct.eps}
+\caption{deleteFlowchartComponent Activity Diagram}
 \end{figure}
 
 \newpage
-\subsection{runSimulationTool}
-The runSimulation use case enables the functionality to execute the flowchart step-by-step or from start-to-end.\newline\newline
+\subsection{executeFlowchart}
+The executeFlowchart use case enables the functionality to execute the flowchart step-by-step or from start-to-end.\newline\newline
 \textbf{Pre Condition:} Canvas has to be available.\newline\newline
 \textbf{Post Condition:} Flowchart will return feedback of any errors, warnings or successful execution along with the results of any calculations.
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=500px]{runSimulationToolUseCase.eps}
-\caption{loadFlowchart Use Case Diagram}
+\includegraphics[width=500px]{execute.eps}
+\caption{executeFlowchart Use Case Diagram}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=500px]{runSimulationToolActivity.eps}
-\caption{loadFlowchart Activity Diagram}
+\includegraphics[width=500px]{executeAct.eps}
+\caption{executeFlowchart Activity Diagram}
 \end{figure}
 
 \newpage
@@ -246,7 +246,7 @@ The runSimulation use case enables the functionality to execute the flowchart st
 \begin{figure}[H]
   \centering
 \includegraphics[width=500px]{HighLevelDomainModel.eps}
-\caption{loadFlowchart Activity Diagram}
+\caption{Domain Model Diagram}
 \end{figure}
 
 \end{document}
