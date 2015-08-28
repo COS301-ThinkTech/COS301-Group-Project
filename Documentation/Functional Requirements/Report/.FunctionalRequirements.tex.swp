@@ -72,7 +72,7 @@ Only the basic components of standard flowcharts are necessary.\\
   \item saveFlowchart
   \item loadFlowchart
   \item deleteFlowchartComponent
-  \item runSimulationTool
+  \item executeFlowchart
 \end{itemize}
 
 \newpage
@@ -131,22 +131,22 @@ The deleteFlowchartComponent use case enables the functionality to delete indivi
 \textbf{Post Condition:} The canvas is clear of any components that were selected for removal.
 
 \subsubsection{Use case diagram}
-\includegraphics[width=500px]{deleteFlowchartComponentUseCase.eps}
+\includegraphics[width=500px]{delete.eps}
 
 \subsubsection{Activity diagram}
-\includegraphics[width=500px]{deleteFlowchartComponentActivity.eps}
+\includegraphics[width=500px]{deleteAct.eps}
 
-\subsection{runSimulationTool}
-The runSimulation use case enables the functionality to execute the flowchart step-by-step or from start-to-end.
+\subsection{executeFlowchart}
+The executeFlowchart use case enables the functionality to execute the flowchart step-by-step or from start-to-end.
 \newline\newline
 \textbf{Pre Condition:} Canvas has to be available.
 \newline\newline
 \textbf{Post Condition:} Flowchart will return feedback of any errors, warnings or successful execution along with the results of any calculations.
 
 \subsubsection{Use case diagram}
-\includegraphics[width=500px]{runSimulationToolUseCase.eps}
+\includegraphics[width=500px]{execute.eps}
 
 \subsubsection{Activity diagram}
-\includegraphics[width=500px]{runSimulationToolActivity.eps}
+\includegraphics[width=500px]{executeAct.eps}
 
 \end{document}
