@@ -1,7 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.8.27)  27 AUG 2015 23:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.8.27)  1 SEP 2015 09:11
 entering extended mode
 **flowchartUsermanual.tex
-("C:\Users\Hlavutello\Desktop\User Manual\flowchartUsermanual.tex"
+
+("C:\Users\Hlavutello\Documents\Main Project\Documentation\User Manual\flowchar
+tUsermanual.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -62,7 +64,8 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
-("C:\Users\Hlavutello\Desktop\User Manual\flowchartUsermanual.aux")
+("C:\Users\Hlavutello\Documents\Main Project\Documentation\User Manual\flowchar
+tUsermanual.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
@@ -89,10 +92,13 @@ LaTeX Font Info:    ... okay on input line 6.
 \MPnumerator=\count92
 \makeMPintoPDFobject=\count93
 \everyMPtoPDFconversion=\toks16
-) ("C:\Users\Hlavutello\Desktop\User Manual\coverpage.tex" [1
+)
+("C:\Users\Hlavutello\Documents\Main Project\Documentation\User Manual\coverpag
+e.tex" [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}])
-("C:\Users\Hlavutello\Desktop\User Manual\flowchartUsermanual.toc"
+("C:\Users\Hlavutello\Documents\Main Project\Documentation\User Manual\flowchar
+tUsermanual.toc"
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -144,11 +150,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--74
 
  []
 
-[2 <C:/Users/Hlavutello/Desktop/User Manual/SystemLayout.jpg> <C:/Users/Hlavute
-llo/Desktop/User Manual/Canvas.jpg>] <Menu.jpg, id=23, 448.074pt x 81.1395pt>
+[2 <C:/Users/Hlavutello/Documents/Main Project/Documentation/User Manual/System
+Layout.jpg> <C:/Users/Hlavutello/Documents/Main Project/Documentation/User Manu
+al/Canvas.jpg>] <Menu.jpg, id=23, 448.074pt x 81.1395pt>
 File: Menu.jpg Graphic file (type jpg)
-
-<use Menu.jpg>
+ <use Menu.jpg>
 Package pdftex.def Info: Menu.jpg used on input line 80.
 (pdftex.def)             Requested size: 327.20668pt x 59.25237pt.
 
@@ -156,8 +162,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 79--81
 
  []
 
-[3 <C:/Users/Hlavutello/Desktop/User Manual/Tools.jpg> <C:/Users/Hlavutello/Des
-ktop/User Manual/Menu.jpg>]
+[3 <C:/Users/Hlavutello/Documents/Main Project/Documentation/User Manual/Tools.
+jpg> <C:/Users/Hlavutello/Documents/Main Project/Documentation/User Manual/Menu
+.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 99--101
 
  []
@@ -167,23 +174,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 99--101
 
  []
 
-[4] [5] ("C:\Users\Hlavutello\Desktop\User Manual\flowchartUsermanual.aux") ) 
+[4] [5]
+("C:\Users\Hlavutello\Documents\Main Project\Documentation\User Manual\flowchar
+tUsermanual.aux") ) 
 Here is how much of TeX's memory you used:
  1171 strings out of 493921
- 15933 string characters out of 3144861
+ 16252 string characters out of 3144861
  66880 words of memory out of 3000000
  4494 multiletter control sequences out of 15000+200000
  8503 words of font info for 30 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  27i,4n,19p,412b,193s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C
-:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/
-Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
-ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Progr
-am Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Fil
-es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on flowchartUsermanual.pdf (7 pages, 271541 bytes).
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr1
+7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb>
+Output written on flowchartUsermanual.pdf (7 pages, 272081 bytes).
 PDF statistics:
  54 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
