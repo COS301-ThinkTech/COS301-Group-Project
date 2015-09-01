@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.7.2)  28 JUL 2015 20:13
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.7.2)  30 AUG 2015 19:56
 entering extended mode
 **architectural*requirements.tex
 
-("C:\Users\Goodness\Documents\GitHub\Flowchart-planning-and-simulation-tool\Arc
-hitectural requirements\architectural requirements.tex"
+("C:\Users\Goodness\Documents\GitHub\Flowchart-planning-and-simulation-tool\Doc
+umentation\Architectural requirements\architectural requirements.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -202,8 +202,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 File: bkm-pdftex.def 2011/12/02 v1.24 bookmark driver for pdfTeX (HO)
 \BKM@id=\count98
 ))
-("C:\Users\Goodness\Documents\GitHub\Flowchart-planning-and-simulation-tool\Arc
-hitectural requirements\architectural requirements.aux")
+("C:\Users\Goodness\Documents\GitHub\Flowchart-planning-and-simulation-tool\Doc
+umentation\Architectural requirements\architectural requirements.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
@@ -247,8 +247,8 @@ LaTeX Info: Redefining \ref on input line 5.
 LaTeX Info: Redefining \pageref on input line 5.
 LaTeX Info: Redefining \nameref on input line 5.
 
-("C:\Users\Goodness\Documents\GitHub\Flowchart-planning-and-simulation-tool\Arc
-hitectural requirements\titlepage.tex"
+("C:\Users\Goodness\Documents\GitHub\Flowchart-planning-and-simulation-tool\Doc
+umentation\Architectural requirements\titlepage.tex"
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <20.74> on input line 38.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -263,8 +263,8 @@ Overfull \hbox (17.55328pt too wide) in paragraph at lines 38--39
 [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}])
-("C:\Users\Goodness\Documents\GitHub\Flowchart-planning-and-simulation-tool\Arc
-hitectural requirements\architectural requirements.toc"
+("C:\Users\Goodness\Documents\GitHub\Flowchart-planning-and-simulation-tool\Doc
+umentation\Architectural requirements\architectural requirements.toc"
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -290,15 +290,15 @@ Package atveryend Info: Empty hook `BeforeClearDocument' on input line 67.
 [3]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 67.
 
-("C:\Users\Goodness\Documents\GitHub\Flowchart-planning-and-simulation-tool\Arc
-hitectural requirements\architectural requirements.aux")
+("C:\Users\Goodness\Documents\GitHub\Flowchart-planning-and-simulation-tool\Doc
+umentation\Architectural requirements\architectural requirements.aux")
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 67.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 67.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 67.
  ) 
 Here is how much of TeX's memory you used:
  5239 strings out of 493921
- 79151 string characters out of 3147274
+ 79305 string characters out of 3147274
  156233 words of memory out of 3000000
  8494 multiletter control sequences out of 15000+200000
  9899 words of font info for 35 fonts, out of 3000000 for 9000
@@ -308,7 +308,7 @@ Here is how much of TeX's memory you used:
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "architectural requirements.pdf" (4 pages, 66289 bytes).
+Output written on "architectural requirements.pdf" (4 pages, 66293 bytes).
 PDF statistics:
  90 PDF objects out of 1000 (max. 8388607)
  14 named destinations out of 1000 (max. 500000)
