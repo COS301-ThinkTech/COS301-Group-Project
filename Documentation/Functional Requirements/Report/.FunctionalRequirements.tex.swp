@@ -2,7 +2,9 @@
 \usepackage{graphicx}
 \usepackage[margin=1in]{geometry}
 %\usepackage{titling}
+\usepackage{booktabs}
 \usepackage[hidelinks]{hyperref}
+\usepackage{float}
 
 
 \usepackage{epstopdf}
@@ -14,14 +16,21 @@
 \begin{document}
 \input{./titlepage.tex}
 
+\newpage
 \tableofcontents
+
+
 \pagebreak
 
 \section{Vision and scope}
 \subsection{Project background}
+The flowchart planning and simulation  tool is a visual tool which aims to introduce programming logic to students by providing  a platform to construct  and execute  flowcharts which depict basic programming structures whilst validating whether the flowchart components are valid .
+
 \subsection{Project vision}
 
-This project sets out to create an application for the planning and simulation of flowcharts, which
+Most first year computer science students come from a backgroud void of programming to a programming backgroud 
+and they struggle to grasp the logical programming concepts quickly and easily.
+Therefore, this project sets out to create an application with a simplified and easy-to-use interface for the planning and simulation of flowcharts, which
 can be used in an education setting for an introductory program logic course. The objective is to
 develop an application that can feasibly be used in such a practical setting. The application must be
 visual in nature, due to the visual nature of flowcharts. The application must facilitate exploration
@@ -61,92 +70,183 @@ Only the basic components of standard flowcharts are necessary.\\
 
 \newpage	
 \section{Use case prioritization}
-\subsection{Critical}
-\begin{itemize}
-  \item createNewFlowchart
-\end{itemize}
-\subsection{Important}
-\begin{itemize}
-  \item addFlowchartComponent
-  \item editFlowchartComponent
-  \item saveFlowchart
-  \item loadFlowchart
-  \item deleteFlowchartComponent
-  \item runSimulationTool
-\end{itemize}
+
+
+\begin{table}[h!]  
+    \caption{Use case prioritization}
+    \label{tab:table1}
+    \begin{tabular}{ccc}
+      \toprule
+      Critical & Important & Nice-To-Have\\
+      \midrule	
+      createFlowchartProject & addFlowchartComponent &  drag-and-drop flowchart into bin\\
+      deleteFlowchart & editFlowchartComponent & \\
+       & deleteFlowchartComponent & \\
+       & saveFlowchart & \\
+       & loadFlowchart & \\
+       & executeFlowchart & \\
+      \bottomrule
+    \end{tabular}  
+\end{table}
+
 
 \newpage
 \section{Use cases}
-	
-\subsection{deleteFlowchartProject}
-The deleteFlowchartProject use case serves the purpose of removing a flowchart project.
 
-\subsubsection{Use case diagram}
-\includegraphics[width=500px]{deleteFlowchartProjectUseCase.jpg}
+\subsection{createFlowchartProject}
+Creates an environment to enable users to start building flowcharts.\newline\newline
+\textbf{Pre Condition:} Planning canvas must be blank.\newline\newline
+\textbf{Post Condition:} New canvas with Start and Return component created.\newline
+\textbf{Post Condition:} Flowchart tools ready for use\newline
 
-\subsubsection{Activity diagram}
-\includegraphics[width=500px]{deleteFlowchartProject.jpg}
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{createNewFlowchartProject.eps}
+\caption{createFlowchartProject Use Case Diagram}
+\end{figure}
 
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{createNewFlowchartProjectActivity.eps}
+\caption{createFlowchartProject Activity Diagram}
+\end{figure}
+
+\newpage
+\subsection{addFlowchartComponent}
+
+Provides users with functionality to select the flowchart components they want to add and place it on the planning canvas.\newline\newline
+\textbf{Pre Condition:} Canvas is available and flowchart exist.\newline\newline
+\textbf{Post Condition:} Component has been added to flowchart and appers on canvas with the necessary connections, if any.
+
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{addFlowChartComponent.eps}
+\caption{addFlowchartComponent Use Case Diagram}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{addFlowchartComponentActivity.eps}
+\caption{addFlowchartComponent Activity Diagram}
+\end{figure}
+
+\newpage
 \subsection{editFlowchartComponent}
-The editFlowchartComponent use case provides functionality for the user to edit each component of the flowchart on a canvas.\newline\newline
-\textbf{Pre Condition:} Component must have been added\newline\newline
-\textbf{Post Condition:} Component has been edited
 
-\subsubsection{Use case diagram}
-\includegraphics[width=500px]{editFlowchartComponentUseCase.jpg}
+The editFlowchartComponent use case provides functionality for the user to edit each component of the flowchart on the canvas \newline\newline
+\textbf{Pre Condition:} Component must have been added to the canvas\newline\newline
+\textbf{Post Condition:} Component has been edited and saved\newline
+\textbf{Post Condition:} Edited component has been saved
 
-\subsubsection{Activity diagram}
-\includegraphics[width=500px]{editFowchartComponent.jpg}
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{editFlowchartComponent.eps}
+\caption{editFlowchartComponent Use Case Diagram}
+\end{figure}
 
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{editFlowchartComponentActivity.eps}
+\caption{editFlowchartComponent Activity Diagram}
+\end{figure}
+
+\newpage
+\subsection{deleteFlowchart}
+The deleteFlowchartProject use case serves the purpose of removing a flowchart project.\newline\newline
+\textbf{Pre Condition:} The flowchart to be deleted must exist\newline
+\textbf{Pre Condition:} The flowchart to be deleted must be active\newline\newline
+\textbf{Post Condition:} The flowchart must be removed from the workspace and a new flowchart must be active
+
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{deleteFlowchart.eps}
+\caption{deleteFlowchart Use Case Diagram}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{deleteFlowchartActivity.eps}
+\caption{deleteFlowchart Activity Diagram}
+\end{figure}
+
+\newpage
 \subsection{saveFlowchart}
 The saveFlowchart use case provides functionality for the user to save a flowchart.\newline\newline
 \textbf{Pre Condition:} Canvas is open\newline\newline
 \textbf{Post Condition:} Flowchart has been saved to file
 
-\subsubsection{Use case diagram}
-\includegraphics[width=500px]{saveFlowchartUseCase.jpg}
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{saveFlowchartUseCase.eps}
+\caption{saveFlowchart Use Case Diagram}
+\end{figure}
 
-\subsubsection{Activity diagram}
-\includegraphics[width=500px]{saveFlowchart.jpg}
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{saveFlowchart.eps}
+\caption{saveFlowchart Activity Diagram}
+\end{figure}
 
+\newpage
 \subsection{loadFlowchart}
 loadFlowchart: users load flowcharts from existing files. The file is editable, can be modified by the user.\newline\newline
-\textbf{Pre Condition:} file with correct extension already exists.\newline
-\textbf{Post Condition:} open the file and make it editable in the canvas element.
+\textbf{Pre Condition:} File with correct extension already exists.\newline\newline
+\textbf{Post Condition:} Open the file and make it editable in the canvas element.
 
-\subsubsection{Use case diagram}
-\includegraphics[width=500px]{loadFlowchart_use_case_diagram.jpg}
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{loadFlowchart.eps}
+\caption{loadFlowchart Use Case Diagram}
+\end{figure}
 
-\subsubsection{Activity diagram}
-\includegraphics[width=500px]{loadFlowchart_activity_diagram.jpg}
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{loadFlowchartActivityDiagram.eps}
+\caption{loadFlowchart Activity Diagram}
+\end{figure}
 
-\subsubsection{Domain mode}
-\includegraphics[width=500px]{loadFlowchart_domain_model.jpg}
-
+\newpage
 \subsection{deleteFlowchartComponent}
-The deleteFlowchartComponent use case enables the functionality to delete individual components from the canvas.
-\newline\newline
-\textbf{Pre Condition:} The canvas has to be available. Component exists in the canvas space and is in the components list.
-\newline\newline
+The deleteFlowchartComponent use case enables the functionality to delete individual components from the canvas.\newline\newline
+\textbf{Pre Condition:} The canvas has to be available. Component exists in the canvas space and is in the components list.\newline\newline
 \textbf{Post Condition:} The canvas is clear of any components that were selected for removal.
 
-\subsubsection{Use case diagram}
-\includegraphics[width=500px]{deleteFlowchartComponentUseCase.eps}
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{delete.eps}
+\caption{deleteFlowchartComponent Use Case Diagram}
+\end{figure}
 
-\subsubsection{Activity diagram}
-\includegraphics[width=500px]{deleteFlowchartComponentActivity.eps}
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{deleteAct.eps}
+\caption{deleteFlowchartComponent Activity Diagram}
+\end{figure}
 
-\subsection{runSimulationTool}
-The runSimulation use case enables the functionality to execute the flowchart step-by-step or from start-to-end.
-\newline\newline
-\textbf{Pre Condition:} Canvas has to be available.
-\newline\newline
+\newpage
+\subsection{executeFlowchart}
+The executeFlowchart use case enables the functionality to execute the flowchart step-by-step or from start-to-end.\newline\newline
+\textbf{Pre Condition:} Canvas has to be available.\newline\newline
 \textbf{Post Condition:} Flowchart will return feedback of any errors, warnings or successful execution along with the results of any calculations.
 
-\subsubsection{Use case diagram}
-\includegraphics[width=500px]{runSimulationToolUseCase.eps}
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{execute.eps}
+\caption{executeFlowchart Use Case Diagram}
+\end{figure}
 
-\subsubsection{Activity diagram}
-\includegraphics[width=500px]{runSimulationToolActivity.eps}
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{executeAct.eps}
+\caption{executeFlowchart Activity Diagram}
+\end{figure}
+
+\newpage
+\section{The Domain Model - High-level}
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{HighLevelDomainModel.eps}
+\caption{Domain Model Diagram}
+\end{figure}
 
 \end{document}

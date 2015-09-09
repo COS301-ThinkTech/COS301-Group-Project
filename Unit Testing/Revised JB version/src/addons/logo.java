@@ -11,9 +11,9 @@ import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
 
-public class logo extends canvas2d
+public class Logo extends Canvas2d
 {    
-    public logo(int width, int height)
+    public Logo(int width, int height)
     {
         super(width,height);
         pos=new Point2D.Double(0,0);
@@ -23,7 +23,7 @@ public class logo extends canvas2d
     }
     int sub=1;
     
-    public logo(int width, int height, int sub)
+    public Logo(int width, int height, int sub)
     {
         super(width,height);
         pos=new Point2D.Double(0,0);

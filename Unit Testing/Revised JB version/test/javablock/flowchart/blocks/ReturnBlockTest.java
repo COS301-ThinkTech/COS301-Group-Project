@@ -99,19 +99,6 @@ public class ReturnBlockTest extends TestCase {
     }
 
     /**
-     * Test of getScriptFragmentForPython method, of class ReturnBlock.
-     */
-    public void testGetScriptFragmentForPython() {
-        System.out.println("getScriptFragmentForPython");
-        ReturnBlock instance = null;
-        String expResult = "";
-        String result = instance.getScriptFragmentForPython();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of shape method, of class ReturnBlock.
      */
     public void testShape() {

@@ -53,6 +53,11 @@ public final class StartEditor extends javax.swing.JPanel implements BlockEditor
 
         displayName.setSelected(true);
         displayName.setText(bundle.getString("startEditor.displayName")); // NOI18N
+        displayName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                displayNameActionPerformed(evt);
+            }
+        });
 
         fieldsScroll.setBorder(javax.swing.BorderFactory.createTitledBorder(bundle.getString("startEditor.arguments"))); // NOI18N
 
@@ -109,6 +114,10 @@ public final class StartEditor extends javax.swing.JPanel implements BlockEditor
         fields.add(f);
         makeList();
     }//GEN-LAST:event_addButtonActionPerformed
+
+    private void displayNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_displayNameActionPerformed
 
     public JBlock getBlock(){
         return editing;
@@ -169,7 +178,7 @@ public final class StartEditor extends javax.swing.JPanel implements BlockEditor
     public void setEditedBlock(JBlock b) {
         if(b==editing) return ;
         if(editing!=null)
-            finnishEdit();
+            finishEdit();
         editing=(StartBlock)b;
         fields.clear();
         fieldsPane.removeAll();
@@ -191,15 +200,17 @@ public final class StartEditor extends javax.swing.JPanel implements BlockEditor
         makeList();
     }
 
-    @Override
-    public void finnishEdit() {
-        saveBlock();
-        editing=null;
-    }
+
 
     @Override
     public boolean changes() {
         return false;
+    }
+
+    @Override
+    public void finishEdit() {
+        saveBlock();
+         editing=null;
     }
 
     class Field extends JPanel{

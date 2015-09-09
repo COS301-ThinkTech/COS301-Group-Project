@@ -152,19 +152,6 @@ public class StartBlockTest extends TestCase {
     }
 
     /**
-     * Test of getScriptFragmentForPython method, of class StartBlock.
-     */
-    public void testGetScriptFragmentForPython() {
-        System.out.println("getScriptFragmentForPython");
-        StartBlock instance = null;
-        String expResult = "";
-        String result = instance.getScriptFragmentForPython();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of generateIntro method, of class StartBlock.
      */
     public void testGenerateIntro() {

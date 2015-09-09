@@ -6,6 +6,7 @@
 package javablock.flowchart.blocks;
 
 import java.awt.Graphics2D;
+import javablock.flowchart.BlockEditor;
 import javablock.flowchart.Flowline;
 import javablock.flowchart.JBlock;
 import javax.script.ScriptEngine;
@@ -29,6 +30,19 @@ public class DecisionBlockTest extends TestCase {
         DecisionBlock instance = null;
         boolean expResult = false;
         boolean result = instance.isSwitchable();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getEditor method, of class DecisionBlock.
+     */
+    public void testGetEditor() {
+        System.out.println("getEditor");
+        DecisionBlock instance = null;
+        BlockEditor expResult = null;
+        BlockEditor result = instance.getEditor();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -90,19 +104,6 @@ public class DecisionBlockTest extends TestCase {
     }
 
     /**
-     * Test of getScriptFragmentForPython method, of class DecisionBlock.
-     */
-    public void testGetScriptFragmentForPython() {
-        System.out.println("getScriptFragmentForPython");
-        DecisionBlock instance = null;
-        String expResult = "";
-        String result = instance.getScriptFragmentForPython();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of shape method, of class DecisionBlock.
      */
     public void testShape() {
@@ -134,6 +135,43 @@ public class DecisionBlockTest extends TestCase {
         Graphics2D g2d = null;
         DecisionBlock instance = null;
         instance.drawText(g2d);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of clear method, of class DecisionBlock.
+     */
+    public void testClear() {
+        System.out.println("clear");
+        DecisionBlock instance = null;
+        instance.clear();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of addComparison method, of class DecisionBlock.
+     */
+    public void testAddComparison() {
+        System.out.println("addComparison");
+        String variable1 = "";
+        String variable2 = "";
+        DecisionBlock instance = null;
+        instance.addComparison(variable1, variable2);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getComparisons method, of class DecisionBlock.
+     */
+    public void testGetComparisons() {
+        System.out.println("getComparisons");
+        DecisionBlock instance = null;
+        String[][] expResult = null;
+        String[][] result = instance.getComparisons();
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
