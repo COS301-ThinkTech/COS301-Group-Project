@@ -129,34 +129,36 @@ public class DoWhile extends javax.swing.JPanel implements Generator{
 
             CPUBlock process=(CPUBlock) JBlock.make(JBlock.Type.CPU, f);
             process.setCode("");
-            process.setPos(100,100);
+            process.setPos(0,-90);
             list[p++]=process;
+            
 
             JumpBlock jump, jump2;
 
             jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
             jump.setPos(0, -50);
+            //process.connectTo(jump);
             jump.connectTo(condition);
             list[p++]=jump; //-----3
 
             jump2=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
-            jump2.setPos(100,0);
-            condition.connectTo(jump2);
-            jump2.connectTo(process);
+            jump2.setPos(200,0);
+            condition.connectTo(jump2); //Jump.(true )
+            jump2.connectTo(jump);
             list[p++]=jump2;    //-----4
 
             jump2=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
-            jump2.setPos(200,-50);
+            jump2.setPos(200,-150);
             jump2.connectTo(jump);
             list[p++]=jump2;    //-----5
 
             jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
-            jump.setPos(200, 100);
-            jump.connectTo(jump2);
-            process.connectTo(jump);
+            jump.setPos(0,-150);
+            //jump.connectTo(jump2);
+            
             list[p++]=jump; //-----6
 
-            jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
+            jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);  //Bottom jump.(false)
             jump.setPos(0,100);
             condition.connectTo(jump);
             list[p++]=jump; //-----7
