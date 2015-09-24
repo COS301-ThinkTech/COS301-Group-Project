@@ -814,6 +814,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     ArrayList<FlowElement> animatedElements=new ArrayList<FlowElement>();
     public void draw(Graphics2D g2d)
     {
+        
         AffineTransform id=g2d.getTransform();
         for(JBlock b: groups)
         {

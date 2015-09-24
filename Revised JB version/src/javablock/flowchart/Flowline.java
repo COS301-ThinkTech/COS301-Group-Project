@@ -1,6 +1,7 @@
 package javablock.flowchart;
 
 import config.Global;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Shape;
@@ -52,6 +53,7 @@ public class Flowline implements FlowElement {
     @Override
     public void shape(){
 
+        
         needUpdate=true;
         if(n.needUpdate)
             n.shape();
@@ -119,10 +121,47 @@ public class Flowline implements FlowElement {
     @Override
     public void draw(Graphics2D g2d)
     {
+        
         if(n==null || f==null) return ;
         if(needUpdate==true)
             shape();
-        g2d.setColor(f.borderColor);
+        g2d.setColor(Color.blue); //f.borderColor
+        if(Global.fullConnectorValue==false){
+            if(value == null ? "false" == null : value.equals("false"))
+                g2d.setStroke(Global.strokeSelection);
+            else
+                g2d.setStroke(Global.strokeNormal);
+        }
+        else{
+            if(value.length()>1){
+                AffineTransform transform = g2d.getTransform();
+                    g2d.translate(from.getX(), from.getY());
+                    if(angleL<0){
+                        g2d.rotate(-angleL - Math.PI/2);
+                        val.draw(g2d, 2, -3);
+                    }
+                    else{
+                        g2d.rotate(-angleL - Math.PI/2);
+                        g2d.scale(-1, -1);
+                        val.draw(g2d, (float)-val.getBounds().getWidth()-2, -3);
+                    }
+                g2d.setTransform(transform);
+            }
+        }
+        if(n.drawArrow(this))
+            g2d.fill(s);
+            //g2d.draw(s);
+        g2d.draw(line);
+        g2d.setStroke(Global.strokeNormal);
+    }
+    
+    public void drawExecuting(Graphics2D g2d)
+    {
+        
+        if(n==null || f==null) return ;
+        if(needUpdate==true)
+            shape();
+        g2d.setColor(Color.RED); //f.borderColor
         if(Global.fullConnectorValue==false){
             if(value == null ? "false" == null : value.equals("false"))
                 g2d.setStroke(Global.strokeSelection);

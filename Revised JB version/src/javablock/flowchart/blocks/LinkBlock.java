@@ -74,7 +74,7 @@ public class LinkBlock extends JBlock {
     public void draw(Graphics2D g2d){
         if(this.nowExecute){
             g2d.setStroke(Global.strokeSelection);
-            Line2D l=new Line2D.Double(posX, posY, linkTo.posX, linkTo.posY);
+            Line2D l=new Line2D.Double(posX, posY, linkTo.posX, linkTo.posY);            
             g2d.draw(l);
             g2d.setStroke(Global.strokeNormal);
         }

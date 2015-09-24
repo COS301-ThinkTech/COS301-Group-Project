@@ -347,7 +347,10 @@ public abstract class JBlock implements FlowElement{
 
     public JBlock nextBlock(){
         if(connects.size()==1)
+        {
+            
             return connects.get(0).n;
+        }
         return null;
     }
 
@@ -708,6 +711,7 @@ public abstract class JBlock implements FlowElement{
         if(nowExecute){
             gradient=new GradientPaint(0,shape.getBounds().y, color, 0,
                 (float) shape.getBounds().y+shape.getBounds().height, Color.GREEN);
+            
         }
         else{
             Color col;
@@ -979,8 +983,16 @@ public abstract class JBlock implements FlowElement{
 
 
     public void drawConnections(Graphics2D g2d){
+        if(nowExecute)
+        {
+            
+            for (int i = 0; i < connects.size(); i++)
+            connects.get(i).drawExecuting(g2d);
+        }
+        else{
         for (int i = 0; i < connects.size(); i++)
             connects.get(i).draw(g2d);
+        }
     }
     public void translate(float x, float y){
         posX+=x;
