@@ -704,11 +704,16 @@ public abstract class JBlock implements FlowElement{
         prerendered=false;
     }
     public void makeGradient(){
+        
         prerendered=false;
         prerender=null;
         if(gradient!=null)
             gradient=null;
         if(nowExecute){
+            if(type.toString().equals("LINK"))
+            {
+                System.out.println("Link Block Detected in Execution Cycle");
+            }
             gradient=new GradientPaint(0,shape.getBounds().y, color, 0,
                 (float) shape.getBounds().y+shape.getBounds().height, Color.GREEN);
             
@@ -986,8 +991,13 @@ public abstract class JBlock implements FlowElement{
         if(nowExecute)
         {
             
-            for (int i = 0; i < connects.size(); i++)
-            connects.get(i).drawExecuting(g2d);
+            for (int i = 0; i < connects.size(); i++){
+                connects.get(i).drawExecuting(g2d);
+                if(linkTo != null)
+                {
+                    linkTo.connects.get(i).drawExecuting(g2d);
+                }
+            }
         }
         else{
         for (int i = 0; i < connects.size(); i++)
