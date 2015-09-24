@@ -28,7 +28,9 @@ The flowchart planning and simulation  tool is a visual tool which aims to intro
 
 \subsection{Project vision}
 
-This project sets out to create an application for the planning and simulation of flowcharts, which
+Most first year computer science students come from a backgroud void of programming to a programming backgroud 
+and they struggle to grasp the logical programming concepts quickly and easily.
+Therefore, this project sets out to create an application with a simplified and easy-to-use interface for the planning and simulation of flowcharts, which
 can be used in an education setting for an introductory program logic course. The objective is to
 develop an application that can feasibly be used in such a practical setting. The application must be
 visual in nature, due to the visual nature of flowcharts. The application must facilitate exploration
@@ -82,7 +84,7 @@ Only the basic components of standard flowcharts are necessary.\\
        & deleteFlowchartComponent & \\
        & saveFlowchart & \\
        & loadFlowchart & \\
-       & runSimulationTool & \\
+       & executeFlowchart & \\
       \bottomrule
     \end{tabular}  
 \end{table}
@@ -94,56 +96,57 @@ Only the basic components of standard flowcharts are necessary.\\
 \subsection{createFlowchartProject}
 Creates an environment to enable users to start building flowcharts.\newline\newline
 \textbf{Pre Condition:} Planning canvas must be blank.\newline\newline
-\textbf{Post Condition:} New canvas created\newline
+\textbf{Post Condition:} New canvas with Start and Return component created.\newline
 \textbf{Post Condition:} Flowchart tools ready for use\newline
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=200px]{figure.jpg}
+\includegraphics[width=500px]{createNewFlowchartProject.eps}
 \caption{createFlowchartProject Use Case Diagram}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=200px]{figure.jpg}
+\includegraphics[width=500px]{createNewFlowchartProjectActivity.eps}
 \caption{createFlowchartProject Activity Diagram}
 \end{figure}
 
 \newpage
 \subsection{addFlowchartComponent}
 
-Provides users with functionality to drag and drop flowchart components into the planning canvas.\newline\newline
-\textbf{Pre Condition:} Canvas is available.\newline\newline
-\textbf{Post Condition:} Component has been added to flowchart.
+Provides users with functionality to select the flowchart components they want to add and place it on the planning canvas.\newline\newline
+\textbf{Pre Condition:} Canvas is available and flowchart exist.\newline\newline
+\textbf{Post Condition:} Component has been added to flowchart and appers on canvas with the necessary connections, if any.
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=200px]{figure.jpg}
+\includegraphics[width=500px]{addFlowChartComponent.eps}
 \caption{addFlowchartComponent Use Case Diagram}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=200px]{figure.jpg}
+\includegraphics[width=500px]{addFlowchartComponentActivity.eps}
 \caption{addFlowchartComponent Activity Diagram}
 \end{figure}
 
 \newpage
 \subsection{editFlowchartComponent}
 
-The editFlowchartComponent use case provides functionality for the user to edit each component of the flowchart on a canvas \newline\newline
-\textbf{Pre Condition:} Component must have been added\newline\newline
-\textbf{Post Condition:} Component has been edited
+The editFlowchartComponent use case provides functionality for the user to edit each component of the flowchart on the canvas \newline\newline
+\textbf{Pre Condition:} Component must have been added to the canvas\newline\newline
+\textbf{Post Condition:} Component has been edited and saved\newline
+\textbf{Post Condition:} Edited component has been saved
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=200px]{figure.jpg}
+\includegraphics[width=500px]{editFlowchartComponent.eps}
 \caption{editFlowchartComponent Use Case Diagram}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=200px]{figure.jpg}
+\includegraphics[width=500px]{editFlowchartComponentActivity.eps}
 \caption{editFlowchartComponent Activity Diagram}
 \end{figure}
 
@@ -174,13 +177,13 @@ The saveFlowchart use case provides functionality for the user to save a flowcha
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=200px]{figure.jpg}
+\includegraphics[width=500px]{saveFlowchartUseCase.eps}
 \caption{saveFlowchart Use Case Diagram}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=200px]{figure.jpg}
+\includegraphics[width=500px]{saveFlowchart.eps}
 \caption{saveFlowchart Activity Diagram}
 \end{figure}
 
@@ -192,13 +195,13 @@ loadFlowchart: users load flowcharts from existing files. The file is editable, 
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=200px]{figure.jpg}
+\includegraphics[width=500px]{loadFlowchart.eps}
 \caption{loadFlowchart Use Case Diagram}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=200px]{figure.jpg}
+\includegraphics[width=500px]{loadFlowchartActivityDiagram.eps}
 \caption{loadFlowchart Activity Diagram}
 \end{figure}
 
@@ -210,32 +213,32 @@ The deleteFlowchartComponent use case enables the functionality to delete indivi
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=500px]{deleteFlowchartComponentUseCase.eps}
-\caption{loadFlowchart Use Case Diagram}
+\includegraphics[width=500px]{delete.eps}
+\caption{deleteFlowchartComponent Use Case Diagram}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=500px]{deleteFlowchartComponentActivity.eps}
-\caption{loadFlowchart Activity Diagram}
+\includegraphics[width=500px]{deleteAct.eps}
+\caption{deleteFlowchartComponent Activity Diagram}
 \end{figure}
 
 \newpage
-\subsection{runSimulationTool}
-The runSimulation use case enables the functionality to execute the flowchart step-by-step or from start-to-end.\newline\newline
+\subsection{executeFlowchart}
+The executeFlowchart use case enables the functionality to execute the flowchart step-by-step or from start-to-end.\newline\newline
 \textbf{Pre Condition:} Canvas has to be available.\newline\newline
 \textbf{Post Condition:} Flowchart will return feedback of any errors, warnings or successful execution along with the results of any calculations.
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=500px]{runSimulationToolUseCase.eps}
-\caption{loadFlowchart Use Case Diagram}
+\includegraphics[width=500px]{execute.eps}
+\caption{executeFlowchart Use Case Diagram}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=500px]{runSimulationToolActivity.eps}
-\caption{loadFlowchart Activity Diagram}
+\includegraphics[width=500px]{executeAct.eps}
+\caption{executeFlowchart Activity Diagram}
 \end{figure}
 
 \newpage
@@ -243,7 +246,7 @@ The runSimulation use case enables the functionality to execute the flowchart st
 \begin{figure}[H]
   \centering
 \includegraphics[width=500px]{HighLevelDomainModel.eps}
-\caption{loadFlowchart Activity Diagram}
+\caption{Domain Model Diagram}
 \end{figure}
 
 \end{document}

@@ -27,18 +27,33 @@ public class BlocksToolBar extends JToolBar{
             for (JBlock.Type T : JBlock.StandardTypes) {
                 b = new JButton(); 
                 b.setToolTipText(translator.tooltips.getString(T.toString() + ".help"));
-                if(T == JBlock.StandardTypes[4])
+                if(T == JBlock.StandardTypes[5])
                 {
                     b.setActionCommand("foraction/FORLOOP" + T.toString());
-                }
-                else
+                    b.setName("foraction/FORLOOP" + T.toString());
+                }                
+                else if(T == JBlock.StandardTypes[3])
                 {
+                    b.setActionCommand("moduleaction/MODULE" + T.toString());
+                    b.setName("moduleaction/MODULE" + T.toString());
+                }
+                else if(T == JBlock.StandardTypes[6]){
+                    b.setActionCommand("whileaction/" + T.toString());
+                    b.setName("whileaction/" + T.toString());
+                }
+                else if(T == JBlock.StandardTypes[7]){
+                    b.setActionCommand("dowhileaction/" + T.toString());
+                    b.setName("dowhileaction/" + T.toString());
+                }
+                else{
                      b.setActionCommand("add/" + T.toString());
+                     b.setName("add/" + T.toString());
                 }
                 b.setPreferredSize(new Dimension(32, 32));
                 b.setIcon(new javax.swing.ImageIcon(JBlock.getIcon(T)));
                 std.add(b);
                 b.addActionListener(flow);
+                b.addMouseMotionListener(flow);
             }
             for (JBlock.Type T : JBlock.HelpingTypes) {
                 b = new JButton();
@@ -48,6 +63,7 @@ public class BlocksToolBar extends JToolBar{
                 b.setIcon(new javax.swing.ImageIcon(JBlock.getIcon(T)));
                 std.add(b);
                 b.addActionListener(flow);
+                b.addMouseMotionListener(flow);
             }
             blocks.add(std);
             add(blocks);       

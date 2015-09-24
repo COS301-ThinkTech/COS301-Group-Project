@@ -48,7 +48,6 @@ public final class configurator extends javax.swing.JFrame {
             
             
         engines.addItem("JavaScript");
-        //engines.addItem("python");
         highlighting.removeAllItems();
         highlighting.addItem(new ComboText(translator.config.getString("hlight.NONE"), "NONE"));
         highlighting.addItem(new ComboText(translator.config.getString("hlight.HIGHLIGHT"), "HIGHLIGHT"));

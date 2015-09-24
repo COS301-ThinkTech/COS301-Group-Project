@@ -103,9 +103,7 @@ public class StandardEditor extends javax.swing.JPanel implements BlockEditor {
             return ;
         if(addons.Syntax.loaded){
             if (Global.getManager().scriptEngine.equals("JavaScript"))
-                Content.setEditorKit((EditorKit) addons.Syntax.js);
-            else if (Global.getManager().scriptEngine.equals("python"))
-                Content.setEditorKit((EditorKit) addons.Syntax.py);
+                Content.setEditorKit((EditorKit) addons.Syntax.js);            
             else
                 Content.setEditorKit((EditorKit) addons.Syntax.plain);
             if(isHTML.isSelected())
@@ -156,8 +154,7 @@ public class StandardEditor extends javax.swing.JPanel implements BlockEditor {
         if(editing!=null)
         if(b==editing) return;
         //if(editing!=null)
-            saveBlock();
-        editing=null;
+            finishEdit();
         //System.out.println("setEditedBlock");
         beforeCode=b.code;
         beforeComment=b.comment;
@@ -172,7 +169,7 @@ public class StandardEditor extends javax.swing.JPanel implements BlockEditor {
     }
 
     @Override
-    public void finnishEdit() {
+    public void finishEdit() {
         saveBlock();
         editing=null;
     }

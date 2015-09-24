@@ -27,5 +27,16 @@ public class ForLoopBlockTest extends TestCase {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of prepareText method, of class ForLoopBlock.
+     */
+    public void testPrepareText() {
+        System.out.println("prepareText");
+        ForLoopBlock instance = null;
+        instance.prepareText();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }

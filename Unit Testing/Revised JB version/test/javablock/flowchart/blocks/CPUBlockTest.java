@@ -5,9 +5,6 @@
  */
 package javablock.flowchart.blocks;
 
-import javablock.FlowchartManager;
-import javablock.flowchart.Flowchart;
-import javablock.gui.MainWindow;
 import junit.framework.TestCase;
 
 /**
@@ -24,14 +21,11 @@ public class CPUBlockTest extends TestCase {
      * Test of shape method, of class CPUBlock.
      */
     public void testShape() {
-        System.out.println(" *** Check creation of CPUBlock");
-        
-        // Create an instace of CPUBlock
-        
-        CPUBlock instance = new CPUBlock(new Flowchart(new FlowchartManager(new MainWindow())));        
-        
-        //instance.shape();
+        System.out.println("shape");
+        CPUBlock instance = null;
+        instance.shape();
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
+    
 }

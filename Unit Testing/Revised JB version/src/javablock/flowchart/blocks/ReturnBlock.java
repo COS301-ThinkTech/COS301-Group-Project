@@ -73,26 +73,7 @@ public class ReturnBlock extends JBlock {
         //code+="break;\n";
         return code;
     }
-    @Override
-    public String getScriptFragmentForPython(){
-        String code="";
-        String c[]=getCode().split("\n");
-        boolean is=false;
-        for(String l: c){
-            if(l.length()>0){
-                while(l.charAt(0)==' '||l.charAt(0)=='\t')
-                    l=l.substring(1);
-                if(l.startsWith("return"))
-                    code+="\t\t\t"+l+"\n";
-                else
-                    code+="\t\t\treturn "+l+"\n";
-                is=true;
-            }
-        }
-        if(!is)
-            code+="\t\t\treturn 0;\n";
-        return code;
-    }
+    
 
     @Override
     public void shape(){
