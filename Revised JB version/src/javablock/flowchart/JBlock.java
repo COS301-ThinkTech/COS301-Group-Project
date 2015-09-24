@@ -707,7 +707,7 @@ public abstract class JBlock implements FlowElement{
             gradient=null;
         if(nowExecute){
             gradient=new GradientPaint(0,shape.getBounds().y, color, 0,
-                (float) shape.getBounds().y+shape.getBounds().height, color.brighter());
+                (float) shape.getBounds().y+shape.getBounds().height, Color.GREEN);
         }
         else{
             Color col;
