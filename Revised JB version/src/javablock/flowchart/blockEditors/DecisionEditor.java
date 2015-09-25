@@ -31,6 +31,7 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
     public DecisionEditor() {
         initComponents();
         delIcon = new javax.swing.ImageIcon(getClass().getResource("/icons/16/list-remove.png"));
+        makeList();
         Comparison c = new Comparison(this);
         comparisons.add(c);
         
@@ -39,7 +40,7 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         System.out.println("This is the decision editor consructor");
         codePanel.add(b);
         System.out.println(codePanel.toString());
-        makeList();
+        
     }
     DecisionBlock editing;
     private String beforeCode="";
@@ -55,14 +56,31 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        codePanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        addButton = new javax.swing.JButton();
         commentPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Comment = new javax.swing.JEditorPane();
+        codePanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        addButton = new javax.swing.JButton();
+        var1 = new javax.swing.JTextField();
+        var2 = new javax.swing.JTextField();
 
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(212, 331));
+
+        jScrollPane1.setViewportView(Comment);
+
+        javax.swing.GroupLayout commentPanelLayout = new javax.swing.GroupLayout(commentPanel);
+        commentPanel.setLayout(commentPanelLayout);
+        commentPanelLayout.setHorizontalGroup(
+            commentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+        );
+        commentPanelLayout.setVerticalGroup(
+            commentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Comment", commentPanel);
 
         jLabel1.setText("if:");
 
@@ -80,35 +98,30 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
             .addGroup(codePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(var1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(var2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
         );
         codePanelLayout.setVerticalGroup(
             codePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(codePanelLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addGap(40, 40, 40)
+                .addGap(25, 25, 25)
+                .addGroup(codePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(var1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(var2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addComponent(addButton)
                 .addContainerGap(197, Short.MAX_VALUE))
         );
 
+        var1.getAccessibleContext().setAccessibleName("var1");
+        var2.getAccessibleContext().setAccessibleName("var2");
+
         jTabbedPane1.addTab("Code", codePanel);
-
-        jScrollPane1.setViewportView(Comment);
-
-        javax.swing.GroupLayout commentPanelLayout = new javax.swing.GroupLayout(commentPanel);
-        commentPanel.setLayout(commentPanelLayout);
-        commentPanelLayout.setHorizontalGroup(
-            commentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-        );
-        commentPanelLayout.setVerticalGroup(
-            commentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Comment", commentPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -145,6 +158,8 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField var1;
+    private javax.swing.JTextField var2;
     // End of variables declaration//GEN-END:variables
    
      
@@ -168,11 +183,11 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
     public void saveBlock() {
         editing.clear();
        
-        System.out.println("SAVE");
+        System.out.println("Saving edited decision block");
         for(Comparison comp:comparisons)
         {
-             editing.addComparison(comp.comparisonVariable1.getText(), comp.comparisonVariable2.getText());
-             editing.setCode(comp.comparisonVariable1.getText() + " " /*+ comp.comparisonOperators.getSelectedItem().toString() + " "*/ + comp.comparisonVariable2.getText());
+             editing.addComparison(comp.var1.getText(), comp.var2.getText());
+             editing.setCode(comp.var1.getText() + " " /*+ comp.comparisonOperators.getSelectedItem().toString() + " "*/ + comp.var2.getText());
         }
         editing.setComment(Comment.getText());
         editing.shape();
@@ -196,15 +211,15 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
         editing=(DecisionBlock)b;
 //        comparisons.clear();
 //        codePanel.removeAll();
-       // comparisonVariable1.setText(editing.variable1);
-        //comparisonVariable2.setText(editing.variable2);
-        String I[][] = editing.getComparisons();
+        var1.setText(editing.var1);
+        var2.setText(editing.var2);
+        String l[][] = editing.getComparisons();
         
-        for(String c[]:I)
+        for(String c[]:l)
         {
             Comparison comparison = new Comparison(this);
-            comparison.comparisonVariable1.setText(c[0]);
-            comparison.comparisonVariable2.setText(c[1]);
+            comparison.var1.setText(c[0]);
+            comparison.var2.setText(c[1]);
             
             comparisons.add(comparison);
         }
@@ -231,8 +246,8 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
      class Comparison extends JPanel{
      
         JLabel ifLabel;
-        JTextField comparisonVariable1;
-        JTextField comparisonVariable2;
+        JTextField var1;
+        JTextField var2;
         JComboBox comparisonOperators;
         JComboBox logicalOperators;
         DecisionEditor d;
@@ -246,14 +261,14 @@ public final class DecisionEditor extends javax.swing.JPanel implements BlockEdi
             comparisonOperators.addItem(">");
             comparisonOperators.addItem("!=");
             
-            comparisonVariable1= new JTextField();
-            comparisonVariable2 = new JTextField();
+            var1= new JTextField();
+            var2 = new JTextField();
             JButton delete = new JButton();
             delete.setIcon(delIcon);
             this.setLayout(new BorderLayout());
-            codePanel.add(comparisonVariable1, BorderLayout.WEST);
+            codePanel.add(var1, BorderLayout.WEST);
             
-            add(comparisonVariable2, BorderLayout.EAST);
+            add(var2, BorderLayout.EAST);
             add(comparisonOperators, BorderLayout.CENTER);
             add(delete, BorderLayout.EAST);
             c = this;

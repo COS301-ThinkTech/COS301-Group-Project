@@ -4,7 +4,7 @@
  */
 
 package javablock.flowchart.blocks;
-import config.global;
+import config.Global;
 import config.translator;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
@@ -29,7 +29,7 @@ public class DecisionBlock extends JBlock {
     
     @Override
     public boolean isSwitchable(){return false;}
-    public String variable1, variable2;
+    public String var1 = "", var2 = "";
     public String compOperator;
     public String logicalOperator;
     public List<Comparison> comparisons = new ArrayList();
@@ -123,11 +123,11 @@ public class DecisionBlock extends JBlock {
     }
     @Override
     public void drawText(Graphics2D g2d){
-        if(global.useJLabels){
+        if(Global.useJLabels){
             super.drawText(g2d);
             return ;
         }
-        g2d.setStroke(global.strokeNormal);
+        g2d.setStroke(Global.strokeNormal);
         g2d.translate(bound.getX(), bound.getY()+height+1);
         g2d.setColor(textColor);
         for (int i = 0; i < txtList.size(); i++) {
@@ -159,10 +159,11 @@ public class DecisionBlock extends JBlock {
         return f;
     }
     class Comparison{
-         String var1, var2;
+        String var1, var2;
         Comparison()
         {
-            
+            var1 = "";
+            var2 = "";
         }
         public void setVar1(String v1)
         {
