@@ -22,36 +22,30 @@
 
 \pagebreak
 
-\section{Vision and scope}
+\section{Background, Vision and Scope}
 \subsection{Project background}
-The flowchart planning and simulation  tool is a visual tool which aims to introduce programming logic to students by providing  a platform to construct  and execute  flowcharts which depict basic programming structures whilst validating whether the flowchart components are valid .
+Without the correct or adeqaute number of resources, learning a new concept may turn out to be a daunting task. This is especially true for students who are studying a Computer Science course yet are not equipped with a practical or theoretical programming background. The motivation behind this project is to develop a tool that is intended to bridge the  gap between inexperience and practical application. The tool will provide the means to simulate program logic through flowcharts in a practical setting. 
 
 \subsection{Project vision}
 
-Most first year computer science students come from a backgroud void of programming to a programming backgroud 
-and they struggle to grasp the logical programming concepts quickly and easily.
-Therefore, this project sets out to create an application with a simplified and easy-to-use interface for the planning and simulation of flowcharts, which
-can be used in an education setting for an introductory program logic course. The objective is to
-develop an application that can feasibly be used in such a practical setting. The application must be
-visual in nature, due to the visual nature of flowcharts. The application must facilitate exploration
-and experimentation, while providing clear feedback to the user as to how the program executes.
+The aim of this project is to develop a flowchart and planning simulation tool that is simple and intuitive to use. Firstly, this will be accomplished by enhancing the visual nature of the application by making tools in certain contexts more prominent. Additionally, the application should provide informative and clear feedback to the user during the flowchart development phase. It is important that the look-and-feel of the application is uncluttered and uncomplicated so that the user feels at ease to experiment with the tools thereby enhancing the learning experience.
 
 \subsection{Project scope}
 
-The project consists of the following two components:
+The application is compromised of 2 units: flowchart development and flowchart simulation. An explanation of each unit will follow below.
 
 \begin{itemize}
-\item A planning canvas, in which a flowchart can be built using an intuitive drag-and-drop editor.
-Flowchart components will be selected and dropped into the canvas, and connected into
-complete flowcharts. The system will also have to do error checking on the constructed
-flowcharts, so that (for example) multiple entry points into a program or certain flowchart
-components are not allowed.
-\item An execution system, in which a flowchart can be run from start to finish. The system
-should allow for one-click execution of the entire program, as well as step-by-step
-execution. At all stages during execution, the currently executing component should be
+\item Flowchart development
+
+The user is presented with a canvas upon which he can drop flowchart components to create a  complete flowchart.
+The application will perform error checking on the constructed flowchart, so that (for example) multiple entry points into a program or certain flowchart components are not allowed. The applicatiom should also warn the user of instances of infinite loops or other  logical error possibilities. 
+
+\item Flowchart simulation
+
+The user should be able to run an error-free flowchart from start to finish. The system should allow for one-click execution of the entire program, as well as step-by-step execution. At all stages during execution, the currently executing component should be
 highlighted, as well as the connection path being followed. The program's execution should
 be very visually apparent and appealing. The output of the flowchart's execution should also
-be apparent.
+be apparent. 
 \end{itemize}
 
 The following components are specifically excluded from the scope of the project:
@@ -63,8 +57,11 @@ Only the basic components of standard flowcharts are necessary.\\
 
 \end{itemize}
 
+\begin{figure}[H]
+  \centering
 \includegraphics[width=500px]{projectScope.jpg}
-\centerline{High level system modules and their responsibilities.}
+\caption{High-level system modules and their responsibilities}
+\end{figure}
 % Include auxillary files here:  \input{file} 
 
 
@@ -72,21 +69,21 @@ Only the basic components of standard flowcharts are necessary.\\
 \section{Use case prioritization}
 
 
-\begin{table}[h!]  
-    \caption{Use case prioritization}
+\begin{table}[h!]   
     \label{tab:table1}
     \begin{tabular}{ccc}
       \toprule
       Critical & Important & Nice-To-Have\\
       \midrule	
-      createFlowchartProject & addFlowchartComponent &  drag-and-drop flowchart into bin\\
-      deleteFlowchart & editFlowchartComponent & \\
-       & deleteFlowchartComponent & \\
-       & saveFlowchart & \\
-       & loadFlowchart & \\
-       & executeFlowchart & \\
-      \bottomrule
-    \end{tabular}  
+      createFlowchartProject & addFlowchartComponent &  drag-and-drop components into bin\\
+      deleteFlowchart & editFlowchartComponent & snap-to-grid development\\
+       & deleteFlowchartComponent & predefined math functions\\
+       & saveFlowchart & infinite-loop detection\\
+       & loadFlowchart & logical-error detection\\
+       & executeFlowchart & look-and-feel modification\\
+      \bottomrule     
+     \end{tabular}  
+    \caption{Use case prioritization}
 \end{table}
 
 
@@ -97,7 +94,7 @@ Only the basic components of standard flowcharts are necessary.\\
 Creates an environment to enable users to start building flowcharts.\newline\newline
 \textbf{Pre Condition:} Planning canvas must be blank.\newline\newline
 \textbf{Post Condition:} New canvas with Start and Return component created.\newline
-\textbf{Post Condition:} Flowchart tools ready for use\newline
+\textbf{Post Condition:} Flowchart Planning and Simulation tools ready for use.\newline
 
 \begin{figure}[H]
   \centering
@@ -114,8 +111,8 @@ Creates an environment to enable users to start building flowcharts.\newline\new
 \newpage
 \subsection{addFlowchartComponent}
 
-Provides users with functionality to select the flowchart components they want to add and place it on the planning canvas.\newline\newline
-\textbf{Pre Condition:} Canvas is available and flowchart exist.\newline\newline
+Provides users with functionality to select the flowchart components they wish to place on the planning canvas.\newline\newline
+\textbf{Pre Condition:} Canvas is available.\newline\newline
 \textbf{Post Condition:} Component has been added to flowchart and appers on canvas with the necessary connections, if any.
 
 \begin{figure}[H]
@@ -134,9 +131,10 @@ Provides users with functionality to select the flowchart components they want t
 \subsection{editFlowchartComponent}
 
 The editFlowchartComponent use case provides functionality for the user to edit each component of the flowchart on the canvas \newline\newline
-\textbf{Pre Condition:} Component must have been added to the canvas\newline\newline
-\textbf{Post Condition:} Component has been edited and saved\newline
-\textbf{Post Condition:} Edited component has been saved
+\textbf{Pre Condition:} Canavas must exist.\newline
+\textbf{Pre Condition:} Component must exist on active canvas.\newline\newline
+\textbf{Post Condition:} Component has been edited.\newline
+\textbf{Post Condition:} Edited component has been saved.
 
 \begin{figure}[H]
   \centering
@@ -146,16 +144,38 @@ The editFlowchartComponent use case provides functionality for the user to edit 
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=500px]{editFlowchartComponentActivity.eps}
+\includegraphics[width=300px]{editFlowchartComponentActivity.eps}
 \caption{editFlowchartComponent Activity Diagram}
+\end{figure}
+
+
+\newpage
+\subsection{deleteFlowchartComponent}
+The deleteFlowchartComponent use case enables the functionality to delete individual components from the canvas.\newline\newline
+\textbf{Pre Condition:} The canvas has to be available. \newline
+\textbf{Pre Condition:} Component exists in the canvas space and is in the components list.\newline\newline
+\textbf{Post Condition:} The canvas is clear of any components that were selected for removal.
+
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{delete.eps}
+\caption{deleteFlowchartComponent Use Case Diagram}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+\includegraphics[width=500px]{deleteAct.eps}
+\caption{deleteFlowchartComponent Activity Diagram}
 \end{figure}
 
 \newpage
 \subsection{deleteFlowchart}
 The deleteFlowchartProject use case serves the purpose of removing a flowchart project.\newline\newline
-\textbf{Pre Condition:} The flowchart to be deleted must exist\newline
-\textbf{Pre Condition:} The flowchart to be deleted must be active\newline\newline
-\textbf{Post Condition:} The flowchart must be removed from the workspace and a new flowchart must be active
+\textbf{Pre Condition:} Canvas exists.\newline
+\textbf{Pre Condition:} Canvas is active.\newline
+\textbf{Pre Condition:} The flowchart to be deleted must exist.\newline
+\textbf{Pre Condition:} The flowchart to be deleted must be active.\newline\newline
+\textbf{Post Condition:} The flowchart must be removed from the workspace and a new flowchart must then be created and made active on the workspace.
 
 \begin{figure}[H]
   \centering
@@ -172,8 +192,9 @@ The deleteFlowchartProject use case serves the purpose of removing a flowchart p
 \newpage
 \subsection{saveFlowchart}
 The saveFlowchart use case provides functionality for the user to save a flowchart.\newline\newline
-\textbf{Pre Condition:} Canvas is open\newline\newline
-\textbf{Post Condition:} Flowchart has been saved to file
+\textbf{Pre Condition:} Canvas exists.\newline
+\textbf{Pre Condition:} Canvas is active.\newline\newline
+\textbf{Post Condition:} Flowchart has been saved to file.
 
 \begin{figure}[H]
   \centering
@@ -183,15 +204,15 @@ The saveFlowchart use case provides functionality for the user to save a flowcha
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=500px]{saveFlowchart.eps}
+\includegraphics[height=250px, width=300px]{saveFlowchart.eps}
 \caption{saveFlowchart Activity Diagram}
 \end{figure}
 
 \newpage
 \subsection{loadFlowchart}
-loadFlowchart: users load flowcharts from existing files. The file is editable, can be modified by the user.\newline\newline
-\textbf{Pre Condition:} File with correct extension already exists.\newline\newline
-\textbf{Post Condition:} Open the file and make it editable in the canvas element.
+The loadFlowchart use case allows users load flowcharts from existing files. The file is editable and can be modified by the user.\newline\newline
+\textbf{Pre Condition:} File with correct extension exists.\newline\newline
+\textbf{Post Condition:} File contents have been converted and loaded on to the canvas.
 
 \begin{figure}[H]
   \centering
@@ -205,23 +226,7 @@ loadFlowchart: users load flowcharts from existing files. The file is editable, 
 \caption{loadFlowchart Activity Diagram}
 \end{figure}
 
-\newpage
-\subsection{deleteFlowchartComponent}
-The deleteFlowchartComponent use case enables the functionality to delete individual components from the canvas.\newline\newline
-\textbf{Pre Condition:} The canvas has to be available. Component exists in the canvas space and is in the components list.\newline\newline
-\textbf{Post Condition:} The canvas is clear of any components that were selected for removal.
 
-\begin{figure}[H]
-  \centering
-\includegraphics[width=500px]{delete.eps}
-\caption{deleteFlowchartComponent Use Case Diagram}
-\end{figure}
-
-\begin{figure}[H]
-  \centering
-\includegraphics[width=500px]{deleteAct.eps}
-\caption{deleteFlowchartComponent Activity Diagram}
-\end{figure}
 
 \newpage
 \subsection{executeFlowchart}
@@ -237,7 +242,7 @@ The executeFlowchart use case enables the functionality to execute the flowchart
 
 \begin{figure}[H]
   \centering
-\includegraphics[width=500px]{executeAct.eps}
+\includegraphics[width=385px]{executeAct.eps}
 \caption{executeFlowchart Activity Diagram}
 \end{figure}
 
