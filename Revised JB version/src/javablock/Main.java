@@ -18,10 +18,10 @@ import java.net.URL;
 public class Main extends JApplet implements ActionListener, Runnable {
     public Main()
     {
-        Global.Classes=this.getClass().getClassLoader();
-        Global.setSystemLaF(true);
-        Global.setApplet(true);
-        Global.init();
+        global.Classes=this.getClass().getClassLoader();
+        global.setSystemLaF(true);
+        global.setApplet(true);
+        global.init();
         MainWindow w=new MainWindow();
         w.remove(w.menu);
         this.setLayout(new BorderLayout());
@@ -33,7 +33,7 @@ public class Main extends JApplet implements ActionListener, Runnable {
     @Override
     public void init()
     {
-        Global.setSystemLaF(true);
+        global.setSystemLaF(true);
         if(getParameter("url")!=null)
         if(!(getParameter("url").equals("none")))
         {
@@ -48,7 +48,7 @@ public class Main extends JApplet implements ActionListener, Runnable {
                 {
                     in+=str;
                 } reader.close();
-                Global.getManager().loadXml(in.toString());
+                global.getManager().loadXml(in.toString());
             } 
             catch (IOException ex) 
             {
@@ -62,8 +62,8 @@ public class Main extends JApplet implements ActionListener, Runnable {
     public static boolean judgeInited=false;
     public static void judgeInit()
     {
-        Global.GUI=false;
-        Global.init();
+        global.GUI=false;
+        global.init();
         judgeInited=true;
     }
     public static void judgeStart(JTextArea console, String argv[]){
@@ -83,7 +83,7 @@ public class Main extends JApplet implements ActionListener, Runnable {
             {
                 if(ar.endsWith(".jbf"))
                 {
-                    Global.lastFlow=ar;
+                    global.lastFlow=ar;
                     list[i]=ar;
                     i++;
                 }
@@ -92,21 +92,21 @@ public class Main extends JApplet implements ActionListener, Runnable {
         i--;
         if(i>=0 && (saveScripts || saveImages))
         {
-            Global.GUI=false;
+            global.GUI=false;
             while(i>=0){
                 MainWindow w=new MainWindow();
                 console.append("File: "+new File(list[i]).getName()+"\n");
                 console.append("\tLoading document\n");
-                Global.getManager().loadFile(list[i]);
-                Global.getManager().fc=new JFileChooser();
+                global.getManager().loadFile(list[i]);
+                global.getManager().fc=new JFileChooser();
                 File f=new File(list[i]);
-                Global.getManager().fc.setSelectedFile(f);
+                global.getManager().fc.setSelectedFile(f);
                 if(saveImages)
                 {
                     console.append("\tSaving image\n");
-                    Global.prerender=true;
+                    global.prerender=true;
                     System.out.println("Drawing");
-                    Global.getManager().saveAsImages(f.getParent(),
+                    global.getManager().saveAsImages(f.getParent(),
                             f.getName().substring(0, f.getName().length()-4));
                 }
                 if(saveScripts)
@@ -120,9 +120,9 @@ public class Main extends JApplet implements ActionListener, Runnable {
     
     public static void main(String argv[]) 
     {
-        Global.setApplet(false);
-        Global.init();
-        Global.setSystemLaF(true);
+        global.setApplet(false);
+        global.init();
+        global.setSystemLaF(true);
         boolean saveScripts=false;
         boolean saveImages=false;
         String list[]=new String[100];
@@ -135,10 +135,10 @@ public class Main extends JApplet implements ActionListener, Runnable {
             if(ar.equals("-saveImages"))
                 saveImages=true;
             else if(ar.equals("-uneditable"))
-                Global.editable=false;
+                global.editable=false;
             else{
                 if(ar.endsWith(".jbf")){
-                    Global.lastFlow=ar;
+                    global.lastFlow=ar;
                     list[i]=ar;
                     i++;
                 }
@@ -147,17 +147,17 @@ public class Main extends JApplet implements ActionListener, Runnable {
         i--;
         if(i>=0 && (saveScripts || saveImages))
         {
-            Global.GUI=false;
+            global.GUI=false;
             while(i>=0){
                 MainWindow w=new MainWindow();
-                Global.getManager().loadFile(list[i]);
-                Global.getManager().fc=new JFileChooser();
+                global.getManager().loadFile(list[i]);
+                global.getManager().fc=new JFileChooser();
                 File f=new File(list[i]);
-                Global.getManager().fc.setSelectedFile(f);
+                global.getManager().fc.setSelectedFile(f);
                 if(saveImages){
-                    Global.prerender=true;
+                    global.prerender=true;
                     System.out.println("Drawing");
-                    Global.getManager().saveAsImages(f.getParent(),
+                    global.getManager().saveAsImages(f.getParent(),
                             f.getName().substring(0, f.getName().length()-4));
                 }
                 
@@ -167,7 +167,7 @@ public class Main extends JApplet implements ActionListener, Runnable {
         }
         else
         {
-            if (Global.showSplash) 
+            if (global.showSplash) 
             {
                 Splash spl = new Splash(4000);
                 spl.showSplash();
@@ -205,13 +205,13 @@ public class Main extends JApplet implements ActionListener, Runnable {
     {
         try 
         {
-            for (ScriptRunner run : Global.runners) 
+            for (ScriptRunner run : global.runners) 
             {
                 run.close();
             }
-            if(Global.getManager()!=null)
-                Global.getManager().saveExit();
-            Global.conf.saveConfig();
+            if(global.getManager()!=null)
+                global.getManager().saveExit();
+            global.conf.saveConfig();
             super.finalize();
             System.exit(0);
         } 

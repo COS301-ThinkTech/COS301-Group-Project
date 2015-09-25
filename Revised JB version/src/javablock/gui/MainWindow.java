@@ -1,6 +1,6 @@
 package javablock.gui;
 
-import config.Global;
+import config.global;
 import config.misc;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
@@ -22,9 +22,9 @@ public final class MainWindow extends javax.swing.JFrame
     boolean inited=false;
     public MainWindow() {
         addComponentListener(this);
-        Global.Window=this;
+        global.Window=this;
         initComponents();
-        if(Global.GUI){
+        if(global.GUI){
             try {
                 this.setIconImage(ImageIO.read(getClass().getResource("/javablock/gui/icon.png")));
             } catch (IOException ex) {}
@@ -47,19 +47,19 @@ public final class MainWindow extends javax.swing.JFrame
                             }
                         });
                     else{
-                        Global.conf.saveConfig();
+                        global.conf.saveConfig();
                         System.exit(0);
                     }
                 }
             }
         );
-        if(!Global.applet)
-            setBounds(Global.WindowSize);
+        if(!global.applet)
+            setBounds(global.WindowSize);
         init();
-        if(Global.loadLast)
+        if(global.loadLast)
             Manager.loadLast();
-        Global.setGlobalManager(Manager);
-        Global.ready=true;
+        global.setGlobalManager(Manager);
+        global.ready=true;
     }
 
     void init(){
@@ -74,7 +74,7 @@ public final class MainWindow extends javax.swing.JFrame
         }
         Manager=new FlowchartManager(this);
         Manager.makeUI(false);
-        Global.setGlobalManager(Manager);
+        global.setGlobalManager(Manager);
         FLOW.removeAll();
         FLOW.add(Manager);
         System.gc();
@@ -91,7 +91,7 @@ public final class MainWindow extends javax.swing.JFrame
             if (oldManager != null) 
                 oldManager.close();
             Manager.makeUI(false);
-            Global.setGlobalManager(Manager);
+            global.setGlobalManager(Manager);
             FLOW.removeAll();
             FLOW.add(Manager);
             System.gc();
@@ -754,41 +754,41 @@ public final class MainWindow extends javax.swing.JFrame
     }                                          
 
     private void menuGridBoolActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        Global.grid=menuGridBool.getState();
+        global.grid=menuGridBool.getState();
         Manager.flow.update();
     }                                        
 
     private void menuAABoolActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        Global.antialiasing=menuAABool.getState();
+        global.antialiasing=menuAABool.getState();
         Manager.flow.update();
     }                                                                            
 
     private void menuPascalModeActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        Global.pascalMode=menuPascalMode.getState();
+        global.pascalMode=menuPascalMode.getState();
     }                                              
 
     private void menuGridBoolActionPerformed1(java.awt.event.ActionEvent evt) {                                              
-        Global.grid=menuGridBool.getState();
+        global.grid=menuGridBool.getState();
         Manager.flow.update();
     }                                             
 
     private void menuFullConnectorsValuesActionPerformed(java.awt.event.ActionEvent evt) {                                                         
-        Global.fullConnectorValue=menuFullConnectorsValues.getState();
+        global.fullConnectorValue=menuFullConnectorsValues.getState();
         Manager.flow.update();
     }                                                        
 
     private void menuSettingsActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        Global.conf.show();
+        global.conf.show();
     }                                           
                                   
 
     private void menuHelpActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        widgets.Help.showHelp();
+        widgets.help.showHelp();
     }                                
 
     private void menuExitActionPerformed(java.awt.event.ActionEvent evt) {                                         
         Manager.saveExit();
-        Global.conf.saveConfig();
+        global.conf.saveConfig();
         System.exit(0);
     }                                        
     
@@ -926,10 +926,10 @@ Rectangle windowSize;
         if (this.Manager != null) {
           this.scriptInterval.setValue(Integer.valueOf(this.Manager.flow.interval));
         }
-        this.menuAABool.setState(Global.antialiasing);
-        this.menuGridBool.setState(Global.grid);
-        this.menuPascalMode.setState(Global.pascalMode);
-        this.menuFullConnectorsValues.setState(Global.fullConnectorValue);
+        this.menuAABool.setState(global.antialiasing);
+        this.menuGridBool.setState(global.grid);
+        this.menuPascalMode.setState(global.pascalMode);
+        this.menuFullConnectorsValues.setState(global.fullConnectorValue);
         //this.engine.setSelectedItem(men.scriptEngine);
     }
 
@@ -962,7 +962,7 @@ Rectangle windowSize;
 
     @Override
     public void componentHidden(ComponentEvent ce) {
-        Global.getManager().close();
+        global.getManager().close();
     }
 
 }

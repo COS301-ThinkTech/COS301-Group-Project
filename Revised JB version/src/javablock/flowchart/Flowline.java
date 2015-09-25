@@ -1,6 +1,6 @@
 package javablock.flowchart;
 
-import config.Global;
+import config.global;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -67,7 +67,7 @@ public class Flowline implements FlowElement {
 
         //float ang=(float) Math.atan2(from.getX()-to.getX(), from.getY()-to.getY());
 
-        if(Global.bezierCurves && Math.abs(angle)!=0 &&
+        if(global.bezierCurves && Math.abs(angle)!=0 &&
                 Math.abs(angle)!=Math.PI/2 && Math.abs(angle)!=Math.PI){
             curve.reset();
             curve.moveTo(from.getX(),from.getY());
@@ -112,9 +112,9 @@ public class Flowline implements FlowElement {
         if(value.length()==0)
             value=" ";
         if(config.translator.misc.containsKey(value))
-            val=new TextLayout(config.translator.misc.getString(value), Global.monoFont, f.flow.frc);
+            val=new TextLayout(config.translator.misc.getString(value), global.monoFont, f.flow.frc);
         else
-            val=new TextLayout(value, Global.monoFont, f.flow.frc);
+            val=new TextLayout(value, global.monoFont, f.flow.frc);
         needUpdate=false;
     }
     
@@ -126,11 +126,11 @@ public class Flowline implements FlowElement {
         if(needUpdate==true)
             shape();
         g2d.setColor(Color.blue); //f.borderColor
-        if(Global.fullConnectorValue==false){
+        if(global.fullConnectorValue==false){
             if(value == null ? "false" == null : value.equals("false"))
-                g2d.setStroke(Global.strokeSelection);
+                g2d.setStroke(global.strokeSelection);
             else
-                g2d.setStroke(Global.strokeNormal);
+                g2d.setStroke(global.strokeNormal);
         }
         else{
             if(value.length()>1){
@@ -152,7 +152,7 @@ public class Flowline implements FlowElement {
             g2d.fill(s);
             //g2d.draw(s);
         g2d.draw(line);
-        g2d.setStroke(Global.strokeNormal);
+        g2d.setStroke(global.strokeNormal);
     }
     
     public void drawExecuting(Graphics2D g2d)
@@ -162,11 +162,11 @@ public class Flowline implements FlowElement {
         if(needUpdate==true)
             shape();
         g2d.setColor(Color.RED); //f.borderColor
-        if(Global.fullConnectorValue==false){
+        if(global.fullConnectorValue==false){
             if(value == null ? "false" == null : value.equals("false"))
-                g2d.setStroke(Global.strokeSelection);
+                g2d.setStroke(global.strokeSelection);
             else
-                g2d.setStroke(Global.strokeNormal);
+                g2d.setStroke(global.strokeNormal);
         }
         else{
             if(value.length()>1){
@@ -188,7 +188,7 @@ public class Flowline implements FlowElement {
             g2d.fill(s);
             //g2d.draw(s);
         g2d.draw(line);
-        g2d.setStroke(Global.strokeNormal);
+        g2d.setStroke(global.strokeNormal);
     }
 
     @Override

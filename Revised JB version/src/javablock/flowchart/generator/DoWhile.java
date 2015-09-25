@@ -5,7 +5,7 @@
  */
 package javablock.flowchart.generator;
 
-import config.Global;
+import config.global;
 import config.translator;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
@@ -115,7 +115,7 @@ public class DoWhile extends javax.swing.JPanel implements Generator{
     @Override
     public JBlock[] get(Flowchart f) {
         DoWhile g=this;
-        int res=JOptionPane.showConfirmDialog(Global.Window, g, 
+        int res=JOptionPane.showConfirmDialog(global.Window, g, 
                 translator.get("generator.dowhile.title"),
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if(res==JOptionPane.OK_OPTION){

@@ -20,7 +20,7 @@ import javax.xml.parsers.*;
 import org.w3c.dom.*;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-import widgets.Help;
+import widgets.help;
 
 public final class FlowchartManager extends JPanel implements ActionListener{
     
@@ -43,7 +43,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
     {
         this.gui=gui;
         gui.Manager=this;
-        workspace=new Workspace(this, Global.workspaceType);
+        workspace=new Workspace(this, global.workspaceType);
         workspace.setSheetList(flows);
         setLayout(new BorderLayout());
         New();
@@ -69,19 +69,19 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         try 
         {
             
-            if(Global.applet)
+            if(global.applet)
             {
-                file=new File(Global.confDir+"/last.jbf");
+                file=new File(global.confDir+"/last.jbf");
                 Writer fw = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
                 fw.write(saveXml());
                 return 1;
             }
             file=fc.getSelectedFile();
             if(file==null)
-                file=new File(Global.confDir+"/last.jbf");
+                file=new File(global.confDir+"/last.jbf");
             else
             {
-                int o=JOptionPane.showConfirmDialog(Global.Window, 
+                int o=JOptionPane.showConfirmDialog(global.Window, 
                         "Save Project?");
                 if(o==JOptionPane.NO_OPTION)
                     return 0;
@@ -91,7 +91,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             Writer fw = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
             fw.write(saveXml());
             fw.close();
-            Global.lastFlow=file.getAbsolutePath();
+            global.lastFlow=file.getAbsolutePath();
             return 1;
         } 
         catch (HeadlessException ex)
@@ -106,12 +106,12 @@ public final class FlowchartManager extends JPanel implements ActionListener{
     }
     public int saveClose()
     {
-        if(Global.applet)
+        if(global.applet)
         {
             saveFile();
             return 1;
         }
-        int o = JOptionPane.showConfirmDialog(Global.Window,
+        int o = JOptionPane.showConfirmDialog(global.Window,
                 "Czy chcesz zapisać zmiany?");
         if (o == JOptionPane.NO_OPTION)
             return 0;
@@ -127,18 +127,18 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         try
         {
             newFileChooser();
-            file=new File(Global.lastFlow);
+            file=new File(global.lastFlow);
             if(file.exists())
             {
-                System.out.println("load: "+Global.lastFlow);
-                loadFile(Global.lastFlow);
-                if(!Global.lastFlow.equals(Global.confDir+"/last.jbf"))
-                    fc.setSelectedFile(new File(Global.lastFlow));
+                System.out.println("load: "+global.lastFlow);
+                loadFile(global.lastFlow);
+                if(!global.lastFlow.equals(global.confDir+"/last.jbf"))
+                    fc.setSelectedFile(new File(global.lastFlow));
                 else
                     fc.setSelectedFile(null);
                 if(flows.isEmpty())
                 {
-                    JOptionPane.showMessageDialog(Global.Window, translator.get("popup.loadLastError"),
+                    JOptionPane.showMessageDialog(global.Window, translator.get("popup.loadLastError"),
                         translator.get("popup.loadError.head"), JOptionPane.ERROR_MESSAGE);
                     New();
                 }
@@ -146,7 +146,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         } 
         catch (HeadlessException e)
         {
-            JOptionPane.showMessageDialog(Global.Window, translator.get("popup.loadLastError"),
+            JOptionPane.showMessageDialog(global.Window, translator.get("popup.loadLastError"),
                     translator.get("popup.loadError.head"), JOptionPane.ERROR_MESSAGE);
             New();
         }
@@ -202,9 +202,9 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         {
             f.delete();
         }
-        scriptEngine=Global.scriptEngine;
+        scriptEngine=global.scriptEngine;
         historyArchive=false;
-        Global.reset();
+        global.reset();
         history.clear();
         historyPos=0;
         workspace.removeAll();
@@ -307,7 +307,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
     public void historyAdd()
     {
         if(!keepHistory) return ;
-        if(Global.applet) return ;
+        if(global.applet) return ;
         if(!historyArchive) return ;
         String n=saveXml();
         if(true)
@@ -336,7 +336,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
     }
     public void historyUndo()
     {
-        if(Global.applet) return ;
+        if(global.applet) return ;
         if(historyPos==0){
             gui.redoAvaiable(historyPos+1<history.size());
             gui.undoAvaiable(historyPos>0);
@@ -352,7 +352,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
     }
     public void historyRedo()
     {
-        if(Global.applet) return ;
+        if(global.applet) return ;
         if(historyPos+1==history.size()){
             gui.redoAvaiable(historyPos+1<history.size());
             gui.undoAvaiable(historyPos>0);
@@ -513,13 +513,13 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             DocumentBuilder docBuilder = factory.newDocumentBuilder();
             Document doc = docBuilder.newDocument();
             Element root = doc.createElement("JavaBlocks");
-            root.setAttribute("version", ""+Global.version);
+            root.setAttribute("version", ""+global.version);
             root.setAttribute("scriptEngine", scriptEngine);
             doc.appendChild(root);
             Element options=doc.createElement("option");
-            options.setAttribute("pascal", Global.pascalMode+"");
-            options.setAttribute("grid", Global.grid+"");
-            options.setAttribute("fullConnectorValues", Global.fullConnectorValue+"");
+            options.setAttribute("pascal", global.pascalMode+"");
+            options.setAttribute("grid", global.grid+"");
+            options.setAttribute("fullConnectorValues", global.fullConnectorValue+"");
             root.appendChild(options);
             for(int i=0; i<flows.size(); i++)
                 flows.get(i).saveXml(root);
@@ -536,7 +536,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
     {
         try
         {
-            Global.reset();
+            global.reset();
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder;
             docBuilder = factory.newDocumentBuilder();
@@ -552,11 +552,11 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             for(int i=0; i<options.getLength(); i++){
                 Element o=(Element)options.item(i);
                 if(o.getAttribute("pascal").equals("true"))
-                    Global.pascalMode=true;
+                    global.pascalMode=true;
                 if(o.hasAttribute("grid"))
-                    Global.grid=Boolean.parseBoolean(o.getAttribute("grid"));
+                    global.grid=Boolean.parseBoolean(o.getAttribute("grid"));
                 if(o.hasAttribute("fullConnectorValues"))
-                    Global.fullConnectorValue=
+                    global.fullConnectorValue=
                             Boolean.parseBoolean(o.getAttribute("fullConnectorValues"));
             }
             NodeList flowList=main.getElementsByTagName("flowchart");
@@ -597,7 +597,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             historyArchive=false;
             history.clear();
             historyPos=0;
-            Global.reset();
+            global.reset();
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder;
             docBuilder = factory.newDocumentBuilder();
@@ -639,7 +639,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             historyArchive=false;
             history.clear();
             historyPos=0;
-            Global.reset();
+            global.reset();
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder;
             docBuilder = factory.newDocumentBuilder();
@@ -680,8 +680,8 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             if (main.hasAttribute("version")) 
             {
                 int v = Integer.parseInt(main.getAttribute("version"));
-                if (v / 10 > Global.version / 10) {
-                    JOptionPane.showMessageDialog(Global.Window, 
+                if (v / 10 > global.version / 10) {
+                    JOptionPane.showMessageDialog(global.Window, 
                             translator.get("popup.flowchartNewer"));
                 }
             }
@@ -697,15 +697,15 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                 Element o = (Element) options.item(i);
                 if (o.getAttribute("pascal").equals("true")) 
                 {
-                    Global.pascalMode = true;
+                    global.pascalMode = true;
                 }
                 if (o.hasAttribute("grid"))
                 {
-                    Global.grid = Boolean.parseBoolean(o.getAttribute("grid"));
+                    global.grid = Boolean.parseBoolean(o.getAttribute("grid"));
                 }
                 if (o.hasAttribute("fullConnectorValues"))
                 {
-                    Global.fullConnectorValue =
+                    global.fullConnectorValue =
                             Boolean.parseBoolean(o.getAttribute("fullConnectorValues"));
                 }
             }
@@ -890,7 +890,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         else if(action[0].equals("show"))
         {
             if(action[1].equals("help"))
-                Help.showHelp();
+                help.showHelp();
         }
         else if(action[0].equals("clp"))
         {

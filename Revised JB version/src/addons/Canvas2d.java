@@ -1,6 +1,6 @@
 package addons;
 
-import config.Global;
+import config.global;
 import config.misc;
 import java.awt.*;
 import java.awt.event.*;
@@ -19,7 +19,7 @@ public class Canvas2d extends JPanel
     JMenuBar menu;
     public Canvas2d(int width, int height)
     {
-        Global.setSystemLaF(true);
+        global.setSystemLaF(true);
         img=new BufferedImage(width, height, BufferedImage.TYPE_4BYTE_ABGR);
         this.w=width;
         this.h=height;
@@ -145,7 +145,7 @@ public class Canvas2d extends JPanel
     }
     public void update()
     {
-        if(!Global.applet)
+        if(!global.applet)
         if(!f.isShowing())
             f.show();
         repaint();

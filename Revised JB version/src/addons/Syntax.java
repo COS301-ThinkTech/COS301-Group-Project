@@ -125,7 +125,7 @@ public class Syntax {
                 //c.getMethod("initKit").invoke(html);
                 
                 loaded=true;
-                config.Global.jsyntaxpane=true;
+                config.global.jsyntaxpane=true;
             } catch (InstantiationException ex) {Logger.getLogger(Syntax.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalAccessException ex) {Logger.getLogger(Syntax.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalArgumentException ex) {Logger.getLogger(Syntax.class.getName()).log(Level.SEVERE, null, ex);

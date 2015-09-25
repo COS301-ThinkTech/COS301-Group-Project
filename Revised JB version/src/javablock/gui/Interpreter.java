@@ -1,5 +1,5 @@
 package javablock.gui;
-import addons.Addons;
+import addons.addons;
 import config.*;
 import java.awt.BorderLayout;
 import java.awt.Rectangle;
@@ -23,7 +23,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
     private FlowchartManager manager;
     /** Creates new form Interpreter */
     int lines;
-    Addons add=null;
+    addons add=null;
     reader read;
     
     int wait=0;
@@ -41,7 +41,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         read=new reader(this);
         //run=new ScriptRunner(this);
         inputReader=new reader(this);
-        add=new Addons();
+        add=new addons();
         ValuesPanel.setViewportView(values2);
         ValuesPanel.validate();
         init();
@@ -60,11 +60,11 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         commandLabel.setVisible(false);
         exeButton.setVisible(false);
         command.setVisible(false);
-        StartButton = Global.Window.scriptStart;
-        RunButton = Global.Window.scriptRun;
-        StepButton = Global.Window.scriptStep;
-        StopButton = Global.Window.scriptStop;
-        IntervalSpiner = Global.Window.scriptInterval;
+        StartButton = global.Window.scriptStart;
+        RunButton = global.Window.scriptRun;
+        StepButton = global.Window.scriptStep;
+        StopButton = global.Window.scriptStop;
+        IntervalSpiner = global.Window.scriptInterval;
         //embeddConsole.add(controll, BorderLayout.WEST);
     }
 
@@ -77,15 +77,15 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         script.put("addons", add);
         inputReader.reset();
         if (allScripts.length()==0 || preScript==null ||
-                !preScript.equals(Global.getManager().scriptEngine)) {
+                !preScript.equals(global.getManager().scriptEngine)) {
             BufferedReader reader = null;
             allScripts = "";
-            preScript=Global.getManager().scriptEngine;
+            preScript=global.getManager().scriptEngine;
             try {
                 String tmp;
                 add.interpreter = this;
                 add.engine = script;
-                allScripts+=config.scriptLoader.getScript(Global.getManager().scriptEngine);
+                allScripts+=config.scriptLoader.getScript(global.getManager().scriptEngine);
                 File dir = new File(System.getProperty("user.home") + "/.JavaBlock/scripts");
                 String ex="js";
                 
@@ -138,15 +138,15 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         if (m != null) 
             return;
         m = new ScriptEngineManager();
-        if(Global.applet){
+        if(global.applet){
             return ;
         }
        
         File f = new File(System.getProperty("user.home") + "/.JavaBlock/modules/jython.jar");
         if(!f.exists())
-            f = new File(new File(Global.Window.getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent()+"/lib/jython.jar");
+            f = new File(new File(global.Window.getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent()+"/lib/jython.jar");
         if(!f.exists())
-            f = new File(new File(Global.Window.getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent()+"/modules/jython.jar");
+            f = new File(new File(global.Window.getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParent()+"/modules/jython.jar");
         if (f.exists()) {
             try {
                 URL[] urls = new URL[]{
@@ -171,47 +171,47 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
     }
     static boolean pythonErrorInformed=false;
     private void setEngine(){
-        if(Global.applet){
-            if(Global.getManager().scriptEngine.equals("python")){
+        if(global.applet){
+            if(global.getManager().scriptEngine.equals("python")){
                 if(!pythonErrorInformed)
-                JOptionPane.showMessageDialog(Global.Window,
+                JOptionPane.showMessageDialog(global.Window,
                         translator.get("popup.pythonApplet"));
                 pythonErrorInformed=true;
-                Global.getManager().scriptEngine="JavaScript";
-                Global.scriptEngine="JavaScript";
-                script=m.getEngineByName(Global.getManager().scriptEngine);
+                global.getManager().scriptEngine="JavaScript";
+                global.scriptEngine="JavaScript";
+                script=m.getEngineByName(global.getManager().scriptEngine);
             }
         }
-        script=m.getEngineByName(Global.getManager().scriptEngine);
-        if(script==null && Global.getManager().scriptEngine.equals("python")){
+        script=m.getEngineByName(global.getManager().scriptEngine);
+        if(script==null && global.getManager().scriptEngine.equals("python")){
             initManager();
-            script=m.getEngineByName(Global.getManager().scriptEngine);
+            script=m.getEngineByName(global.getManager().scriptEngine);
             if(script==null){
-                int ok=JOptionPane.showConfirmDialog(Global.Window, 
+                int ok=JOptionPane.showConfirmDialog(global.Window, 
                         translator.get("popup.pythonNotFound"), 
                         translator.get("popup.pythonNotFound.head"), JOptionPane.YES_NO_OPTION);
                 if(ok==JOptionPane.YES_OPTION)
                     configurator.installJython();
                 else{
-                    Global.getManager().scriptEngine="JavaScript";
-                    Global.scriptEngine="JavaScript";
-                    script=m.getEngineByName(Global.getManager().scriptEngine);
+                    global.getManager().scriptEngine="JavaScript";
+                    global.scriptEngine="JavaScript";
+                    script=m.getEngineByName(global.getManager().scriptEngine);
                 }
             }
         }
         if(script==null){
-            JOptionPane.showMessageDialog(Global.Window, 
-                    Global.getManager().scriptEngine+" "+translator.get("popup.notFound") +"!");
-            Global.getManager().scriptEngine="JavaScript";
-            Global.scriptEngine="JavaScript";
-            script=m.getEngineByName(Global.getManager().scriptEngine);
+            JOptionPane.showMessageDialog(global.Window, 
+                    global.getManager().scriptEngine+" "+translator.get("popup.notFound") +"!");
+            global.getManager().scriptEngine="JavaScript";
+            global.scriptEngine="JavaScript";
+            script=m.getEngineByName(global.getManager().scriptEngine);
         }
-        //System.out.println("Script started: "+Global.getManager().scriptEngine);
+        //System.out.println("Script started: "+global.getManager().scriptEngine);
         loadScripts();
         inputReader.reset();
     }
     public void reset(){
-        if(!Global.ready) return ;
+        if(!global.ready) return ;
         if(run != null && run.isRunning())
             run.pause();
         if(script!=null){
@@ -660,7 +660,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
 
     public void updateVisual(){
         JTable2 values=values2;
-        if(Global.markChanges)
+        if(global.markChanges)
             values.low();
         String n;
         if(script!=null)
@@ -676,7 +676,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
                 } catch (ScriptException ex) {
                 }
             }
-        if(Global.markChanges)
+        if(global.markChanges)
             values.repaint();
         flow.update();
     }
@@ -780,7 +780,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         wait=Integer.parseInt(IntervalSpiner.getValue().toString());
         if(!run.isRunning()){
             run.wait=wait;
-            if(Global.singleCall && wait==0){
+            if(global.singleCall && wait==0){
                 run.wait=-1;
                 RunButton.setEnabled(false);
                 StepButton.setEnabled(false);
@@ -811,7 +811,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
                 script.eval(command.getText());
             command.setText("");
         } catch (ScriptException ex) {
-            JOptionPane.showMessageDialog(Global.Window,
+            JOptionPane.showMessageDialog(global.Window,
                     translator.get("popup.error")+":\n"+ex.getMessage(),
                     translator.get("popup.error"),
                     JOptionPane.ERROR_MESSAGE);
@@ -849,8 +849,8 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         this.setBounds(b.x, b.y, 25, b.height);
         
         super.hide();
-        Global.getManager().makeUI(false);
-        Global.getManager().SecSplit.setDividerLocation(0.0f);
+        global.getManager().makeUI(false);
+        global.getManager().SecSplit.setDividerLocation(0.0f);
     }
 
     public boolean state[]={false,true,false,false};

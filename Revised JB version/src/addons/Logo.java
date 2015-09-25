@@ -1,6 +1,6 @@
 package addons;
 
-import config.Global;
+import config.global;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -97,7 +97,7 @@ public class Logo extends Canvas2d
     @Override
     public void update()
     {
-        if(!Global.applet)
+        if(!global.applet)
             if(!f.isShowing())
                 f.show();
         //AF=G.getTransform();
@@ -313,11 +313,11 @@ public class Logo extends Canvas2d
                         Integer.parseInt(e[3]));
             }
         }catch(NumberFormatException ex){
-            JOptionPane.showMessageDialog(Global.Window, "Error while parsing Number",
+            JOptionPane.showMessageDialog(global.Window, "Error while parsing Number",
                     "Script error", JOptionPane.ERROR);
         }
         catch(Exception ex){
-            JOptionPane.showMessageDialog(Global.Window, "Error while parsing logo command",
+            JOptionPane.showMessageDialog(global.Window, "Error while parsing logo command",
                     "Script error", JOptionPane.ERROR);
         }
     }

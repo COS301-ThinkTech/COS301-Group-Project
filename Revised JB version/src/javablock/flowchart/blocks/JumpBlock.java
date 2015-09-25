@@ -1,5 +1,5 @@
 package javablock.flowchart.blocks;
-import config.Global;
+import config.global;
 import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.AffineTransform;
@@ -144,7 +144,7 @@ public class JumpBlock extends JBlock {
     }
     @Override
     public JBlock nextExe(){
-        if(Global.highlightLinks || connects.isEmpty())
+        if(global.highlightLinks || connects.isEmpty())
             return this;
         else if(connects.size() == 1)
             return connects.get(0).n.nextExe();
@@ -153,7 +153,7 @@ public class JumpBlock extends JBlock {
 
     @Override
     public JBlock nextBlock(){
-        if(Global.highlightLinks || connects.isEmpty())
+        if(global.highlightLinks || connects.isEmpty())
             return this;
         else if(connects.size() == 1)
             return connects.get(0).n.nextExe();

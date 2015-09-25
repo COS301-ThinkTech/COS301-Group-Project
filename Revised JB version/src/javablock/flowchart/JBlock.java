@@ -4,7 +4,7 @@ import addons.AnimatedVariable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javablock.flowchart.blocks.*;
-import config.Global;
+import config.global;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.*;
@@ -101,13 +101,13 @@ public abstract class JBlock implements FlowElement{
     public int ID;
 
     public Flowchart flow;
-    protected BasicStroke border=Global.strokeNormal;
+    protected BasicStroke border=global.strokeNormal;
     protected Font font;
 
     public JBlock(Type type, Flowchart parent){
         this.flow=parent;
         this.type=type;
-        font=Global.monoFontBold;
+        font=global.monoFontBold;
         color=Color.LIGHT_GRAY;
         borderColor=Color.BLACK;
         textColor=Color.BLACK;
@@ -118,7 +118,7 @@ public abstract class JBlock implements FlowElement{
             case START: code=""; break;
             case NULL: code="-"; break;
         }
-        if(Global.prerender){
+        if(global.prerender){
             prerender=new BufferedImage(1,1, BufferedImage.TYPE_4BYTE_ABGR);
         }
     }
@@ -372,7 +372,7 @@ public abstract class JBlock implements FlowElement{
         String c="";
         String code=this.code.replaceAll("\"", "\" ");
         // <editor-fold defaultstate="collapsed" desc="Pascal mode">
-        if (Global.pascalMode && !isReadyCode()) {
+        if (global.pascalMode && !isReadyCode()) {
             String l[] = code.split("\"");
             int i = 0;
             for (String part : l) {
@@ -406,7 +406,7 @@ public abstract class JBlock implements FlowElement{
                 c+="\"";
         }// </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="Normal mode">
-        else if(Global.scriptReplace){
+        else if(global.scriptReplace){
             String l[] = code.split("\"");
             int i = 0;
             for (String part : l) {
@@ -434,7 +434,7 @@ public abstract class JBlock implements FlowElement{
         if(c.length()==0)
             c=code;
         // <editor-fold defaultstate="collapsed" desc="IO">
-        if(Global.scriptReplace)
+        if(global.scriptReplace)
         if (type == Type.IO) {
             String l[] = c.split("\n");
             c = "";
@@ -476,13 +476,13 @@ public abstract class JBlock implements FlowElement{
     }
     private String jsRecoded="", jsBeforeRecoded="";
     private String getCodeForJavaScript(){
-        //if(rep!=Global.scriptReplace)
+        //if(rep!=global.scriptReplace)
         //    jsBeforeRecoded="";
-        rep=Global.scriptReplace;
+        rep=global.scriptReplace;
         if(code.equals(jsBeforeRecoded)) return jsRecoded;
         String c=parseCode('j');
         jsRecoded=c.replaceAll("\" ", "\"");
-        //if(Global.scriptReplace)
+        //if(global.scriptReplace)
             jsBeforeRecoded=this.code;
         return jsRecoded;
     }
@@ -586,8 +586,8 @@ public abstract class JBlock implements FlowElement{
             txt=this.comment;
         else{
             txt=code;
-            if(Global.flowMarks){
-                if(!Global.pascalMode)
+            if(global.flowMarks){
+                if(!global.pascalMode)
                     txt=code.replaceAll("([^=+\\-\\*/<>!])=([^=\\*/<>])", "$1←$2")
                             .replaceAll("([^=+\\-\\*/<>])<>([^=\\*/<>])", "$1≠$2");
                 else
@@ -614,15 +614,15 @@ public abstract class JBlock implements FlowElement{
             if(frc==null)
                 frc=flow.frc;
             if(frc==null)
-                frc=Global.frc;
+                frc=global.frc;
             if(flow.txtLay!=null)
                 txtLay=flow.txtLay;
         }
-        if(Global.useJLabels){
+        if(global.useJLabels){
             if(label==null){
                 label=new JLabel();
             }
-            label.setFont(Global.monoFont);
+            label.setFont(global.monoFont);
             if(displayComment && commentIsHTML){
             }
             else{
@@ -640,9 +640,9 @@ public abstract class JBlock implements FlowElement{
         else {
             if(txtLay==null){
                 if(frc==null)
-                    frc=Global.frc;
+                    frc=global.frc;
                 txtLay=new TextLayout(".YTyj",
-                        Global.monoFont,
+                        global.monoFont,
                         frc);
             }
             height=txtLay.getAscent();
@@ -654,7 +654,7 @@ public abstract class JBlock implements FlowElement{
                         lines[i]=lines[i].substring(4);
                     else continue;
                 }
-                TextLayout t=new TextLayout(lines[i], Global.monoFont, frc);
+                TextLayout t=new TextLayout(lines[i], global.monoFont, frc);
                 if(width<t.getBounds().getWidth())
                     width=(float) t.getBounds().getWidth();
                 txtList.add(t);
@@ -676,10 +676,10 @@ public abstract class JBlock implements FlowElement{
     }
     
     public void drawText(Graphics2D g2d){
-        g2d.setStroke(Global.strokeNormal);
+        g2d.setStroke(global.strokeNormal);
         g2d.translate(bound.getX(), bound.getY()+height-1);
         g2d.setColor(textColor);
-        if(Global.useJLabels){
+        if(global.useJLabels){
             label.setForeground(textColor);
             label.setSize(label.getPreferredSize().width+15,
                           label.getPreferredSize().height);
@@ -770,7 +770,7 @@ public abstract class JBlock implements FlowElement{
         g = (Graphics2D) ico.getGraphics();
         g.scale(scale, scale);
         g.translate(-shape.getBounds().x + 2, -shape.getBounds().y + 2);
-        if (Global.antialiasing) {
+        if (global.antialiasing) {
             g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
         }
@@ -782,9 +782,9 @@ public abstract class JBlock implements FlowElement{
         g.setColor(borderColor);
         g.setStroke(border);
         g.draw(shape);
-        g.setStroke(Global.strokeNormal);
+        g.setStroke(global.strokeNormal);
         g.translate(bound.getX(), bound.getY()+height);
-        if(Global.useJLabels){
+        if(global.useJLabels){
             label.paint(g);
         }
         else{
@@ -818,7 +818,7 @@ public abstract class JBlock implements FlowElement{
     @Override
     public void draw(Graphics2D g2d, boolean drawFull){
         if(flow==null) return;
-        if (Global.prerender) {
+        if (global.prerender) {
             if (prerenderedInScale != flow.scale() || !prerendered || prerender == null) {
                 prerender = null;
                 prerendered = false;
@@ -835,11 +835,11 @@ public abstract class JBlock implements FlowElement{
                 g=(Graphics2D) prerender.getGraphics();
                 g.scale(prerenderedInScale, prerenderedInScale);
                 g.translate(-shape.getBounds().x + 2, -shape.getBounds().y + 2);
-                if (Global.antialiasing) {
+                if (global.antialiasing) {
                     g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                             RenderingHints.VALUE_ANTIALIAS_ON);
                 }
-                if(Global.gradients)
+                if(global.gradients)
                     g.setPaint(gradient);
                 else
                     g.setPaint(color);
@@ -854,7 +854,7 @@ public abstract class JBlock implements FlowElement{
         if(g2d==null) return;
         g2d.translate(posX, posY);
         g2d.scale(scale, scale);
-        if (Global.prerender && !drawFull) {
+        if (global.prerender && !drawFull) {
             g2d.translate(shape.getBounds2D().getX() - 2,
                     shape.getBounds2D().getY() - 2);
             g2d.scale(1 / prerenderedInScale, 1 / prerenderedInScale);
@@ -872,16 +872,16 @@ public abstract class JBlock implements FlowElement{
             drawText(g2d);
             g2d.translate(-1, 1);
         }
-        if(nowExecute && Global.bolderBorder){
-            g2d.setStroke(Global.strokeBold6);
+        if(nowExecute && global.bolderBorder){
+            g2d.setStroke(global.strokeBold6);
             g2d.setColor(borderColor);
             g2d.draw(shape);
-            g2d.setStroke(Global.strokeBold);
+            g2d.setStroke(global.strokeBold);
             g2d.setColor(color);
             g2d.draw(shape);
-            g2d.setStroke(Global.strokeNormal);
+            g2d.setStroke(global.strokeNormal);
         }
-        if(Global.debugMode){
+        if(global.debugMode){
             g2d.drawString("ID: "+this.ID, 
                 shape.getBounds().width/2,
                 shape.getBounds().height/2);
@@ -896,14 +896,14 @@ public abstract class JBlock implements FlowElement{
     @Override
     public void drawSelection(Graphics2D g2d){
         g2d.translate(posX, posY);
-        g2d.setStroke(Global.strokeSelection);
+        g2d.setStroke(global.strokeSelection);
         g2d.setColor(Color.BLACK);
         g2d.translate(0.5, 0);
         g2d.draw(new Rectangle2D.Float(shape.getBounds().x - 2.5f,
                 shape.getBounds().y - 2.5f,
                 shape.getBounds().width + 5.5f,
                 shape.getBounds().height + 5.5f));
-        g2d.setStroke(Global.strokeNormal);
+        g2d.setStroke(global.strokeNormal);
     }
     static Color hlight=new Color(255,255,255,140);
     AnimatedVariable highlightLevel=new AnimatedVariable();
@@ -919,7 +919,7 @@ public abstract class JBlock implements FlowElement{
     @Override
     public boolean highLight(Graphics2D g2d){
         if(flow==null)return false;
-        if(Global.animations)
+        if(global.animations)
             highlight=highlightLevel.get();
         else
             highlight=1;
@@ -928,7 +928,7 @@ public abstract class JBlock implements FlowElement{
         return highlight>0 || highlightLevel.isAnimating();
     }
     void drawHighlight(Graphics2D g2d){
-        switch(Global.hlight){
+        switch(global.hlight){
             case NONE: break;
             case AUTO:{
                 if(flow.scale()<1){
@@ -939,10 +939,11 @@ public abstract class JBlock implements FlowElement{
                 }
                 else{
                     g2d.translate(posX, posY);
-                    if(Global.animations)
+                    if(global.animations)
                         g2d.setColor(new Color(255,255,255,(int)(150*highlight)));
                     else
                         g2d.setColor(hlight);
+                    
                     g2d.fill(shape);
                 }
                 //g2d.setTransform(af);
@@ -962,7 +963,7 @@ public abstract class JBlock implements FlowElement{
             case HIGHLIGHT:{
                 //AffineTransform af = g2d.getTransform();
                 g2d.translate(posX, posY);
-                if (Global.animations) {
+                if (global.animations) {
                     g2d.setColor(new Color(255, 255, 255, (int) (150 * highlight)));
                 } else {
                     g2d.setColor(hlight);
@@ -981,7 +982,7 @@ public abstract class JBlock implements FlowElement{
         //g2d.scale(1.05, 1.05);
         g2d.setColor(shadowColor);
         g2d.translate(2,2);
-        //g2d.setStroke(Global.strokeNormal);
+        //g2d.setStroke(global.strokeNormal);
         g2d.fill(shape);
         g2d.setTransform(af);
     }
