@@ -1965,6 +1965,21 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         return id;
     }
 
+    @Override
+    public boolean validateIn() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean validateOut() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean validateEnd() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public final class EditorPane extends JPanel
     {
         JButton addNew;

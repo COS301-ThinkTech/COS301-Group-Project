@@ -116,6 +116,24 @@ public abstract class Sheet extends JComponent
     public abstract String makeJavaScriptFunctions();
     public void generateBlocks()
     {}
+    
+     /**
+     * 
+     * Method called to validate the in connections of the components on the sheet
+     */
+    public abstract boolean validateIn();
+    /**
+     * 
+     * Method called to validate the  out connections of the components on the sheet
+     */
+    public abstract boolean validateOut();
+    
+    /**
+     * 
+     * Method called to check if the sheet has an END component
+     */
+    public abstract boolean validateEnd();
+    
 }
 
 

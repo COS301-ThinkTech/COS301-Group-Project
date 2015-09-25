@@ -1312,5 +1312,16 @@ public abstract class JBlock implements FlowElement{
         Element block=makeXml(root);
         root.appendChild(block);
     }
-
+    
+    public int numOfInConnects ()
+    {
+        if (this.connectsIn == null)
+            return 0;
+        return connectsIn.size();
+    }
+     public int numOfOutConnects ()
+    {
+       
+       return connects.size();
+    }
 }
