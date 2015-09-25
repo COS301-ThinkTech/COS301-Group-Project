@@ -1967,17 +1967,57 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
 
     @Override
     public boolean validateIn() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int inConnections = 0;
+        boolean valid = true;
+        for(JBlock block : blocks)
+        {
+            //inConnections+=blocks.size();
+            if(block.getType()!= "START")
+            {
+               
+                if(block.numOfInConnects()==0)
+                {
+                    System.out.println(block.getType()+" doesn't have in connections");
+                   valid = false;
+                }
+            }   
+        }
+        return valid;
     }
 
     @Override
     public boolean validateOut() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         int outConnections = 0;
+        boolean valid = true;
+        for(JBlock block : blocks)
+        {
+           // outConnections+=block.numOfOutConnects();
+            if(block.getType()!= "RETURN")  //End block doesnt require an out connection
+            {
+               
+                if(block.numOfOutConnects()==0)
+                {
+                    System.out.println(block.getType()+" doesn't have out connections");
+                   valid = false;
+                }
+            }  
+        }
+       // System.out.println("Total number of out connections: "+ outConnections);
+        return valid;
     }
 
     @Override
-    public boolean validateEnd() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean validateEnd() 
+    {
+        boolean found = false;
+         for(JBlock block : blocks)
+        {
+            if(block.getType()== "RETURN")
+            {
+                 found = true;
+            }  
+        }
+       return found;
     }
 
     public final class EditorPane extends JPanel
