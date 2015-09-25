@@ -748,7 +748,19 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
 
 
     public void step(){
-        run.step();
+        if(flow.validateIn() && flow.validateOut()&&flow.validateEnd())
+         run.step();
+        else
+        {
+           Out.append("\n=======================================================================\n");
+           if(!flow.validateIn())
+            Out.append(translator.get("console.inconnections")+"\n");
+           if(!flow.validateOut())
+            Out.append(translator.get("console.outconnections")+"\n");
+           if(!flow.validateEnd())
+            Out.append(translator.get("console.endcomponent")+"\n"); 
+           stop();
+        }
     }
 
     public void addLines(int l){
