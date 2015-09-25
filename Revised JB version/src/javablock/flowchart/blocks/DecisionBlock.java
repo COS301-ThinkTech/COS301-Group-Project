@@ -22,7 +22,7 @@ import javax.swing.JTextField;
 import widgets.ComboText;
 
 public class DecisionBlock extends JBlock {
-    public static DecisionEditor editor = new DecisionEditor();
+   // public static DecisionEditor editor = new DecisionEditor();
     public DecisionBlock(Flowchart parent){
         super(Type.DECISION, parent);
     }
@@ -33,10 +33,10 @@ public class DecisionBlock extends JBlock {
     public String compOperator;
     public String logicalOperator;
     public List<Comparison> comparisons = new ArrayList();
-     @Override
-    public BlockEditor getEditor(){
-        return editor;
-    }
+    // @Override
+//    public BlockEditor getEditor(){
+//        return editor;
+//    }
 
     @Override
     public Flowline connectTo(JBlock n){
