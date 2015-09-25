@@ -5,7 +5,7 @@
  */
 package javablock.flowchart.generator;
 
-import config.global;
+import config.Global;
 import config.translator;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
@@ -35,7 +35,7 @@ public class While extends javax.swing.JPanel implements Generator{
     @Override
     public JBlock[] get(Flowchart f){
         While g=this;
-        int res=JOptionPane.showConfirmDialog(global.Window, g, 
+        int res=JOptionPane.showConfirmDialog(Global.Window, g, 
                 translator.get("generator.while.title"),
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if(res==JOptionPane.OK_OPTION){

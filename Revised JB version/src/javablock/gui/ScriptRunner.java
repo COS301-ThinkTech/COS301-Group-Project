@@ -1,6 +1,6 @@
 package javablock.gui;
 
-import config.global;
+import config.Global;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javablock.flowchart.JBlock;
@@ -15,7 +15,7 @@ public class ScriptRunner extends Thread {
     ScriptRunner(Interpreter gui){
         GUI=gui;
         setName("ScriptRunner");
-        global.runners.add(this);
+        Global.runners.add(this);
         start();
     }
 
@@ -188,7 +188,7 @@ class instantRunner extends Thread{
             engine.eval(script);
         } catch (ScriptException ex) {
             if(M){
-                JOptionPane.showMessageDialog(global.Window,
+                JOptionPane.showMessageDialog(Global.Window,
                         "Error while instant evaluate\n Please use interval >0",
                         "Script Error", JOptionPane.ERROR_MESSAGE);
                 ex.printStackTrace();

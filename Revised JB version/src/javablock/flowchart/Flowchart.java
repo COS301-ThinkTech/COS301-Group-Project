@@ -1,6 +1,6 @@
 package javablock.flowchart;
 
-import config.global;
+import config.Global;
 import config.translator;
 import java.awt.*;
 import java.io.IOException;
@@ -61,7 +61,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         I.setSheet(this);
         I.reset();
         name="Start";
-        bgColor=Color.decode(global.colors[3]);
+        bgColor=Color.decode(Global.colors[3]);
         newFlowchart();
         flow.addKeyListener(this);
         flow.addMouseListener(this);
@@ -73,7 +73,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         moving=true;
         updateScrolls();
         moving=false;
-        frc=global.frc;
+        frc=Global.frc;
         
     }
     public Flowchart(FlowchartManager action, Element xml)
@@ -86,7 +86,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         I.setSheet(this);
         I.reset();
         name="Start";
-        bgColor=Color.decode(global.colors[3]);
+        bgColor=Color.decode(Global.colors[3]);
         parseXml(xml);
         flow.addKeyListener(this);
         flow.addMouseListener(this);
@@ -97,7 +97,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         moving=true;
         updateScrolls();
         moving=false;
-        frc=global.frc;
+        frc=Global.frc;
     }
 
     private Image gBuffer, bgBuffer;
@@ -108,7 +108,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     public EditorPane editorPane;
     private void init()
     {
-        if(global.accel)
+        if(Global.accel)
         {
             flow = new JPanel() 
             {
@@ -192,7 +192,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         add(new javablock.flowchart.BlocksToolBar(this),
                 BorderLayout.WEST);
         add(editorPane,BorderLayout.EAST);
-        if(global.animations){
+        if(Global.animations){
             r=new Renderer(this);
             r.start();
         }
@@ -530,7 +530,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         for(JBlock b: blocks){
             if(b.isDefinitionBlock()) continue;
 //            if(b.type==JBlock.Type.COMMENT) continue;
-            if(!global.highlightLinks)
+            if(!Global.highlightLinks)
                 if(b.type==JBlock.Type.JUMP) continue;
             code+="\t\tcase "+b.getId()+":\n";
             code+=b.getScriptFragmentForJavaScript()+"\n";
@@ -546,7 +546,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         for(JBlock b: blocks){
             if(b.isDefinitionBlock()) continue;
 //            if(b.type==JBlock.Type.COMMENT) continue;
-            if(!global.highlightLinks)
+            if(!Global.highlightLinks)
                 if(b.type==JBlock.Type.JUMP) continue;
             code+="\t\tcase "+b.getId()+":\n";
             code+=b.getScriptFragmentForJavaScript()+"\n";
@@ -651,14 +651,14 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                 (int)(((rect.getHeight()*scale()+0.5))+5*scale()),
                 BufferedImage.TYPE_4BYTE_ABGR);
         Graphics2D g2d=(Graphics2D)img.getGraphics();
-        if(global.antialiasing)
+        if(Global.antialiasing)
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                             RenderingHints.VALUE_ANTIALIAS_ON);
 
-        if(!global.transparentPNG){
+        if(!Global.transparentPNG){
             g2d.setBackground(Color.WHITE);
             g2d.clearRect(-5, -5, (int)(rect.getWidth()*scale()+20)+20, (int)(rect.getHeight()*scale()+20)+20);
-            if(global.grid)
+            if(Global.grid)
                 drawGrid(g2d);
         }
         g2d.translate(2*scale(),2*scale());
@@ -835,7 +835,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             g2d.setTransform(id);
             b.drawSelection(g2d);
         }
-        if(global.animations){
+        if(Global.animations){
             FlowElement b;
             for(int i=0; i<animatedElements.size(); i++){
                 g2d.setTransform(id);
@@ -893,14 +893,14 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         else
             g2.setBackground(bgColor);
         g2.clearRect(0, 0, canvasSize.width, canvasSize.height);
-        if(global.antialiasing)
+        if(Global.antialiasing)
             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                             RenderingHints.VALUE_ANTIALIAS_ON);
         //transform
         g2.translate(Math.round(canvasSize.width / 2)-flow.getX(), Math.round(canvasSize.height / 2));
         g2.translate(Math.round(posX), Math.round(posY));
         g2.scale(scale(), scale());
-        if (global.grid)
+        if (Global.grid)
             drawGrid(g2);
         draw(g2);
         if(selecting)
@@ -908,9 +908,9 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             g2.setColor(new Color(100, 150, 255, 50));
             g2.fill(selectingBox);
             g2.setColor(new Color(100, 150, 255, 255));
-            g2.setStroke(global.strokeSelection);
+            g2.setStroke(Global.strokeSelection);
             g2.draw(selectingBox);
-            g2.setStroke(global.strokeNormal);
+            g2.setStroke(Global.strokeNormal);
         }
         g2.setTransform(af);
         ready=true;
@@ -1101,7 +1101,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             }
             else if(e.getButton()==MouseEvent.BUTTON1)
             {
-                if(global.autoJumps)
+                if(Global.autoJumps)
                     if(!e.isShiftDown() && e.isControlDown() && selected.size()==1){
                         JBlock f = selected.get(0);
                         JBlock j = addBlock("JUMP", false);
@@ -1268,7 +1268,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         {
             float diffX=(float)((e.getX()-mousePos.getX())/scale());// + xTranslate/scale());
             float diffY=(float)((e.getY()-mousePos.getY())/scale());
-            if(global.snapToGrid || e.isControlDown())
+            if(Global.snapToGrid || e.isControlDown())
                 for(JBlock b:selected)
                 {
                     b.translateT(diffX, diffY);
@@ -1297,7 +1297,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             mouseOver=over;
             if(mouseOver!=null){
                 mouseOver.setHighligted(true);
-                if(global.animations){
+                if(Global.animations){
                     if(animatedElements.contains(mouseOver))
                         animatedElements.remove(mouseOver);
                     animatedElements.add(mouseOver);
@@ -1321,7 +1321,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     boolean rendering=true;
     @Override
     public void update(){
-        if(global.animations){
+        if(Global.animations){
             rendering=true;
             synchronized(renderLock){
             renderLock.notifyAll();}
@@ -1540,7 +1540,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             s=selected.get(0);
         if(type.equals("SAME"))
         {
-            b=global.getManager().addNewBySelected();
+            b=Global.getManager().addNewBySelected();
             selected.clear();
             selectBlock(b);
             action.selectedBlock(this);
@@ -1922,7 +1922,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         code = code + "\tvar " + getName() + "_block=" + ((JBlock) this.blocks.get(0)).nextBlock().nextExe().ID + "\n" + "\twhile(true)\n" + "\t  switch(" + getName() + "_block){\n";
 
         for (JBlock b : this.blocks) {
-            if ((!b.isDefinitionBlock())&& ((global.highlightLinks)
+            if ((!b.isDefinitionBlock())&& ((Global.highlightLinks)
                     || (b.type != JBlock.Type.JUMP))) {
                 code = code + "\t\tcase " + b.getId() + ":\n";
                 code = code + b.getScriptFragmentForJavaScript() + "\n";
@@ -1934,7 +1934,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         code = code + "\tvar " + getName() + "_block=__from\n" + "\twhile(true)\n" + "\t switch(" + getName() + "_block){\n";
 
         for (JBlock b : this.blocks) {
-            if ((!b.isDefinitionBlock()) && ((global.highlightLinks)
+            if ((!b.isDefinitionBlock()) && ((Global.highlightLinks)
                     || (b.type != JBlock.Type.JUMP))) {
                 code = code + "\t\tcase " + b.getId() + ":\n";
                 code = code + b.getScriptFragmentForJavaScript() + "\n";
@@ -2027,10 +2027,10 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         {
             setLayout(new BorderLayout());
             this.setMinimumSize(new Dimension(200,200));
-            addNew=new JButton(global.translate.get("blockEditor.addNew"));
+            addNew=new JButton(Global.translate.get("blockEditor.addNew"));
             addNew.setActionCommand("add/SAME");
             add(addNew, BorderLayout.SOUTH);
-            addNew.addActionListener(global.getManager());
+            addNew.addActionListener(Global.getManager());
         }
         JBlock old=null;
         public void setEditing(JBlock e)

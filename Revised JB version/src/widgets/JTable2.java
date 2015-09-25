@@ -5,7 +5,7 @@
 
 package widgets;
 
-import config.global;
+import config.Global;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JTable;
@@ -32,7 +32,7 @@ public class JTable2 extends JTable {
     }
     private char ch[]=new char[10];
     public void restate(){
-        if(!global.markChanges) return;
+        if(!Global.markChanges) return;
         if(getModel().getRowCount()!=ch.length)
             ch=new char[getModel().getRowCount()+1];
         for(int i=0; i<ch.length; i++)
@@ -45,7 +45,7 @@ public class JTable2 extends JTable {
     }
     @Override
     public void setValueAt(Object v, int row, int col){
-        if(global.markChanges)
+        if(Global.markChanges)
         if(col==1){
             if(!v.equals(this.getValueAt(row, col)))
                 restate();
@@ -57,7 +57,7 @@ public class JTable2 extends JTable {
     public Component prepareRenderer(TableCellRenderer renderer,
             int rowIndex, int vColIndex) {
         Component c = super.prepareRenderer(renderer, rowIndex, vColIndex);
-        if(global.markChanges){
+        if(Global.markChanges){
             if(rowIndex>=ch.length) restate();
             if(ch[rowIndex]>0 && vColIndex==1){
                 switch(ch[rowIndex]){

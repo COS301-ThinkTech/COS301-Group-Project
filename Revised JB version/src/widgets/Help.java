@@ -10,10 +10,10 @@ package widgets;
  * 
  * @author Goodness
  */
-public class help extends javax.swing.JFrame {
+public class Help extends javax.swing.JFrame {
 
     /** Creates new form help */
-    public help() {
+    public Help() {
         initComponents();
     }
 
@@ -88,7 +88,7 @@ public class help extends javax.swing.JFrame {
     /**
     */
     public static void showHelp() {
-        new help().setVisible(true);
+        new Help().setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

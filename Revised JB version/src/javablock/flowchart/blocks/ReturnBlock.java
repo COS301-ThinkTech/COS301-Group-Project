@@ -4,7 +4,7 @@
  */
 
 package javablock.flowchart.blocks;
-import config.global;
+import config.Global;
 import config.translator;
 import java.awt.geom.Area;
 import java.awt.geom.Ellipse2D;

@@ -4,7 +4,7 @@
  */
 
 package javablock.flowchart.blocks;
-import config.global;
+import config.Global;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
@@ -73,10 +73,10 @@ public class LinkBlock extends JBlock {
     @Override
     public void draw(Graphics2D g2d){
         if(this.nowExecute){
-            g2d.setStroke(global.strokeSelection);
+            g2d.setStroke(Global.strokeSelection);
             Line2D l=new Line2D.Double(posX, posY, linkTo.posX, linkTo.posY);            
             g2d.draw(l);
-            g2d.setStroke(global.strokeNormal);
+            g2d.setStroke(Global.strokeNormal);
         }
         super.draw(g2d);
     }
@@ -85,7 +85,7 @@ public class LinkBlock extends JBlock {
         AffineTransform af = g2d.getTransform();
         g2d.translate(posX, posY);
 
-        g2d.setStroke(global.strokeSelection);
+        g2d.setStroke(Global.strokeSelection);
         g2d.setColor(Color.BLACK);
         g2d.translate(0.5, -1);
         g2d.draw(new Rectangle2D.Float(shape.getBounds().x - 2.5f,
@@ -93,10 +93,10 @@ public class LinkBlock extends JBlock {
                 shape.getBounds().width + 5.5f,
                 shape.getBounds().height + 5.5f));
         g2d.setTransform(af);
-        g2d.setStroke(global.strokeSelection);
+        g2d.setStroke(Global.strokeSelection);
             Line2D l=new Line2D.Double(posX, posY, linkTo.posX, linkTo.posY);
             g2d.draw(l);
-        g2d.setStroke(global.strokeNormal);
+        g2d.setStroke(Global.strokeNormal);
     }
 
     @Override
@@ -109,7 +109,7 @@ public class LinkBlock extends JBlock {
 
     @Override
     public JBlock nextExe(){
-        if(global.highlightLinks || linkTo.connects.isEmpty())
+        if(Global.highlightLinks || linkTo.connects.isEmpty())
             return this;
         else if(linkTo.connects.size() == 1)
             return linkTo.connects.get(0).n.nextExe();

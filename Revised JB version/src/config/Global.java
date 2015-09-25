@@ -25,7 +25,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  *
  * @author Goodness
  */
-public class global
+public class Global
 {
     public static boolean GUI=true;
     public  enum hlightT
@@ -61,7 +61,7 @@ public class global
     public static String startWith=null;
     public static void setApplet(boolean s)
     {
-        if(global.debug)
+        if(Global.debug)
         System.out.println("[init] Applet="+s);
         applet=s;
     }
@@ -156,7 +156,7 @@ public class global
             settings.delete();
         }
         checkUpdate=true;
-        if(global.debug)
+        if(Global.debug)
             System.out.println("[settings] set Default");
         colorPalette="0xffff00\n"+"0xff00ff\n"+"0x00ffff\n"+
                     "0xff8888\n"+"0x88ff88\n"+"0x8888ff\n"+
@@ -287,29 +287,29 @@ public class global
                     } 
                     catch(IllegalAccessException ex)
                     {
-                        Logger.getLogger(global.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(Global.class.getName()).log(Level.SEVERE, null, ex);
                     } 
                     catch (IllegalArgumentException ex)
                     {
-                        Logger.getLogger(global.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(Global.class.getName()).log(Level.SEVERE, null, ex);
                     } 
                     catch (InvocationTargetException ex) 
                     {
-                        Logger.getLogger(global.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(Global.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     catch (Exception ex) 
                     {
-                        Logger.getLogger(global.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(Global.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } 
                 catch (ClassNotFoundException ex)
                 {
-                    Logger.getLogger(global.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Global.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } 
             catch (IOException ex)
             {
-                Logger.getLogger(global.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Global.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
@@ -333,7 +333,7 @@ final class ZipClassLoader extends ClassLoader
         ZipEntry entry = this.file.getEntry(name.replace('.', '/') + ".class");
         if (entry == null) 
         {
-            return global.Classes.loadClass(name);
+            return Global.Classes.loadClass(name);
         }
         try
         {
