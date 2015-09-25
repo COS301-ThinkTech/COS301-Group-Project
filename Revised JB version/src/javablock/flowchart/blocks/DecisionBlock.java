@@ -14,7 +14,7 @@ import javablock.flowchart.*;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 import javax.swing.JOptionPane;
-import javablock.flowchart.blockEditors.DecisionEditor;
+//import javablock.flowchart.blockEditors.DecisionEditor;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
