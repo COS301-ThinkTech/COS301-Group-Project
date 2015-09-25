@@ -21,6 +21,10 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 
+/**
+ *
+ * @author Goodness
+ */
 public class global
 {
     public static boolean GUI=true;

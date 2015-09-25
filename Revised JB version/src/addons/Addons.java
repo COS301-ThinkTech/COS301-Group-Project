@@ -14,6 +14,10 @@ import java.util.logging.Logger;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 
+/**
+ *
+ * @author Goodness
+ */
 public class addons 
 {
     public ScriptEngine engine;

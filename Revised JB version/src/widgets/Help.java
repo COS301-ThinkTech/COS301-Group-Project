@@ -8,6 +8,7 @@ package widgets;
 /**
  *
  * 
+ * @author Goodness
  */
 public class help extends javax.swing.JFrame {
 
