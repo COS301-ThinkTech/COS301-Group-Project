@@ -9,10 +9,10 @@ import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
+import javablock.flowchart.BlockEditor;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
 import javablock.flowchart.blockEditors.DeclarationEditor;
-import javablock.flowchart.blockEditors.StartEditor;
 
 /**
  *
@@ -92,4 +92,19 @@ public class DeclarationBlock extends JBlock{
         }
         return f;
     }
+    
+    @Override
+    public boolean isEditable(){
+        return true;
+    }
+    @Override
+    public BlockEditor getEditor(){
+        return editor;
+    }
+    @Override
+    public boolean canBeConnected(JBlock b){
+        return false;
+    }
+    @Override
+    public boolean popUpEditor(){return false;}
 }

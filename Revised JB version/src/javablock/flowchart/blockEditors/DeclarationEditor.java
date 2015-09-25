@@ -34,6 +34,7 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
      * Creates new form DeclarationEditor
      */
     public DeclarationEditor() {
+        System.out.println("Declaration editor");
         initComponents();
         delIcon=new javax.swing.ImageIcon(getClass().getResource("/icons/16/list-remove.png"));
         makeList();
@@ -53,24 +54,57 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
         fieldsScroll = new javax.swing.JScrollPane();
 	fieldsPane = new javax.swing.JPanel();
         fieldsScroll.setBorder(javax.swing.BorderFactory.createTitledBorder("Declarations"));
-
-	addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/document-new.png"))); // NOI18N
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+	fieldsPane.setLayout(new java.awt.GridLayout(100, 1));
+        fieldsScroll.setViewportView(fieldsPane);
+	    
+        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/document-new.png"))); // NOI18N
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("config/lang/lang"); // NOI18N
+        addButton.setText(bundle.getString("structEditor.add")); // NOI18N
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
+	    
+	javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
+	 layout.setHorizontalGroup(
+		layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+			.addGroup(layout.createSequentialGroup()
+				.addContainerGap()
+				.addComponent(fieldsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+				.addContainerGap())
+	);
+	layout.setVerticalGroup(
+		layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+		.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+			.addContainerGap()
+			.addComponent(fieldsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+			.addContainerGap())
+	);
+	    /*
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(fieldsScroll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fieldsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)))
+                    .addComponent(silent, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(fieldsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fieldsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+        );*/
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -178,11 +212,12 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
                 type.addItem(t);
             }
             name=new JTextField();
+            value=new JTextField();
             JButton delete=new JButton();
             delete.setIcon(delIcon);
             this.setLayout(new BorderLayout());
             add(name, BorderLayout.CENTER);
-            add(value, BorderLayout.CENTER);
+            add(value, BorderLayout.SOUTH);
             add(type, BorderLayout.WEST);
             add(delete, BorderLayout.EAST);
             t=this;
@@ -206,10 +241,13 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
         new ComboText(translator.get("ioEditor.typeAny"), "ANY")
     };
 
-    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {  
+        
         Field f=new Field(this);
+        System.out.println("Added...");
         fields.add(f);
         makeList();
+        
     }  
 
 }
