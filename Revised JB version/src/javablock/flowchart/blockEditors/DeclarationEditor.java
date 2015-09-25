@@ -49,42 +49,33 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-	    
 	addButton = new javax.swing.JButton();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        name = new javax.swing.JTextField();
-        silent = new javax.swing.JCheckBox();
-        error = new javax.swing.JLabel();
-        displayName = new javax.swing.JCheckBox();
         fieldsScroll = new javax.swing.JScrollPane();
-        fieldsPane = new javax.swing.JPanel();
-	    
-        jScrollPane1 = new javax.swing.JScrollPane();
+	fieldsPane = new javax.swing.JPanel();
+        fieldsScroll.setBorder(javax.swing.BorderFactory.createTitledBorder("Declarations"));
 
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Declarations"));
-
+	addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/document-new.png"))); // NOI18N
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                .addComponent(fieldsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                .addComponent(fieldsScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane fieldsScroll;
     // End of variables declaration//GEN-END:variables
 
 
@@ -97,9 +88,7 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
     private javax.swing.JCheckBox displayName;
     private javax.swing.JLabel error;
     private javax.swing.JPanel fieldsPane;
-    private javax.swing.JScrollPane fieldsScroll;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField name;
     private javax.swing.JCheckBox silent;
     // End of variables declaration                   
@@ -217,6 +206,10 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
         new ComboText(translator.get("ioEditor.typeAny"), "ANY")
     };
 
-
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        Field f=new Field(this);
+        fields.add(f);
+        makeList();
+    }  
 
 }
