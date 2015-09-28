@@ -112,7 +112,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             return 1;
         }
         int o = JOptionPane.showConfirmDialog(Global.Window,
-                "Czy chcesz zapisać zmiany?");
+                "Would you like to save the changes?");
         if (o == JOptionPane.NO_OPTION)
             return 0;
         else if (o == JOptionPane.CANCEL_OPTION)
