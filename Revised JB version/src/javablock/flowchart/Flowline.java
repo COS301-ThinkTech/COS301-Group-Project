@@ -125,7 +125,7 @@ public class Flowline implements FlowElement {
         if(n==null || f==null) return ;
         if(needUpdate==true)
             shape();
-        g2d.setColor(Color.blue); //f.borderColor
+        g2d.setColor(Color.BLACK); //f.borderColor
         if(Global.fullConnectorValue==false){
             if(value == null ? "false" == null : value.equals("false"))
                 g2d.setStroke(Global.strokeSelection);
@@ -161,7 +161,7 @@ public class Flowline implements FlowElement {
         if(n==null || f==null) return ;
         if(needUpdate==true)
             shape();
-        g2d.setColor(Color.RED); //f.borderColor
+        g2d.setColor(Color.RED.darker()); //f.borderColor
         if(Global.fullConnectorValue==false){
             if(value == null ? "false" == null : value.equals("false"))
                 g2d.setStroke(Global.strokeSelection);

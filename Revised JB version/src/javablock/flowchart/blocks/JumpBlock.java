@@ -113,6 +113,7 @@ public class JumpBlock extends JBlock {
     @Override
     public void draw(Graphics2D g2d, boolean n){
         if(needDraw || connects.isEmpty() || connectsIn.isEmpty() || nowExecute){
+            
             super.draw(g2d,false);
             if(connects.size()==1){
                 //out=this.connectPoint(connects.get(0).angle2);
@@ -146,8 +147,9 @@ public class JumpBlock extends JBlock {
     public JBlock nextExe(){
         if(Global.highlightLinks || connects.isEmpty())
             return this;
-        else if(connects.size() == 1)
+        else if(connects.size() == 1){
             return connects.get(0).n.nextExe();
+        }
         return this;
     }
 

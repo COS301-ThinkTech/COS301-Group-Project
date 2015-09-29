@@ -101,17 +101,17 @@ public abstract class JBlock implements FlowElement{
     public int ID;
 
     public Flowchart flow;
-    protected BasicStroke border=Global.strokeNormal;
+    protected BasicStroke border=Global.strokeBold;
     protected Font font;
 
     public JBlock(Type type, Flowchart parent){
         this.flow=parent;
         this.type=type;
         font=Global.monoFontBold;
-        color=Color.LIGHT_GRAY;
-        borderColor=Color.BLACK;
+        color=Color.WHITE; //Color of block
+        borderColor=Color.BLACK; 
         textColor=Color.BLACK;
-        gradient=new GradientPaint(0,0, color, 0,20, color.darker());
+        //gradient=new GradientPaint(0,0, color, 0,20, color.darker());
         code="";
         comment="";
         switch(type){
@@ -706,17 +706,18 @@ public abstract class JBlock implements FlowElement{
     }
     public void makeGradient(){
         
-        prerendered=false;
+        /*prerendered=false;
         prerender=null;
         if(gradient!=null)
             gradient=null;
         if(nowExecute){
+            System.out.println("Type of block: " + type.toString());
             if(type.toString().equals("LINK"))
             {
                 System.out.println("Link Block Detected in Execution Cycle");
             }
             gradient=new GradientPaint(0,shape.getBounds().y, color, 0,
-                (float) shape.getBounds().y+shape.getBounds().height, Color.GREEN);
+                (float) shape.getBounds().y+shape.getBounds().height, Color.WHITE); //color during execution
             
         }
         else{
@@ -737,7 +738,7 @@ public abstract class JBlock implements FlowElement{
                     (float) shape.getBounds().y+shape.getBounds().height, 
                         color
                         );
-        }
+        }*/
     }
 
     public void setCode(String c){
@@ -763,7 +764,7 @@ public abstract class JBlock implements FlowElement{
         Graphics2D g = (Graphics2D) ico.getGraphics();
         frc = g.getFontRenderContext();
         shape();
-        float scale=(float) 0.5;
+        float scale=(float) 0.7;
         ico=new BufferedImage(
                         (int) ((shape.getBounds().width + 4)*scale) + 2,
                         (int) ((shape.getBounds().height + 4)*scale),
@@ -818,6 +819,7 @@ public abstract class JBlock implements FlowElement{
     public void draw(Graphics2D g2d){draw(g2d, false);}
     @Override
     public void draw(Graphics2D g2d, boolean drawFull){
+        
         if(flow==null) return;
         if (Global.prerender) {
             if (prerenderedInScale != flow.scale() || !prerendered || prerender == null) {
@@ -830,6 +832,7 @@ public abstract class JBlock implements FlowElement{
                             (int) ((shape.getBounds().width + 4) * prerenderedInScale) + 2,
                             (int) ((shape.getBounds().height + 4) * prerenderedInScale),
                             BufferedImage.TYPE_INT_ARGB);
+                g2d.setStroke(Global.strokeBold);
             }
             if (!prerendered && prerender!=null) {
                 Graphics2D g;
@@ -850,6 +853,7 @@ public abstract class JBlock implements FlowElement{
                 g.draw(shape);
                 drawText(g);
                 prerendered = true;
+                
             }
         }
         if(g2d==null) return;
@@ -872,15 +876,16 @@ public abstract class JBlock implements FlowElement{
             g2d.draw(shape);
             drawText(g2d);
             g2d.translate(-1, 1);
+            
         }
         if(nowExecute && Global.bolderBorder){
-            g2d.setStroke(Global.strokeBold6);
-            g2d.setColor(borderColor);
+            g2d.setStroke(Global.strokeBold4);
+            g2d.setColor(Color.RED.darker()); //when executing, create red border
             g2d.draw(shape);
-            g2d.setStroke(Global.strokeBold);
-            g2d.setColor(color);
-            g2d.draw(shape);
-            g2d.setStroke(Global.strokeNormal);
+            //g2d.setStroke(Global.strokeBold6);
+            //g2d.setColor(Color.BLUE.darker());
+            //g2d.draw(shape);
+            //g2d.setStroke(Global.strokeNormal);
         }
         if(Global.debugMode){
             g2d.drawString("ID: "+this.ID, 

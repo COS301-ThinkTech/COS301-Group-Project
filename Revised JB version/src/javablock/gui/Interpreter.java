@@ -151,7 +151,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         if (f.exists()) {
             try {
                 URL[] urls = new URL[]{
-                    f.toURL()
+                    f.toURI().toURL()
                 };
                 ClassLoader load = new URLClassLoader(urls);
                 m = new ScriptEngineManager(load);
@@ -757,14 +757,25 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
          run.step();
         else
         {
-           Out.append("\n=======================================================================\n");
            if(!flow.validateIn())
-            Out.append(translator.get("console.inconnections")+"\n");
+           {
+               executionFeedBack.setForeground(Color.RED.darker());
+               executionFeedBack.setText(translator.get("console.inconnections")+"\n");
+                stop();
+           }
            if(!flow.validateOut())
-            Out.append(translator.get("console.outconnections")+"\n");
+           {
+               executionFeedBack.setForeground(Color.RED.darker());
+               executionFeedBack.setText(translator.get("console.outconnections")+"\n");
+                stop();
+           }
            if(!flow.validateEnd())
-            Out.append(translator.get("console.endcomponent")+"\n"); 
-           stop();
+           {
+               executionFeedBack.setForeground(Color.RED.darker());
+               executionFeedBack.setText(translator.get("console.endcomponent")+"\n"); 
+                stop();
+           }
+          
         }
     }
 
@@ -815,14 +826,24 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
          run.step();
         else
         {
-           Out.append("\n=======================================================================\n");
-           if(!flow.validateIn())
-            Out.append(translator.get("console.inconnections")+"\n");
+             if(!flow.validateIn())
+           {
+               executionFeedBack.setForeground(Color.RED.darker());
+               executionFeedBack.setText(translator.get("console.inconnections")+"\n");
+                stop();
+           }
            if(!flow.validateOut())
-            Out.append(translator.get("console.outconnections")+"\n");
+           {
+               executionFeedBack.setForeground(Color.RED.darker());
+               executionFeedBack.setText(translator.get("console.outconnections")+"\n");
+                stop();
+           }
            if(!flow.validateEnd())
-            Out.append(translator.get("console.endcomponent")+"\n"); 
-           stop();
+           {
+               executionFeedBack.setForeground(Color.RED.darker());
+               executionFeedBack.setText(translator.get("console.endcomponent")+"\n"); 
+                stop();
+           }
         }
     }//GEN-LAST:event_RunButtonActionPerformed
     public void run(){

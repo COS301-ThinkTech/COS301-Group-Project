@@ -889,7 +889,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         }
         oldDim=canvasSize;
         if(!blockEdit)
-            g2.setBackground(bgColor.darker());
+            g2.setBackground(Color.WHITE);
         else
             g2.setBackground(bgColor);
         g2.clearRect(0, 0, canvasSize.width, canvasSize.height);
