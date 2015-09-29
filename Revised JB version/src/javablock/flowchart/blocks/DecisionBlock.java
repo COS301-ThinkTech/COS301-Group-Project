@@ -14,7 +14,7 @@ import javablock.flowchart.*;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 import javax.swing.JOptionPane;
-import javablock.flowchart.blockEditors.DecisionEditor;
+//import javablock.flowchart.blockEditors.DecisionEditor;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -22,21 +22,21 @@ import javax.swing.JTextField;
 import widgets.ComboText;
 
 public class DecisionBlock extends JBlock {
-    public static DecisionEditor editor = new DecisionEditor();
+   // public static DecisionEditor editor = new DecisionEditor();
     public DecisionBlock(Flowchart parent){
         super(Type.DECISION, parent);
     }
     
     @Override
     public boolean isSwitchable(){return false;}
-    public String variable1, variable2;
+    public String var1 = "", var2 = "";
     public String compOperator;
     public String logicalOperator;
     public List<Comparison> comparisons = new ArrayList();
-     @Override
-    public BlockEditor getEditor(){
-        return editor;
-    }
+    // @Override
+//    public BlockEditor getEditor(){
+//        return editor;
+//    }
 
     @Override
     public Flowline connectTo(JBlock n){
@@ -159,10 +159,11 @@ public class DecisionBlock extends JBlock {
         return f;
     }
     class Comparison{
-         String var1, var2;
+        String var1, var2;
         Comparison()
         {
-            
+            var1 = "";
+            var2 = "";
         }
         public void setVar1(String v1)
         {

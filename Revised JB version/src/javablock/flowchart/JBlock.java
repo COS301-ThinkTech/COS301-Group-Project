@@ -26,7 +26,7 @@ public abstract class JBlock implements FlowElement{
     public enum Type { START, RETURN,
         IO, CPU, DECISION, LINK,
         JUMP, NULL, GROUP, 
-        CUSTOM, MODULE, FORLOOP,COMMENT,WHILELOOP,DOWHILELOOP
+        CUSTOM, MODULE, FORLOOP,COMMENT,WHILELOOP,DOWHILELOOP,DECLARATION
     };
     static final ArrayList<Class<JBlock>> customTypes=new ArrayList<Class<JBlock>>();
     static HashMap<Class, String> customTypesNames=new HashMap<Class, String>();
@@ -62,7 +62,7 @@ public abstract class JBlock implements FlowElement{
         return Type.CUSTOM;
     }
     public static Type StandardTypes[]={
-        Type.CPU/*, Type.IOin, Type.IOout*/, Type.DECISION, Type.RETURN, Type.MODULE, Type.COMMENT,Type.FORLOOP, Type.WHILELOOP,Type.DOWHILELOOP
+        Type.CPU/*, Type.IOin, Type.IOout*/, Type.DECISION, Type.RETURN, Type.MODULE, Type.COMMENT,Type.FORLOOP, Type.WHILELOOP,Type.DOWHILELOOP,Type.DECLARATION
     };
     public static Type HelpingTypes[]={
         Type.IO, Type.JUMP
@@ -173,6 +173,7 @@ public abstract class JBlock implements FlowElement{
             case JUMP: b= new JumpBlock(parent); break;
             case GROUP: b= new BlockGroup(parent); break;
             case COMMENT: b=new CommentBlock(parent); break;
+            case DECLARATION: b=new DeclarationBlock(parent); break;
             default: b= new CPUBlock(parent);b.type=Type.CUSTOM; break;
         }
         
@@ -347,7 +348,10 @@ public abstract class JBlock implements FlowElement{
 
     public JBlock nextBlock(){
         if(connects.size()==1)
+        {
+            
             return connects.get(0).n;
+        }
         return null;
     }
 
@@ -701,13 +705,19 @@ public abstract class JBlock implements FlowElement{
         prerendered=false;
     }
     public void makeGradient(){
+        
         prerendered=false;
         prerender=null;
         if(gradient!=null)
             gradient=null;
         if(nowExecute){
+            if(type.toString().equals("LINK"))
+            {
+                System.out.println("Link Block Detected in Execution Cycle");
+            }
             gradient=new GradientPaint(0,shape.getBounds().y, color, 0,
-                (float) shape.getBounds().y+shape.getBounds().height, color.brighter());
+                (float) shape.getBounds().y+shape.getBounds().height, Color.GREEN);
+            
         }
         else{
             Color col;
@@ -934,6 +944,7 @@ public abstract class JBlock implements FlowElement{
                         g2d.setColor(new Color(255,255,255,(int)(150*highlight)));
                     else
                         g2d.setColor(hlight);
+                    
                     g2d.fill(shape);
                 }
                 //g2d.setTransform(af);
@@ -979,8 +990,21 @@ public abstract class JBlock implements FlowElement{
 
 
     public void drawConnections(Graphics2D g2d){
+        if(nowExecute)
+        {
+            
+            for (int i = 0; i < connects.size(); i++){
+                connects.get(i).drawExecuting(g2d);
+                if(linkTo != null)
+                {
+                    linkTo.connects.get(i).drawExecuting(g2d);
+                }
+            }
+        }
+        else{
         for (int i = 0; i < connects.size(); i++)
             connects.get(i).draw(g2d);
+        }
     }
     public void translate(float x, float y){
         posX+=x;
@@ -1289,5 +1313,16 @@ public abstract class JBlock implements FlowElement{
         Element block=makeXml(root);
         root.appendChild(block);
     }
-
+    
+    public int numOfInConnects ()
+    {
+        if (this.connectsIn == null)
+            return 0;
+        return connectsIn.size();
+    }
+     public int numOfOutConnects ()
+    {
+       
+       return connects.size();
+    }
 }
