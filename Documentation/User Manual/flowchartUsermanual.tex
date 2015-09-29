@@ -10,23 +10,24 @@
 \pagenumbering{roman}
 \newpage
 \pagenumbering{arabic}
-\section{General Information}
-	\subsection{System Overview}
+\section{System Overview}
 	
 		Flowchart Simulation Tool is an application which allows for designing and executing flowchart diagrams. This application is intended for academic purposes for students with basic knowledge of programming design and implementation. This is a platform where the students can construct their own flowcharts, test and use them as they would like. \newline
 		
-		Furthermore, the system can be used in the commercial industry for various purposes.
+		Furthermore, this system is highly related to the already existing edition of JavaBlock. The idea behind this system and that of JavaBlock is the same, they both pursue the same purpose. However, they are different when it comes to the usability of the system. With Flow (this system) focusing more on the interaction the user has on the system. For example, with JavaBlock to place a block onto the canvas one requires a couple of operations but with Flow, drag-and-drop operation is used. 
 		
-\section{System Summary}
-	\subsection{System Configuration}
+\section{System Configuration}
 		
-		The flowchart tool is intended to operate on any Linux distribution. However, it can also be used on Windows and Mac OS. It is not a very sophisticated software, not so many configurations required.
 		
-		Any version of Java should be installed to allow for successful execution of the program. 
+		The flowchart tool is intended to operate on any Linux distribution. However, it can also be used on Windows and Mac OS. It is not a very sophisticated software and since the system is a minimal stand-alone application, not so many configurations required. 
 		
-		\subsection{System Installation}
+		It is so far recommended that the computer in which the system will be executed have Java 7 and above installed to allow the successful execution of the program. Other versions might make the system have unseen bugs.
 		
-		This system is a "plug-and-play" type of application, for which the executable file can be found from the University of Pretoria (Computer Science) website.
+\section{System Installation}
+		
+		This system is a "plug-and-play" type of application, for which the executable file can be found from the University of Pretoria (Computer Science) website (http://www.cs.up.ac.za/courses/COS151). \newline
+		
+		Since this system is provided by the department, it must be pre-installed in the machines that are in the Infomatorium. So not much installation from students perspective. Nonetheless, for external use the installation procedures will be uploaded into the aforesaid URL and also updated here when finalised. 
 		
 
 \section{Getting Started}
@@ -35,22 +36,26 @@
 
 
 
-
-
-
-
 % This section forms the bulk of the user manual.
-
-
-
-
-
-
 
 
 	
 	\subsection{Running Software}
+	
+	% Screenshots of how the file should be exucuted	
+	
 		The application will not require any installation. To run the application the user will only require the executable file which will be provided via the on-line University of Pretoria (Computer Science) website. With the executable file the user will only need to double click on the file, then the system will star-up.
+		
+		For the time being an executable .jar file has been created to allow instant execution of the system without any installation. Below its a simple outline which illustrate this, an executable is clicked on the top right of the screen and Flow appears instantly. \newline \newline
+		
+		\includegraphics[width=12cm]{RunningFlow.jpg}
+			\begin{center}
+		Figure: Starting the entire system.\newline
+		\end{center} 
+		
+		
+		
+		
 		
 		\subsection{Software Layout}
 		The layout is composed of the canvas, flowchart tools and menu options. \newline 
@@ -69,14 +74,26 @@
 		Figure: The Canvas.\newline
 		\end{center}
 			
-			\item \textbf{Flowchart Tools:} This contains all the tools required to construct the flowchart. All the components will be dragged and dropped onto the canvas (as illustrated by the the figure below), with the tools on the left and the canvas on the right. All the necessary components to build a flowchart are listed on the left toolbar.\newline \newline
+			\item \textbf{Flowchart Tools:} This contains all the tools required to construct the flowchart. All the components will be dragged and dropped onto the canvas (as illustrated by the the figure below), with the tools on the left and the canvas on the right. All the necessary components to build a flowchart are listed on the left toolbar.\newline
+			
+		The tools are draggable, i.e, from the toolbar hover over the block you want to use and drag it over to the canvas (the white plane on the left - as illustrated above). Under "using the system" is a detailed illustration on how to use these tools. \newline \newline			
+			
 			\includegraphics[width=11.5cm]{Tools.jpg}
 			\begin{center}
 		Figure: Flowchart Tool Components.\newline
 		\end{center} 
 			
 						
-			\item \textbf{Menu Options -} The menu option provides options of creating, saving, deleting and loading projects onto the canvas. Also, this provides the user with many more options which are accessible by hovering over the name of the option. The figure below shows the functionality of all this.\newline \newline
+			\item \textbf{Menu Options -} The menu option provides options of creating, saving, deleting and loading projects onto the canvas. Also, this provides the user with many more options which are accessible by hovering over the name of the option. The figure below shows the functionality of all this.\newline 
+		
+		\begin{itemize}
+		\item Creating projects: The detailed description of this is given under "Creating projects"  below.
+		\item Saving projects:  The detailed description of this is given under "Saving projects" below.
+		\item Deleting projects: This will delete the entire project, from the main flowchart to the modules that the flowchart uses.
+		\item Loading projects: The detailed description of this is given under "Opening existing projects" below.
+\end{itemize}				
+			
+			
 			\includegraphics[width=11.5cm]{Menu.jpg}
 			\begin{center}
 		Figure: Menu Bar.
