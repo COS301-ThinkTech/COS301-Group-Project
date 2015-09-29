@@ -2,6 +2,7 @@ package javablock.gui;
 import addons.Addons;
 import config.*;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.event.*;
 import java.io.*;
@@ -273,6 +274,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         command = new javax.swing.JTextField();
         commandLabel = new javax.swing.JLabel();
         exeButton = new javax.swing.JButton();
+        executionFeedBack = new javax.swing.JTextField();
         tracker = new javax.swing.JPanel();
         ValuesPanel = new javax.swing.JScrollPane();
         values = new javax.swing.JTable();
@@ -429,7 +431,6 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         jPanel1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
         Out.setColumns(20);
-        Out.setFont(new java.awt.Font("Monospaced", 0, 13)); // NOI18N
         Out.setRows(1);
         outScroll.setViewportView(Out);
 
@@ -449,33 +450,41 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
             }
         });
 
+        executionFeedBack.setEditable(false);
+        executionFeedBack.setColumns(30);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(outScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(commandLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(command, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(exeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ClearButton, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ClearButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(executionFeedBack, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(outScroll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(commandLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(command)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(exeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(outScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                .addComponent(outScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(executionFeedBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ClearButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(command, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(commandLabel)
-                    .addComponent(exeButton)))
+                    .addComponent(exeButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         consolePane.addTab(bundle.getString("scriptPanel.output"), jPanel1); // NOI18N
@@ -499,22 +508,22 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         tracker.setLayout(trackerLayout);
         trackerLayout.setHorizontalGroup(
             trackerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ValuesPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+            .addComponent(ValuesPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
             .addGroup(trackerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(trackerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(trackerLayout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
-                        .addComponent(track, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
+                        .addComponent(track, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE))
                     .addGroup(trackerLayout.createSequentialGroup()
-                        .addComponent(search, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                        .addComponent(search, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         trackerLayout.setVerticalGroup(
             trackerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, trackerLayout.createSequentialGroup()
-                .addComponent(ValuesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                .addComponent(ValuesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(search)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -544,8 +553,8 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
             .addGroup(inputPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
                     .addGroup(inputPanelLayout.createSequentialGroup()
                         .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
@@ -562,7 +571,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -596,17 +605,13 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearButtonActionPerformed
-        Out.setText("");
-    }//GEN-LAST:event_ClearButtonActionPerformed
 
     private void StopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StopButtonActionPerformed
         reset();
@@ -774,11 +779,14 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         }
         for(JBlock b:flow.getBlocks()){
             b.releaseFromExe();
-        }
+        }           
         flow.setEditable(set);
         flow.update();
         if(set)
-            Out.append("\n"+translator.get("console.end")+"\n");
+        {
+            executionFeedBack.setForeground(Color.GREEN.darker());
+            executionFeedBack.setText("\n"+translator.get("console.end")+"\n");
+        }
         setButtons(false,true,false,false);
     }
 
@@ -829,21 +837,6 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
             hideConsole();
     }//GEN-LAST:event_consoleButtonActionPerformed
 
-    private void exeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exeButtonActionPerformed
-        if(StartButton.isEnabled()) return ;
-        try {
-            String c=command.getText();
-            if(c!=null)
-                script.eval(command.getText());
-            command.setText("");
-        } catch (ScriptException ex) {
-            JOptionPane.showMessageDialog(Global.Window,
-                    translator.get("popup.error")+":\n"+ex.getMessage(),
-                    translator.get("popup.error"),
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_exeButtonActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -858,6 +851,26 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
             controll.setOrientation(JToolBar.VERTICAL);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void exeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exeButtonActionPerformed
+        if(StartButton.isEnabled()) return ;
+        try {
+            String c=command.getText();
+            if(c!=null)
+            script.eval(command.getText());
+            command.setText("");
+        } catch (ScriptException ex) {
+            JOptionPane.showMessageDialog(Global.Window,
+                translator.get("popup.error")+":\n"+ex.getMessage(),
+                translator.get("popup.error"),
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_exeButtonActionPerformed
+
+    private void ClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearButtonActionPerformed
+        Out.setText("");
+        executionFeedBack.setText("");
+    }//GEN-LAST:event_ClearButtonActionPerformed
     
     
     
@@ -907,7 +920,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ClearButton;
     public javax.swing.JSpinner IntervalSpiner;
-    public javax.swing.JTextArea Out;
+    private javax.swing.JTextArea Out;
     private javax.swing.JButton RunButton;
     private javax.swing.JButton StartButton;
     private javax.swing.JButton StepButton;
@@ -923,6 +936,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
     public javax.swing.JPanel embeddConsole;
     private javax.swing.JButton exeButton;
     private javax.swing.JTextField exec;
+    private javax.swing.JTextField executionFeedBack;
     public javax.swing.JTextArea input;
     private javax.swing.JPanel inputPanel;
     private javax.swing.JButton jButton1;

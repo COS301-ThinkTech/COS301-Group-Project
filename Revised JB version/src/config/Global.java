@@ -20,6 +20,7 @@ import javablock.flowchart.JBlock;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
+import com.seaglasslookandfeel.SeaGlassLookAndFeel;
 
 /**
  *
@@ -222,7 +223,7 @@ public class Global
        AcrylLookAndFeel.setCurrentTheme(props);
         try 
         {
-            UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
+            UIManager.setLookAndFeel("com.seaglasslookandfeel.SeaGlassLookAndFeel");
         }
         catch (ClassNotFoundException ex) 
         {
