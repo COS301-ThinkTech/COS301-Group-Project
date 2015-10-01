@@ -767,7 +767,7 @@ public final class MainWindow extends javax.swing.JFrame
         if(Manager.flow.split.getBottomComponent().getBounds().height<50)
         {
             Manager.flow.split.setDividerLocation(
-                    Manager.flow.getSize().height-220);
+                Manager.flow.getSize().height-220);
             //showHideConsole.setText("Hide Console");
         }
         else{
