@@ -134,11 +134,11 @@ public class DoWhile extends javax.swing.JPanel implements Generator{
             list[p++]=process;
             
 
-            JumpBlock jump, jump2;
+            JumpBlock jump, jump2, jump3;
             
                         
             jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
-            jump.setPos(200,-200);
+            jump.setPos(200,-150);
             //process.connectTo(jump);
             //jump.connectTo(jump);
             list[p++]=jump; //-----3
@@ -149,23 +149,27 @@ public class DoWhile extends javax.swing.JPanel implements Generator{
             jump2.connectTo(jump);
             list[p++]=jump2;    //-----4
 
-            jump2=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
-            jump2.setPos(200,-150);
+            jump3=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
+            jump3.setPos(0,-150);
+            jump3.connectTo(process);
+            jump.connectTo(jump3);
+            list[p++]=jump3; //-----6
+            
+            
+            
+            
+            
+          /*  jump2=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
+            jump2.setPos(0,-150);
             jump2.connectTo(jump);
             list[p++]=jump2;    //-----5
-
-            jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
-            jump.setPos(0,-150);
-            jump.connectTo(process);
-            
-            list[p++]=jump; //-----6
-            
+          
             jump2=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);
-            jump2.setPos(0,-200);
+            jump2.setPos(0,-150);
             //process.connectTo(jump);
             jump2.connectTo(jump);
             list[p++]=jump2; //-----3
-
+*/
             jump=(JumpBlock) JBlock.make(JBlock.Type.JUMP, f);  //Bottom jump.(false)
             jump.setPos(0,100);
             condition.connectTo(jump);
