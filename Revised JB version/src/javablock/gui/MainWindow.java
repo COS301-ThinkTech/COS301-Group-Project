@@ -146,6 +146,7 @@ public final class MainWindow extends javax.swing.JFrame
         scriptRun = new javax.swing.JButton();
         scriptInterval = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
+        showHideConsole = new javax.swing.JToggleButton();
         menu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuNew = new javax.swing.JMenuItem();
@@ -333,6 +334,18 @@ public final class MainWindow extends javax.swing.JFrame
         scriptTools.add(jLabel2);
 
         toolBar.add(scriptTools);
+
+        showHideConsole.setSelected(true);
+        showHideConsole.setText("Hide/Show Console");
+        showHideConsole.setFocusable(false);
+        showHideConsole.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        showHideConsole.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        showHideConsole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showHideConsoleActionPerformed(evt);
+            }
+        });
+        toolBar.add(showHideConsole);
 
         jMenu1.setText(bundle.getString("main.file")); // NOI18N
 
@@ -749,6 +762,20 @@ public final class MainWindow extends javax.swing.JFrame
         Manager.zoom(source.getValue());
     }//GEN-LAST:event_zoomSliderStateChanged
 
+    private void showHideConsoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showHideConsoleActionPerformed
+        // TODO add your handling code here:
+        if(Manager.flow.split.getBottomComponent().getBounds().height<50)
+        {
+            Manager.flow.split.setDividerLocation(
+                Manager.flow.getSize().height-220);
+            //showHideConsole.setText("Hide Console");
+        }
+        else{
+            Manager.flow.split.setDividerLocation(2000);
+            //showHideConsole.setText("Show Console");
+        }
+    }//GEN-LAST:event_showHideConsoleActionPerformed
+
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
     }                                          
@@ -911,6 +938,7 @@ Rectangle windowSize;
     public javax.swing.JButton scriptStop;
     private javax.swing.JToolBar scriptTools;
     private javax.swing.JPopupMenu.Separator sep;
+    private javax.swing.JToggleButton showHideConsole;
     private javax.swing.JToolBar toolBar;
     private javax.swing.JButton toolNew;
     private javax.swing.JButton toolOpen;

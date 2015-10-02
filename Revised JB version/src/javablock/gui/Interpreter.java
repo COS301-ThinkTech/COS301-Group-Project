@@ -7,6 +7,7 @@ import java.awt.Rectangle;
 import java.awt.event.*;
 import java.io.*;
 import java.net.*;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -34,6 +35,10 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
 
     Sheet called=null;
 
+    long executionStartTime = 0;
+    long executionEndTime = 0;
+    long executionTotalTime = 0;
+    
     public Interpreter(Sheet flow) {
         addComponentListener(this);
         this.flow=flow;
@@ -716,6 +721,8 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
     }
 
     private void StartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButtonActionPerformed
+        /* Start Execution Time*/
+        executionStartTime = System.currentTimeMillis(); 
         manager=flow.getManager();
         if(run == null || !run.isAlive()){
             run = new ScriptRunner(this);
@@ -784,6 +791,10 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
     }
 
     public void simulateEnd(boolean set){
+         /* Execution End Time*/
+        executionEndTime = System.currentTimeMillis();
+        executionTotalTime = executionEndTime - executionStartTime;
+        
         run.wait=-100;
         synchronized(run){
             run.notifyAll();
@@ -796,7 +807,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         if(set)
         {
             executionFeedBack.setForeground(Color.GREEN.darker());
-            executionFeedBack.setText("\n"+translator.get("console.end")+"\n");
+            executionFeedBack.setText("\n"+translator.get("console.end")+ " (total time: " + (int)((executionTotalTime/1000)/60) + " minutes, " + (int)((executionTotalTime/1000)%60)+ " seconds)\n");
         }
         setButtons(false,true,false,false);
     }
