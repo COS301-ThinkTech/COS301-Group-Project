@@ -221,6 +221,7 @@ public class Global
         Properties props = new Properties();
        props.put("logoString", "FLOW");
        AcrylLookAndFeel.setCurrentTheme(props);
+       /*
         try 
         {
             UIManager.setLookAndFeel("com.seaglasslookandfeel.SeaGlassLookAndFeel");
@@ -241,6 +242,7 @@ public class Global
         {
             Logger.getLogger(configurator.class.getName()).log(Level.SEVERE, null, ex);
         }
+           */
     }
     
     public static ClassLoader Classes;
