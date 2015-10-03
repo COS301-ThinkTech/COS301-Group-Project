@@ -177,13 +177,10 @@ public final class MainWindow extends javax.swing.JFrame
         menuFlowchartsRemove = new javax.swing.JMenuItem();
         menuFlowchartsRename = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
         menuGridBool = new javax.swing.JCheckBoxMenuItem();
-        menuAABool = new javax.swing.JCheckBoxMenuItem();
-        menuFullConnectorsValues = new javax.swing.JCheckBoxMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        menuFullScreen = new javax.swing.JMenuItem();
         menuSettings = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
+        menuShowHideConsole = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         menuHelp = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
@@ -487,8 +484,6 @@ public final class MainWindow extends javax.swing.JFrame
 
         jMenu3.setText(bundle.getString("main.settings")); // NOI18N
 
-        jMenu5.setText(bundle.getString("main.draw")); // NOI18N
-
         menuGridBool.setText(bundle.getString("main.drawGrid")); // NOI18N
         menuGridBool.setActionCommand("view/grid");
         menuGridBool.addActionListener(new java.awt.event.ActionListener() {
@@ -496,36 +491,15 @@ public final class MainWindow extends javax.swing.JFrame
                 menuGridBoolActionPerformed1(evt);
             }
         });
-        jMenu5.add(menuGridBool);
+        jMenu3.add(menuGridBool);
 
-        menuAABool.setText(bundle.getString("main.antiAliasing")); // NOI18N
-        menuAABool.setActionCommand("view/aa");
-        menuAABool.addActionListener(new java.awt.event.ActionListener() {
+        menuFullScreen.setText(bundle.getString("main.fullscreen")); // NOI18N
+        menuFullScreen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuAABoolActionPerformed(evt);
+                menuFullScreenActionPerformed(evt);
             }
         });
-        jMenu5.add(menuAABool);
-
-        menuFullConnectorsValues.setSelected(true);
-        menuFullConnectorsValues.setText(bundle.getString("main.drawFullConnectorsValue")); // NOI18N
-        menuFullConnectorsValues.setActionCommand("view/fullValues");
-        menuFullConnectorsValues.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuFullConnectorsValuesActionPerformed(evt);
-            }
-        });
-        jMenu5.add(menuFullConnectorsValues);
-
-        jMenu3.add(jMenu5);
-
-        jMenuItem1.setText(bundle.getString("main.fullscreen")); // NOI18N
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem1);
+        jMenu3.add(menuFullScreen);
 
         menuSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/gconf-editor.png"))); // NOI18N
         menuSettings.setText(bundle.getString("main.settings")); // NOI18N
@@ -536,13 +510,13 @@ public final class MainWindow extends javax.swing.JFrame
         });
         jMenu3.add(menuSettings);
 
-        jMenuItem11.setText("Console");
-        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+        menuShowHideConsole.setText("Show/Hide Console");
+        menuShowHideConsole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem11ActionPerformed(evt);
+                menuShowHideConsoleActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem11);
+        jMenu3.add(menuShowHideConsole);
 
         menu.add(jMenu3);
 
@@ -607,7 +581,7 @@ public final class MainWindow extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_menuFlowchartsRemoveActionPerformed
 
-    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+    private void menuShowHideConsoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuShowHideConsoleActionPerformed
         // TODO add your handling code here:
          if(Manager.flow.split.getBottomComponent().getBounds().height<50){
             Manager.flow.split.setDividerLocation(
@@ -615,7 +589,7 @@ public final class MainWindow extends javax.swing.JFrame
         }
         else
             Manager.flow.split.setDividerLocation(2000);
-    }//GEN-LAST:event_jMenuItem11ActionPerformed
+    }//GEN-LAST:event_menuShowHideConsoleActionPerformed
 
     private void zoomSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_zoomSliderStateChanged
         // TODO add your handling code here:Sys
@@ -633,22 +607,14 @@ public final class MainWindow extends javax.swing.JFrame
         Manager.flow.update();
     }                                        
 
-    private void menuAABoolActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        Global.antialiasing=menuAABool.getState();
-        Manager.flow.update();
-    }                                                                            
-
-                                                
+                                                    
 
     private void menuGridBoolActionPerformed1(java.awt.event.ActionEvent evt) {                                              
         Global.grid=menuGridBool.getState();
         Manager.flow.update();
-    }                                             
+    }                                            
 
-    private void menuFullConnectorsValuesActionPerformed(java.awt.event.ActionEvent evt) {                                                         
-        Global.fullConnectorValue=menuFullConnectorsValues.getState();
-        Manager.flow.update();
-    }                                                        
+                                   
 
     private void menuSettingsActionPerformed(java.awt.event.ActionEvent evt) {                                             
         Global.conf.show();
@@ -694,7 +660,7 @@ public final class MainWindow extends javax.swing.JFrame
     }                                             
 boolean fullscreen=false;
 Rectangle windowSize;
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void menuFullScreenActionPerformed(java.awt.event.ActionEvent evt) {                                           
         fullscreen^=true;
         if(fullscreen){
             windowSize=this.getBounds();
@@ -727,10 +693,7 @@ Rectangle windowSize;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator12;
@@ -741,7 +704,6 @@ Rectangle windowSize;
     private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JPopupMenu.Separator jSeparator8;
     public javax.swing.JMenuBar menu;
-    private javax.swing.JCheckBoxMenuItem menuAABool;
     private javax.swing.JMenuItem menuCopy;
     private javax.swing.JMenuItem menuCut;
     private javax.swing.JMenuItem menuDelete;
@@ -751,7 +713,7 @@ Rectangle windowSize;
     private javax.swing.JMenuItem menuFlowchartsAdd;
     private javax.swing.JMenuItem menuFlowchartsRemove;
     private javax.swing.JMenuItem menuFlowchartsRename;
-    private javax.swing.JCheckBoxMenuItem menuFullConnectorsValues;
+    private javax.swing.JMenuItem menuFullScreen;
     private javax.swing.JCheckBoxMenuItem menuGridBool;
     private javax.swing.JMenuItem menuHelp;
     private javax.swing.JMenuItem menuImportXml;
@@ -763,6 +725,7 @@ Rectangle windowSize;
     private javax.swing.JMenuItem menuSaveAs;
     private javax.swing.JMenuItem menuSavePython;
     private javax.swing.JMenuItem menuSettings;
+    private javax.swing.JMenuItem menuShowHideConsole;
     private javax.swing.JMenuItem menuUndo;
     public javax.swing.JSpinner scriptInterval;
     public javax.swing.JButton scriptRun;
@@ -786,10 +749,8 @@ Rectangle windowSize;
         if (this.Manager != null) {
           this.scriptInterval.setValue(Integer.valueOf(this.Manager.flow.interval));
         }
-        this.menuAABool.setState(Global.antialiasing);
-        this.menuGridBool.setState(Global.grid);
-        this.menuPascalMode.setState(Global.pascalMode);
-        this.menuFullConnectorsValues.setState(Global.fullConnectorValue);
+        
+        this.menuGridBool.setState(Global.grid);        
         //this.engine.setSelectedItem(men.scriptEngine);
     }
 
