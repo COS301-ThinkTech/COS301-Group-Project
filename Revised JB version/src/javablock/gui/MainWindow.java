@@ -176,8 +176,6 @@ public final class MainWindow extends javax.swing.JFrame
         menuFlowchartsAdd = new javax.swing.JMenuItem();
         menuFlowchartsRemove = new javax.swing.JMenuItem();
         menuFlowchartsRename = new javax.swing.JMenuItem();
-        jSeparator11 = new javax.swing.JPopupMenu.Separator();
-        menuScript = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -495,13 +493,6 @@ public final class MainWindow extends javax.swing.JFrame
         menuFlowchartsRename.setActionCommand("flowcharts/rename");
         jMenu6.add(menuFlowchartsRename);
         menuFlowchartsRename.addActionListener(this);
-
-        jMenu6.add(jSeparator11);
-
-        menuScript.setText(bundle.getString("main.flowcharts.showScripts")); // NOI18N
-        menuScript.setActionCommand("flowcharts/script");
-        jMenu6.add(menuScript);
-        menuScript.addActionListener(this);
 
         menu.add(jMenu6);
 
@@ -870,7 +861,6 @@ Rectangle windowSize;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JPopupMenu.Separator jSeparator11;
     private javax.swing.JPopupMenu.Separator jSeparator12;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
@@ -901,7 +891,6 @@ Rectangle windowSize;
     private javax.swing.JMenuItem menuSave;
     private javax.swing.JMenuItem menuSaveAs;
     private javax.swing.JMenuItem menuSavePython;
-    private javax.swing.JMenuItem menuScript;
     private javax.swing.JMenuItem menuSettings;
     private javax.swing.JMenuItem menuUndo;
     public javax.swing.JSpinner scriptInterval;
