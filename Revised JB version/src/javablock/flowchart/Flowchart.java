@@ -2021,7 +2021,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     }
 
     public final class EditorPane extends JPanel
-    {
+    {/*
         JButton addNew;
         public EditorPane()
         {
@@ -2045,6 +2045,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             else
                 addNew.setVisible(true);
         }
+        */
     }
     final Object renderLock=new Object();
     class Renderer extends Thread {
