@@ -807,7 +807,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                     flow.editorPane.add((Component) editor, BorderLayout.CENTER);
                     selected.getEditor().setEditedBlock(flow.selected.get(0));
                     flow.editorPane.setVisible(true);
-                    flow.editorPane.setType(selected.type);
+//                    flow.editorPane.setType(selected.type);
                     flow.editorPane.revalidate();
                     if(resize)
                     {
