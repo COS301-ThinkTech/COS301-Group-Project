@@ -176,16 +176,6 @@ public final class MainWindow extends javax.swing.JFrame
         menuFlowchartsAdd = new javax.swing.JMenuItem();
         menuFlowchartsRemove = new javax.swing.JMenuItem();
         menuFlowchartsRename = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         menuGridBool = new javax.swing.JCheckBoxMenuItem();
@@ -496,87 +486,6 @@ public final class MainWindow extends javax.swing.JFrame
 
         menu.add(jMenu6);
 
-        jMenu7.setText("Components");
-
-        jMenuItem4.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.IO)));
-        jMenuItem4.setText("I/O");
-        jMenuItem4.setToolTipText("I/O");
-        jMenuItem4.setActionCommand("add/IO");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu7.add(jMenuItem4);
-        jMenuItem4.addActionListener(this);
-
-        jMenuItem5.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.CPU)));
-        jMenuItem5.setText("CPU");
-        jMenuItem5.setToolTipText("CPU");
-        jMenuItem5.setActionCommand("add/CPU");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu7.add(jMenuItem5);
-        jMenuItem5.addActionListener(this);
-
-        jMenuItem6.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.DECISION)));
-        jMenuItem6.setText("Decision");
-        jMenuItem6.setToolTipText("Decision");
-        jMenuItem6.setActionCommand("add/DECISION");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu7.add(jMenuItem6);
-        jMenuItem6.addActionListener(this);
-
-        jMenuItem7.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.RETURN)));
-        jMenuItem7.setText("End");
-        jMenuItem7.setToolTipText("End");
-        jMenuItem7.setActionCommand("add/RETURN");
-        jMenu7.add(jMenuItem7);
-        jMenuItem7.addActionListener(this);
-
-        jMenuItem8.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.LINK)));
-        jMenuItem8.setText("Link");
-        jMenuItem8.setToolTipText("Link");
-        jMenuItem8.setActionCommand("add/LINK");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
-            }
-        });
-        jMenu7.add(jMenuItem8);
-        jMenuItem8.addActionListener(this);
-
-        jMenuItem9.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.JUMP)));
-        jMenuItem9.setText("Jump");
-        jMenuItem9.setToolTipText("Jump");
-        jMenuItem9.setActionCommand("add/JUMP");
-        jMenu7.add(jMenuItem9);
-        jMenuItem9.addActionListener(this);
-
-        jMenuItem10.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.FORLOOP)));
-        jMenuItem10.setText("For Loop");
-        jMenuItem10.setToolTipText("For Loop");
-        jMenuItem10.setActionCommand("foraction/FORLOOP");
-        jMenu7.add(jMenuItem10);
-        jMenuItem10.addActionListener(this);
-
-        jMenuItem2.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.MODULE)));
-        jMenuItem2.setText("Module");
-        jMenu7.add(jMenuItem2);
-
-        jMenuItem3.setIcon(new ImageIcon(JBlock.getIcon(JBlock.Type.COMMENT)));
-        jMenuItem3.setText("Comment");
-        jMenu7.add(jMenuItem3);
-
-        menu.add(jMenu7);
-
         jMenu3.setText(bundle.getString("main.settings")); // NOI18N
 
         jMenu5.setText(bundle.getString("main.draw")); // NOI18N
@@ -702,22 +611,6 @@ public final class MainWindow extends javax.swing.JFrame
     private void menuFlowchartsAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFlowchartsAddActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuFlowchartsAddActionPerformed
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void menuFlowchartsRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFlowchartsRemoveActionPerformed
         // TODO add your handling code here:
@@ -847,19 +740,9 @@ Rectangle windowSize;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator12;
     private javax.swing.JPopupMenu.Separator jSeparator2;
