@@ -372,66 +372,6 @@ public abstract class JBlock implements FlowElement{
     private String parseCode(char s){
         String c="";
         String code=this.code.replaceAll("\"", "\" ");
-        // <editor-fold defaultstate="collapsed" desc="Pascal mode">
-        if (Global.pascalMode && !isReadyCode()) {
-            String l[] = code.split("\"");
-            int i = 0;
-            for (String part : l) {
-                if (i % 2 == 1) {
-                    c += part;
-                    if (i < l.length - 1)
-                        c += "\"";
-                    i++;
-                    continue;
-                }
-                part = part.replaceAll("([^=!<>:])=([^=!<>])", "$1==$2")
-                    .replaceAll("([^=!<>:])<>([^=!<>])", "$1!=$2")
-                    .replaceAll(
-                            "([a-zA-Z0-9]*):=([a-zA-Z0-9]*)",
-                            "$1=$2")
-                    .replaceAll("([^\\+\\-\\*\\/\\n\\^&|;=<>]*) (div|DIV) ([^\\+\\-\\*\\/\\n\\^&|;=<>]*)",
-                            "floor($1/$3)")
-                   .replaceAll("([^\\+\\-\\*\\/\\n\\^&|;=<>]*) (mod|MOD) ([^\\+\\-\\*\\/\\n\\^&|;=<>]*)",
-                            "($1%$3)")
-                    .replaceAll(" AND ", " && ")
-                    .replaceAll(" OR ", " || ")
-                    .replaceAll(" XOR ", " ^^ ")
-                    .replaceAll(" NOT ", " ! ");
-                c += part;
-                if (i < l.length - 1)
-                    c += "\"";
-                i++;
-            }
-            System.out.println(c);
-            if(code.endsWith("\""))
-                c+="\"";
-        }// </editor-fold>
-        // <editor-fold defaultstate="collapsed" desc="Normal mode">
-        else if(Global.scriptReplace){
-            String l[] = code.split("\"");
-            int i = 0;
-            for (String part : l) {
-                if (i % 2 == 1) {
-                    c += part;
-                    if (i < l.length - 1) {
-                        c += "\"";
-                    }
-                    i++;
-                    continue;
-                }
-                part = part.replaceAll("([^\\+\\-\\*\\/\\n\\^&|;=<>]*) (div|DIV) ([^\\+\\-\\*\\/\\n\\^&|;=<>]*)",
-                        "toInt(floor($1/$3))")
-                    .replaceAll("([^\\+\\-\\*\\/\\n\\^&|;=<>]*) (mod|MOD) ([^\\+\\-\\*\\/\\n\\^&|;=<>]*)",
-                        "($1%$3)");
-                c += part;
-                if (i < l.length - 1)
-                    c += "\"";
-                i++;
-            }
-            if(code.endsWith("\""))
-                c+="\"";
-        }// </editor-fold>
-        //else
         if(c.length()==0)
             c=code;
         // <editor-fold defaultstate="collapsed" desc="IO">
