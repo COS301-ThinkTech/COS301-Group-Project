@@ -861,14 +861,6 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         RunButtonActionPerformed(null);
     }
     boolean consoleVisible=false;
-    private void consoleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consoleButtonActionPerformed
-        consoleVisible^=true;
-        if(consoleVisible)
-            openConsole();
-        else
-            hideConsole();
-    }//GEN-LAST:event_consoleButtonActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -884,6 +876,19 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void ClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearButtonActionPerformed
+        Out.setText("");
+        executionFeedBack.setText("");
+    }//GEN-LAST:event_ClearButtonActionPerformed
+
+    private void consoleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consoleButtonActionPerformed
+        consoleVisible^=true;
+        if(consoleVisible)
+        openConsole();
+        else
+        hideConsole();
+    }//GEN-LAST:event_consoleButtonActionPerformed
+
     private void exeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exeButtonActionPerformed
         if(StartButton.isEnabled()) return ;
         try {
@@ -898,11 +903,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
                 JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_exeButtonActionPerformed
-
-    private void ClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearButtonActionPerformed
-        Out.setText("");
-        executionFeedBack.setText("");
-    }//GEN-LAST:event_ClearButtonActionPerformed
+    
     
     
     
@@ -958,18 +959,18 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
     private javax.swing.JButton StepButton;
     private javax.swing.JButton StopButton;
     private javax.swing.JScrollPane ValuesPanel;
-    public javax.swing.JTextArea arguments;
+    private javax.swing.JTextArea arguments;
     private javax.swing.JTextField command;
     private javax.swing.JLabel commandLabel;
     private javax.swing.JButton consoleButton;
-    public javax.swing.JTabbedPane consolePane;
+    private javax.swing.JTabbedPane consolePane;
     private javax.swing.JToolBar controll;
     private javax.swing.JPanel controllFull;
     public javax.swing.JPanel embeddConsole;
     private javax.swing.JButton exeButton;
     private javax.swing.JTextField exec;
     private javax.swing.JTextField executionFeedBack;
-    public javax.swing.JTextArea input;
+    private javax.swing.JTextArea input;
     private javax.swing.JPanel inputPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1066,7 +1067,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
             argLine=0;
         }
         String question="";
-        public String readArgument(String arg){
+        /*public String readArgument(String arg){
             String[] lines = ((Flowchart)flow).getPredefiniedArguments();
             if (argLine == 0 && lines[0].length() == 0) {
             } else if (lines.length > argLine) {
@@ -1083,7 +1084,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
                 return null;
             }
             return a;
-        }
+        }*/
         public reader(Interpreter i) {
             this.i = i;
         }
