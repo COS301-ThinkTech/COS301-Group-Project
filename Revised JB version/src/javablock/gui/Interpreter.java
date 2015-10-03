@@ -51,6 +51,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         ValuesPanel.setViewportView(values2);
         ValuesPanel.validate();
         init();
+        consolePane.remove(2);
     }
 
     public void setSheet(Sheet flow){
@@ -71,6 +72,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         StepButton = Global.Window.scriptStep;
         StopButton = Global.Window.scriptStop;
         IntervalSpiner = Global.Window.scriptInterval;
+        
         //embeddConsole.add(controll, BorderLayout.WEST);
     }
 
