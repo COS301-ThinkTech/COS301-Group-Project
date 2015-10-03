@@ -56,6 +56,8 @@ public class StandardEditor extends javax.swing.JPanel implements BlockEditor {
         comment.setPreferredSize(new java.awt.Dimension(150, 19));
         commendPane.setViewportView(comment);
 
+        
+        
         isHTML.setText(bundle.getString("blockConfig")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -65,19 +67,21 @@ public class StandardEditor extends javax.swing.JPanel implements BlockEditor {
             .addComponent(commendPane, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(isHTML)
+                //    .addComponent(isHTML)
                     .addComponent(commentDisplay))
                 .addContainerGap())
         );
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(commendPane, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(commentDisplay)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(isHTML))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
         );
+
+
 
         editors.addTab(bundle.getString("blockConfig.comment"), jPanel1); // NOI18N
 
