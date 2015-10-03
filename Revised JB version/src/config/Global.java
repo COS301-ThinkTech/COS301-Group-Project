@@ -124,7 +124,7 @@ public class Global
     public static boolean ready=false;
 
     //EDITING
-    public static boolean autoJumps=true;
+    public static boolean autoJumps=false;
     public static hlightT hlight=hlightT.AUTO;
     public static boolean snapToGrid=true;
 

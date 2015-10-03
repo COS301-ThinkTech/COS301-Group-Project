@@ -555,8 +555,8 @@ public final class MainWindow extends javax.swing.JFrame
 
     private void zoomSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_zoomSliderStateChanged
         // TODO add your handling code here:Sys
-        
-        JSlider source = (JSlider)evt.getSource();
+    
+        JSlider source = (JSlider)evt.getSource();       
         Manager.zoom(source.getValue());
     }//GEN-LAST:event_zoomSliderStateChanged
 
