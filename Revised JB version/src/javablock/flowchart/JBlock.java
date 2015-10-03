@@ -589,14 +589,11 @@ public abstract class JBlock implements FlowElement{
             txt=code;
             if(Global.flowMarks){
                 if(!Global.pascalMode)
-                    txt=code.replaceAll("([^=+\\-\\*/<>!])=([^=\\*/<>])", "$1←$2")
-                            .replaceAll("([^=+\\-\\*/<>])<>([^=\\*/<>])", "$1≠$2");
+                    txt=code.replaceAll("([^=+\\-\\*/<>!])=([^=\\*/<>])", "$1=$2")
+                            .replaceAll("([^=+\\-\\*/<>])<>([^=\\*/<>])", "$1!=$2");
                 else
-                    txt=code.replaceAll("([^=+\\-\\*/<>!]):=([^=\\*/<>])", "$1←$2");
-                txt=txt.replaceAll("<=", "≤")
-                        .replaceAll(">=", "≥")
-                        .replaceAll("==", "=")
-                        .replaceAll("!=", "≠")
+                    txt=code.replaceAll("([^=+\\-\\*/<>!]):=([^=\\*/<>])", "$1=$2");
+                txt=txt.replaceAll("==", "=")
                         ;
             }
         }
