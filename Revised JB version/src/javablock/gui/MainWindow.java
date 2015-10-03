@@ -141,8 +141,8 @@ public final class MainWindow extends javax.swing.JFrame
         scriptStart = new javax.swing.JButton();
         scriptStep = new javax.swing.JButton();
         scriptRun = new javax.swing.JButton();
-        scriptInterval = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
+        scriptInterval = new javax.swing.JSpinner();
         menu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuNew = new javax.swing.JMenuItem();
@@ -300,12 +300,15 @@ public final class MainWindow extends javax.swing.JFrame
         });
         scriptTools.add(scriptRun);
 
-        scriptInterval.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5000, 50));
-        scriptInterval.setMaximumSize(new java.awt.Dimension(63, 20));
-        scriptTools.add(scriptInterval);
-
-        jLabel2.setText("run speed");
+        jLabel2.setText("run speed  ");
         scriptTools.add(jLabel2);
+
+        scriptInterval.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5000, 50));
+        scriptInterval.setMaximumSize(new java.awt.Dimension(47, 20));
+        scriptInterval.setMinimumSize(new java.awt.Dimension(47, 20));
+        scriptInterval.setName(""); // NOI18N
+        scriptInterval.setPreferredSize(new java.awt.Dimension(47, 20));
+        scriptTools.add(scriptInterval);
 
         toolBar.add(scriptTools);
 
