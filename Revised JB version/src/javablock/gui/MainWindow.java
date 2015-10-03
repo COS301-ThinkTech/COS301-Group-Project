@@ -141,6 +141,7 @@ public final class MainWindow extends javax.swing.JFrame
         scriptStart = new javax.swing.JButton();
         scriptStep = new javax.swing.JButton();
         scriptRun = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JToolBar.Separator();
         jLabel2 = new javax.swing.JLabel();
         scriptInterval = new javax.swing.JSpinner();
         menu = new javax.swing.JMenuBar();
@@ -299,8 +300,9 @@ public final class MainWindow extends javax.swing.JFrame
             }
         });
         scriptTools.add(scriptRun);
+        scriptTools.add(jSeparator4);
 
-        jLabel2.setText("run speed  ");
+        jLabel2.setText("  run speed  ");
         scriptTools.add(jLabel2);
 
         scriptInterval.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5000, 50));
@@ -666,6 +668,7 @@ Rectangle windowSize;
     private javax.swing.JPopupMenu.Separator jSeparator12;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator7;
     public javax.swing.JMenuBar menu;
