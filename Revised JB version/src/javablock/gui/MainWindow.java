@@ -171,7 +171,6 @@ public final class MainWindow extends javax.swing.JFrame
         jMenu3 = new javax.swing.JMenu();
         menuGridBool = new javax.swing.JCheckBoxMenuItem();
         menuFullScreen = new javax.swing.JMenuItem();
-        menuSettings = new javax.swing.JMenuItem();
         menuShowHideConsole = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         menuHelp = new javax.swing.JMenuItem();
@@ -473,15 +472,6 @@ public final class MainWindow extends javax.swing.JFrame
         });
         jMenu3.add(menuFullScreen);
 
-        menuSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/gconf-editor.png"))); // NOI18N
-        menuSettings.setText(bundle.getString("main.settings")); // NOI18N
-        menuSettings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuSettingsActionPerformed(evt);
-            }
-        });
-        jMenu3.add(menuSettings);
-
         menuShowHideConsole.setText("Show/Hide Console");
         menuShowHideConsole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -693,7 +683,6 @@ Rectangle windowSize;
     private javax.swing.JMenuItem menuRedo;
     private javax.swing.JMenuItem menuSave;
     private javax.swing.JMenuItem menuSaveAs;
-    private javax.swing.JMenuItem menuSettings;
     private javax.swing.JMenuItem menuShowHideConsole;
     private javax.swing.JMenuItem menuUndo;
     public javax.swing.JSpinner scriptInterval;
