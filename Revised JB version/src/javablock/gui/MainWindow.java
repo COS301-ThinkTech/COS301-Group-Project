@@ -181,7 +181,6 @@ public final class MainWindow extends javax.swing.JFrame
         menuGridBool = new javax.swing.JCheckBoxMenuItem();
         menuAABool = new javax.swing.JCheckBoxMenuItem();
         menuFullConnectorsValues = new javax.swing.JCheckBoxMenuItem();
-        menuPascalMode = new javax.swing.JCheckBoxMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         menuSettings = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
@@ -520,14 +519,6 @@ public final class MainWindow extends javax.swing.JFrame
 
         jMenu3.add(jMenu5);
 
-        menuPascalMode.setText(bundle.getString("main.pascalMode")); // NOI18N
-        menuPascalMode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuPascalModeActionPerformed(evt);
-            }
-        });
-        jMenu3.add(menuPascalMode);
-
         jMenuItem1.setText(bundle.getString("main.fullscreen")); // NOI18N
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -647,9 +638,7 @@ public final class MainWindow extends javax.swing.JFrame
         Manager.flow.update();
     }                                                                            
 
-    private void menuPascalModeActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        Global.pascalMode=menuPascalMode.getState();
-    }                                              
+                                                
 
     private void menuGridBoolActionPerformed1(java.awt.event.ActionEvent evt) {                                              
         Global.grid=menuGridBool.getState();
@@ -768,7 +757,6 @@ Rectangle windowSize;
     private javax.swing.JMenuItem menuImportXml;
     private javax.swing.JMenuItem menuNew;
     private javax.swing.JMenuItem menuOpen;
-    private javax.swing.JCheckBoxMenuItem menuPascalMode;
     private javax.swing.JMenuItem menuPaste;
     private javax.swing.JMenuItem menuRedo;
     private javax.swing.JMenuItem menuSave;
