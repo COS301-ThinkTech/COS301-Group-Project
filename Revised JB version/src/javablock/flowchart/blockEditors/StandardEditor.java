@@ -68,7 +68,8 @@ public class StandardEditor extends javax.swing.JPanel implements BlockEditor {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 //    .addComponent(isHTML)
-                    .addComponent(commentDisplay))
+                    .addComponent(commentDisplay)
+                )
                 .addContainerGap())
         );
 
