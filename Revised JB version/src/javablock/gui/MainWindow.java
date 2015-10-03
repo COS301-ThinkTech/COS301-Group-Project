@@ -55,17 +55,14 @@ public final class MainWindow extends javax.swing.JFrame
         );
         if(!Global.applet)
             setBounds(Global.WindowSize);
-        init();
+        
         if(Global.loadLast)
             Manager.loadLast();
         Global.setGlobalManager(Manager);
         Global.ready=true;
     }
 
-    void init(){
-        //engine.addActionListener(this);
-        menuSavePython.setVisible(false);
-    }
+   
 
     void New(){
         if(Manager!=null) {
@@ -153,13 +150,8 @@ public final class MainWindow extends javax.swing.JFrame
         menuOpen = new javax.swing.JMenuItem();
         menuSave = new javax.swing.JMenuItem();
         menuSaveAs = new javax.swing.JMenuItem();
-        jSeparator4 = new javax.swing.JPopupMenu.Separator();
-        menuImportXml = new javax.swing.JMenuItem();
-        menuExportXml = new javax.swing.JMenuItem();
-        jSeparator8 = new javax.swing.JPopupMenu.Separator();
         jSeparator7 = new javax.swing.JPopupMenu.Separator();
         menuExportImage = new javax.swing.JMenuItem();
-        menuSavePython = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         menuExit = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -357,38 +349,18 @@ public final class MainWindow extends javax.swing.JFrame
         menuSaveAs.setActionCommand("manage/saveas");
         jMenu1.add(menuSaveAs);
         menuSaveAs.addActionListener(this);
-        jMenu1.add(jSeparator4);
-
-        menuImportXml.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/mail-inbox.png"))); // NOI18N
-        menuImportXml.setText(bundle.getString("main.importXml")); // NOI18N
-        menuImportXml.setActionCommand("manage/open/true");
-        menuImportXml.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuImportXmlActionPerformed(evt);
-            }
-        });
-        jMenu1.add(menuImportXml);
-        menuImportXml.addActionListener(this);
-
-        menuExportXml.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/mail-outbox.png"))); // NOI18N
-        menuExportXml.setText(bundle.getString("main.exportXml")); // NOI18N
-        menuExportXml.setActionCommand("manage/save/true");
-        jMenu1.add(menuExportXml);
-        menuExportXml.addActionListener(this);
-        jMenu1.add(jSeparator8);
         jMenu1.add(jSeparator7);
 
         menuExportImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/image-png.png"))); // NOI18N
         menuExportImage.setText(bundle.getString("main.importImage")); // NOI18N
         menuExportImage.setActionCommand("manage/saveImage");
+        menuExportImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuExportImageActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuExportImage);
         menuExportImage.addActionListener(this);
-
-        menuSavePython.setText(bundle.getString("main.savePythonScript")); // NOI18N
-        menuSavePython.setActionCommand("manage/savePython");
-        jMenu1.add(menuSavePython);
-        menuSavePython.addActionListener(this);
-
         jMenu1.add(jSeparator2);
 
         menuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/window-close.png"))); // NOI18N
@@ -598,6 +570,10 @@ public final class MainWindow extends javax.swing.JFrame
         Manager.zoom(source.getValue());
     }//GEN-LAST:event_zoomSliderStateChanged
 
+    private void menuExportImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExportImageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuExportImageActionPerformed
+
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
     }                                          
@@ -655,9 +631,7 @@ public final class MainWindow extends javax.swing.JFrame
         Open(false);
     }                                        
 
-    private void menuImportXmlActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        Open(true);
-    }                                             
+                                               
 boolean fullscreen=false;
 Rectangle windowSize;
     private void menuFullScreenActionPerformed(java.awt.event.ActionEvent evt) {                                           
@@ -699,31 +673,26 @@ Rectangle windowSize;
     private javax.swing.JPopupMenu.Separator jSeparator12;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
-    private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator7;
-    private javax.swing.JPopupMenu.Separator jSeparator8;
     public javax.swing.JMenuBar menu;
     private javax.swing.JMenuItem menuCopy;
     private javax.swing.JMenuItem menuCut;
     private javax.swing.JMenuItem menuDelete;
     private javax.swing.JMenuItem menuExit;
     private javax.swing.JMenuItem menuExportImage;
-    private javax.swing.JMenuItem menuExportXml;
     private javax.swing.JMenuItem menuFlowchartsAdd;
     private javax.swing.JMenuItem menuFlowchartsRemove;
     private javax.swing.JMenuItem menuFlowchartsRename;
     private javax.swing.JMenuItem menuFullScreen;
     private javax.swing.JCheckBoxMenuItem menuGridBool;
     private javax.swing.JMenuItem menuHelp;
-    private javax.swing.JMenuItem menuImportXml;
     private javax.swing.JMenuItem menuNew;
     private javax.swing.JMenuItem menuOpen;
     private javax.swing.JMenuItem menuPaste;
     private javax.swing.JMenuItem menuRedo;
     private javax.swing.JMenuItem menuSave;
     private javax.swing.JMenuItem menuSaveAs;
-    private javax.swing.JMenuItem menuSavePython;
     private javax.swing.JMenuItem menuSettings;
     private javax.swing.JMenuItem menuShowHideConsole;
     private javax.swing.JMenuItem menuUndo;

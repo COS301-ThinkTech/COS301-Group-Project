@@ -292,7 +292,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         blocks.clear();
         selected.clear();
         name=f.getAttribute("name");
-        NodeList inputList=f.getElementsByTagName("input");
+        /*NodeList inputList=f.getElementsByTagName("input");
         String in="";
         for(int i=0; i<inputList.getLength(); i++)
         {
@@ -311,7 +311,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             if(i!=inputList.getLength()-1)
                     arg+="\n";
         }
-        I.arguments.setText(arg);
+        I.arguments.setText(arg);*/
 
         Element canvas=(Element)f.getElementsByTagName("canvas").item(0);
             posX=Float.parseFloat(canvas.getAttribute("posX"));
@@ -373,7 +373,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             //canvas.setAttribute("interval", I.IntervalSpiner.getValue().toString());
             canvas.setAttribute("interval", ""+I.getInterval());
             f.appendChild(canvas);
-            String inputs[]=I.input.getText().split("\n");
+            /*String inputs[]=I.input.getText().split("\n");
             for(String i:inputs){
                 if(i.length()==0) break;
                 Element in=doc.createElement("input");
@@ -386,7 +386,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                 Element in=doc.createElement("preArgument");
                 in.appendChild(doc.createTextNode(i));
                 f.appendChild(in);
-            }
+            }*/
             {
                 Element list=doc.createElement("blocks");
                 for(JBlock b:blocks){
@@ -484,7 +484,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
      * Returns predefinied (default) arguments values
      * @return values array
      */
-    public String[] getPredefiniedArguments(){
+    /*public String[] getPredefiniedArguments(){
         String s[]=getArgumentsList();
         if(s==null){
             String rr[]={""};
@@ -499,7 +499,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                 args[i]="?";
         }
         return args;
-    }
+    }*/
 
     public String makeJavaScript()
     {
