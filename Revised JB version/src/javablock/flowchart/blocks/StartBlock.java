@@ -29,11 +29,11 @@ public class StartBlock extends JBlock {
     public StartBlock(Flowchart parent){
         super(Type.START, parent);
         //displayComment=true;
-        comment="Start";
+        comment="start";
     }
     @Override
     public boolean isSwitchable(){return false;}
-    public String name="Start";
+    public String name="start";
     public String arguments="";
     public boolean silent=true;
     public boolean displayName=false;

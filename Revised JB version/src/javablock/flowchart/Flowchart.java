@@ -60,7 +60,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         init();
         I.setSheet(this);
         I.reset();
-        name="Start";
+        name="start";
         bgColor=Color.decode(Global.colors[3]);
         newFlowchart();
         flow.addKeyListener(this);
@@ -85,7 +85,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         init();
         I.setSheet(this);
         I.reset();
-        name="Start";
+        name="start";
         bgColor=Color.decode(Global.colors[3]);
         parseXml(xml);
         flow.addKeyListener(this);

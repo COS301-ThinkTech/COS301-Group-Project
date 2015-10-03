@@ -254,6 +254,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             for(Sheet f:flows)
             {
                 if(f==fl) continue;
+                fl.setName(fl.getName()+"()");
                 if(f.getName().equals(fl.getName()))
                 {
                     JOptionPane.showMessageDialog(MainSplit, translator.get("popup.flowMustBeUnique"),
@@ -266,7 +267,15 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             break;
         }
         while(true);
-        workspace.renameSheetName(fl.getName(), workspace.getActive());
+        for(JBlock x:fl.blocks)
+            {
+                if(x.type.toString() == "RETURN")
+                {
+                    x.comment = "return";
+                }
+            }
+            
+        workspace.renameSheetName(fl.getName()+"()", workspace.getActive());
     }
 
     public Element clipBoard=null;

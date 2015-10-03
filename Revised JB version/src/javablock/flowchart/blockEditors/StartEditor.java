@@ -45,7 +45,7 @@ public final class StartEditor extends javax.swing.JPanel implements BlockEditor
             }
         });
 
-        name.setText("Start");
+        name.setText("start");
 
         silent.setText(bundle.getString("startEditor.silentMode")); // NOI18N
         silent.setToolTipText("<html>When called as function, <br>\nthe window will not be showed");
