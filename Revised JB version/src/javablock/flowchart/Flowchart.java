@@ -530,8 +530,8 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         for(JBlock b: blocks){
             if(b.isDefinitionBlock()) continue;
 //            if(b.type==JBlock.Type.COMMENT) continue;
-            if(!Global.highlightLinks)
-                if(b.type==JBlock.Type.JUMP) continue;
+           // if(!Global.highlightLinks)
+              //  if(b.type==JBlock.Type.JUMP) continue;
             code+="\t\tcase "+b.getId()+":\n";
             code+=b.getScriptFragmentForJavaScript()+"\n";
         }
@@ -546,8 +546,8 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         for(JBlock b: blocks){
             if(b.isDefinitionBlock()) continue;
 //            if(b.type==JBlock.Type.COMMENT) continue;
-            if(!Global.highlightLinks)
-                if(b.type==JBlock.Type.JUMP) continue;
+            //if(!Global.highlightLinks)
+               // if(b.type==JBlock.Type.JUMP) continue;
             code+="\t\tcase "+b.getId()+":\n";
             code+=b.getScriptFragmentForJavaScript()+"\n";
         }
@@ -1423,7 +1423,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) 
     {
-        if(this.selecting) return ;
+        /*if(this.selecting) return ;
         cur=cursorInScene(e.getPoint());
         if (e.getScrollType() == MouseWheelEvent.WHEEL_UNIT_SCROLL){
             if(e.getWheelRotation()>0){
@@ -1434,7 +1434,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                 
                 zoomIn(cur);
             }
-        }
+        }*/
         
     }
     
