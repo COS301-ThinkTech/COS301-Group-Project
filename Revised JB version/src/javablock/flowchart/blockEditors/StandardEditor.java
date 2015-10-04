@@ -145,7 +145,6 @@ public class StandardEditor extends javax.swing.JPanel implements BlockEditor {
             return ;
         if(editing.deleted)
             return ;
-        System.out.println("SAVE");
         editing.setCode(Content.getText());
         editing.setComment(comment.getText());
         editing.commentIsHTML=isHTML.isSelected();

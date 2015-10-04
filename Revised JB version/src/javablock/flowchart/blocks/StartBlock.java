@@ -119,8 +119,8 @@ public class StartBlock extends JBlock {
         for(Field field:fields){
             code+="\t\t\tvar "+field.name+"=";
             switch(field.type){
-                case NUMBER: code+="\t\t\ttoFloat(InputReader.readArgument(\""+field.name+": \"))\n";
-                    break;
+                /*case NUMBER: code+="\t\t\ttoFloat(InputReader.readArgument(\""+field.name+": \"))\n";
+                    break;*/
                 case INTEGER: code+="\t\t\ttoInt(InputReader.readArgument(\""+field.name+": \"))\n";
                     break;
                 case STRING: code+="\t\t\tstr(InputReader.readArgument(\""+field.name+": \"))\n";

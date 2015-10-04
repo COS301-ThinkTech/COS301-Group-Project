@@ -24,6 +24,8 @@ public class DeclarationBlock extends JBlock{
     public DeclarationBlock(Flowchart parent) {
         super(Type.DECLARATION, parent);
     }
+    public String name;
+    public String value;
 
     //public DeclarationBlock(Flowchart parent) {
         //super(Type.DECLARATION, parent);
@@ -67,15 +69,45 @@ public class DeclarationBlock extends JBlock{
         }
     }
     public enum DataType{
-        NUMBER, INTEGER, STRING, CHARARRAY, LOGIC, ANY
+        /*NUMBER,*/ INTEGER, STRING, CHARARRAY, LOGIC, ANY
     }
     
-    public List<DeclarationBlock.Field> fields=new ArrayList();
+    @Override
+    public String getScriptFragmentForJavaScript(){
+        String code="";
+        //code+="\tcase "+ID+":";
+        code+="\t\t\tInputReader.reset()\n";
+        for(Field field:fields){
+            code+="\t\t\tvar "+field.name+"=";
+            switch(field.type){
+                /*case NUMBER: code+="\t\t\ttoFloat(InputReader.readArgument(\""+field.name+": \"))\n";
+                    break;*/
+                case INTEGER: code+="\t\t\ttoInt(InputReader.readArgument(\""+field.name+": \"))\n";
+                    break;
+                case STRING: code+="\t\t\tstr(InputReader.readArgument(\""+field.name+": \"))\n";
+                    break;
+                case LOGIC: code+="\t\t\ttoLogic(InputReader.readArgument(\""+field.name+": \"))\n";
+                    break;
+                case CHARARRAY: code+="\t\t\ttoCharArray(InputReader.readArgument(\""+field.name+": \"))\n";
+                    break;
+                default: code+="\t\t\tInputReader.readArgument(\""+field.name+": \")\n";
+            }
+        }
+
+        if(connects.size()==1)
+            code+="\t\t\t"+flow.getName()+"_block="+connects.get(0).n.ID+"\n";
+        else
+            code+="\t\t\treturn 0";
+        code+="\t\t\tbreak\n";
+        return code;
+    }
+    
+    public List<Field> fields=new ArrayList();
     public void clear(){
         fields.clear();
     }
     public void addField(String name, String type, String value){
-        DeclarationBlock.Field f=new DeclarationBlock.Field();
+        Field f=new Field();
         f.setName(name);
         f.setType(type);
         f.setValue(value);
@@ -84,7 +116,7 @@ public class DeclarationBlock extends JBlock{
     public String[][] getFields(){
         String f[][]=new String[fields.size()][3];
         int i=0;
-        for(DeclarationBlock.Field field:fields){
+        for(Field field:fields){
             f[i][0]=field.name;
             f[i][1]=field.type.toString();
             f[i][2]=field.value;

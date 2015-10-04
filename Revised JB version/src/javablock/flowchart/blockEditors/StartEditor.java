@@ -241,10 +241,10 @@ public final class StartEditor extends javax.swing.JPanel implements BlockEditor
         }
     }
     public enum DataType{
-        INTEGER, NUMBER, STRING, CHARARRAY, LOGIC, ANY
+        INTEGER, /*NUMBER,*/ STRING, CHARARRAY, LOGIC, ANY
     }
     ComboText types[]={
-        new ComboText(translator.get("ioEditor.typeNumber"), "NUMBER"),
+        /*new ComboText(translator.get("ioEditor.typeNumber"), "NUMBER"),*/
         new ComboText(translator.get("ioEditor.typeInteger"), "INTEGER"),
         new ComboText(translator.get("ioEditor.typeString"), "STRING"),
         //new ComboText(translator.get("ioEditor.typeCharArray"), "CHARARRAY"),

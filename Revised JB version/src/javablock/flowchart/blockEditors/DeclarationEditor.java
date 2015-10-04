@@ -34,7 +34,6 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
      * Creates new form DeclarationEditor
      */
     public DeclarationEditor() {
-        System.out.println("Declaration editor");
         initComponents();
         delIcon=new javax.swing.ImageIcon(getClass().getResource("/icons/16/list-remove.png"));
         makeList();
@@ -50,6 +49,8 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+	value = new javax.swing.JTextField();
+	name = new javax.swing.JTextField();
 	addButton = new javax.swing.JButton();
         fieldsScroll = new javax.swing.JScrollPane();
 	fieldsPane = new javax.swing.JPanel();
@@ -124,6 +125,7 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
     private javax.swing.JPanel fieldsPane;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField name;
+    private javax.swing.JTextField value;
     private javax.swing.JCheckBox silent;
     // End of variables declaration                   
 
@@ -154,6 +156,8 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
     public void saveBlock() {
         //if(name.getText().indexOf(" ")>=0){ error(true); return;}
         editing.clear();
+        editing.name = name.getText();
+        editing.value = value.getText();
         for(Field field:fields){
             if(field.name.getText().length()==0) continue;
             editing.addField(field.name.getText(),
@@ -165,6 +169,7 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
 
     @Override
     public void setEditedBlock(JBlock b) {
+ 
         if(b==editing) return ;
         if(editing!=null)
             finishEdit();
@@ -175,6 +180,7 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
         for(String f[]:l){
             Field field=new Field(this);
             field.name.setText(f[0]);
+            field.value.setText(f[2]);
             for(ComboText c: types){
                 if(c.getValue().equals(f[1])){
                     field.type.setSelectedItem(c);
