@@ -154,6 +154,9 @@ public final class MainWindow extends javax.swing.JFrame
         menuOpen = new javax.swing.JMenuItem();
         menuSave = new javax.swing.JMenuItem();
         menuSaveAs = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        menuGridBool = new javax.swing.JCheckBoxMenuItem();
+        menuShowHideConsole = new javax.swing.JMenuItem();
         jSeparator7 = new javax.swing.JPopupMenu.Separator();
         menuExportImage = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
@@ -172,10 +175,6 @@ public final class MainWindow extends javax.swing.JFrame
         menuFlowchartsAdd = new javax.swing.JMenuItem();
         menuFlowchartsRemove = new javax.swing.JMenuItem();
         menuFlowchartsRename = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        menuGridBool = new javax.swing.JCheckBoxMenuItem();
-        menuFullScreen = new javax.swing.JMenuItem();
-        menuShowHideConsole = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         menuHelp = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
@@ -377,6 +376,27 @@ public final class MainWindow extends javax.swing.JFrame
         menuSaveAs.setActionCommand("manage/saveas");
         jMenu1.add(menuSaveAs);
         menuSaveAs.addActionListener(this);
+
+        jMenu3.setText(bundle.getString("main.settings")); // NOI18N
+
+        menuGridBool.setText(bundle.getString("main.drawGrid")); // NOI18N
+        menuGridBool.setActionCommand("view/grid");
+        menuGridBool.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuGridBoolActionPerformed1(evt);
+            }
+        });
+        jMenu3.add(menuGridBool);
+
+        menuShowHideConsole.setText("Show/Hide Console");
+        menuShowHideConsole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuShowHideConsoleActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menuShowHideConsole);
+
+        jMenu1.add(jMenu3);
         jMenu1.add(jSeparator7);
 
         menuExportImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/image-png.png"))); // NOI18N
@@ -481,35 +501,6 @@ public final class MainWindow extends javax.swing.JFrame
         menuFlowchartsRename.addActionListener(this);
 
         menu.add(jMenu6);
-
-        jMenu3.setText(bundle.getString("main.settings")); // NOI18N
-
-        menuGridBool.setText(bundle.getString("main.drawGrid")); // NOI18N
-        menuGridBool.setActionCommand("view/grid");
-        menuGridBool.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuGridBoolActionPerformed1(evt);
-            }
-        });
-        jMenu3.add(menuGridBool);
-
-        menuFullScreen.setText(bundle.getString("main.fullscreen")); // NOI18N
-        menuFullScreen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuFullScreenActionPerformed(evt);
-            }
-        });
-        jMenu3.add(menuFullScreen);
-
-        menuShowHideConsole.setText("Show/Hide Console");
-        menuShowHideConsole.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuShowHideConsoleActionPerformed(evt);
-            }
-        });
-        jMenu3.add(menuShowHideConsole);
-
-        menu.add(jMenu3);
 
         jMenu4.setText(bundle.getString("main.help")); // NOI18N
 
@@ -776,7 +767,6 @@ Rectangle windowSize;
     private javax.swing.JMenuItem menuFlowchartsAdd;
     private javax.swing.JMenuItem menuFlowchartsRemove;
     private javax.swing.JMenuItem menuFlowchartsRename;
-    private javax.swing.JMenuItem menuFullScreen;
     private javax.swing.JCheckBoxMenuItem menuGridBool;
     private javax.swing.JMenuItem menuHelp;
     private javax.swing.JMenuItem menuNew;

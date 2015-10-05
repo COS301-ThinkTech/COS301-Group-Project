@@ -31,7 +31,7 @@ public final class configurator extends javax.swing.JFrame {
         misc.center(this);
     }
     void init(){
-       Properties props = new Properties();
+       /*Properties props = new Properties();
        props.put("logoString", "FLOW");
        MintLookAndFeel.setCurrentTheme(props);
         try {
@@ -44,7 +44,7 @@ public final class configurator extends javax.swing.JFrame {
             Logger.getLogger(configurator.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(configurator.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
             
             
         engines.addItem("JavaScript");

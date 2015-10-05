@@ -1,6 +1,7 @@
 package config;
 
-import com.jtattoo.plaf.acryl.AcrylLookAndFeel;
+import com.alee.laf.WebLookAndFeel;
+//import com.jtattoo.plaf.acryl.AcrylLookAndFeel;
 import java.lang.reflect.InvocationTargetException;
 import javablock.gui.*;
 import java.awt.*;
@@ -21,6 +22,7 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 import com.seaglasslookandfeel.SeaGlassLookAndFeel;
+import ch.randelshofer.quaqua.BasicQuaquaNativeLookAndFeel;
 
 /**
  *
@@ -218,15 +220,17 @@ public class Global
     public static void setSystemLaF(boolean s)
     {
         s=true;
-        Properties props = new Properties();
-       props.put("logoString", "FLOW");
-       AcrylLookAndFeel.setCurrentTheme(props);
-       /*
-        try 
+        //Properties props = new Properties();
+       //props.put("logoString", "FLOW");
+       //AcrylLookAndFeel.setCurrentTheme(props);
+       
+        //try 
         {
-            UIManager.setLookAndFeel("com.seaglasslookandfeel.SeaGlassLookAndFeel");
+            //UIManager.setLookAndFeel("de.javasoft.plaf.synthetica.SyntheticaSilverMoonLookAndFeel");
+            //WebLookAndFeel.install ();
+            //UIManager.setLookAndFeel ( "ch.randelshofer.quaqua.BasicQuaquaNativeLookAndFeel" );
         }
-        catch (ClassNotFoundException ex) 
+        /*catch (ClassNotFoundException ex) 
         {
             Logger.getLogger(configurator.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -241,8 +245,8 @@ public class Global
         catch (UnsupportedLookAndFeelException ex)
         {
             Logger.getLogger(configurator.class.getName()).log(Level.SEVERE, null, ex);
-        }
-           */
+        }*/
+           
     }
     
     public static ClassLoader Classes;
