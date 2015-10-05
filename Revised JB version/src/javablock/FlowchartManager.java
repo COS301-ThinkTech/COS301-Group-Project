@@ -847,11 +847,9 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                     this.historyAdd();
                 }
                 editor = null;
-<<<<<<< HEAD
+
                 flow.editorPane.setVisible(false);
-=======
-              //  flow.editorPane.setVisible(false);
->>>>>>> origin/master
+
             }
         flow.flow.requestFocusInWindow();
         flow.flow.requestFocus();
