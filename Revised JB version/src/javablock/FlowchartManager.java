@@ -816,7 +816,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                     flow.editorPane.add((Component) editor, BorderLayout.CENTER);
                     selected.getEditor().setEditedBlock(flow.selected.get(0));
                     flow.editorPane.setVisible(true);
-//                    flow.editorPane.setType(selected.type);
+                    //flow.editorPane.setType(selected.type);
                     flow.editorPane.revalidate();
                     if(resize)
                     {
@@ -835,19 +835,19 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                         this.historyAdd();
                     }
                     editor = null;
-                    //flow.editorPane.setVisible(false);
+                    flow.editorPane.setVisible(false);
                 }
             }
             else
             {
                 if (editor != null)
                 {
-                    //flow.editorPane.remove((Component) editor);
+                    flow.editorPane.remove((Component) editor);
                     editor.finishEdit();
                     this.historyAdd();
                 }
                 editor = null;
-                //flow.editorPane.setVisible(false);
+              //  flow.editorPane.setVisible(false);
             }
         flow.flow.requestFocusInWindow();
         flow.flow.requestFocus();
