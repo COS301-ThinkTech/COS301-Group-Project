@@ -137,6 +137,7 @@ public final class MainWindow extends javax.swing.JFrame
         toolRedo = new javax.swing.JButton();
         scriptTools = new javax.swing.JToolBar();
         zoomSlider = new javax.swing.JSlider();
+        zoomText = new javax.swing.JTextField();
         scriptStop = new javax.swing.JButton();
         scriptStart = new javax.swing.JButton();
         scriptStep = new javax.swing.JButton();
@@ -247,6 +248,11 @@ public final class MainWindow extends javax.swing.JFrame
         scriptTools.setRollover(true);
         scriptTools.setMaximumSize(new java.awt.Dimension(350, 33));
         scriptTools.setMinimumSize(new java.awt.Dimension(350, 33));
+        scriptTools.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                scriptToolsFocusLost(evt);
+            }
+        });
 
         zoomSlider.setToolTipText("ZoomIn/Out");
         zoomSlider.setPreferredSize(new java.awt.Dimension(300, 54));
@@ -256,6 +262,22 @@ public final class MainWindow extends javax.swing.JFrame
             }
         });
         scriptTools.add(zoomSlider);
+
+        zoomText.setText("50%");
+        zoomText.setPreferredSize(new java.awt.Dimension(300, 20));
+        zoomText.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                zoomTextInputMethodTextChanged(evt);
+            }
+        });
+        zoomText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zoomTextActionPerformed(evt);
+            }
+        });
+        scriptTools.add(zoomText);
 
         scriptStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-stop.png"))); // NOI18N
         scriptStop.setFocusable(false);
@@ -305,14 +327,14 @@ public final class MainWindow extends javax.swing.JFrame
         jLabel2.setText("  run speed  ");
         scriptTools.add(jLabel2);
 
+        toolBar.add(scriptTools);
+
         scriptInterval.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5000, 50));
         scriptInterval.setMaximumSize(new java.awt.Dimension(47, 20));
         scriptInterval.setMinimumSize(new java.awt.Dimension(47, 20));
         scriptInterval.setName(""); // NOI18N
         scriptInterval.setPreferredSize(new java.awt.Dimension(47, 20));
-        scriptTools.add(scriptInterval);
-
-        toolBar.add(scriptTools);
+        toolBar.add(scriptInterval);
 
         jMenu1.setText(bundle.getString("main.file")); // NOI18N
 
@@ -557,17 +579,66 @@ public final class MainWindow extends javax.swing.JFrame
         else
             Manager.flow.split.setDividerLocation(2000);
     }//GEN-LAST:event_menuShowHideConsoleActionPerformed
-
+    
+    /**
+     * Sets the current value label's text to the current slider value.
+     */
+    private void updateCurrentValueLabel() {
+        System.out.println("In update value");
+        zoomText.setText(String.valueOf(zoomSlider.getValue()) + '%');
+    }   
+    
+     /**
+     * Called when the text field value changes.
+     */
+    private void handleTextEntry() {
+        System.out.println("Handling text");
+        String value = zoomText.getText();
+        if (value.endsWith("%")) {
+            value = value.substring(0, value.length() - 1);
+        }
+        try {
+            int newZoom = Integer.parseInt(value);
+            zoomSlider.setValue(newZoom);
+            if (newZoom < zoomSlider.getMaximum() || newZoom > zoomSlider.getMinimum()) {
+                throw new NumberFormatException();
+            }
+            //zoomSlider.setValue(newZoom);
+        }
+        catch (NumberFormatException ex) {
+            updateCurrentValueLabel();
+        }
+    }
     private void zoomSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_zoomSliderStateChanged
         // TODO add your handling code here:Sys
-    
+        updateCurrentValueLabel();
+        handleTextEntry();
         JSlider source = (JSlider)evt.getSource();       
-        Manager.zoom(source.getValue());
+        Manager.zoom(50);
     }//GEN-LAST:event_zoomSliderStateChanged
 
     private void menuExportImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExportImageActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuExportImageActionPerformed
+
+    private void zoomTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoomTextActionPerformed
+        // TODO add your handling code here:
+        System.out.print("Action performed");
+        handleTextEntry();
+    }//GEN-LAST:event_zoomTextActionPerformed
+
+    private void scriptToolsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_scriptToolsFocusLost
+        // TODO add your handling code here:
+        System.out.print("Focus lost");
+        handleTextEntry();
+    }//GEN-LAST:event_scriptToolsFocusLost
+
+    private void zoomTextInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_zoomTextInputMethodTextChanged
+        // TODO add your handling code here:
+        
+        System.out.print("Input method");
+        handleTextEntry();
+    }//GEN-LAST:event_zoomTextInputMethodTextChanged
 
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
@@ -705,6 +776,7 @@ Rectangle windowSize;
     private javax.swing.JButton toolSave;
     private javax.swing.JButton toolUndo;
     private javax.swing.JSlider zoomSlider;
+    private javax.swing.JTextField zoomText;
     // End of variables declaration//GEN-END:variables
     
     public void updateConfig(FlowchartManager men) {

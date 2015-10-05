@@ -1426,7 +1426,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) 
     {
-        /*if(this.selecting) return ;
+        if(this.selecting) return ;
         cur=cursorInScene(e.getPoint());
         if (e.getScrollType() == MouseWheelEvent.WHEEL_UNIT_SCROLL){
             if(e.getWheelRotation()>0){
@@ -1437,7 +1437,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                 
                 zoomIn(cur);
             }
-        }*/
+        }
         
     }
     
@@ -1453,7 +1453,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     
     public void zoomOut(Point2D... t)
     {
-        //System.out.println("Zooming out!!" + t[0].getX() + ","+ t[0].getY());
+        System.out.println("Zooming out!!" + t[0].getX() + ","+ t[0].getY());
         if(actZoom==Zooms.length-1) return ;
         zooming=true;
         posX/=Zooms[actZoom];
@@ -1474,7 +1474,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     }
     public void zoomIn(Point2D... t)
     {
-        //System.out.println("Zooming in!!" + t[0].getX() + ","+ t[0].getY());
+        System.out.println("Zooming in!!" + t[0].getX() + ","+ t[0].getY());
         if(actZoom==0) return;
         zooming=true;
         posX/=Zooms[actZoom];
