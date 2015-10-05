@@ -228,12 +228,64 @@ public final class FlowchartManager extends JPanel implements ActionListener{
 
     public void addFlowchart()
     {
-        flow=new javablock.flowchart.Flowchart(this);
-        renameFlowchart(flow);
+       flow=new javablock.flowchart.Flowchart(this);
+        boolean wait = validateAdd(flow);
+        while(!wait)
+        {
+             validateAdd(flow);
+        }
         flows.add(flow); 
         workspace.addSheet(flow);
+        //renameFlowchart(flow);
         workspace.setActive(flow.getName());
     }
+    
+    public boolean validateAdd(Flowchart fl)
+    {
+        boolean  valid = true;
+         System.out.println("Here1");
+        fl.setName(JOptionPane.showInputDialog( translator.get("main.flowcharts.rename.info"),fl.getName()));
+        System.out.println("Here2 -"+fl.getName());
+        String flowNew = fl.getName(); 
+        for(Sheet f:flows)
+        {
+            String flowInList = f.getName();
+            if(!flowNew.contains("()"))
+            {
+                flowNew = fl.getName() +"()";
+            }
+            if(f==fl) continue;
+            if(flowInList.equals(flowNew))
+            {
+                JOptionPane.showMessageDialog(MainSplit, translator.get("popup.flowMustBeUnique"),
+                        translator.get("popup.flowMustBeUnique.head"),JOptionPane.WARNING_MESSAGE);
+               valid = false;
+               break;
+            }
+            else
+            {
+                valid = true;
+            }
+        }
+        for(JBlock x:fl.blocks)
+        {
+            if(x.type.toString() == "RETURN")
+            {
+                x.comment = "return";
+            }
+        }
+        if(fl.getName().contains("()"))
+        {
+            System.out.println("Name has in setting ()");
+            fl.setName(fl.getName());
+        }
+        else
+        {
+          fl.setName(fl.getName() + "()");
+        }
+        return valid;
+    }
+    
     public void removeFlowchart()
     {
         if(flows.size()==1) return ;
