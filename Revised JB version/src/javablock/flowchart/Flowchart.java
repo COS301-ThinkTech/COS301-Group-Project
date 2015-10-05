@@ -178,8 +178,11 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             );
             flowPane.add(hBar, BorderLayout.SOUTH);
             flowPane.add(vBar, BorderLayout.EAST);
+            editorPane = new EditorPane();
+            flowPane.add(editorPane, BorderLayout.EAST);
+            editorPane.setVisible(false);
         }
-        editorPane = new EditorPane();
+        //editorPane = new EditorPane();
         split = new JSplitPane();
         split.setOrientation(JSplitPane.VERTICAL_SPLIT);
         Component bottom = I.embeddConsole;
@@ -191,7 +194,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         split.setDividerLocation(2000);
         add(new javablock.flowchart.BlocksToolBar(this),
                 BorderLayout.WEST);
-        add(editorPane,BorderLayout.EAST);
+        //add(editorPane,BorderLayout.EAST);
         if(Global.animations){
             r=new Renderer(this);
             r.start();
