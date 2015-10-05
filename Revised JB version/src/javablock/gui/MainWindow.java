@@ -2,9 +2,11 @@ package javablock.gui;
 
 import config.Global;
 import config.misc;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.*;
+import java.awt.geom.Point2D;
 import java.io.IOException;
 import java.net.URI;
 import javablock.FlowchartManager;
@@ -587,7 +589,7 @@ public final class MainWindow extends javax.swing.JFrame
         System.out.println("In update value");
         zoomText.setText(String.valueOf(zoomSlider.getValue()) + '%');
     }   
-    
+   
      /**
      * Called when the text field value changes.
      */
@@ -599,20 +601,43 @@ public final class MainWindow extends javax.swing.JFrame
         }
         try {
             int newZoom = Integer.parseInt(value);
-            zoomSlider.setValue(newZoom);
+            
             if (newZoom < zoomSlider.getMaximum() || newZoom > zoomSlider.getMinimum()) {
                 throw new NumberFormatException();
             }
-            //zoomSlider.setValue(newZoom);
+            zoomSlider.setValue(newZoom);
         }
         catch (NumberFormatException ex) {
             updateCurrentValueLabel();
         }
     }
+     public Point2D cur=new Point(0,0);
+    
     private void zoomSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_zoomSliderStateChanged
         // TODO add your handling code here:Sys
+         String prevValue = zoomText.getText();
+        if (prevValue.endsWith("%")) {
+            prevValue = prevValue.substring(0, prevValue.length() - 1);
+        }
+        
+         int intprevValue = Integer.parseInt(prevValue);
+         
+        
         updateCurrentValueLabel();
+        String newValue = zoomText.getText();
+        if (newValue.endsWith("%")) {
+            newValue = newValue.substring(0, newValue.length() - 1);
+        }
+        
+         int intnewValue = Integer.parseInt(newValue);
+         
+         if(intnewValue <  intprevValue)
+             Manager.flow.zoomOut(cur);
+         if(intnewValue > intprevValue)
+             Manager.flow.zoomIn(cur);
         handleTextEntry();
+        
+       
         JSlider source = (JSlider)evt.getSource();       
         Manager.zoom(50);
     }//GEN-LAST:event_zoomSliderStateChanged
