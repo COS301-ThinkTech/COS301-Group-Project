@@ -226,27 +226,25 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         System.gc();
     }
 
-    public void addFlowchart()
+     public void addFlowchart()
     {
        flow=new javablock.flowchart.Flowchart(this);
         boolean wait = validateAdd(flow);
         while(!wait)
         {
-             validateAdd(flow);
+            wait = validateAdd(flow);
         }
         flows.add(flow); 
         workspace.addSheet(flow);
-        //renameFlowchart(flow);
         workspace.setActive(flow.getName());
     }
     
     public boolean validateAdd(Flowchart fl)
     {
         boolean  valid = true;
-         System.out.println("Here1");
-        fl.setName(JOptionPane.showInputDialog( translator.get("main.flowcharts.rename.info"),fl.getName()));
-        System.out.println("Here2 -"+fl.getName());
-        String flowNew = fl.getName(); 
+        String flowNew = JOptionPane.showInputDialog( translator.get("main.flowcharts.rename.info"),"");
+        fl.setName(flowNew);
+        
         for(Sheet f:flows)
         {
             String flowInList = f.getName();
@@ -263,20 +261,16 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                break;
             }
             else
-            {
-                valid = true;
-            }
+                valid = true; 
         }
         for(JBlock x:fl.blocks)
         {
             if(x.type.toString() == "RETURN")
-            {
                 x.comment = "return";
-            }
         }
+        
         if(fl.getName().contains("()"))
         {
-            System.out.println("Name has in setting ()");
             fl.setName(fl.getName());
         }
         else
