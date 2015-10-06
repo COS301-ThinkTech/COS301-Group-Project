@@ -33,21 +33,21 @@ public class BlocksToolBar extends JToolBar{
             for (JBlock.Type T : JBlock.StandardTypes) {
                 b = new JButton(); 
                 b.setToolTipText(translator.tooltips.getString(T.toString() + ".help"));
-                if(T == JBlock.StandardTypes[5])
+                if(T == JBlock.StandardTypes[7])
                 {
                     b.setActionCommand("foraction/FORLOOP" + T.toString());
                     b.setName("foraction/FORLOOP" + T.toString());
                 }                
-                else if(T == JBlock.StandardTypes[3])
+                else if(T == JBlock.StandardTypes[5])
                 {
                     b.setActionCommand("moduleaction/MODULE" + T.toString());
                     b.setName("moduleaction/MODULE" + T.toString());
                 }
-                else if(T == JBlock.StandardTypes[6]){
+                else if(T == JBlock.StandardTypes[8]){
                     b.setActionCommand("whileaction/" + T.toString());
                     b.setName("whileaction/" + T.toString());
                 }
-                else if(T == JBlock.StandardTypes[7]){
+                else if(T == JBlock.StandardTypes[9]){
                     b.setActionCommand("dowhileaction/" + T.toString());
                     b.setName("dowhileaction/" + T.toString());
                 }

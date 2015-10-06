@@ -24,7 +24,7 @@ import org.w3c.dom.*;
 
 public abstract class JBlock implements FlowElement{
     public enum Type { START, RETURN,
-        IO, CPU, DECISION, LINK,
+        IO, INPUT, OUTPUT, CPU, DECISION, LINK,
         JUMP, NULL, GROUP, 
         CUSTOM, MODULE, FORLOOP,COMMENT,WHILELOOP,DOWHILELOOP,DECLARATION
     };
@@ -62,10 +62,10 @@ public abstract class JBlock implements FlowElement{
         return Type.CUSTOM;
     }
     public static Type StandardTypes[]={
-        Type.CPU/*, Type.IOin, Type.IOout*/, Type.DECISION, Type.RETURN, Type.MODULE, Type.COMMENT,Type.FORLOOP, Type.WHILELOOP,Type.DOWHILELOOP,Type.DECLARATION
+        Type.CPU, Type.INPUT, Type.OUTPUT, Type.DECISION, Type.RETURN, Type.MODULE, Type.COMMENT,Type.FORLOOP, Type.WHILELOOP,Type.DOWHILELOOP,Type.DECLARATION
     };
     public static Type HelpingTypes[]={
-        Type.IO, Type.JUMP
+        /*Type.IO*/ Type.JUMP
     };
    
     
@@ -160,7 +160,9 @@ public abstract class JBlock implements FlowElement{
     public static JBlock make(Type type, boolean codeBased, Flowchart parent){
         JBlock b;
         switch(type){            
-            case IO: b= new IOBlock(parent); break;
+            /*case IO: b= new IOBlock(parent); break;*/
+            case INPUT: b= new InputBlock(parent); break;
+            case OUTPUT: b= new OutputBlock(parent); break;
             case CPU: b= new CPUBlock(parent); break;
             case START: b= new StartBlock(parent); break;
             case RETURN: b= new ReturnBlock(parent); break;
@@ -376,7 +378,8 @@ public abstract class JBlock implements FlowElement{
             c=code;
         // <editor-fold defaultstate="collapsed" desc="IO">
         if(Global.scriptReplace)
-        if (type == Type.IO) {
+            /*type == Type.IO*/
+        if (type == Type.INPUT || type == Type.OUTPUT) {
             String l[] = c.split("\n");
             c = "";
             int i = 0;

@@ -234,7 +234,7 @@ public class IOEditor extends javax.swing.JPanel implements BlockEditor, ActionL
                         code+=""+var+"["+i+"]=";
                         code+="Read";
                         switch(type){
-                            case NUMBER:    code+="Number";    break;
+                            /*case NUMBER:    code+="Number";    break;*/
                             case INTEGER:   code+="Integer";   break;
                             case LOGIC:     code+="Logic";     break;
                             case CHARARRAY: code+="CharArray"; break;
@@ -246,7 +246,7 @@ public class IOEditor extends javax.swing.JPanel implements BlockEditor, ActionL
                     code+=""+var+"=";
                     code+="Read";
                     switch(type){
-                            case NUMBER:    code+="Number";    break;
+                            /*case NUMBER:    code+="Number";    break;*/
                             case INTEGER:   code+="Integer";   break;
                             case LOGIC:     code+="Logic";     break;
                             case CHARARRAY: code+="CharArray"; break;
@@ -298,11 +298,11 @@ public class IOEditor extends javax.swing.JPanel implements BlockEditor, ActionL
         if(!input.isSelected())
             input.setSelected(true); String t="";
         switch(editing.inputType){
-            case 0: t="NUMBER"; break;
-            case 1: t="STRING"; break;
-            case 2: t="INTEGER"; break;
-            case 3: t="CHARARRAY"; break;
-            case 4: t="LOGIC"; break;
+            /*case 0: t="NUMBER"; break;*/
+            case 0: t="STRING"; break;
+            case 1: t="INTEGER"; break;
+            case 2: t="CHARARRAY"; break;
+            case 3: t="LOGIC"; break;
         }
         for(ComboText c:types){
             if(c.getValue().equals(t))
@@ -394,8 +394,8 @@ public class IOEditor extends javax.swing.JPanel implements BlockEditor, ActionL
             switch(DataType.valueOf(
                     ((ComboText)inType.getSelectedItem()).getValue()
                     )){
-                case NUMBER:
-                    editing.inputType=0; break;
+                /*case NUMBER:
+                    editing.inputType=0; break;*/
                 case STRING:
                     editing.inputType=1; break;
                 case INTEGER:
@@ -454,10 +454,10 @@ public class IOEditor extends javax.swing.JPanel implements BlockEditor, ActionL
      * 4 - Logic
      */
     public enum DataType{
-        NUMBER, STRING, INTEGER, CHARARRAY, LOGIC, ANY
+        /*NUMBER,*/ STRING, INTEGER, CHARARRAY, LOGIC, ANY
     }
     ComboText types[]={
-        new ComboText(translator.get("ioEditor.typeNumber"), "NUMBER"),
+        /*new ComboText(translator.get("ioEditor.typeNumber"), "NUMBER"),*/
         new ComboText(translator.get("ioEditor.typeString"), "STRING"),
         new ComboText(translator.get("ioEditor.typeInteger"), "INTEGER"),
         new ComboText(translator.get("ioEditor.typeCharArray"), "CHARARRAY"),
