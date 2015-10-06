@@ -397,13 +397,13 @@ public class IOEditor extends javax.swing.JPanel implements BlockEditor, ActionL
                 /*case NUMBER:
                     editing.inputType=0; break;*/
                 case STRING:
-                    editing.inputType=1; break;
+                    editing.inputType=0; break;
                 case INTEGER:
-                    editing.inputType=2; break;
+                    editing.inputType=1; break;
                 case CHARARRAY:
-                    editing.inputType=3; break;
+                    editing.inputType=2; break;
                 case LOGIC:
-                    editing.inputType=4; break;
+                    editing.inputType=3; break;
             }
         }
         if(editing.ioType==1){

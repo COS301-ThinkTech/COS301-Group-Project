@@ -3,6 +3,7 @@ import javablock.flowchart.blockEditors.*;
 import java.awt.geom.Area;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
+import javablock.*;
 import javablock.flowchart.BlockEditor;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
@@ -40,12 +41,9 @@ public class IOBlock extends JBlock {
         super(Type.IO, parent);
     }
 
-    /**
-     *
-     * @return
-     */
+
     @Override
-    public boolean popUpEditor(){return (ioType==0);}
+    public boolean popUpEditor(){return (ioType==0?true:false);}
     @Override
     public BlockEditor getEditor(){
         if(ioType==0)
