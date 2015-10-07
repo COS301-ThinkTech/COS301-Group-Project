@@ -20,6 +20,9 @@ import javax.swing.SwingUtilities;
 public final class MainWindow extends javax.swing.JFrame 
         implements ActionListener, ComponentListener{
     public FlowchartManager Manager;
+    public int previousValue;
+        
+
     /** Creates new form MainWindow */
     boolean inited=false;
     public MainWindow() {
@@ -580,18 +583,24 @@ public final class MainWindow extends javax.swing.JFrame
         System.out.println("In update value");
         zoomText.setText(String.valueOf(zoomSlider.getValue()) + '%');
     }   
-   
+    private int returnZoomValue(String value)
+    {
+        if (value.endsWith("%")) {
+            value = value.substring(0, value.length() - 1);
+        }
+        
+         int newZoom = Integer.parseInt(value);
+         
+         return newZoom;
+    }
      /**
      * Called when the text field value changes.
      */
     private void handleTextEntry() {
         System.out.println("Handling text");
-        String value = zoomText.getText();
-        if (value.endsWith("%")) {
-            value = value.substring(0, value.length() - 1);
-        }
+ 
         try {
-            int newZoom = Integer.parseInt(value);
+            int newZoom = returnZoomValue(zoomText.getText());
             
             if (newZoom < zoomSlider.getMaximum() || newZoom > zoomSlider.getMinimum()) {
                 throw new NumberFormatException();
@@ -603,34 +612,26 @@ public final class MainWindow extends javax.swing.JFrame
         }
     }
      public Point2D cur=new Point(0,0);
-    
+   // previousValue = returnZoomValue(zoomText.getValue());
     private void zoomSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_zoomSliderStateChanged
         // TODO add your handling code here:Sys
-         String prevValue = zoomText.getText();
-        if (prevValue.endsWith("%")) {
-            prevValue = prevValue.substring(0, prevValue.length() - 1);
-        }
-        
-         int intprevValue = Integer.parseInt(prevValue);
-         
-        
+       // cur=Manager.flow.cursorInScene(zoomSlider.getValue());
+       
+        int prevValue = returnZoomValue(zoomText.getText());
         updateCurrentValueLabel();
-        String newValue = zoomText.getText();
-        if (newValue.endsWith("%")) {
-            newValue = newValue.substring(0, newValue.length() - 1);
-        }
         
-         int intnewValue = Integer.parseInt(newValue);
+        int newValue = returnZoomValue(zoomText.getText());
+ 
          
-         if(intnewValue <  intprevValue)
-             Manager.flow.zoomOut(cur);
-         if(intnewValue > intprevValue)
+         if(newValue <  prevValue)
+             Manager.flow.zoomOut(cur); 
+         if(newValue > prevValue)
              Manager.flow.zoomIn(cur);
         handleTextEntry();
         
        
-        JSlider source = (JSlider)evt.getSource();       
-        Manager.zoom(50);
+        //JSlider source = (JSlider)evt.getSource();       
+        //Manager.zoom(50);
     }//GEN-LAST:event_zoomSliderStateChanged
 
     private void menuExportImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExportImageActionPerformed
@@ -645,8 +646,7 @@ public final class MainWindow extends javax.swing.JFrame
 
     private void scriptToolsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_scriptToolsFocusLost
         // TODO add your handling code here:
-        System.out.print("Focus lost");
-        handleTextEntry();
+      
     }//GEN-LAST:event_scriptToolsFocusLost
 
     private void zoomTextInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_zoomTextInputMethodTextChanged
