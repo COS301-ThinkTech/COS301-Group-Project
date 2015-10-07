@@ -106,6 +106,8 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     JScrollBar vBar;
     JScrollBar hBar;
     public EditorPane editorPane;
+    JComponent subPane;
+    
     private void init()
     {
         if(Global.accel)
@@ -152,6 +154,8 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             flowPane=new JPanel();
             flowPane.setLayout(new BorderLayout());
             flowPane.add(flow, BorderLayout.CENTER);
+            subPane=new JPanel();
+            subPane.setLayout(new BorderLayout());
             hBar=new JScrollBar(JScrollBar.HORIZONTAL);
             vBar=new JScrollBar(JScrollBar.VERTICAL);
             hBar.addAdjustmentListener(new AdjustmentListener()
@@ -177,9 +181,14 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             }
             );
             flowPane.add(hBar, BorderLayout.SOUTH);
-            flowPane.add(vBar, BorderLayout.EAST);
+            //flowPane.add(vBar, BorderLayout.WEST);
+            subPane.add(vBar,BorderLayout.EAST);
             editorPane = new EditorPane();
-            flowPane.add(editorPane, BorderLayout.EAST);
+            subPane.add(editorPane,BorderLayout.WEST);
+            flowPane.add(subPane, BorderLayout.EAST);
+            //subPane
+            
+            //flowPane.add(editorPane, BorderLayout.EAST);
             editorPane.setVisible(false);
         }
         //editorPane = new EditorPane();
