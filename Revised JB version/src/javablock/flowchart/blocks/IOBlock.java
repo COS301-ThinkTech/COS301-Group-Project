@@ -54,7 +54,7 @@ public class IOBlock extends JBlock {
     @Override
     public void shape(){
         prepareText();
-        if(ioType<=0){
+        //if(ioType<=0){
             GeneralPath io=new GeneralPath();
                 io.moveTo(bound.getX()-7,                  bound.getY()-10);
                 io.lineTo(bound.getX()+bound.getWidth()+13, bound.getY()-10);
@@ -62,7 +62,7 @@ public class IOBlock extends JBlock {
                 io.lineTo(bound.getX()-13,                  bound.getY()+bound.getHeight()+10);
                 io.lineTo(bound.getX()-7,                  bound.getY()-10);
             shape=io;
-        }
+        /*}
         if(ioType==1){
             GeneralPath io=new GeneralPath();
                 io.moveTo(bound.getX()-10,                  bound.getY()-5);
@@ -100,7 +100,7 @@ public class IOBlock extends JBlock {
                 io.lineTo(bound.getX()-15-1.5,                  bound.getY()-5);
                 s.add(new Area(io));
             shape=s;
-        }
+        }*/
         afterShape();
     }
 
