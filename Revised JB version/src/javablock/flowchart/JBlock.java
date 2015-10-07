@@ -181,6 +181,8 @@ public abstract class JBlock implements FlowElement{
             default: b= new CPUBlock(parent);b.type=Type.CUSTOM; break;
         }
         
+        if(type==Type.IOin || type==Type.IOout);
+        else
            b.nonCodeBased(!codeBased);
         return b;
     }
