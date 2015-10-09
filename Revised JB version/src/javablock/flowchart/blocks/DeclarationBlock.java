@@ -24,8 +24,6 @@ public class DeclarationBlock extends JBlock{
     public DeclarationBlock(Flowchart parent) {
         super(Type.DECLARATION, parent);
     }
-    public String name;
-    public String value;
 
     //public DeclarationBlock(Flowchart parent) {
         //super(Type.DECLARATION, parent);
@@ -34,13 +32,13 @@ public class DeclarationBlock extends JBlock{
     @Override
     public void shape(){
         prepareText();
-        Rectangle2D cpu=new Rectangle.Double(
+        Rectangle2D declaration=new Rectangle.Double(
                         bound.getX()-10,
                         bound.getY()-10,
                         bound.getWidth()+20,
                         bound.getHeight()+20
                         );
-                shape=cpu;
+                shape=declaration;
         afterShape();
     }
     
@@ -72,36 +70,6 @@ public class DeclarationBlock extends JBlock{
         /*NUMBER,*/ INTEGER, STRING, CHARARRAY, LOGIC, ANY
     }
     
-    @Override
-    public String getScriptFragmentForJavaScript(){
-        String code="";
-        //code+="\tcase "+ID+":";
-        code+="\t\t\tInputReader.reset()\n";
-        for(Field field:fields){
-            code+="\t\t\tvar "+field.name+"=";
-            switch(field.type){
-                /*case NUMBER: code+="\t\t\ttoFloat(InputReader.readArgument(\""+field.name+": \"))\n";
-                    break;*/
-                case INTEGER: code+="\t\t\ttoInt(InputReader.readArgument(\""+field.name+": \"))\n";
-                    break;
-                case STRING: code+="\t\t\tstr(InputReader.readArgument(\""+field.name+": \"))\n";
-                    break;
-                case LOGIC: code+="\t\t\ttoLogic(InputReader.readArgument(\""+field.name+": \"))\n";
-                    break;
-                case CHARARRAY: code+="\t\t\ttoCharArray(InputReader.readArgument(\""+field.name+": \"))\n";
-                    break;
-                default: code+="\t\t\tInputReader.readArgument(\""+field.name+": \")\n";
-            }
-        }
-
-        if(connects.size()==1)
-            code+="\t\t\t"+flow.getName()+"_block="+connects.get(0).n.ID+"\n";
-        else
-            code+="\t\t\treturn 0";
-        code+="\t\t\tbreak\n";
-        return code;
-    }
-    
     public List<Field> fields=new ArrayList();
     public void clear(){
         fields.clear();
@@ -125,6 +93,19 @@ public class DeclarationBlock extends JBlock{
         return f;
     }
     
+    public void addFieldsToBlock(){
+        String code_temp = "";
+        
+        for(Field field:fields){
+            code_temp = code_temp + "var " +field.name + " = " + field.value + "\n";
+        }
+        code = code_temp;
+    }
+    
+    public void clearBlockCode(){
+        code = "";
+    }
+    
     @Override
     public boolean isEditable(){
         return true;
@@ -133,10 +114,7 @@ public class DeclarationBlock extends JBlock{
     public BlockEditor getEditor(){
         return editor;
     }
-    @Override
-    public boolean canBeConnected(JBlock b){
-        return false;
-    }
+
     @Override
     public boolean popUpEditor(){return false;}
 }

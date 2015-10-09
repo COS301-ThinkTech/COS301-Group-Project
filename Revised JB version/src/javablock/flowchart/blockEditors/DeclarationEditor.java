@@ -156,8 +156,6 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
     public void saveBlock() {
         //if(name.getText().indexOf(" ")>=0){ error(true); return;}
         editing.clear();
-        editing.name = name.getText();
-        editing.value = value.getText();
         for(Field field:fields){
             if(field.name.getText().length()==0) continue;
             editing.addField(field.name.getText(),
@@ -189,6 +187,7 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
             }
             fields.add(field);
         }
+        editing.addFieldsToBlock();
         makeList();
     }
 
@@ -236,10 +235,10 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
         }
     }
     public enum DataType{
-        INTEGER, NUMBER, STRING, CHARARRAY, LOGIC, ANY
+        INTEGER/*, NUMBER*/, STRING, CHARARRAY, LOGIC, ANY
     }
     ComboText types[]={
-        new ComboText(translator.get("ioEditor.typeNumber"), "NUMBER"),
+        /*new ComboText(translator.get("ioEditor.typeNumber"), "NUMBER"),*/
         new ComboText(translator.get("ioEditor.typeInteger"), "INTEGER"),
         new ComboText(translator.get("ioEditor.typeString"), "STRING"),
         //new ComboText(translator.get("ioEditor.typeCharArray"), "CHARARRAY"),

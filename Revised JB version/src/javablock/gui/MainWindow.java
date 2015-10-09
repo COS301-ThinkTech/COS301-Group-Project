@@ -621,7 +621,7 @@ public final class MainWindow extends javax.swing.JFrame
         updateCurrentValueLabel();
         
         int newValue = returnZoomValue(zoomText.getText());
- 
+        System.out.println("Prev: " + prevValue + ". Current: " + newValue);
          
          if(newValue <  prevValue)
              Manager.flow.zoomOut(cur); 

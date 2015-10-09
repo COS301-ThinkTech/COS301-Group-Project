@@ -1463,6 +1463,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     public void zoomOut(Point2D... t)
     {
         System.out.println("Zooming out!!" + t[0].getX() + ","+ t[0].getY());
+        System.out.println("ActZoom: " + actZoom + ".");
         if(actZoom==Zooms.length-1) return ;
         zooming=true;
         posX/=Zooms[actZoom];
@@ -1484,6 +1485,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     public void zoomIn(Point2D... t)
     {
         System.out.println("Zooming in!!" + t[0].getX() + ","+ t[0].getY());
+        System.out.println("ActZoom: " + actZoom + ".");
         if(actZoom==0) return;
         zooming=true;
         posX/=Zooms[actZoom];
