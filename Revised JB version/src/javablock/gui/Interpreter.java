@@ -839,25 +839,34 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
          run.step();
         else
         {
+            String text = "";
              if(!flow.validateIn())
            {
                executionFeedBack.setForeground(Color.RED.darker());
                executionFeedBack.setText(translator.get("console.inconnections")+"\n");
+               text +=  translator.get("console.inconnections")+"\n";
                 stop();
            }
            if(!flow.validateOut())
            {
                executionFeedBack.setForeground(Color.RED.darker());
                executionFeedBack.setText(translator.get("console.outconnections")+"\n");
+               text += translator.get("console.outconnections")+"\n";
                 stop();
            }
            if(!flow.validateEnd())
            {
                executionFeedBack.setForeground(Color.RED.darker());
                executionFeedBack.setText(translator.get("console.endcomponent")+"\n"); 
+               text += translator.get("console.endcomponent")+"\n";
                 stop();
            }
+           
+           JOptionPane.showMessageDialog(Global.Window,text);
         }
+         
+         
+                
     }//GEN-LAST:event_RunButtonActionPerformed
     public void run(){
         RunButtonActionPerformed(null);
