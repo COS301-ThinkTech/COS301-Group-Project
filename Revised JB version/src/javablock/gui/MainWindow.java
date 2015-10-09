@@ -616,22 +616,19 @@ public final class MainWindow extends javax.swing.JFrame
     private void zoomSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_zoomSliderStateChanged
         // TODO add your handling code here:Sys
        // cur=Manager.flow.cursorInScene(zoomSlider.getValue());
-       
-        int prevValue = returnZoomValue(zoomText.getText());
+       Manager.zoom(returnZoomValue(zoomText.getText()), previousValue, cur);
+        //int prevValue = returnZoomValue(zoomText.getText());
         updateCurrentValueLabel();
         
-        int newValue = returnZoomValue(zoomText.getText());
-        System.out.println("Prev: " + prevValue + ". Current: " + newValue);
-         
-         if(newValue <  prevValue)
-             Manager.flow.zoomOut(cur); 
-         if(newValue > prevValue)
-             Manager.flow.zoomIn(cur);
+//        int newValue = returnZoomValue(zoomText.getText());
+//        System.out.println("Prev: " + prevValue + ". Current: " + newValue);
+//         
+//         if(newValue <  prevValue)
+//             Manager.flow.zoomOut(cur); 
+//         if(newValue > prevValue)
+//             Manager.flow.zoomIn(cur);
         handleTextEntry();
-        
-       
-        //JSlider source = (JSlider)evt.getSource();       
-        //Manager.zoom(50);
+  
     }//GEN-LAST:event_zoomSliderStateChanged
 
     private void menuExportImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExportImageActionPerformed

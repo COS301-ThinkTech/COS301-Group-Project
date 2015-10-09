@@ -10,6 +10,7 @@ import javablock.gui.*;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.HeadlessException;
+import java.awt.geom.Point2D;
 import java.io.*;
 import java.util.logging.*;
 import javablock.flowchart.Flowchart;
@@ -790,18 +791,19 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         return true;
     }
     
-    private int previousValue = 50;
+   // private int previousValue = 50;
     
-    public void zoom(int value){
+       public void zoom(int value, int previousValue, Point2D cur){
         
             if(previousValue < value){
-                flow.slideZoomIn(value);
+                flow.zoomIn(cur);
                 previousValue = value;
             }else{
-                flow.slideZoomOut(value);
+                flow.zoomOut(cur);
                 previousValue = value;
             }
     }
+
 
     
     private void showScript()
