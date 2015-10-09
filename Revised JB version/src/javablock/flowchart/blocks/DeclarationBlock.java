@@ -100,6 +100,7 @@ public class DeclarationBlock extends JBlock{
             code_temp = code_temp + "var " +field.name + " = " + field.value + "\n";
         }
         code = code_temp;
+        needUpdate=true;
     }
     
     public void clearBlockCode(){

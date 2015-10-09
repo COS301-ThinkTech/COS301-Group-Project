@@ -196,6 +196,7 @@ public class IOEditor extends javax.swing.JPanel implements BlockEditor, ActionL
         String code="";
         String vars[]=variable.getText().replaceAll(", ", " ").split("[\\s,]");
         if(output.isSelected()){
+            code += "output ";
             for(String var:vars){
                 if(var.length()==0) continue;
                 code+="Write";
@@ -225,6 +226,7 @@ public class IOEditor extends javax.swing.JPanel implements BlockEditor, ActionL
             }
         }
         if(input.isSelected()){
+            code += "input ";
             DataType type=DataType.valueOf(((ComboText)inType.getSelectedItem()).getValue());
             for(String var:vars){
                 if(inArray.isSelected()){
@@ -261,6 +263,7 @@ public class IOEditor extends javax.swing.JPanel implements BlockEditor, ActionL
     String makeComment(){
         String comment="";
         if (output.isSelected()) {
+            comment += "output ";
             if(drawStandard.isSelected()){
                 comment=translator.misc.getString("write");
                 if(this.outLn.isSelected())
@@ -280,6 +283,7 @@ public class IOEditor extends javax.swing.JPanel implements BlockEditor, ActionL
                 comment += " \"" + outSuffix.getText() + "\" ";
         }
         if (input.isSelected()) {
+            comment += "input ";
             if(drawStandard.isSelected()){
                 if(inDrawMessage.isSelected())
                     comment+=translator.misc.getString("write")+": \""+message.getText()+"\"\n";

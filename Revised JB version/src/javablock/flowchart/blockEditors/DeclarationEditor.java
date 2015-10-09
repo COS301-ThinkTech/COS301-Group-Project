@@ -162,7 +162,7 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
                     ((ComboText)field.type.getSelectedItem()).getValue(),field.value.getText());
         }
         editing.shape();
-        editing.flow.update();
+        //editing.flow.update();
     }
 
     @Override
