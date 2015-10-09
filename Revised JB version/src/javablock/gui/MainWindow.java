@@ -265,15 +265,23 @@ public final class MainWindow extends javax.swing.JFrame
                 zoomSliderStateChanged(evt);
             }
         });
+        zoomSlider.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                zoomSliderMouseEntered(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                zoomSliderMouseReleased(evt);
+            }
+        });
         scriptTools.add(zoomSlider);
 
         zoomText.setText("50%");
         zoomText.setPreferredSize(new java.awt.Dimension(300, 20));
         zoomText.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 zoomTextInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         zoomText.addActionListener(new java.awt.event.ActionListener() {
@@ -619,6 +627,7 @@ public final class MainWindow extends javax.swing.JFrame
        Manager.zoom(returnZoomValue(zoomText.getText()), previousValue, cur);
         //int prevValue = returnZoomValue(zoomText.getText());
         updateCurrentValueLabel();
+         System.out.println("Prev: " + previousValue + ". Current: " + returnZoomValue(zoomText.getText()));
         
 //        int newValue = returnZoomValue(zoomText.getText());
 //        System.out.println("Prev: " + prevValue + ". Current: " + newValue);
@@ -652,6 +661,17 @@ public final class MainWindow extends javax.swing.JFrame
         System.out.print("Input method");
         handleTextEntry();
     }//GEN-LAST:event_zoomTextInputMethodTextChanged
+
+    private void zoomSliderMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zoomSliderMouseReleased
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_zoomSliderMouseReleased
+
+    private void zoomSliderMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zoomSliderMouseEntered
+        // TODO add your handling code here:
+         previousValue = returnZoomValue(zoomText.getText());
+          System.out.println("Prev: " + previousValue);
+    }//GEN-LAST:event_zoomSliderMouseEntered
 
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
