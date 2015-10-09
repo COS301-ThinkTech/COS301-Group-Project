@@ -41,7 +41,7 @@ public class While extends javax.swing.JPanel implements Generator{
         if(res==JOptionPane.OK_OPTION){
             int p=0;
 
-            JBlock[] list=new JBlock[8];
+            JBlock[] list=new JBlock[7];
 
             DecisionBlock condition=(DecisionBlock) JBlock.make(JBlock.Type.DECISION, f);
             condition.setCode(g.variable.getText()+" "+g.comp.getSelectedItem() + " " + g.jTextField3.getText());

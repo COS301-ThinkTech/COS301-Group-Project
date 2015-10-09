@@ -207,6 +207,7 @@ public class StartBlock extends JBlock {
     }*/
 
     private String displayText(){
+       
         String d;
         if(displayName)
             d=name;
