@@ -62,7 +62,7 @@ public final class MainWindow extends javax.swing.JFrame
             setBounds(Global.WindowSize);
         
         if(Global.loadLast)
-            Manager.loadLast();
+            //Manager.loadLast();
         Global.setGlobalManager(Manager);
         Global.ready=true;
     }
@@ -145,10 +145,10 @@ public final class MainWindow extends javax.swing.JFrame
         jLabel3 = new javax.swing.JLabel();
         zoomSpinner = new javax.swing.JSpinner();
         jSeparator8 = new javax.swing.JToolBar.Separator();
-        scriptStop = new javax.swing.JButton();
         scriptStart = new javax.swing.JButton();
         scriptStep = new javax.swing.JButton();
         scriptRun = new javax.swing.JButton();
+        scriptStop = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JToolBar.Separator();
         jLabel2 = new javax.swing.JLabel();
         scriptInterval = new javax.swing.JSpinner();
@@ -273,17 +273,6 @@ public final class MainWindow extends javax.swing.JFrame
         scriptTools.add(zoomSpinner);
         scriptTools.add(jSeparator8);
 
-        scriptStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-stop.png"))); // NOI18N
-        scriptStop.setFocusable(false);
-        scriptStop.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        scriptStop.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        scriptStop.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                scriptStopActionPerformed(evt);
-            }
-        });
-        scriptTools.add(scriptStop);
-
         scriptStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-start.png"))); // NOI18N
         scriptStart.setFocusable(false);
         scriptStart.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -316,6 +305,17 @@ public final class MainWindow extends javax.swing.JFrame
             }
         });
         scriptTools.add(scriptRun);
+
+        scriptStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-stop.png"))); // NOI18N
+        scriptStop.setFocusable(false);
+        scriptStop.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        scriptStop.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        scriptStop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                scriptStopActionPerformed(evt);
+            }
+        });
+        scriptTools.add(scriptStop);
         scriptTools.add(jSeparator4);
 
         jLabel2.setText("  speed  ");
