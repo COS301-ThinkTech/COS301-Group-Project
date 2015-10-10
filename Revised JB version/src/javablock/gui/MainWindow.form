@@ -313,6 +313,9 @@
                 </Property>
                 <Property name="actionCommand" type="java.lang.String" value="flowcharts/rename"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuFlowchartsRenameActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="menuFlowchartsRename.addActionListener(this);"/>
               </AuxValues>

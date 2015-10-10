@@ -490,6 +490,11 @@ public final class MainWindow extends javax.swing.JFrame
 
         menuFlowchartsRename.setText(bundle.getString("main.flowcharts.rename")); // NOI18N
         menuFlowchartsRename.setActionCommand("flowcharts/rename");
+        menuFlowchartsRename.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFlowchartsRenameActionPerformed(evt);
+            }
+        });
         jMenu6.add(menuFlowchartsRename);
         menuFlowchartsRename.addActionListener(this);
 
@@ -623,6 +628,10 @@ public final class MainWindow extends javax.swing.JFrame
         System.out.print("Input method");
         handleTextEntry();
     }//GEN-LAST:event_zoomTextInputMethodTextChanged
+
+    private void menuFlowchartsRenameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFlowchartsRenameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuFlowchartsRenameActionPerformed
 
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
