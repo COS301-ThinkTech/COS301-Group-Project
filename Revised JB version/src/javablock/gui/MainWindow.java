@@ -156,7 +156,6 @@ public final class MainWindow extends javax.swing.JFrame
         menuOpen = new javax.swing.JMenuItem();
         menuSave = new javax.swing.JMenuItem();
         menuSaveAs = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
         menuGridBool = new javax.swing.JCheckBoxMenuItem();
         menuShowHideConsole = new javax.swing.JMenuItem();
         jSeparator7 = new javax.swing.JPopupMenu.Separator();
@@ -370,8 +369,6 @@ public final class MainWindow extends javax.swing.JFrame
         jMenu1.add(menuSaveAs);
         menuSaveAs.addActionListener(this);
 
-        jMenu3.setText(bundle.getString("main.settings")); // NOI18N
-
         menuGridBool.setText(bundle.getString("main.drawGrid")); // NOI18N
         menuGridBool.setActionCommand("view/grid");
         menuGridBool.addActionListener(new java.awt.event.ActionListener() {
@@ -379,7 +376,7 @@ public final class MainWindow extends javax.swing.JFrame
                 menuGridBoolActionPerformed1(evt);
             }
         });
-        jMenu3.add(menuGridBool);
+        jMenu1.add(menuGridBool);
 
         menuShowHideConsole.setText("Show/Hide Console");
         menuShowHideConsole.addActionListener(new java.awt.event.ActionListener() {
@@ -387,9 +384,7 @@ public final class MainWindow extends javax.swing.JFrame
                 menuShowHideConsoleActionPerformed(evt);
             }
         });
-        jMenu3.add(menuShowHideConsole);
-
-        jMenu1.add(jMenu3);
+        jMenu1.add(menuShowHideConsole);
         jMenu1.add(jSeparator7);
 
         menuExportImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/image-png.png"))); // NOI18N
@@ -724,7 +719,6 @@ Rectangle windowSize;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuItem jMenuItem12;
