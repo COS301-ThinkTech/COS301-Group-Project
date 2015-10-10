@@ -306,7 +306,7 @@ public final class MainWindow extends javax.swing.JFrame
         });
         scriptTools.add(scriptStep);
 
-        scriptRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/system-run.png"))); // NOI18N
+        scriptRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/run.png"))); // NOI18N
         scriptRun.setFocusable(false);
         scriptRun.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         scriptRun.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
