@@ -33,23 +33,11 @@ public class BlocksToolBar extends JToolBar{
             for (JBlock.Type T : JBlock.StandardTypes) {
                 b = new JButton(); 
                 b.setToolTipText(translator.tooltips.getString(T.toString() + ".help"));
-                if(T == JBlock.StandardTypes[7])
-                {
-                    b.setActionCommand("foraction/FORLOOP" + T.toString());
-                    b.setName("foraction/FORLOOP" + T.toString());
-                }                
-                else if(T == JBlock.StandardTypes[5])
+                         
+                if(T == JBlock.StandardTypes[3])
                 {
                     b.setActionCommand("moduleaction/MODULE" + T.toString());
                     b.setName("moduleaction/MODULE" + T.toString());
-                }
-                else if(T == JBlock.StandardTypes[8]){
-                    b.setActionCommand("whileaction/" + T.toString());
-                    b.setName("whileaction/" + T.toString());
-                }
-                else if(T == JBlock.StandardTypes[9]){
-                    b.setActionCommand("dowhileaction/" + T.toString());
-                    b.setName("dowhileaction/" + T.toString());
                 }
                 else{
                      b.setActionCommand("add/" + T.toString());
@@ -58,10 +46,57 @@ public class BlocksToolBar extends JToolBar{
                 b.setPreferredSize(new Dimension(40, 40));
                 b.setIcon(new javax.swing.ImageIcon(JBlock.getIcon(T)));
                 std.add(b);                
-                std.add(new JPopupMenu.Separator());
+                //std.add(new JPopupMenu.Separator());
                 b.addActionListener(flow);
                 b.addMouseMotionListener(flow);
             }
+            
+            std.addSeparator();
+            std.addSeparator();
+            
+            for (JBlock.Type T : JBlock.LoopTypes) {
+                b = new JButton(); 
+                b.setToolTipText(translator.tooltips.getString(T.toString() + ".help"));
+                if(T == JBlock.LoopTypes[0])
+                {
+                    b.setActionCommand("foraction/FORLOOP" + T.toString());
+                    b.setName("foraction/FORLOOP" + T.toString());
+                } 
+                else if(T == JBlock.LoopTypes[1]){
+                    b.setActionCommand("whileaction/" + T.toString());
+                    b.setName("whileaction/" + T.toString());
+                }
+                else if(T == JBlock.LoopTypes[2]){
+                    b.setActionCommand("dowhileaction/" + T.toString());
+                    b.setName("dowhileaction/" + T.toString());
+                }
+                b.setPreferredSize(new Dimension(40, 40));
+                b.setIcon(new javax.swing.ImageIcon(JBlock.getIcon(T)));
+                std.add(b);                
+                //std.add(new JPopupMenu.Separator());
+                b.addActionListener(flow);
+                b.addMouseMotionListener(flow);
+            }
+            
+            std.addSeparator();
+            std.addSeparator();
+            
+            for (JBlock.Type T : JBlock.IOTypes) {
+                b = new JButton();
+                b.setToolTipText(translator.tooltips.getString(T.toString() + ".help"));
+                b.setActionCommand("add/" + T.toString());
+                b.setPreferredSize(new Dimension(32, 32));
+                b.setIcon(new javax.swing.ImageIcon(JBlock.getIcon(T)));                
+                std.add(b);
+                //std.add(new JPopupMenu.Separator());
+                b.addActionListener(flow);
+                b.addMouseMotionListener(flow);
+            }
+            
+            
+            std.addSeparator();
+            std.addSeparator();
+            
             for (JBlock.Type T : JBlock.HelpingTypes) {
                 b = new JButton();
                 b.setToolTipText(translator.tooltips.getString(T.toString() + ".help"));
@@ -69,13 +104,12 @@ public class BlocksToolBar extends JToolBar{
                 b.setPreferredSize(new Dimension(32, 32));
                 b.setIcon(new javax.swing.ImageIcon(JBlock.getIcon(T)));                
                 std.add(b);
-                std.add(new JPopupMenu.Separator());
+                //std.add(new JPopupMenu.Separator());
                 b.addActionListener(flow);
                 b.addMouseMotionListener(flow);
             }
             blocks.add(std);
             add(blocks);
-            addSeparator();
             validate();
             revalidate();        
         }
