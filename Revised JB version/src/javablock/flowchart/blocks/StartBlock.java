@@ -45,7 +45,7 @@ public class StartBlock extends JBlock {
     }
     @Override
     public BlockEditor getEditor(){
-        return editor;
+        return null;
     }
     @Override
     public boolean canBeConnected(JBlock b){
