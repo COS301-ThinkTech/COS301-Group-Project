@@ -260,11 +260,6 @@ public final class MainWindow extends javax.swing.JFrame
 
         zoomSlider.setToolTipText("ZoomIn/Out");
         zoomSlider.setPreferredSize(new java.awt.Dimension(300, 54));
-        zoomSlider.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                zoomSliderStateChanged(evt);
-            }
-        });
         zoomSlider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 zoomSliderMouseEntered(evt);
@@ -273,15 +268,20 @@ public final class MainWindow extends javax.swing.JFrame
                 zoomSliderMouseReleased(evt);
             }
         });
+        zoomSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                zoomSliderStateChanged(evt);
+            }
+        });
         scriptTools.add(zoomSlider);
 
         zoomText.setText("50%");
         zoomText.setPreferredSize(new java.awt.Dimension(300, 20));
         zoomText.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 zoomTextInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         zoomText.addActionListener(new java.awt.event.ActionListener() {
@@ -336,17 +336,17 @@ public final class MainWindow extends javax.swing.JFrame
         scriptTools.add(scriptRun);
         scriptTools.add(jSeparator4);
 
-        jLabel2.setText("  run speed  ");
+        jLabel2.setText("  speed  ");
         scriptTools.add(jLabel2);
-
-        toolBar.add(scriptTools);
 
         scriptInterval.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5000, 50));
         scriptInterval.setMaximumSize(new java.awt.Dimension(47, 20));
         scriptInterval.setMinimumSize(new java.awt.Dimension(47, 20));
         scriptInterval.setName(""); // NOI18N
         scriptInterval.setPreferredSize(new java.awt.Dimension(47, 20));
-        toolBar.add(scriptInterval);
+        scriptTools.add(scriptInterval);
+
+        toolBar.add(scriptTools);
 
         jMenu1.setText(bundle.getString("main.file")); // NOI18N
 
