@@ -277,7 +277,6 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         jPanel1 = new javax.swing.JPanel();
         outScroll = new javax.swing.JScrollPane();
         Out = new javax.swing.JTextArea();
-        ClearButton = new javax.swing.JButton();
         command = new javax.swing.JTextField();
         commandLabel = new javax.swing.JLabel();
         exeButton = new javax.swing.JButton();
@@ -441,13 +440,6 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         Out.setRows(1);
         outScroll.setViewportView(Out);
 
-        ClearButton.setText(bundle.getString("scriptPanel.clear")); // NOI18N
-        ClearButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClearButtonActionPerformed(evt);
-            }
-        });
-
         commandLabel.setText(bundle.getString("interpreter.command")); // NOI18N
 
         exeButton.setText("exe");
@@ -467,7 +459,6 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ClearButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(executionFeedBack, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(outScroll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -484,14 +475,12 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
                 .addComponent(outScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(executionFeedBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ClearButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(command, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(commandLabel)
                     .addComponent(exeButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         consolePane.addTab(bundle.getString("scriptPanel.output"), jPanel1); // NOI18N
@@ -887,11 +876,6 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void ClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearButtonActionPerformed
-        Out.setText("");
-        executionFeedBack.setText("");
-    }//GEN-LAST:event_ClearButtonActionPerformed
-
     private void consoleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consoleButtonActionPerformed
         consoleVisible^=true;
         if(consoleVisible)
@@ -962,26 +946,25 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         return inter;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ClearButton;
     public javax.swing.JSpinner IntervalSpiner;
-    private javax.swing.JTextArea Out;
+    public javax.swing.JTextArea Out;
     private javax.swing.JButton RunButton;
     private javax.swing.JButton StartButton;
     private javax.swing.JButton StepButton;
     private javax.swing.JButton StopButton;
     private javax.swing.JScrollPane ValuesPanel;
-    private javax.swing.JTextArea arguments;
+    public javax.swing.JTextArea arguments;
     private javax.swing.JTextField command;
     private javax.swing.JLabel commandLabel;
     private javax.swing.JButton consoleButton;
-    private javax.swing.JTabbedPane consolePane;
+    public javax.swing.JTabbedPane consolePane;
     private javax.swing.JToolBar controll;
     private javax.swing.JPanel controllFull;
     public javax.swing.JPanel embeddConsole;
     private javax.swing.JButton exeButton;
     private javax.swing.JTextField exec;
     private javax.swing.JTextField executionFeedBack;
-    private javax.swing.JTextArea input;
+    public javax.swing.JTextArea input;
     private javax.swing.JPanel inputPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
