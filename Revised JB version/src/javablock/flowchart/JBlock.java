@@ -62,10 +62,19 @@ public abstract class JBlock implements FlowElement{
         return Type.CUSTOM;
     }
     public static Type StandardTypes[]={
-        Type.CPU, Type.IOin, Type.IOout, Type.DECISION, Type.RETURN, Type.MODULE, Type.COMMENT,Type.FORLOOP, Type.WHILELOOP,Type.DOWHILELOOP,Type.DECLARATION
+        Type.DECLARATION, Type.CPU, Type.DECISION, Type.MODULE
     };
+    
+     public static Type IOTypes[]={
+        Type.IOin, Type.IOout
+    };
+    
+     public static Type LoopTypes[]={
+        Type.FORLOOP, Type.WHILELOOP,Type.DOWHILELOOP
+    };
+
     public static Type HelpingTypes[]={
-        /*Type.IO*/ Type.JUMP
+        Type.COMMENT, Type.JUMP
     };
    
     

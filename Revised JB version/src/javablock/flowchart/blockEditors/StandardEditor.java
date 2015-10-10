@@ -8,6 +8,7 @@ public class StandardEditor extends javax.swing.JPanel implements BlockEditor {
     public StandardEditor() {
         initComponents();
         setKit();
+        editors.remove(1);
     }
     private JBlock editing=null;
     private String beforeCode="";

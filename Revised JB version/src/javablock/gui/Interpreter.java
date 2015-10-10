@@ -713,6 +713,8 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
 
     private void StartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButtonActionPerformed
         /* Start Execution Time*/
+        Out.setText("");
+        executionFeedBack.setText("");
         executionStartTime = System.currentTimeMillis(); 
         manager=flow.getManager();
         if(run == null || !run.isAlive()){
@@ -876,14 +878,6 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void consoleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consoleButtonActionPerformed
-        consoleVisible^=true;
-        if(consoleVisible)
-        openConsole();
-        else
-        hideConsole();
-    }//GEN-LAST:event_consoleButtonActionPerformed
-
     private void exeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exeButtonActionPerformed
         if(StartButton.isEnabled()) return ;
         try {
@@ -898,6 +892,14 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
                 JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_exeButtonActionPerformed
+
+    private void consoleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consoleButtonActionPerformed
+        consoleVisible^=true;
+        if(consoleVisible)
+        openConsole();
+        else
+        hideConsole();
+    }//GEN-LAST:event_consoleButtonActionPerformed
     
     
     

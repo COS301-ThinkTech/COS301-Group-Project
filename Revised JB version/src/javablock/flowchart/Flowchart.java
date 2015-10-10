@@ -1671,7 +1671,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     public void deleteSelectedBlocks(){
         getManager().historyArchive=false;
         for(int i=0; i<selected.size(); i++){
-            if(selected.get(i).type==JBlock.Type.START)
+            if(selected.get(i).type==JBlock.Type.START || selected.get(i).type==JBlock.Type.RETURN)
                 continue;
             selected.get(i).delete();
         }

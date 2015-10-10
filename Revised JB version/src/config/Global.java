@@ -106,7 +106,7 @@ public class Global
 
     //STARTUP
     public static boolean showSplash=true;
-    public static boolean loadLast=true;
+    public static boolean loadLast=false;
 
     //COLOR
     public static boolean transparentPNG=false;
@@ -189,7 +189,7 @@ public class Global
         showToolbar=true;
         scriptReplace=true;
         showSplash=true;
-        loadLast=true;
+        loadLast=false;
         confDir=System.getProperty("user.home")+"/.JavaBlock";
         lastFlow=confDir+"/last.jbf";
     }
