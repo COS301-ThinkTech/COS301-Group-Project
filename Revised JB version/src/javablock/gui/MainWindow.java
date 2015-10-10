@@ -140,8 +140,11 @@ public final class MainWindow extends javax.swing.JFrame
         jSeparator5 = new javax.swing.JToolBar.Separator();
         toolUndo = new javax.swing.JButton();
         toolRedo = new javax.swing.JButton();
+        jSeparator9 = new javax.swing.JToolBar.Separator();
         scriptTools = new javax.swing.JToolBar();
-        zoomText = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        zoomSpinner = new javax.swing.JSpinner();
+        jSeparator8 = new javax.swing.JToolBar.Separator();
         scriptStop = new javax.swing.JButton();
         scriptStart = new javax.swing.JButton();
         scriptStep = new javax.swing.JButton();
@@ -247,7 +250,9 @@ public final class MainWindow extends javax.swing.JFrame
         toolRedo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(toolRedo);
         toolRedo.addActionListener(this);
+        toolBar.add(jSeparator9);
 
+        scriptTools.setFloatable(false);
         scriptTools.setRollover(true);
         scriptTools.setMaximumSize(new java.awt.Dimension(350, 33));
         scriptTools.setMinimumSize(new java.awt.Dimension(350, 33));
@@ -257,21 +262,16 @@ public final class MainWindow extends javax.swing.JFrame
             }
         });
 
-        zoomText.setText("50%");
-        zoomText.setPreferredSize(new java.awt.Dimension(300, 20));
-        zoomText.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                zoomTextInputMethodTextChanged(evt);
-            }
-        });
-        zoomText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                zoomTextActionPerformed(evt);
-            }
-        });
-        scriptTools.add(zoomText);
+        jLabel3.setText("zoom  ");
+        scriptTools.add(jLabel3);
+
+        zoomSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5000, 50));
+        zoomSpinner.setMaximumSize(new java.awt.Dimension(47, 20));
+        zoomSpinner.setMinimumSize(new java.awt.Dimension(47, 20));
+        zoomSpinner.setName(""); // NOI18N
+        zoomSpinner.setPreferredSize(new java.awt.Dimension(47, 20));
+        scriptTools.add(zoomSpinner);
+        scriptTools.add(jSeparator8);
 
         scriptStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-stop.png"))); // NOI18N
         scriptStop.setFocusable(false);
@@ -599,23 +599,10 @@ public final class MainWindow extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_menuExportImageActionPerformed
 
-    private void zoomTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoomTextActionPerformed
-        // TODO add your handling code here:
-        System.out.print("Action performed");
-        handleTextEntry();
-    }//GEN-LAST:event_zoomTextActionPerformed
-
     private void scriptToolsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_scriptToolsFocusLost
         // TODO add your handling code here:
       
     }//GEN-LAST:event_scriptToolsFocusLost
-
-    private void zoomTextInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_zoomTextInputMethodTextChanged
-        // TODO add your handling code here:
-        
-        System.out.print("Input method");
-        handleTextEntry();
-    }//GEN-LAST:event_zoomTextInputMethodTextChanged
 
     private void menuFlowchartsRenameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFlowchartsRenameActionPerformed
         // TODO add your handling code here:
@@ -721,6 +708,7 @@ Rectangle windowSize;
     private javax.swing.JPanel FLOW;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
@@ -734,6 +722,8 @@ Rectangle windowSize;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JPopupMenu.Separator jSeparator7;
+    private javax.swing.JToolBar.Separator jSeparator8;
+    private javax.swing.JToolBar.Separator jSeparator9;
     public javax.swing.JMenuBar menu;
     private javax.swing.JMenuItem menuCopy;
     private javax.swing.JMenuItem menuCut;
@@ -765,7 +755,7 @@ Rectangle windowSize;
     private javax.swing.JButton toolRedo;
     private javax.swing.JButton toolSave;
     private javax.swing.JButton toolUndo;
-    private javax.swing.JTextField zoomText;
+    public javax.swing.JSpinner zoomSpinner;
     // End of variables declaration//GEN-END:variables
     
     public void updateConfig(FlowchartManager men) {
