@@ -156,8 +156,9 @@ public final class MainWindow extends javax.swing.JFrame
         menuOpen = new javax.swing.JMenuItem();
         menuSave = new javax.swing.JMenuItem();
         menuSaveAs = new javax.swing.JMenuItem();
+        jSeparator6 = new javax.swing.JPopupMenu.Separator();
         menuGridBool = new javax.swing.JCheckBoxMenuItem();
-        menuShowHideConsole = new javax.swing.JMenuItem();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jSeparator7 = new javax.swing.JPopupMenu.Separator();
         menuExportImage = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
@@ -368,6 +369,7 @@ public final class MainWindow extends javax.swing.JFrame
         menuSaveAs.setActionCommand("manage/saveas");
         jMenu1.add(menuSaveAs);
         menuSaveAs.addActionListener(this);
+        jMenu1.add(jSeparator6);
 
         menuGridBool.setText(bundle.getString("main.drawGrid")); // NOI18N
         menuGridBool.setActionCommand("view/grid");
@@ -378,13 +380,14 @@ public final class MainWindow extends javax.swing.JFrame
         });
         jMenu1.add(menuGridBool);
 
-        menuShowHideConsole.setText("Show/Hide Console");
-        menuShowHideConsole.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("Show/Hide Console");
+        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuShowHideConsoleActionPerformed(evt);
+                jCheckBoxMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(menuShowHideConsole);
+        jMenu1.add(jCheckBoxMenuItem1);
         jMenu1.add(jSeparator7);
 
         menuExportImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/image-png.png"))); // NOI18N
@@ -555,16 +558,6 @@ public final class MainWindow extends javax.swing.JFrame
     private void menuFlowchartsRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFlowchartsRemoveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuFlowchartsRemoveActionPerformed
-
-    private void menuShowHideConsoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuShowHideConsoleActionPerformed
-        // TODO add your handling code here:
-         if(Manager.flow.split.getBottomComponent().getBounds().height<50){
-            Manager.flow.split.setDividerLocation(
-                    Manager.flow.getSize().height-220);
-        }
-        else
-            Manager.flow.split.setDividerLocation(2000);
-    }//GEN-LAST:event_menuShowHideConsoleActionPerformed
     
     /**
      * Sets the current value label's text to the current slider value.
@@ -627,6 +620,16 @@ public final class MainWindow extends javax.swing.JFrame
     private void menuFlowchartsRenameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFlowchartsRenameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuFlowchartsRenameActionPerformed
+
+    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        if(Manager.flow.split.getBottomComponent().getBounds().height<50){
+            Manager.flow.split.setDividerLocation(
+                    Manager.flow.getSize().height-220);
+        }
+        else
+            Manager.flow.split.setDividerLocation(2000);
+    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
 
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
@@ -716,6 +719,7 @@ Rectangle windowSize;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel FLOW;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -728,6 +732,7 @@ Rectangle windowSize;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
+    private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JPopupMenu.Separator jSeparator7;
     public javax.swing.JMenuBar menu;
     private javax.swing.JMenuItem menuCopy;
@@ -746,7 +751,6 @@ Rectangle windowSize;
     private javax.swing.JMenuItem menuRedo;
     private javax.swing.JMenuItem menuSave;
     private javax.swing.JMenuItem menuSaveAs;
-    private javax.swing.JMenuItem menuShowHideConsole;
     private javax.swing.JMenuItem menuUndo;
     public javax.swing.JSpinner scriptInterval;
     public javax.swing.JButton scriptRun;
