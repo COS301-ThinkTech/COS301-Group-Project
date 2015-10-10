@@ -141,7 +141,6 @@ public final class MainWindow extends javax.swing.JFrame
         toolUndo = new javax.swing.JButton();
         toolRedo = new javax.swing.JButton();
         scriptTools = new javax.swing.JToolBar();
-        zoomSlider = new javax.swing.JSlider();
         zoomText = new javax.swing.JTextField();
         scriptStop = new javax.swing.JButton();
         scriptStart = new javax.swing.JButton();
@@ -257,23 +256,6 @@ public final class MainWindow extends javax.swing.JFrame
                 scriptToolsFocusLost(evt);
             }
         });
-
-        zoomSlider.setToolTipText("ZoomIn/Out");
-        zoomSlider.setPreferredSize(new java.awt.Dimension(300, 54));
-        zoomSlider.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                zoomSliderMouseEntered(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                zoomSliderMouseReleased(evt);
-            }
-        });
-        zoomSlider.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                zoomSliderStateChanged(evt);
-            }
-        });
-        scriptTools.add(zoomSlider);
 
         zoomText.setText("50%");
         zoomText.setPreferredSize(new java.awt.Dimension(300, 20));
@@ -544,7 +526,7 @@ public final class MainWindow extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(FLOW, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE))
+                .addComponent(FLOW, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE))
         );
 
         pack();
@@ -589,7 +571,7 @@ public final class MainWindow extends javax.swing.JFrame
      */
     private void updateCurrentValueLabel() {
         System.out.println("In update value");
-        zoomText.setText(String.valueOf(zoomSlider.getValue()) + '%');
+       // zoomText.setText(String.valueOf(zoomSlider.getValue()) + '%');
     }   
     private int returnZoomValue(String value)
     {
@@ -605,7 +587,7 @@ public final class MainWindow extends javax.swing.JFrame
      * Called when the text field value changes.
      */
     private void handleTextEntry() {
-        System.out.println("Handling text");
+       /* System.out.println("Handling text");
  
         try {
             int newZoom = returnZoomValue(zoomText.getText());
@@ -617,29 +599,9 @@ public final class MainWindow extends javax.swing.JFrame
         }
         catch (NumberFormatException ex) {
             updateCurrentValueLabel();
-        }
+        }*/
     }
      public Point2D cur=new Point(0,0);
-   // previousValue = returnZoomValue(zoomText.getValue());
-    private void zoomSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_zoomSliderStateChanged
-        // TODO add your handling code here:Sys
-       // cur=Manager.flow.cursorInScene(zoomSlider.getValue());
-       Manager.zoom(returnZoomValue(zoomText.getText()), previousValue, cur);
-        //int prevValue = returnZoomValue(zoomText.getText());
-        updateCurrentValueLabel();
-         System.out.println("Prev: " + previousValue + ". Current: " + returnZoomValue(zoomText.getText()));
-        
-//        int newValue = returnZoomValue(zoomText.getText());
-//        System.out.println("Prev: " + prevValue + ". Current: " + newValue);
-//         
-//         if(newValue <  prevValue)
-//             Manager.flow.zoomOut(cur); 
-//         if(newValue > prevValue)
-//             Manager.flow.zoomIn(cur);
-        handleTextEntry();
-  
-    }//GEN-LAST:event_zoomSliderStateChanged
-
     private void menuExportImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExportImageActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuExportImageActionPerformed
@@ -661,17 +623,6 @@ public final class MainWindow extends javax.swing.JFrame
         System.out.print("Input method");
         handleTextEntry();
     }//GEN-LAST:event_zoomTextInputMethodTextChanged
-
-    private void zoomSliderMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zoomSliderMouseReleased
-        // TODO add your handling code here:
-       
-    }//GEN-LAST:event_zoomSliderMouseReleased
-
-    private void zoomSliderMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zoomSliderMouseEntered
-        // TODO add your handling code here:
-         previousValue = returnZoomValue(zoomText.getText());
-          System.out.println("Prev: " + previousValue);
-    }//GEN-LAST:event_zoomSliderMouseEntered
 
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
@@ -807,7 +758,6 @@ Rectangle windowSize;
     private javax.swing.JButton toolRedo;
     private javax.swing.JButton toolSave;
     private javax.swing.JButton toolUndo;
-    private javax.swing.JSlider zoomSlider;
     private javax.swing.JTextField zoomText;
     // End of variables declaration//GEN-END:variables
     
