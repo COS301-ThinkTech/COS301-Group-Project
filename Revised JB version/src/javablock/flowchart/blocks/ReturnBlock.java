@@ -11,6 +11,7 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javablock.flowchart.BlockEditor;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
 import javablock.flowchart.Flowline;
@@ -32,6 +33,11 @@ public class ReturnBlock extends JBlock {
     @Override
     public boolean isEditable(){
         return true;
+    }
+    
+     @Override
+    public BlockEditor getEditor(){
+        return null;
     }
 
     @Override
