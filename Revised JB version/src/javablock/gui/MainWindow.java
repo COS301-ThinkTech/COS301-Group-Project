@@ -269,6 +269,11 @@ public final class MainWindow extends javax.swing.JFrame
         scriptTools.add(jSeparator8);
 
         zoomCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%" }));
+        zoomCombobox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                zoomComboboxMouseEntered(evt);
+            }
+        });
         zoomCombobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 zoomComboboxActionPerformed(evt);
@@ -598,17 +603,17 @@ public final class MainWindow extends javax.swing.JFrame
         }*/
         
     }
-     public Point2D cur=new Point(0,0);
-      public void setTrans(Point2D p) {
-         
-        double x = 512 - p.getX();
-        double y = 320 - p.getY();
-        double sx = 1.0;
-        double sy = 1.0;
-        at = AffineTransform.getTranslateInstance(x, y);
-        at.scale(sx, sy);
-        repaint();
-    }
+     
+//      public void setTrans(Point2D p) {
+//         
+//        double x = 512 - p.getX();
+//        double y = 320 - p.getY();
+//        double sx = 1.0;
+//        double sy = 1.0;
+//        at = AffineTransform.getTranslateInstance(x, y);
+//        at.scale(sx, sy);
+//        repaint();
+//    }
     private void menuExportImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExportImageActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuExportImageActionPerformed
@@ -631,23 +636,27 @@ public final class MainWindow extends javax.swing.JFrame
         else
             Manager.flow.split.setDividerLocation(2000);
     }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
-private void setPreferredSize(int size)
-{
-
-}
-
-private int getCurrentSize()
-{
-    return 0;
-}
-public void MousListener(MouseEvent e)
-        {
-            setTrans(e.getPoint());
-        }
+    public Point2D cur=new Point(0,0);
     private void zoomComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoomComboboxActionPerformed
         // TODO add your handling code here:
-         //setTrans();
+        //cur = Manager.flow.cursorInScene(new Point(0,0));
+        System.out.println("Previous value: " + previousValue);
+        if(previousValue < returnZoomValue(zoomCombobox.getSelectedItem().toString()))
+        {
+            Manager.flow.zoomIn(cur);
+            previousValue = returnZoomValue(zoomCombobox.getSelectedItem().toString());
+        }
+        else if(previousValue > returnZoomValue(zoomCombobox.getSelectedItem().toString()))
+        {
+             Manager.flow.zoomOut(cur);
+            previousValue = returnZoomValue(zoomCombobox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_zoomComboboxActionPerformed
+
+    private void zoomComboboxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zoomComboboxMouseEntered
+        // TODO add your handling code here:
+        previousValue = returnZoomValue(zoomCombobox.getSelectedItem().toString());
+    }//GEN-LAST:event_zoomComboboxMouseEntered
 
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();

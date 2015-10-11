@@ -934,7 +934,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     private Point mousePressed=new Point(0,0);
     public Point2D cur=new Point(0,0);
     private Rectangle2D selectingBox=new Rectangle2D.Float(0,0,0,0);
-    private Point cursorInScene(Point m)
+    public Point cursorInScene(Point m)
     {
         Point in=new Point(0,0);
         in.setLocation(
