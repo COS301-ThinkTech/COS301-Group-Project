@@ -6,6 +6,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.*;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.Point2D;
 import java.io.IOException;
 import java.net.URI;
@@ -21,6 +22,7 @@ public final class MainWindow extends javax.swing.JFrame
         implements ActionListener, ComponentListener{
     public FlowchartManager Manager;
     public int previousValue;
+    AffineTransform at = new AffineTransform();
         
 
     /** Creates new form MainWindow */
@@ -267,6 +269,11 @@ public final class MainWindow extends javax.swing.JFrame
         scriptTools.add(jSeparator8);
 
         zoomCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%" }));
+        zoomCombobox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zoomComboboxActionPerformed(evt);
+            }
+        });
         scriptTools.add(zoomCombobox);
 
         scriptStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-start.png"))); // NOI18N
@@ -589,8 +596,19 @@ public final class MainWindow extends javax.swing.JFrame
         catch (NumberFormatException ex) {
             updateCurrentValueLabel();
         }*/
+        
     }
      public Point2D cur=new Point(0,0);
+      public void setTrans(Point2D p) {
+         
+        double x = 512 - p.getX();
+        double y = 320 - p.getY();
+        double sx = 1.0;
+        double sy = 1.0;
+        at = AffineTransform.getTranslateInstance(x, y);
+        at.scale(sx, sy);
+        repaint();
+    }
     private void menuExportImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExportImageActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuExportImageActionPerformed
@@ -613,6 +631,23 @@ public final class MainWindow extends javax.swing.JFrame
         else
             Manager.flow.split.setDividerLocation(2000);
     }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
+private void setPreferredSize(int size)
+{
+
+}
+
+private int getCurrentSize()
+{
+    return 0;
+}
+public void MousListener(MouseEvent e)
+        {
+            setTrans(e.getPoint());
+        }
+    private void zoomComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoomComboboxActionPerformed
+        // TODO add your handling code here:
+         //setTrans();
+    }//GEN-LAST:event_zoomComboboxActionPerformed
 
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
