@@ -143,8 +143,8 @@ public final class MainWindow extends javax.swing.JFrame
         jSeparator9 = new javax.swing.JToolBar.Separator();
         scriptTools = new javax.swing.JToolBar();
         jLabel3 = new javax.swing.JLabel();
-        zoomSpinner = new javax.swing.JSpinner();
         jSeparator8 = new javax.swing.JToolBar.Separator();
+        zoomCombobox = new javax.swing.JComboBox();
         scriptStart = new javax.swing.JButton();
         scriptStep = new javax.swing.JButton();
         scriptRun = new javax.swing.JButton();
@@ -264,14 +264,10 @@ public final class MainWindow extends javax.swing.JFrame
 
         jLabel3.setText("zoom  ");
         scriptTools.add(jLabel3);
-
-        zoomSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5000, 50));
-        zoomSpinner.setMaximumSize(new java.awt.Dimension(47, 20));
-        zoomSpinner.setMinimumSize(new java.awt.Dimension(47, 20));
-        zoomSpinner.setName(""); // NOI18N
-        zoomSpinner.setPreferredSize(new java.awt.Dimension(47, 20));
-        scriptTools.add(zoomSpinner);
         scriptTools.add(jSeparator8);
+
+        zoomCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%" }));
+        scriptTools.add(zoomCombobox);
 
         scriptStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-start.png"))); // NOI18N
         scriptStart.setFocusable(false);
@@ -755,7 +751,7 @@ Rectangle windowSize;
     private javax.swing.JButton toolRedo;
     private javax.swing.JButton toolSave;
     private javax.swing.JButton toolUndo;
-    public javax.swing.JSpinner zoomSpinner;
+    private javax.swing.JComboBox zoomCombobox;
     // End of variables declaration//GEN-END:variables
     
     public void updateConfig(FlowchartManager men) {
