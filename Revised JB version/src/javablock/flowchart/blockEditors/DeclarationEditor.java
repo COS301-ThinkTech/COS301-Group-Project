@@ -235,14 +235,14 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
         }
     }
     public enum DataType{
-        INTEGER/*, NUMBER*/, STRING, CHARARRAY, LOGIC, ANY
+        INTEGER/*, NUMBER*/, STRING, CHARARRAY, BOOLEAN, ANY
     }
     ComboText types[]={
         /*new ComboText(translator.get("ioEditor.typeNumber"), "NUMBER"),*/
         new ComboText(translator.get("ioEditor.typeInteger"), "INTEGER"),
         new ComboText(translator.get("ioEditor.typeString"), "STRING"),
         //new ComboText(translator.get("ioEditor.typeCharArray"), "CHARARRAY"),
-        new ComboText(translator.get("ioEditor.typeLogic"), "LOGIC"),
+        new ComboText(translator.get("ioEditor.typeBoolean"), "BOOLEAN"),
         new ComboText(translator.get("ioEditor.typeAny"), "ANY")
     };
 
