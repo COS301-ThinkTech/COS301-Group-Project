@@ -761,6 +761,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         if(fc==null)
         {
             fc=new JFileChooser();
+            fc.setAcceptAllFileFilterUsed(false);
             fc.setDialogTitle("Export to image");
             if(getManager().fc!=null)
             {
