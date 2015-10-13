@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.8.27)  24 SEP 2015 12:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.8.27)  13 OCT 2015 12:37
 entering extended mode
 **flowchartUsermanual.tex
 
-("C:\Users\Hlavutello\Documents\Main Project\Documentation\User Manual\flowchar
-tUsermanual.tex"
+("C:\Users\Hlavutello\Documents\Flowchart-planning-and-simulation-tool\Document
+ation\User Manual\flowchartUsermanual.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -64,8 +64,8 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
-("C:\Users\Hlavutello\Documents\Main Project\Documentation\User Manual\flowchar
-tUsermanual.aux")
+("C:\Users\Hlavutello\Documents\Flowchart-planning-and-simulation-tool\Document
+ation\User Manual\flowchartUsermanual.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
@@ -93,19 +93,20 @@ LaTeX Font Info:    ... okay on input line 6.
 \makeMPintoPDFobject=\count93
 \everyMPtoPDFconversion=\toks16
 )
-("C:\Users\Hlavutello\Documents\Main Project\Documentation\User Manual\coverpag
-e.tex" <UP_Logo.png, id=1, 900.36375pt x 269.50688pt>
+("C:\Users\Hlavutello\Documents\Flowchart-planning-and-simulation-tool\Document
+ation\User Manual\coverpage.tex"
+<UP_Logo.png, id=1, 900.36375pt x 269.50688pt>
 File: UP_Logo.png Graphic file (type png)
  <use UP_Logo.png>
 Package pdftex.def Info: UP_Logo.png used on input line 6.
 (pdftex.def)             Requested size: 351.31378pt x 105.1607pt.
-
-[1
+ [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/Hlavutello/Docum
-ents/Main Project/Documentation/User Manual/UP_Logo.png>])
-("C:\Users\Hlavutello\Documents\Main Project\Documentation\User Manual\flowchar
-tUsermanual.toc"
+ents/Flowchart-planning-and-simulation-tool/Documentation/User Manual/UP_Logo.p
+ng>])
+("C:\Users\Hlavutello\Documents\Flowchart-planning-and-simulation-tool\Document
+ation\User Manual\flowchartUsermanual.toc"
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 5.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -124,114 +125,121 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
+
+ []
+
 [1]
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
 
  []
 
 <RunningFlow.jpg, id=17, 1028.34187pt x 578.16pt>
 File: RunningFlow.jpg Graphic file (type jpg)
  <use RunningFlow.jpg>
-Package pdftex.def Info: RunningFlow.jpg used on input line 51.
+Package pdftex.def Info: RunningFlow.jpg used on input line 59.
 (pdftex.def)             Requested size: 341.43306pt x 191.9667pt.
 
 <SystemLayout.jpg, id=18, 448.731pt x 237.177pt>
 File: SystemLayout.jpg Graphic file (type jpg)
  <use SystemLayout.jpg>
-Package pdftex.def Info: SystemLayout.jpg used on input line 63.
+Package pdftex.def Info: SystemLayout.jpg used on input line 71.
 (pdftex.def)             Requested size: 360.0pt x 190.28108pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--64
+Underfull \hbox (badness 10000) in paragraph at lines 69--72
 
  []
 
-[2 <C:/Users/Hlavutello/Documents/Main Project/Documentation/User Manual/Runnin
-gFlow.jpg>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 70.
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+[2 <C:/Users/Hlavutello/Documents/Flowchart-planning-and-simulation-tool/Docume
+ntation/User Manual/RunningFlow.jpg>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 78.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 70.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 78.
 
 <Canvas.jpg, id=22, 435.591pt x 124.5015pt>
 File: Canvas.jpg Graphic file (type jpg)
  <use Canvas.jpg>
-Package pdftex.def Info: Canvas.jpg used on input line 72.
+Package pdftex.def Info: Canvas.jpg used on input line 80.
 (pdftex.def)             Requested size: 327.20668pt x 93.52786pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--73
+Underfull \hbox (badness 10000) in paragraph at lines 78--81
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--80
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--80
-
- []
-
-[3 <C:/Users/Hlavutello/Documents/Main Project/Documentation/User Manual/System
-Layout.jpg> <C:/Users/Hlavutello/Documents/Main Project/Documentation/User Manu
-al/Canvas.jpg>] <Tools.jpg, id=27, 444.132pt x 123.8445pt>
-File: Tools.jpg Graphic file (type jpg)
- <use Tools.jpg>
-Package pdftex.def Info: Tools.jpg used on input line 81.
-(pdftex.def)             Requested size: 327.20668pt x 91.24098pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 87--88
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--88
+
+ []
+
+[3 <C:/Users/Hlavutello/Documents/Flowchart-planning-and-simulation-tool/Docume
+ntation/User Manual/SystemLayout.jpg> <C:/Users/Hlavutello/Documents/Flowchart-
+planning-and-simulation-tool/Documentation/User Manual/Canvas.jpg>]
+<Tools.jpg, id=27, 444.132pt x 123.8445pt>
+File: Tools.jpg Graphic file (type jpg)
+ <use Tools.jpg>
+Package pdftex.def Info: Tools.jpg used on input line 89.
+(pdftex.def)             Requested size: 327.20668pt x 91.24098pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
 
  []
 
 <Menu.jpg, id=28, 448.074pt x 81.1395pt>
 File: Menu.jpg Graphic file (type jpg)
  <use Menu.jpg>
-Package pdftex.def Info: Menu.jpg used on input line 97.
+Package pdftex.def Info: Menu.jpg used on input line 105.
 (pdftex.def)             Requested size: 327.20668pt x 59.25237pt.
- [4 <C:/Users/Hlavutello/Documents/Main Project/Documentation/User Manual/Tools
-.jpg> <C:/Users/Hlavutello/Documents/Main Project/Documentation/User Manual/Men
-u.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 116--118
+ [4 <C:/Users/Hlavutello/Documents/Flowchart-planning-and-simulation-tool/Docum
+entation/User Manual/Tools.jpg> <C:/Users/Hlavutello/Documents/Flowchart-planni
+ng-and-simulation-tool/Documentation/User Manual/Menu.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 124--126
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--118
+Underfull \hbox (badness 10000) in paragraph at lines 124--126
 
  []
 
 [5] [6]
-("C:\Users\Hlavutello\Documents\Main Project\Documentation\User Manual\flowchar
-tUsermanual.aux") ) 
+("C:\Users\Hlavutello\Documents\Flowchart-planning-and-simulation-tool\Document
+ation\User Manual\flowchartUsermanual.aux") ) 
 Here is how much of TeX's memory you used:
  1182 strings out of 493921
- 16424 string characters out of 3144861
+ 16710 string characters out of 3144861
  66880 words of memory out of 3000000
  4502 multiletter control sequences out of 15000+200000
  8503 words of font info for 30 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  27i,5n,19p,520b,278s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr1
-7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb>
-Output written on flowchartUsermanual.pdf (8 pages, 708184 bytes).
+<C:/Program Files (x86)/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb>
+Output written on flowchartUsermanual.pdf (8 pages, 708377 bytes).
 PDF statistics:
  59 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
