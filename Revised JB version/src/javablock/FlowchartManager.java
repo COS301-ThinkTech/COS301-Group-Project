@@ -245,6 +245,12 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         boolean  valid = true;
         String flowNew = JOptionPane.showInputDialog( translator.get("main.flowcharts.rename.info"),"");
         fl.setName(flowNew);
+        if(flowNew.equals(""))
+        {
+             JOptionPane.showMessageDialog(MainSplit, translator.get("popup.flowMustNotBeEmpty"),
+                        translator.get("popup.flowMustBeUnique.head"),JOptionPane.WARNING_MESSAGE);
+               return false;
+        }
         
         for(Sheet f:flows)
         {
