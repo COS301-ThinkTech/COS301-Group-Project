@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.image.BufferedImage;
 import javax.swing.JButton;
 import javax.swing.JPopupMenu;
 import javax.swing.JToolBar;
@@ -36,8 +37,8 @@ public class BlocksToolBar extends JToolBar{
                          
                 if(T == JBlock.StandardTypes[3])
                 {
-                    b.setActionCommand("moduleaction/MODULE" + T.toString());
-                    b.setName("moduleaction/MODULE" + T.toString());
+                    b.setActionCommand("moduleaction/MODULE");
+                    b.setName("moduleaction/MODULE");
                 }
                 else{
                      b.setActionCommand("add/" + T.toString());
@@ -85,12 +86,17 @@ public class BlocksToolBar extends JToolBar{
                 b = new JButton();
                 b.setToolTipText(translator.tooltips.getString(T.toString() + ".help"));
                 b.setActionCommand("add/" + T.toString());
-                b.setPreferredSize(new Dimension(32, 32));
+                b.setPreferredSize(new Dimension(50, 10));
+                
+                //BufferedImage img = JBlock.getIcon(T);
+                //img
                 b.setIcon(new javax.swing.ImageIcon(JBlock.getIcon(T)));                
                 std.add(b);
                 //std.add(new JPopupMenu.Separator());
                 b.addActionListener(flow);
                 b.addMouseMotionListener(flow);
+                
+                
             }
             
             

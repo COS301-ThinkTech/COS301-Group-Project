@@ -39,9 +39,15 @@ public class IOBlock extends JBlock {
 
     public IOBlock(Flowchart parent){
         super(Type.IO, parent);
+        if(currentType == 1)
+            comment = "OUTPUT";
+        else
+            comment = "INPUT";
     }
 
 
+    
+    
     @Override
     public boolean popUpEditor(){return (ioType==0?true:false);}
     @Override
@@ -54,6 +60,16 @@ public class IOBlock extends JBlock {
     @Override
     public void shape(){
         prepareText();
+        
+        if(ioType == 1){
+            displayComment=true;
+            comment = "output ";
+        }
+        else if(ioType == 2){
+            displayComment=true;
+            comment = "input";
+        }
+        
         //if(ioType<=0){
             GeneralPath io=new GeneralPath();
                 io.moveTo(bound.getX()-7,                  bound.getY()-10);

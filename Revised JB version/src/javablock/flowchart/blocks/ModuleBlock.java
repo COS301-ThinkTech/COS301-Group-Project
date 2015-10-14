@@ -18,6 +18,7 @@ public class ModuleBlock extends JBlock{
    
     @Override
     public void shape(){
+        
         prepareText();
         GeneralPath module = new GeneralPath();
         double xPoints[] = {bound.getX(), bound.getX()+bound.getWidth()+20, bound.getX()+bound.getWidth()+20, bound.getX(), bound.getX()};
