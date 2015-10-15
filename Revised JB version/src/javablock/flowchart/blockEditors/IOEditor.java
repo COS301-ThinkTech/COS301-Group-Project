@@ -196,7 +196,7 @@ public class IOEditor extends javax.swing.JPanel implements BlockEditor, ActionL
         String code="";
         String vars[]=variable.getText().replaceAll(", ", " ").split("[\\s,]");
         if(output.isSelected()){
-            code += "output ";
+            /*code += "output ";*/
             for(String var:vars){
                 if(var.length()==0) continue;
                 code+="Write";
@@ -226,7 +226,7 @@ public class IOEditor extends javax.swing.JPanel implements BlockEditor, ActionL
             }
         }
         if(input.isSelected()){
-            code += "input ";
+            /*code += "input ";*/
             DataType type=DataType.valueOf(((ComboText)inType.getSelectedItem()).getValue());
             for(String var:vars){
                 if(inArray.isSelected()){

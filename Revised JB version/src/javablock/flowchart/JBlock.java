@@ -166,13 +166,16 @@ public abstract class JBlock implements FlowElement{
         }
         return make(Type.CUSTOM, true, parent);
     }
+    
+    public static int currentType = 0; 
+    
     public static JBlock make(Type type, boolean codeBased, Flowchart parent){
         JBlock b;
         switch(type){            
             case IO: b= new IOBlock(parent); break;
-            case IOin: b=new IOBlock(parent); b.nonCodeBased(!codeBased);
+            case IOin: currentType = 2; b=new IOBlock(parent); b.nonCodeBased(!codeBased);
                 ((IOBlock)b).ioType=2; break;
-            case IOout: b=new IOBlock(parent); b.nonCodeBased(!codeBased);
+            case IOout: currentType = 1; b=new IOBlock(parent); b.nonCodeBased(!codeBased);
                 ((IOBlock)b).ioType=1; break;
             case CPU: b= new CPUBlock(parent); break;
             case START: b= new StartBlock(parent); break;

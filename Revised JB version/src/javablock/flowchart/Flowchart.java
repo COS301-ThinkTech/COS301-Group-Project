@@ -736,7 +736,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                     @Override
                     public String getDescription() 
                     {
-                            return "png";
+                            return ".png";
                     }
         },
         new javax.swing.filechooser.FileFilter() 
@@ -750,7 +750,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                     @Override
                     public String getDescription() 
                     {
-                            return "jpg";
+                            return ".jpg";
                     }
         }
     };
@@ -762,6 +762,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         if(fc==null)
         {
             fc=new JFileChooser();
+            fc.setAcceptAllFileFilterUsed(false);
             fc.setDialogTitle("Export to image");
             if(getManager().fc!=null)
             {

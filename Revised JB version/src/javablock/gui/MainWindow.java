@@ -229,6 +229,11 @@ public final class MainWindow extends javax.swing.JFrame
         toolSave.setFocusable(false);
         toolSave.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         toolSave.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toolSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toolSaveActionPerformed(evt);
+            }
+        });
         toolBar.add(toolSave);
         toolSave.addActionListener(this);
         toolBar.add(jSeparator5);
@@ -657,6 +662,10 @@ public final class MainWindow extends javax.swing.JFrame
         // TODO add your handling code here:
         previousValue = returnZoomValue(zoomCombobox.getSelectedItem().toString());
     }//GEN-LAST:event_zoomComboboxMouseEntered
+
+    private void toolSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toolSaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_toolSaveActionPerformed
 
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
