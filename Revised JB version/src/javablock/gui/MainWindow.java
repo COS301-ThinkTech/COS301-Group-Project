@@ -143,10 +143,10 @@ public final class MainWindow extends javax.swing.JFrame
         toolUndo = new javax.swing.JButton();
         toolRedo = new javax.swing.JButton();
         jSeparator9 = new javax.swing.JToolBar.Separator();
-        scriptTools = new javax.swing.JToolBar();
         jLabel3 = new javax.swing.JLabel();
-        jSeparator8 = new javax.swing.JToolBar.Separator();
         zoomCombobox = new javax.swing.JComboBox();
+        jSeparator8 = new javax.swing.JToolBar.Separator();
+        scriptTools = new javax.swing.JToolBar();
         scriptStart = new javax.swing.JButton();
         scriptStep = new javax.swing.JButton();
         scriptRun = new javax.swing.JButton();
@@ -154,6 +154,7 @@ public final class MainWindow extends javax.swing.JFrame
         jSeparator4 = new javax.swing.JToolBar.Separator();
         jLabel2 = new javax.swing.JLabel();
         scriptInterval = new javax.swing.JSpinner();
+        jSeparator11 = new javax.swing.JToolBar.Separator();
         menu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuNew = new javax.swing.JMenuItem();
@@ -259,21 +260,11 @@ public final class MainWindow extends javax.swing.JFrame
         toolRedo.addActionListener(this);
         toolBar.add(jSeparator9);
 
-        scriptTools.setFloatable(false);
-        scriptTools.setRollover(true);
-        scriptTools.setMaximumSize(new java.awt.Dimension(350, 33));
-        scriptTools.setMinimumSize(new java.awt.Dimension(350, 33));
-        scriptTools.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                scriptToolsFocusLost(evt);
-            }
-        });
-
         jLabel3.setText("zoom  ");
-        scriptTools.add(jLabel3);
-        scriptTools.add(jSeparator8);
+        toolBar.add(jLabel3);
 
         zoomCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%" }));
+        zoomCombobox.setMaximumSize(new java.awt.Dimension(54, 32767));
         zoomCombobox.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 zoomComboboxMouseEntered(evt);
@@ -284,7 +275,19 @@ public final class MainWindow extends javax.swing.JFrame
                 zoomComboboxActionPerformed(evt);
             }
         });
-        scriptTools.add(zoomCombobox);
+        toolBar.add(zoomCombobox);
+        toolBar.add(jSeparator8);
+
+        scriptTools.setFloatable(false);
+        scriptTools.setRollover(true);
+        scriptTools.setMaximumSize(new java.awt.Dimension(360, 33));
+        scriptTools.setMinimumSize(new java.awt.Dimension(360, 33));
+        scriptTools.setPreferredSize(new java.awt.Dimension(260, 33));
+        scriptTools.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                scriptToolsFocusLost(evt);
+            }
+        });
 
         scriptStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-start.png"))); // NOI18N
         scriptStart.setFocusable(false);
@@ -340,6 +343,7 @@ public final class MainWindow extends javax.swing.JFrame
         scriptInterval.setName(""); // NOI18N
         scriptInterval.setPreferredSize(new java.awt.Dimension(47, 20));
         scriptTools.add(scriptInterval);
+        scriptTools.add(jSeparator11);
 
         toolBar.add(scriptTools);
 
@@ -393,7 +397,6 @@ public final class MainWindow extends javax.swing.JFrame
         });
         jMenu1.add(menuGridBool);
 
-        jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("Show/Hide Console");
         jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -564,10 +567,6 @@ public final class MainWindow extends javax.swing.JFrame
         Manager.flow.I.run();
     }//GEN-LAST:event_scriptRunActionPerformed
 
-    private void menuFlowchartsAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFlowchartsAddActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menuFlowchartsAddActionPerformed
-
     private void menuFlowchartsRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFlowchartsRemoveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuFlowchartsRemoveActionPerformed
@@ -667,6 +666,10 @@ public final class MainWindow extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_toolSaveActionPerformed
 
+    private void menuFlowchartsAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFlowchartsAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuFlowchartsAddActionPerformed
+
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
     }                                          
@@ -764,6 +767,7 @@ Rectangle windowSize;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator11;
     private javax.swing.JPopupMenu.Separator jSeparator12;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;

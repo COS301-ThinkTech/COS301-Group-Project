@@ -74,7 +74,7 @@ public abstract class JBlock implements FlowElement{
     };
 
     public static Type HelpingTypes[]={
-        Type.COMMENT, Type.JUMP
+        Type.JUMP, Type.COMMENT
     };
    
     
