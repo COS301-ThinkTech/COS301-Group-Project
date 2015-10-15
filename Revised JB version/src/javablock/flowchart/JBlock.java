@@ -836,7 +836,7 @@ public abstract class JBlock implements FlowElement{
         }
         if(nowExecute && Global.bolderBorder){
             g2d.setStroke(Global.strokeBold4);
-            g2d.setColor(Color.RED.darker()); //when executing, create red border
+            g2d.setColor(Color.GREEN.darker().darker()); //when executing, create red border
             g2d.draw(shape);
             //g2d.setStroke(Global.strokeBold6);
             //g2d.setColor(Color.BLUE.darker());
