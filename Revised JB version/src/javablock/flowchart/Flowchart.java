@@ -556,6 +556,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                 + "\twhile(true)\n"
                 + "\t switch("+getName()+"_block){\n";
         for(JBlock b: blocks){
+            
             if(b.isDefinitionBlock()) continue;
 //            if(b.type==JBlock.Type.COMMENT) continue;
             //if(!Global.highlightLinks)
@@ -761,7 +762,6 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         if(fc==null)
         {
             fc=new JFileChooser();
-            fc.setAcceptAllFileFilterUsed(false);
             fc.setDialogTitle("Export to image");
             if(getManager().fc!=null)
             {
