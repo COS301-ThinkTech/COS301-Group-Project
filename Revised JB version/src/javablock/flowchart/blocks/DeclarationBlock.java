@@ -101,6 +101,7 @@ public class DeclarationBlock extends JBlock{
         }
         code = code_temp;
         needUpdate=true;
+        
     }
     
     public void clearBlockCode(){
