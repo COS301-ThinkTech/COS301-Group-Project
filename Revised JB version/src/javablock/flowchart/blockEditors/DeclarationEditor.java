@@ -162,7 +162,6 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
                     ((ComboText)field.type.getSelectedItem()).getValue(),field.value.getText());
         }
         editing.shape();
-        repaint();
         //editing.flow.update();
     }
 
@@ -227,7 +226,6 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
             add(type, BorderLayout.WEST);
             add(delete, BorderLayout.EAST);
             t=this;
-           
             delete.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
