@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import javablock.gui.*;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.HeadlessException;
 import java.awt.geom.Point2D;
@@ -236,8 +237,9 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             wait = validateAdd(flow);
         }
         flows.add(flow); 
-        workspace.addSheet(flow);
+        workspace.addSheet(flow);        
         workspace.setActive(flow.getName());
+        workspace.renameSheetName(flow.getName()+"()", workspace.getActive());
     }
     
     public boolean validateAdd(Flowchart fl)
@@ -257,7 +259,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             String flowInList = f.getName();
             if(!flowNew.contains("()"))
             {
-                flowNew = fl.getName() +"()";
+                flowNew = fl.getName() /*+"()"*/;
             }
             if(f==fl) continue;
             if(flowInList.equals(flowNew))
@@ -272,8 +274,17 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         }
         for(JBlock x:fl.blocks)
         {
+            System.out.println("Type: " + x.type.toString());
             if(x.type.toString() == "RETURN")
                 x.comment = "return";
+            if(x.type.toString() == "START")
+            {   
+                x.textColor = Color.ORANGE;
+                x.displayComment = true;
+                //why isn't this working
+                x.comment = fl.getName()+"()";
+                
+            }
         }
         
         if(fl.getName().contains("()"))
@@ -282,9 +293,11 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         }
         else
         {
-          fl.setName(fl.getName() + "()");
+          fl.setName(fl.getName() /*+ "()"*/);
         }
+        
         return valid;
+        
     }
     
     public void removeFlowchart()
