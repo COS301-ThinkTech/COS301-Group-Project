@@ -190,8 +190,8 @@ public class Global
         scriptReplace=true;
         showSplash=true;
         loadLast=false;
-        confDir=System.getProperty("user.home")+"/.JavaBlock";
-        lastFlow=confDir+"/last.jbf";
+        confDir=System.getProperty("user.home")+"/.FlowProject";
+        lastFlow=confDir+"/last.flow";
     }
 
     public static void reset()
@@ -206,8 +206,8 @@ public class Global
     {
         loadPlugins();
         reset();
-        confDir=System.getProperty("user.home")+"/.JavaBlock";
-        lastFlow=confDir+"/last.jbf";
+        confDir=System.getProperty("user.home")+"/.FlowProject";
+        lastFlow=confDir+"/last.flow";
         conf=new configurator();
         icons.icons.load(conf);
         translate=new translator();

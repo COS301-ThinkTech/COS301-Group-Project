@@ -20,6 +20,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.VolatileImage;
 import java.io.File;
 import javablock.*;
+import javablock.flowchart.JBlock.Type;
 import javablock.flowchart.blocks.StartBlock;
 import javablock.flowchart.generator.DoWhile;
 import javablock.flowchart.generator.For;
@@ -1564,6 +1565,9 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             return b;
         }
         b=JBlock.make(type, true, this);
+        if(b.type == Type.DECLARATION || b.type == Type.CPU)
+            b.comment = "";
+        
         if(b!=null)
         {
             addBlock(b);

@@ -23,6 +23,7 @@ public class DeclarationBlock extends JBlock{
     public static DeclarationEditor editor=new DeclarationEditor();
     public DeclarationBlock(Flowchart parent) {
         super(Type.DECLARATION, parent);
+        comment = "num a=0";
     }
 
     //public DeclarationBlock(Flowchart parent) {

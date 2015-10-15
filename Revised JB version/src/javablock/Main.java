@@ -81,7 +81,7 @@ public class Main extends JApplet implements ActionListener, Runnable {
                 saveImages=true;
             else
             {
-                if(ar.endsWith(".jbf"))
+                if(ar.endsWith(".flow"))
                 {
                     Global.lastFlow=ar;
                     list[i]=ar;
@@ -137,7 +137,7 @@ public class Main extends JApplet implements ActionListener, Runnable {
             else if(ar.equals("-uneditable"))
                 Global.editable=false;
             else{
-                if(ar.endsWith(".jbf")){
+                if(ar.endsWith(".flow")){
                     Global.lastFlow=ar;
                     list[i]=ar;
                     i++;

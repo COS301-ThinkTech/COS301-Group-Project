@@ -13,6 +13,7 @@ import javablock.flowchart.JBlock;
 public class CPUBlock extends JBlock {
     public CPUBlock(Flowchart parent){
         super(Type.CPU, parent);
+        comment="c=a+b";
     }
 
     @Override
