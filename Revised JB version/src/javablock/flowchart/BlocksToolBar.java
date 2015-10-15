@@ -44,7 +44,7 @@ public class BlocksToolBar extends JToolBar{
                      b.setActionCommand("add/" + T.toString());
                      b.setName("add/" + T.toString());
                 }
-                b.setPreferredSize(new Dimension(60, 10));
+                b.setPreferredSize(new Dimension(60, 30));
                 b.setIcon(new javax.swing.ImageIcon(JBlock.getIcon(T)));
                 std.add(b);                
                 //std.add(new JPopupMenu.Separator());
@@ -55,7 +55,7 @@ public class BlocksToolBar extends JToolBar{
                 b = new JButton();
                 b.setToolTipText(translator.tooltips.getString(T.toString() + ".help"));
                 b.setActionCommand("add/" + T.toString());
-                b.setPreferredSize(new Dimension(60, 10));
+                b.setPreferredSize(new Dimension(60, 30));
                 b.setIcon(new javax.swing.ImageIcon(JBlock.getIcon(T)));                
                 std.add(b);
                 //std.add(new JPopupMenu.Separator());
@@ -82,7 +82,7 @@ public class BlocksToolBar extends JToolBar{
                     b.setActionCommand("dowhileaction/" + T.toString());
                     b.setName("dowhileaction/" + T.toString());
                 }
-                b.setPreferredSize(new Dimension(60, 10));
+                b.setPreferredSize(new Dimension(60, 30));
                 b.setIcon(new javax.swing.ImageIcon(JBlock.getIcon(T)));
                 std.add(b);                
                 //std.add(new JPopupMenu.Separator());
@@ -97,7 +97,7 @@ public class BlocksToolBar extends JToolBar{
                 b = new JButton();
                 b.setToolTipText(translator.tooltips.getString(T.toString() + ".help"));
                 b.setActionCommand("add/" + T.toString());
-                b.setPreferredSize(new Dimension(60, 10));
+                b.setPreferredSize(new Dimension(60, 30));
                 
                 //BufferedImage img = JBlock.getIcon(T);
                 //img
