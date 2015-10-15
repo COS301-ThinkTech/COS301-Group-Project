@@ -1443,11 +1443,11 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         if (e.getScrollType() == MouseWheelEvent.WHEEL_UNIT_SCROLL){
             if(e.getWheelRotation()>0){
                
-                zoomOut(cur);
+                //zoomOut(cur);
             }
             else if(e.getWheelRotation()<0){
                 
-                zoomIn(cur);
+                //zoomIn(cur);
             }
         }
         
