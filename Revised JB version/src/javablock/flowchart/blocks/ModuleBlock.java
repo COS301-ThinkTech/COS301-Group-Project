@@ -7,15 +7,12 @@ package javablock.flowchart.blocks;
 
 import java.awt.Rectangle;
 import java.awt.geom.GeneralPath;
-<<<<<<< HEAD
 import java.awt.geom.Rectangle2D;
-=======
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javablock.flowchart.BlockEditor;
->>>>>>> 6c9d52100d03793705ee1024ebcf30530367c5c4
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
 import javablock.flowchart.blockEditors.DeclarationEditor;
