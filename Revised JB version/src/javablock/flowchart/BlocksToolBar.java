@@ -42,14 +42,23 @@ public class BlocksToolBar extends JToolBar{
                          
                 if(T == JBlock.StandardTypes[3])
                 {
+                    b.setPreferredSize(new Dimension(60, 30));
                     b.setActionCommand("moduleaction/MODULE");
                     b.setName("moduleaction/MODULE");
                 }
+                else if(T == JBlock.StandardTypes[2]){
+                
+                    b.setPreferredSize(new Dimension(60, 50));
+                    b.setActionCommand("add/" + T.toString());
+                    b.setName("add/" + T.toString());
+                
+                }
                 else{
+                    b.setPreferredSize(new Dimension(60, 30));
                      b.setActionCommand("add/" + T.toString());
                      b.setName("add/" + T.toString());
                 }
-                b.setPreferredSize(new Dimension(60, 30));
+                
                 b.setIcon(new javax.swing.ImageIcon(JBlock.getIcon(T)));
                 std.add(b);                
                 //std.add(new JPopupMenu.Separator());
