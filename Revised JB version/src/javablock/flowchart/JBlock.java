@@ -436,12 +436,20 @@ public abstract class JBlock implements FlowElement{
     }
     private String jsRecoded="", jsBeforeRecoded="";
     private String getCodeForJavaScript(){
+        System.out.println("getCodeForJavaScript");
         //if(rep!=Global.scriptReplace)
         //    jsBeforeRecoded="";
         rep=Global.scriptReplace;
         if(code.equals(jsBeforeRecoded)) return jsRecoded;
         String c=parseCode('j');
         jsRecoded=c.replaceAll("\" ", "\"");
+        
+         System.out.println(" (getCodeForJavaScript) A line of code in the block: " + c);
+         jsRecoded = c.replace("num", "var");
+         jsRecoded = jsRecoded.replace("string", "var");
+         jsRecoded = jsRecoded.replace("boolean", "var");
+         System.out.println("(getCodeForJavaScript) A Updated line of code in the block: " + c);
+            
         //if(Global.scriptReplace)
             jsBeforeRecoded=this.code;
         return jsRecoded;
@@ -452,6 +460,11 @@ public abstract class JBlock implements FlowElement{
     public String getScriptFragmentForJavaScript(){
         String code="";
         for(String line: (getCodeForJavaScript().split("\\n")) ){
+            System.out.println("A line of code in the block: " + line);
+            line = line.replace("num", "var");
+            line = line.replace("string", "var");
+            line = line.replace("boolean", "var");
+            System.out.println("A Updated line of code in the block: " + line);
             code+="\t\t\t"+line+"\n";
         }
         if(connects.size()==1)

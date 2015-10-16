@@ -1802,7 +1802,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         else if(actionPerformed[0].equals("moduleaction"))
         {   
             addBlock(actionPerformed[1]);
-            action.addFlowchart();
+            //action.addFlowchart();
         }
         else if(actionPerformed[0].equals("align"))
             align(actionPerformed[1]);
