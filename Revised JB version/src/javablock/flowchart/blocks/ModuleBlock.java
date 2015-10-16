@@ -5,7 +5,9 @@
  */
 package javablock.flowchart.blocks;
 
+import java.awt.Rectangle;
 import java.awt.geom.GeneralPath;
+import java.awt.geom.Rectangle2D;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
 
@@ -19,7 +21,7 @@ public class ModuleBlock extends JBlock{
     @Override
     public void shape(){
         
-        prepareText();
+        /*prepareText();
         GeneralPath module = new GeneralPath();
         double xPoints[] = {bound.getX(), bound.getX()+bound.getWidth()+20, bound.getX()+bound.getWidth()+20, bound.getX(), bound.getX()};
         double yPoints[] = {bound.getY(), bound.getY(), bound.getY()+bound.getHeight()+20, bound.getY()+bound.getHeight()+20, bound.getY()};
@@ -33,6 +35,16 @@ public class ModuleBlock extends JBlock{
         module.lineTo(bound.getX()+bound.getWidth()+20, bound.getY()+10);
 
         shape=module;
+        afterShape();*/
+        
+        prepareText();
+        Rectangle2D cpu=new Rectangle.Double(
+                        bound.getX()-10,
+                        bound.getY()-10,
+                        bound.getWidth()+50,
+                        bound.getHeight()+15
+                        );
+                shape=cpu;
         afterShape();
     }
 
