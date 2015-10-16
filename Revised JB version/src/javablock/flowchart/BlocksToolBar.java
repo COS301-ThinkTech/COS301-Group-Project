@@ -13,6 +13,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.JButton;
 import javax.swing.JPopupMenu;
 import javax.swing.JToolBar;
+import javax.swing.JLabel;
 
 
 public class BlocksToolBar extends JToolBar{
@@ -31,6 +32,10 @@ public class BlocksToolBar extends JToolBar{
             JToolBar std = new JToolBar("Standard");
             std.setFloatable(false);
             std.setOrientation(JToolBar.VERTICAL);
+            std.addSeparator();
+            JLabel label1 = new JLabel("Flowchart Symbols", JLabel.LEFT);
+            std.add(label1);
+            std.addSeparator();
             for (JBlock.Type T : JBlock.StandardTypes) {
                 b = new JButton(); 
                 b.setToolTipText(translator.tooltips.getString(T.toString() + ".help"));
@@ -63,7 +68,9 @@ public class BlocksToolBar extends JToolBar{
                 b.addMouseMotionListener(flow);
             }
             
-            std.addSeparator();
+             std.addSeparator();
+            JLabel label2 = new JLabel("Loop Structures", JLabel.LEFT);
+            std.add(label2);
             std.addSeparator();
             
             for (JBlock.Type T : JBlock.LoopTypes) {
@@ -91,7 +98,10 @@ public class BlocksToolBar extends JToolBar{
             }
             
             std.addSeparator();
+            JLabel label3= new JLabel("Input/Output", JLabel.LEFT);
+            std.add(label3);
             std.addSeparator();
+            
             
             for (JBlock.Type T : JBlock.IOTypes) {
                 b = new JButton();
@@ -109,11 +119,6 @@ public class BlocksToolBar extends JToolBar{
                 
                 
             }
-            
-            
-            std.addSeparator();
-            std.addSeparator();
-            
             
             blocks.add(std);
             add(blocks);

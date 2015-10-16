@@ -26,7 +26,8 @@ public class Main extends JApplet implements ActionListener, Runnable {
         w.remove(w.menu);
         this.setLayout(new BorderLayout());
         this.add(w.menu, BorderLayout.PAGE_START);
-        add(w.getContentPane(), BorderLayout.CENTER);
+        add(w.getContentPane(), BorderLayout.CENTER);                
+        revalidate();
         repaint();
     }
 
@@ -196,7 +197,8 @@ public class Main extends JApplet implements ActionListener, Runnable {
                 w.remove(w.menu);
                 setLayout(new BorderLayout());
                 add(w.menu, BorderLayout.PAGE_START);
-                add(w.getContentPane(), BorderLayout.CENTER);
+                add(w.getContentPane(), BorderLayout.CENTER);                        
+                revalidate();
                 repaint();
             }
         });

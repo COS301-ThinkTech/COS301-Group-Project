@@ -100,8 +100,9 @@ public class Logo extends Canvas2d
         if(!Global.applet)
             if(!f.isShowing())
                 f.show();
-        //AF=G.getTransform();
-        repaint();
+        //AF=G.getTransform();                
+        this.revalidate();
+        this.repaint();
     }
     Point2D old=new Point2D.Double(0,0);
     public void forward(double n){fw(n);}

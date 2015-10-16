@@ -20,6 +20,7 @@ public class JTable2 extends JTable {
     @Override
     public void tableChanged(TableModelEvent e) {
         super.tableChanged(e);
+        revalidate();
         repaint();
     }
 
