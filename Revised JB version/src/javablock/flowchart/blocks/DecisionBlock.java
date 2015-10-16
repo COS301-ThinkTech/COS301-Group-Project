@@ -25,6 +25,7 @@ public class DecisionBlock extends JBlock {
    // public static DecisionEditor editor = new DecisionEditor();
     public DecisionBlock(Flowchart parent){
         super(Type.DECISION, parent);
+        comment = "i != j";
     }
     
     @Override
