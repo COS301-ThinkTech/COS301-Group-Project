@@ -48,7 +48,7 @@ public class DeclarationBlock extends JBlock{
         String name;
         String value;
         Field(){
-            type=DataType.INTEGER;
+            type=DataType.NUMBER;
             name="";
             value = "";
         }
@@ -68,7 +68,7 @@ public class DeclarationBlock extends JBlock{
         }
     }
     public enum DataType{
-        /*NUMBER,*/ INTEGER, STRING, CHARARRAY, LOGIC, ANY
+        NUMBER/* INTEGER*/, STRING, CHARARRAY, LOGIC, ANY
     }
     
     public List<Field> fields=new ArrayList();
@@ -98,7 +98,13 @@ public class DeclarationBlock extends JBlock{
         String code_temp = "";
         
         for(Field field:fields){
-            code_temp = code_temp + "var " +field.name + " = " + field.value + "\n";
+            
+            if(field.type == DataType.STRING)
+                code_temp = code_temp + "string " +field.name + " = " + field.value + "\n";
+            if(field.type == DataType.NUMBER)
+                code_temp = code_temp + "num " +field.name + " = " + field.value + "\n";
+            if(field.type == DataType.LOGIC)
+                code_temp = code_temp + "boolean " +field.name + " = " + field.value + "\n";
         }
         code = code_temp;
         needUpdate=true;

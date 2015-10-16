@@ -535,8 +535,12 @@ public abstract class JBlock implements FlowElement{
                     
                     .replaceAll("\\\"(.*?)\\\"",
                         "<i color=\""+Integer.toHexString( stringCol.getRGB() & 0x00ffffff )+"\">$1</i>")
-                    .replaceAll("var&nbsp;",
-                        "<b>var&nbsp;</b>")
+                    .replaceAll("num&nbsp;",
+                        "<b>num&nbsp;</b>")
+                    .replaceAll("string&nbsp;",
+                        "<b>string&nbsp;</b>")
+                     .replaceAll("boolean&nbsp;",
+                        "<b>boolean&nbsp;</b>")
                     //.replaceAll("\\((.*?)\\)", "(<small>$1</small>)")
                     ;
     }

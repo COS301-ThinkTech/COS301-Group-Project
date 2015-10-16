@@ -1342,9 +1342,10 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             synchronized(renderLock){
             renderLock.notifyAll();}
         }
-        else                    
+        else{                    
             flow.revalidate();
             flow.repaint();
+        }
     }
 
     public void setBgColor(Color c){
@@ -1379,6 +1380,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                     if(selected.size()==1)
                         if(selected.get(0).type==JBlock.Type.DECISION){
                             selected.get(0).reverseValues();
+                            flow.validate();
                             flow.repaint();
                         }
                     break;
