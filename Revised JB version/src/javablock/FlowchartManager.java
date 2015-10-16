@@ -215,7 +215,8 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         flow=new javablock.flowchart.Flowchart(this);
         flows.add(flow);
         workspace.setSheetList(flows);
-        updateFocus();
+        updateFocus();        
+        this.revalidate();
         this.repaint();
         newFileChooser();
         historyArchive=true;
@@ -279,10 +280,10 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                 x.comment = "return";
             if(x.type.toString() == "START")
             {   
-                x.textColor = Color.ORANGE;
+                //(x.textColor = Color.ORANGE;
                 x.displayComment = true;
                 //why isn't this working
-                x.comment = fl.getName()+"()";
+                x.comment = fl.getName();
                 
             }
         }
@@ -320,7 +321,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             for(Sheet f:flows)
             {
                 if(f==fl) continue;
-                fl.setName(fl.getName()+"()");
+                fl.setName(fl.getName()/*+"()"*/);
                 if(f.getName().equals(fl.getName()))
                 {
                     JOptionPane.showMessageDialog(MainSplit, translator.get("popup.flowMustBeUnique"),
@@ -644,8 +645,9 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             }
             workspace.removeAll();
             workspace.addSheet(flow);
-            updateFocus();
-            repaint();
+            updateFocus();        
+            this.revalidate();
+            this.repaint();
             gui.updateConfig();
         } 
         catch (SAXException ex)
@@ -792,7 +794,8 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                 flows.add(f);
                 workspace.addSheet(flow);
             }
-            updateFocus();
+            updateFocus();        
+            this.revalidate();
             this.repaint();
             gui.updateConfig();
             historyArchive = true;
@@ -892,7 +895,8 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                     {
                         flow.cur.setLocation(flow.cur.getX()+flow.editorPane.getWidth()
                                 , flow.cur.getY());
-                    }
+                    }                            
+                    flow.revalidate();
                     flow.repaint();
                     this.historyAdd();
                 } 

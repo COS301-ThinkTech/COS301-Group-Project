@@ -138,6 +138,7 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
             fieldsPane.add(field);
         fieldsPane.add(addButton);
         //fieldsScroll.se
+        revalidate();
         repaint();
     }
 

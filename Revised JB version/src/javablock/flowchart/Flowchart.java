@@ -1342,7 +1342,8 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             synchronized(renderLock){
             renderLock.notifyAll();}
         }
-        else
+        else                    
+            flow.revalidate();
             flow.repaint();
     }
 
@@ -2080,6 +2081,8 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             @Override
             public void run()
             {
+                        
+                flow.flow.revalidate();
                 flow.flow.repaint();
             }
         };

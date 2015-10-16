@@ -678,6 +678,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
                 }
             }
         if(Global.markChanges)
+            values.revalidate();
             values.repaint();
         flow.update();
     }

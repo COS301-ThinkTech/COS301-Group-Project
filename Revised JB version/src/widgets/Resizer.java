@@ -64,6 +64,7 @@ public class Resizer extends JComponent implements MouseListener, MouseMotionLis
 
     @Override
     public void mouseReleased(MouseEvent e) {
+        parent.revalidate();
         parent.repaint();
     }
 
