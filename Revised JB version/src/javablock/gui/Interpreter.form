@@ -314,7 +314,6 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="executionFeedBack" alignment="1" max="32767" attributes="0"/>
                                   <Component id="outScroll" alignment="1" pref="541" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="commandLabel" min="-2" max="-2" attributes="0"/>
@@ -332,9 +331,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="outScroll" min="-2" pref="150" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="executionFeedBack" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="command" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="commandLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -377,12 +374,6 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exeButtonActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="executionFeedBack">
-                      <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
-                        <Property name="columns" type="int" value="30"/>
-                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -482,6 +473,9 @@
                           <ResourceString bundle="config/lang/lang.properties" key="scriptPanel.addVars" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

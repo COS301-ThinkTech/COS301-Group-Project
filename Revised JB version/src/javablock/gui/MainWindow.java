@@ -388,6 +388,7 @@ public final class MainWindow extends javax.swing.JFrame
         menuSaveAs.addActionListener(this);
         jMenu1.add(jSeparator6);
 
+        menuGridBool.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
         menuGridBool.setText(bundle.getString("main.drawGrid")); // NOI18N
         menuGridBool.setActionCommand("view/grid");
         menuGridBool.addActionListener(new java.awt.event.ActionListener() {
@@ -397,6 +398,7 @@ public final class MainWindow extends javax.swing.JFrame
         });
         jMenu1.add(menuGridBool);
 
+        jCheckBoxMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
         jCheckBoxMenuItem1.setText("Show/Hide Console");
         jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -674,12 +676,7 @@ public final class MainWindow extends javax.swing.JFrame
         Manager.saveFileAs();
     }                                          
 
-    private void menuGridBoolActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        Global.grid=menuGridBool.getState();
-        Manager.flow.update();
-    }                                        
-
-                                                    
+                                                       
 
     private void menuGridBoolActionPerformed1(java.awt.event.ActionEvent evt) {                                              
         Global.grid=menuGridBool.getState();

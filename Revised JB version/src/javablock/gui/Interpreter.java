@@ -280,7 +280,6 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         command = new javax.swing.JTextField();
         commandLabel = new javax.swing.JLabel();
         exeButton = new javax.swing.JButton();
-        executionFeedBack = new javax.swing.JTextField();
         tracker = new javax.swing.JPanel();
         ValuesPanel = new javax.swing.JScrollPane();
         values = new javax.swing.JTable();
@@ -449,9 +448,6 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
             }
         });
 
-        executionFeedBack.setEditable(false);
-        executionFeedBack.setColumns(30);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -459,7 +455,6 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(executionFeedBack, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(outScroll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(commandLabel)
@@ -473,9 +468,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(outScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(executionFeedBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(61, 61, 61)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(command, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(commandLabel)
@@ -499,6 +492,11 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
 
         search.setSelected(true);
         search.setText(bundle.getString("scriptPanel.addVars")); // NOI18N
+        search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout trackerLayout = new javax.swing.GroupLayout(tracker);
         tracker.setLayout(trackerLayout);
@@ -715,7 +713,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
     private void StartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButtonActionPerformed
         /* Start Execution Time*/
         Out.setText("");
-        executionFeedBack.setText("");
+        //executionFeedBack.setText("");
         executionStartTime = System.currentTimeMillis(); 
         manager=flow.getManager();
         if(run == null || !run.isAlive()){
@@ -758,25 +756,30 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
          run.step();
         else
         {
-           if(!flow.validateIn())
+             String text = "";
+             if(!flow.validateIn())
            {
-               executionFeedBack.setForeground(Color.RED.darker());
-               executionFeedBack.setText(translator.get("console.inconnections")+"\n");
+               //Out.setForeground(Color.RED.darker());
+               Out.append(translator.get("console.inconnections")+"\n");
+               text +=  translator.get("console.inconnections")+"\n";
                 stop();
            }
            if(!flow.validateOut())
            {
-               executionFeedBack.setForeground(Color.RED.darker());
-               executionFeedBack.setText(translator.get("console.outconnections")+"\n");
+               //Out.setForeground(Color.RED.darker());
+               Out.append(translator.get("console.outconnections")+"\n");
+               text += translator.get("console.outconnections")+"\n";
                 stop();
            }
            if(!flow.validateEnd())
            {
-               executionFeedBack.setForeground(Color.RED.darker());
-               executionFeedBack.setText(translator.get("console.endcomponent")+"\n"); 
+               //Out.setForeground(Color.RED.darker());
+               Out.append(translator.get("console.endcomponent")+"\n"); 
+               text += translator.get("console.endcomponent")+"\n";
                 stop();
            }
-          
+           
+           JOptionPane.showMessageDialog(Global.Window,text);
         }
     }
 
@@ -800,8 +803,8 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         flow.update();
         if(set)
         {
-            executionFeedBack.setForeground(Color.GREEN.darker());
-            executionFeedBack.setText("\n"+translator.get("console.end")+ " (total time: " + (int)((executionTotalTime/1000)/60) + " minutes, " + (int)((executionTotalTime/1000)%60)+ " seconds)\n");
+            //Out.setForeground(Color.GREEN.darker());
+            Out.append(translator.get("console.end")+ " (total time: " + (int)((executionTotalTime/1000)/60) + " minutes, " + (int)((executionTotalTime/1000)%60)+ " seconds)\n");
         }
         setButtons(false,true,false,false);
     }
@@ -834,22 +837,22 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
             String text = "";
              if(!flow.validateIn())
            {
-               executionFeedBack.setForeground(Color.RED.darker());
-               executionFeedBack.setText(translator.get("console.inconnections")+"\n");
+               //Out.setForeground(Color.RED.darker());
+               Out.append(translator.get("console.inconnections")+"\n");
                text +=  translator.get("console.inconnections")+"\n";
                 stop();
            }
            if(!flow.validateOut())
            {
-               executionFeedBack.setForeground(Color.RED.darker());
-               executionFeedBack.setText(translator.get("console.outconnections")+"\n");
+               //Out.setForeground(Color.RED.darker());
+               Out.append(translator.get("console.outconnections")+"\n");
                text += translator.get("console.outconnections")+"\n";
                 stop();
            }
            if(!flow.validateEnd())
            {
-               executionFeedBack.setForeground(Color.RED.darker());
-               executionFeedBack.setText(translator.get("console.endcomponent")+"\n"); 
+               //Out.setForeground(Color.RED.darker());
+               Out.setText(translator.get("console.endcomponent")+"\n"); 
                text += translator.get("console.endcomponent")+"\n";
                 stop();
            }
@@ -901,6 +904,10 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         else
         hideConsole();
     }//GEN-LAST:event_consoleButtonActionPerformed
+
+    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchActionPerformed
     
     
     
@@ -966,7 +973,6 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
     public javax.swing.JPanel embeddConsole;
     private javax.swing.JButton exeButton;
     private javax.swing.JTextField exec;
-    private javax.swing.JTextField executionFeedBack;
     public javax.swing.JTextArea input;
     private javax.swing.JPanel inputPanel;
     private javax.swing.JButton jButton1;
