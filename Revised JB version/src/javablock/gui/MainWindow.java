@@ -264,6 +264,8 @@ public final class MainWindow extends javax.swing.JFrame
         toolBar.add(jLabel3);
 
         zoomSpinner.setModel(new javax.swing.SpinnerListModel(new String[] {"10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"}));
+        zoomSpinner.setMaximumSize(new java.awt.Dimension(55, 32767));
+        zoomSpinner.setMinimumSize(new java.awt.Dimension(55, 20));
         zoomSpinner.setPreferredSize(new java.awt.Dimension(55, 28));
         zoomSpinner.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -338,10 +340,10 @@ public final class MainWindow extends javax.swing.JFrame
         scriptTools.add(jLabel2);
 
         scriptInterval.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5000, 50));
-        scriptInterval.setMaximumSize(new java.awt.Dimension(47, 20));
-        scriptInterval.setMinimumSize(new java.awt.Dimension(47, 20));
+        scriptInterval.setMaximumSize(new java.awt.Dimension(46, 20));
+        scriptInterval.setMinimumSize(new java.awt.Dimension(46, 20));
         scriptInterval.setName(""); // NOI18N
-        scriptInterval.setPreferredSize(new java.awt.Dimension(55, 28));
+        scriptInterval.setPreferredSize(new java.awt.Dimension(46, 28));
         scriptTools.add(scriptInterval);
         scriptTools.add(jSeparator11);
 

@@ -444,11 +444,11 @@ public abstract class JBlock implements FlowElement{
         String c=parseCode('j');
         jsRecoded=c.replaceAll("\" ", "\"");
         
-         System.out.println(" (getCodeForJavaScript) A line of code in the block: " + c);
+         //System.out.println(" (getCodeForJavaScript) A line of code in the block: " + c);
          jsRecoded = c.replace("num", "var");
          jsRecoded = jsRecoded.replace("string", "var");
          jsRecoded = jsRecoded.replace("boolean", "var");
-         System.out.println("(getCodeForJavaScript) A Updated line of code in the block: " + c);
+         //System.out.println("(getCodeForJavaScript) A Updated line of code in the block: " + c);
             
         //if(Global.scriptReplace)
             jsBeforeRecoded=this.code;

@@ -40,7 +40,7 @@ public class DoWhileLoopBlock extends JBlock{
     public void prepareText(){
         displayComment=true;
         if(comment.length()==0)
-            this.comment=" DO ";
+            this.comment=" DO  ";
         super.prepareText();
     }
 }
