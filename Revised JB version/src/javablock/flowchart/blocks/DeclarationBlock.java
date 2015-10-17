@@ -40,11 +40,13 @@ public class DeclarationBlock extends JBlock{
         afterShape();
     }
     
-    class Field{
+    class Field
+    {
         DataType type=DataType.ANY;
         String name;
         String value;
-        Field(){
+        Field()
+        {
             type=DataType.NUMBER;
             name="";
             value = "";
@@ -104,12 +106,14 @@ public class DeclarationBlock extends JBlock{
                 code_temp = code_temp + "boolean " +field.name + " = " + field.value + "\n";
         }
         code = code_temp;
+        update();
         needUpdate=true;
         
     }
     
     public void clearBlockCode(){
         code = "";
+       
     }
     
     @Override

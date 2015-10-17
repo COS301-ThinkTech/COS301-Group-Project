@@ -40,16 +40,14 @@ public class For extends javax.swing.JPanel implements Generator{
     @Override
     public JBlock[] get(Flowchart f){
         For g=this;
-        int res=JOptionPane.showConfirmDialog(Global.Window, g, 
-                translator.get("generator.for.title"),
+        int res=JOptionPane.showConfirmDialog(Global.Window, g,"For Loop",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if(res==JOptionPane.OK_OPTION){
             int p=0;
             
                 JBlock[] list=new JBlock[8];
                 CPUBlock init=(CPUBlock) JBlock.make(JBlock.Type.CPU, f);
-                init.setCode((g.declare.isSelected()?"var ":"")+
-                        g.variable.getText()+" = "+g.initial.getText());
+                init.setCode(g.variable.getText()+" = "+g.initial.getText());
                 init.setPos(0,-90);
                 list[p++]=init;
                 
@@ -152,7 +150,7 @@ public class For extends javax.swing.JPanel implements Generator{
             }
         });
 
-        jLabel3.setText("←");
+        jLabel3.setText("=");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -185,7 +183,7 @@ public class For extends javax.swing.JPanel implements Generator{
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(initial, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))))
+                            .addComponent(initial, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

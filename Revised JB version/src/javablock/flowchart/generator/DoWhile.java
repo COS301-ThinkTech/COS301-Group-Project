@@ -115,8 +115,7 @@ public class DoWhile extends javax.swing.JPanel implements Generator{
     @Override
     public JBlock[] get(Flowchart f) {
         DoWhile g=this;
-        int res=JOptionPane.showConfirmDialog(Global.Window, g, 
-                translator.get("generator.dowhile.title"),
+        int res=JOptionPane.showConfirmDialog(Global.Window, g, "Do-While Loop",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if(res==JOptionPane.OK_OPTION){
             int p=0;
@@ -129,6 +128,7 @@ public class DoWhile extends javax.swing.JPanel implements Generator{
 
             CPUBlock process=(CPUBlock) JBlock.make(JBlock.Type.CPU, f);
             process.setCode("");
+            process.setComment("");
             process.setPos(0,-90);
             process.connectTo(condition);
             list[p++]=process;

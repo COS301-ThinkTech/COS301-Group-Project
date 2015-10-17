@@ -35,8 +35,7 @@ public class While extends javax.swing.JPanel implements Generator{
     @Override
     public JBlock[] get(Flowchart f){
         While g=this;
-        int res=JOptionPane.showConfirmDialog(Global.Window, g, 
-                translator.get("generator.while.title"),
+        int res=JOptionPane.showConfirmDialog(Global.Window, g,"While Loop",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if(res==JOptionPane.OK_OPTION){
             int p=0;
@@ -49,6 +48,7 @@ public class While extends javax.swing.JPanel implements Generator{
 
             CPUBlock process=(CPUBlock) JBlock.make(JBlock.Type.CPU, f);
             process.setCode("");
+            process.setComment("");
             process.setPos(100,100);
             list[p++]=process;
 
