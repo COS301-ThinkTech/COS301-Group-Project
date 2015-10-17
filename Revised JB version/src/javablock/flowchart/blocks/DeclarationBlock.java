@@ -14,16 +14,13 @@ import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
 import javablock.flowchart.blockEditors.DeclarationEditor;
 
-/**
- *
- * @author tshepiso
- */
+
 public class DeclarationBlock extends JBlock{
 
     public static DeclarationEditor editor=new DeclarationEditor();
     public DeclarationBlock(Flowchart parent) {
         super(Type.DECLARATION, parent);
-        comment = "num a=0";
+        comment = "num i=0";
     }
 
     //public DeclarationBlock(Flowchart parent) {
