@@ -1,6 +1,7 @@
 \contentsline {section}{\numberline {1}System Overview}{1}
 \contentsline {section}{\numberline {2}System Configuration}{1}
 \contentsline {section}{\numberline {3}System Installation}{1}
+\contentsline {subsection}{\numberline {3.1}Windows}{1}
 \contentsline {section}{\numberline {4}Getting Started}{2}
 \contentsline {subsection}{\numberline {4.1}Running Software}{2}
 \contentsline {subsection}{\numberline {4.2}Software Layout}{3}

@@ -1435,10 +1435,14 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     }
 
     boolean zooming=false;
+    
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) 
     {
+        
         if(this.selecting) return ;
+        
+        
         cur=cursorInScene(e.getPoint());
         if (e.getScrollType() == MouseWheelEvent.WHEEL_UNIT_SCROLL){
             if(e.getWheelRotation()>0){
