@@ -24,7 +24,7 @@ public class ReturnBlock extends JBlock {
     public ReturnBlock(Flowchart parent){
         super(Type.RETURN, parent);
         this.displayComment=true;
-        this.comment="end";
+        this.comment="stop";
     }
     @Override
     public boolean isSwitchable() {
@@ -60,7 +60,7 @@ public class ReturnBlock extends JBlock {
     public void prepareText(){
         displayComment=true;
         if(comment.length()==0)
-            this.comment="end";
+            this.comment="true";
         super.prepareText();
     }
 

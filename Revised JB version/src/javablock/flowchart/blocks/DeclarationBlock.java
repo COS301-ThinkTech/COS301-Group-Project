@@ -14,15 +14,13 @@ import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
 import javablock.flowchart.blockEditors.DeclarationEditor;
 
-/**
- *
- * @author tshepiso
- */
+
 public class DeclarationBlock extends JBlock{
 
     public static DeclarationEditor editor=new DeclarationEditor();
     public DeclarationBlock(Flowchart parent) {
         super(Type.DECLARATION, parent);
+        comment = "num i=0";
     }
 
     //public DeclarationBlock(Flowchart parent) {
@@ -42,12 +40,14 @@ public class DeclarationBlock extends JBlock{
         afterShape();
     }
     
-    class Field{
+    class Field
+    {
         DataType type=DataType.ANY;
         String name;
         String value;
-        Field(){
-            type=DataType.INTEGER;
+        Field()
+        {
+            type=DataType.NUMBER;
             name="";
             value = "";
         }
@@ -67,7 +67,7 @@ public class DeclarationBlock extends JBlock{
         }
     }
     public enum DataType{
-        /*NUMBER,*/ INTEGER, STRING, CHARARRAY, LOGIC, ANY
+        NUMBER/* INTEGER*/, STRING, CHARARRAY, LOGIC, ANY, BOOLEAN
     }
     
     public List<Field> fields=new ArrayList();
@@ -97,14 +97,23 @@ public class DeclarationBlock extends JBlock{
         String code_temp = "";
         
         for(Field field:fields){
-            code_temp = code_temp + "var " +field.name + " = " + field.value + "\n";
+            
+            if(field.type == DataType.STRING)
+                code_temp = code_temp + "string " +field.name + " = " + field.value + "\n";
+            if(field.type == DataType.NUMBER)
+                code_temp = code_temp + "num " +field.name + " = " + field.value + "\n";
+            if(field.type == DataType.BOOLEAN)
+                code_temp = code_temp + "boolean " +field.name + " = " + field.value + "\n";
         }
         code = code_temp;
+        update();
         needUpdate=true;
+        
     }
     
     public void clearBlockCode(){
         code = "";
+       
     }
     
     @Override

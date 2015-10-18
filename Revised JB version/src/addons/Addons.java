@@ -35,7 +35,7 @@ public class Addons
         return new Logo(x,y, sub);
     }
 
-    public File dir = new File(System.getProperty("user.home") + "/.JavaBlock/classes/");
+    public File dir = new File(System.getProperty("user.home") + "/.FlowProject/classes/");
     public ClassLoader loader = null;
     public Object load(String name)
     {

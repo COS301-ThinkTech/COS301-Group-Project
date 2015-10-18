@@ -18,6 +18,7 @@ public class JumpBlock extends JBlock {
         super(Type.JUMP, parent);
         code=" ";
         open=true;
+        comment = "joint";
     }
 
     @Override

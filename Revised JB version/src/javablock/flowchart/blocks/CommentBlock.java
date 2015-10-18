@@ -18,6 +18,7 @@ public class CommentBlock extends JBlock{
 
     public CommentBlock(Flowchart parent) {
         super(Type.COMMENT, parent);
+        comment = "comment";
     }
     
     @Override

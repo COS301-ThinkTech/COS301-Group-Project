@@ -79,17 +79,17 @@ public final class PopUpMenus implements ActionListener, PopupMenuListener {
         }
     }
     
-    JTextArea Code=new JTextArea();
+    //JTextArea Code=new JTextArea();
     JBlock selected=null;
     boolean onBlock=false;
     public void showPopupOnBlock(Component c, int x, int y, JBlock b){
         blockMenu.show(c, x, y);
         if(b.popUpEditor()){
-            Code.setVisible(true);
-            Code.setText(b.code);
+            //Code.setVisible(true);
+            //Code.setText(b.code);
         }
         else
-            Code.setVisible(false);
+            //Code.setVisible(false);
         blockMenu.revalidate();
         selected=b;
         onBlock=true;
@@ -97,7 +97,7 @@ public final class PopUpMenus implements ActionListener, PopupMenuListener {
     public void hidePopupOnBlock(){
         if(selected==null)
             return ;
-        selected.setCode(Code.getText());
+        //selected.setCode(Code.getText());
         selected.getEditor().setEditedBlock(selected);
         selected.shape();
         selected.flow.update();
@@ -105,17 +105,19 @@ public final class PopUpMenus implements ActionListener, PopupMenuListener {
     }
     public void initBlock(){
         JMenuItem item;
-        Code.setColumns(20);
-        Code.setRows(4);
+        //Code.setColumns(20);
+       // Code.setRows(4);
         
         blockMenu=new JPopupMenu();
-        blockMenu.add(Code);
+        //blockMenu.add(Code);
         blockMenu.addSeparator();
         blockMenu.addPopupMenuListener(this);
 
-        item=newMenuItem("command.moveUp", "", null, "move/up");
+        //item=newMenuItem("command.moveUp", "", null, "move/up");
+        item=newMenuItem("connections.connectTo", "", null, "connections/connectTo");
         blockMenu.add(item);
-        item=newMenuItem("command.moveDown", "", null, "move/down");
+        //item=newMenuItem("command.moveDown", "", null, "move/down");
+        //item=newMenuItem("connections.moveDown", "", null, "move/down");
         blockMenu.add(item);
 
         blockMenu.addSeparator();
@@ -182,8 +184,16 @@ public final class PopUpMenus implements ActionListener, PopupMenuListener {
         else if(ex[0].equals("delete")){
             if(ex[1].equals("all"))
                 ((Flowchart)action.flow).deleteSelectedBlocks();}
-        else if(ex[0].equals("connections"))
-                ((Flowchart)action.flow).deleteConnections(ex[1]);
+        /*else if(ex[0].equals("connections"))
+                ((Flowchart)action.flow).deleteConnections(ex[1]);*/
+        else if(ex[0].equals("connections")){
+            if(ex[1].equals("connectTo")){
+                System.out.println("connecting tooooo.....");
+                //((Flowchart)action.flow).addBlock(ex[1]);
+                
+                
+            }
+        }
         else action.actionPerformed(e);
     }
 

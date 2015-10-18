@@ -34,22 +34,18 @@ public class For extends javax.swing.JPanel implements Generator{
         comp.setSelectedIndex(0);
         iterType.setSelectedIndex(0);
         iterNum.setText("1");
-
-        declare.setSelected(true);
     }
     @Override
     public JBlock[] get(Flowchart f){
         For g=this;
-        int res=JOptionPane.showConfirmDialog(Global.Window, g, 
-                translator.get("generator.for.title"),
+        int res=JOptionPane.showConfirmDialog(Global.Window, g,"For Loop",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if(res==JOptionPane.OK_OPTION){
             int p=0;
             
                 JBlock[] list=new JBlock[8];
                 CPUBlock init=(CPUBlock) JBlock.make(JBlock.Type.CPU, f);
-                init.setCode((g.declare.isSelected()?"var ":"")+
-                        g.variable.getText()+" = "+g.initial.getText());
+                init.setCode(g.variable.getText()+" = "+g.initial.getText());
                 init.setPos(0,-90);
                 list[p++]=init;
                 
@@ -120,7 +116,6 @@ public class For extends javax.swing.JPanel implements Generator{
         comp = new javax.swing.JComboBox();
         iterNum = new javax.swing.JTextField();
         iterType = new javax.swing.JComboBox();
-        declare = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
 
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("config/lang/lang"); // NOI18N
@@ -144,15 +139,7 @@ public class For extends javax.swing.JPanel implements Generator{
 
         iterType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "+", "-", "*", "/" }));
 
-        declare.setSelected(true);
-        declare.setText(bundle.getString("generator.for.declare")); // NOI18N
-        declare.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                declareActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("←");
+        jLabel3.setText("=");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -162,12 +149,9 @@ public class For extends javax.swing.JPanel implements Generator{
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(declare)
-                        .addGap(79, 79, 79))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(iterType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -185,7 +169,7 @@ public class For extends javax.swing.JPanel implements Generator{
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(initial, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))))
+                            .addComponent(initial, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -209,19 +193,12 @@ public class For extends javax.swing.JPanel implements Generator{
                     .addComponent(jLabel5)
                     .addComponent(iterType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(iterNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(declare)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void declareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_declareActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_declareActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox comp;
-    private javax.swing.JCheckBox declare;
     private javax.swing.JTextField end;
     private javax.swing.JTextField initial;
     private javax.swing.JTextField iterNum;

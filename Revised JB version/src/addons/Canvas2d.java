@@ -148,6 +148,7 @@ public class Canvas2d extends JPanel
         if(!Global.applet)
         if(!f.isShowing())
             f.show();
+        revalidate();
         repaint();
     }
     

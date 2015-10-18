@@ -73,14 +73,14 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             
             if(Global.applet)
             {
-                file=new File(Global.confDir+"/last.jbf");
+                file=new File(Global.confDir+"/last.flow");
                 Writer fw = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
                 fw.write(saveXml());
                 return 1;
             }
             file=fc.getSelectedFile();
             if(file==null)
-                file=new File(Global.confDir+"/last.jbf");
+                file=new File(Global.confDir+"/last.flow");
             else
             {
                 int o=JOptionPane.showConfirmDialog(Global.Window, 
@@ -134,7 +134,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             {
                 System.out.println("load: "+Global.lastFlow);
                 loadFile(Global.lastFlow);
-                if(!Global.lastFlow.equals(Global.confDir+"/last.jbf"))
+                if(!Global.lastFlow.equals(Global.confDir+"/last.flow"))
                     fc.setSelectedFile(new File(Global.lastFlow));
                 else
                     fc.setSelectedFile(null);
@@ -182,12 +182,12 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             @Override
             public boolean accept(File f)
             {
-                return f.isDirectory() || f.getName().toLowerCase().endsWith(".jbf");
+                return f.isDirectory() || f.getName().toLowerCase().endsWith(".flow");
             }
             @Override
             public String getDescription() 
             {
-                return "JavaBlock File (*.jbf)";
+                return "Flow File (*.flow)";
             }
         };
         fc.setFileFilter((javax.swing.filechooser.FileFilter) ff);
@@ -215,7 +215,8 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         flow=new javablock.flowchart.Flowchart(this);
         flows.add(flow);
         workspace.setSheetList(flows);
-        updateFocus();
+        updateFocus();        
+        this.revalidate();
         this.repaint();
         newFileChooser();
         historyArchive=true;
@@ -279,10 +280,10 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                 x.comment = "return";
             if(x.type.toString() == "START")
             {   
-                x.textColor = Color.ORANGE;
+                //(x.textColor = Color.ORANGE;
                 x.displayComment = true;
                 //why isn't this working
-                x.comment = fl.getName()+"()";
+                x.comment = fl.getName();
                 
             }
         }
@@ -320,7 +321,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             for(Sheet f:flows)
             {
                 if(f==fl) continue;
-                fl.setName(fl.getName()+"()");
+                fl.setName(fl.getName()/*+"()"*/);
                 if(f.getName().equals(fl.getName()))
                 {
                     JOptionPane.showMessageDialog(MainSplit, translator.get("popup.flowMustBeUnique"),
@@ -513,9 +514,9 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                 File f=fc.getSelectedFile();
                 String fname[]=f.getPath().split("\\.");
                 if(fname.length<1)
-                    f=new File(f.getPath()+".jbf");
-                else if(!fname[fname.length - 1].equals("jbf"))
-                    f=new File(f.getPath()+".jbf");
+                    f=new File(f.getPath()+".flow");
+                else if(!fname[fname.length - 1].equals("flow"))
+                    f=new File(f.getPath()+".flow");
                 fc.setSelectedFile(f);
                 if(saveAs && f.exists()){
                     int ok=JOptionPane.showConfirmDialog(this,
@@ -644,8 +645,9 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             }
             workspace.removeAll();
             workspace.addSheet(flow);
-            updateFocus();
-            repaint();
+            updateFocus();        
+            this.revalidate();
+            this.repaint();
             gui.updateConfig();
         } 
         catch (SAXException ex)
@@ -792,7 +794,8 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                 flows.add(f);
                 workspace.addSheet(flow);
             }
-            updateFocus();
+            updateFocus();        
+            this.revalidate();
             this.repaint();
             gui.updateConfig();
             historyArchive = true;
@@ -892,7 +895,8 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                     {
                         flow.cur.setLocation(flow.cur.getX()+flow.editorPane.getWidth()
                                 , flow.cur.getY());
-                    }
+                    }                            
+                    flow.revalidate();
                     flow.repaint();
                     this.historyAdd();
                 } 

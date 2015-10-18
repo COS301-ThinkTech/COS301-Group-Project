@@ -26,7 +26,8 @@ public class Main extends JApplet implements ActionListener, Runnable {
         w.remove(w.menu);
         this.setLayout(new BorderLayout());
         this.add(w.menu, BorderLayout.PAGE_START);
-        add(w.getContentPane(), BorderLayout.CENTER);
+        add(w.getContentPane(), BorderLayout.CENTER);                
+        revalidate();
         repaint();
     }
 
@@ -81,7 +82,7 @@ public class Main extends JApplet implements ActionListener, Runnable {
                 saveImages=true;
             else
             {
-                if(ar.endsWith(".jbf"))
+                if(ar.endsWith(".flow"))
                 {
                     Global.lastFlow=ar;
                     list[i]=ar;
@@ -137,7 +138,7 @@ public class Main extends JApplet implements ActionListener, Runnable {
             else if(ar.equals("-uneditable"))
                 Global.editable=false;
             else{
-                if(ar.endsWith(".jbf")){
+                if(ar.endsWith(".flow")){
                     Global.lastFlow=ar;
                     list[i]=ar;
                     i++;
@@ -196,7 +197,8 @@ public class Main extends JApplet implements ActionListener, Runnable {
                 w.remove(w.menu);
                 setLayout(new BorderLayout());
                 add(w.menu, BorderLayout.PAGE_START);
-                add(w.getContentPane(), BorderLayout.CENTER);
+                add(w.getContentPane(), BorderLayout.CENTER);                        
+                revalidate();
                 repaint();
             }
         });

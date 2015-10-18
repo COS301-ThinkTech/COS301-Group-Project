@@ -20,6 +20,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.VolatileImage;
 import java.io.File;
 import javablock.*;
+import javablock.flowchart.JBlock.Type;
 import javablock.flowchart.blocks.StartBlock;
 import javablock.flowchart.generator.DoWhile;
 import javablock.flowchart.generator.For;
@@ -1341,8 +1342,10 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             synchronized(renderLock){
             renderLock.notifyAll();}
         }
-        else
+        else{                    
+            flow.revalidate();
             flow.repaint();
+        }
     }
 
     public void setBgColor(Color c){
@@ -1377,6 +1380,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                     if(selected.size()==1)
                         if(selected.get(0).type==JBlock.Type.DECISION){
                             selected.get(0).reverseValues();
+                            flow.validate();
                             flow.repaint();
                         }
                     break;
@@ -1568,6 +1572,9 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             return b;
         }
         b=JBlock.make(type, true, this);
+        if(b.type == Type.DECLARATION || b.type == Type.CPU || b.type == Type.DECISION || b.type == Type.COMMENT)
+            b.comment = "";
+        
         if(b!=null)
         {
             addBlock(b);
@@ -1799,7 +1806,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         else if(actionPerformed[0].equals("moduleaction"))
         {   
             addBlock(actionPerformed[1]);
-            action.addFlowchart();
+            //action.addFlowchart();
         }
         else if(actionPerformed[0].equals("align"))
             align(actionPerformed[1]);
@@ -2080,6 +2087,8 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             @Override
             public void run()
             {
+                        
+                flow.flow.revalidate();
                 flow.flow.repaint();
             }
         };

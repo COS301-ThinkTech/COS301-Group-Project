@@ -144,7 +144,8 @@ public final class StartEditor extends javax.swing.JPanel implements BlockEditor
             fieldsPane.add(field);
         fieldsPane.add(addButton);
         //fieldsScroll.se
-        repaint();
+         revalidate();
+         repaint();
     }
 
     void removeField(Field f){
@@ -240,16 +241,15 @@ public final class StartEditor extends javax.swing.JPanel implements BlockEditor
             });
         }
     }
-    public enum DataType{
-        INTEGER, /*NUMBER,*/ STRING, CHARARRAY, LOGIC, ANY
+     public enum DataType{
+        /*INTEGER*/ NUMBER, STRING, CHARARRAY, BOOLEAN/*, ANY*/
     }
     ComboText types[]={
-        /*new ComboText(translator.get("ioEditor.typeNumber"), "NUMBER"),*/
-        new ComboText(translator.get("ioEditor.typeInteger"), "INTEGER"),
+        new ComboText(translator.get("ioEditor.typeNumber"), "NUMBER"),
+        //new ComboText(translator.get("ioEditor.typeInteger"), "INTEGER"),
         new ComboText(translator.get("ioEditor.typeString"), "STRING"),
         //new ComboText(translator.get("ioEditor.typeCharArray"), "CHARARRAY"),
-        new ComboText(translator.get("ioEditor.typeLogic"), "LOGIC"),
-        new ComboText(translator.get("ioEditor.typeAny"), "ANY")
+        new ComboText(translator.get("ioEditor.typeBoolean"), "BOOLEAN"),
+        //new ComboText(translator.get("ioEditor.typeAny"), "ANY")
     };
-
 }

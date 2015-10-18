@@ -1,6 +1,6 @@
 package config;
 
-import com.alee.laf.WebLookAndFeel;
+
 //import com.jtattoo.plaf.acryl.AcrylLookAndFeel;
 import java.lang.reflect.InvocationTargetException;
 import javablock.gui.*;
@@ -22,7 +22,7 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 import com.seaglasslookandfeel.SeaGlassLookAndFeel;
-import ch.randelshofer.quaqua.BasicQuaquaNativeLookAndFeel;
+
 
 /**
  *
@@ -190,8 +190,8 @@ public class Global
         scriptReplace=true;
         showSplash=true;
         loadLast=false;
-        confDir=System.getProperty("user.home")+"/.JavaBlock";
-        lastFlow=confDir+"/last.jbf";
+        confDir=System.getProperty("user.home")+"/.FlowProject";
+        lastFlow=confDir+"/last.flow";
     }
 
     public static void reset()
@@ -206,8 +206,8 @@ public class Global
     {
         loadPlugins();
         reset();
-        confDir=System.getProperty("user.home")+"/.JavaBlock";
-        lastFlow=confDir+"/last.jbf";
+        confDir=System.getProperty("user.home")+"/.FlowProject";
+        lastFlow=confDir+"/last.flow";
         conf=new configurator();
         icons.icons.load(conf);
         translate=new translator();
@@ -220,17 +220,21 @@ public class Global
     public static void setSystemLaF(boolean s)
     {
         s=true;
+        
+        
+        
+        
         //Properties props = new Properties();
        //props.put("logoString", "FLOW");
        //AcrylLookAndFeel.setCurrentTheme(props);
        
-        //try 
+        try 
         {
-            //UIManager.setLookAndFeel("de.javasoft.plaf.synthetica.SyntheticaSilverMoonLookAndFeel");
+            UIManager.setLookAndFeel("de.javasoft.plaf.synthetica.SyntheticaSilverMoonLookAndFeel");
             //WebLookAndFeel.install ();
             //UIManager.setLookAndFeel ( "ch.randelshofer.quaqua.BasicQuaquaNativeLookAndFeel" );
         }
-        /*catch (ClassNotFoundException ex) 
+        catch (ClassNotFoundException ex) 
         {
             Logger.getLogger(configurator.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -245,7 +249,7 @@ public class Global
         catch (UnsupportedLookAndFeelException ex)
         {
             Logger.getLogger(configurator.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
            
     }
     

@@ -144,7 +144,7 @@ public final class MainWindow extends javax.swing.JFrame
         toolRedo = new javax.swing.JButton();
         jSeparator9 = new javax.swing.JToolBar.Separator();
         jLabel3 = new javax.swing.JLabel();
-        zoomCombobox = new javax.swing.JComboBox();
+        zoomSpinner = new javax.swing.JSpinner();
         jSeparator8 = new javax.swing.JToolBar.Separator();
         scriptTools = new javax.swing.JToolBar();
         scriptStart = new javax.swing.JButton();
@@ -263,26 +263,28 @@ public final class MainWindow extends javax.swing.JFrame
         jLabel3.setText("zoom  ");
         toolBar.add(jLabel3);
 
-        zoomCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%" }));
-        zoomCombobox.setMaximumSize(new java.awt.Dimension(54, 32767));
-        zoomCombobox.addMouseListener(new java.awt.event.MouseAdapter() {
+        zoomSpinner.setModel(new javax.swing.SpinnerListModel(new String[] {"10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"}));
+        zoomSpinner.setMaximumSize(new java.awt.Dimension(55, 32767));
+        zoomSpinner.setMinimumSize(new java.awt.Dimension(55, 20));
+        zoomSpinner.setPreferredSize(new java.awt.Dimension(55, 28));
+        zoomSpinner.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                zoomComboboxMouseEntered(evt);
+                zoomSpinnerMouseEntered(evt);
             }
         });
-        zoomCombobox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                zoomComboboxActionPerformed(evt);
+        zoomSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                zoomSpinnerStateChanged(evt);
             }
         });
-        toolBar.add(zoomCombobox);
+        toolBar.add(zoomSpinner);
         toolBar.add(jSeparator8);
 
         scriptTools.setFloatable(false);
         scriptTools.setRollover(true);
         scriptTools.setMaximumSize(new java.awt.Dimension(360, 33));
         scriptTools.setMinimumSize(new java.awt.Dimension(360, 33));
-        scriptTools.setPreferredSize(new java.awt.Dimension(260, 33));
+        scriptTools.setPreferredSize(new java.awt.Dimension(280, 33));
         scriptTools.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 scriptToolsFocusLost(evt);
@@ -338,10 +340,10 @@ public final class MainWindow extends javax.swing.JFrame
         scriptTools.add(jLabel2);
 
         scriptInterval.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5000, 50));
-        scriptInterval.setMaximumSize(new java.awt.Dimension(47, 20));
-        scriptInterval.setMinimumSize(new java.awt.Dimension(47, 20));
+        scriptInterval.setMaximumSize(new java.awt.Dimension(46, 20));
+        scriptInterval.setMinimumSize(new java.awt.Dimension(46, 20));
         scriptInterval.setName(""); // NOI18N
-        scriptInterval.setPreferredSize(new java.awt.Dimension(47, 20));
+        scriptInterval.setPreferredSize(new java.awt.Dimension(46, 28));
         scriptTools.add(scriptInterval);
         scriptTools.add(jSeparator11);
 
@@ -388,6 +390,7 @@ public final class MainWindow extends javax.swing.JFrame
         menuSaveAs.addActionListener(this);
         jMenu1.add(jSeparator6);
 
+        menuGridBool.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
         menuGridBool.setText(bundle.getString("main.drawGrid")); // NOI18N
         menuGridBool.setActionCommand("view/grid");
         menuGridBool.addActionListener(new java.awt.event.ActionListener() {
@@ -397,6 +400,7 @@ public final class MainWindow extends javax.swing.JFrame
         });
         jMenu1.add(menuGridBool);
 
+        jCheckBoxMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
         jCheckBoxMenuItem1.setText("Show/Hide Console");
         jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -551,6 +555,7 @@ public final class MainWindow extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
+    
     private void scriptStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scriptStopActionPerformed
         Manager.flow.I.reset();
     }//GEN-LAST:event_scriptStopActionPerformed
@@ -641,27 +646,6 @@ public final class MainWindow extends javax.swing.JFrame
             Manager.flow.split.setDividerLocation(2000);
     }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
     public Point2D cur=new Point(0,0);
-    private void zoomComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoomComboboxActionPerformed
-        // TODO add your handling code here:
-        //cur = Manager.flow.cursorInScene(new Point(0,0));
-        System.out.println("Previous value: " + previousValue);
-        if(previousValue < returnZoomValue(zoomCombobox.getSelectedItem().toString()))
-        {
-            Manager.flow.zoomIn(cur);
-            previousValue = returnZoomValue(zoomCombobox.getSelectedItem().toString());
-        }
-        else if(previousValue > returnZoomValue(zoomCombobox.getSelectedItem().toString()))
-        {
-             Manager.flow.zoomOut(cur);
-            previousValue = returnZoomValue(zoomCombobox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_zoomComboboxActionPerformed
-
-    private void zoomComboboxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zoomComboboxMouseEntered
-        // TODO add your handling code here:
-        previousValue = returnZoomValue(zoomCombobox.getSelectedItem().toString());
-    }//GEN-LAST:event_zoomComboboxMouseEntered
-
     private void toolSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toolSaveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_toolSaveActionPerformed
@@ -670,16 +654,31 @@ public final class MainWindow extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_menuFlowchartsAddActionPerformed
 
+    private void zoomSpinnerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zoomSpinnerMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zoomSpinnerMouseEntered
+
+    private void zoomSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_zoomSpinnerStateChanged
+        // TODO add your handling code here:
+                //cur = Manager.flow.cursorInScene(new Point(0,0));
+        System.out.println("Previous value: " + previousValue);
+        if(previousValue < returnZoomValue(zoomSpinner.getValue().toString()))
+        {
+            Manager.flow.zoomIn(cur);
+            previousValue = returnZoomValue(zoomSpinner.getValue().toString());
+        }
+        else if(previousValue > returnZoomValue(zoomSpinner.getValue().toString()))
+        {
+             Manager.flow.zoomOut(cur);
+            previousValue = returnZoomValue(zoomSpinner.getValue().toString());
+        }
+    }//GEN-LAST:event_zoomSpinnerStateChanged
+
     private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Manager.saveFileAs();
     }                                          
 
-    private void menuGridBoolActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        Global.grid=menuGridBool.getState();
-        Manager.flow.update();
-    }                                        
-
-                                                    
+                                                       
 
     private void menuGridBoolActionPerformed1(java.awt.event.ActionEvent evt) {                                              
         Global.grid=menuGridBool.getState();
@@ -808,7 +807,7 @@ Rectangle windowSize;
     private javax.swing.JButton toolRedo;
     private javax.swing.JButton toolSave;
     private javax.swing.JButton toolUndo;
-    private javax.swing.JComboBox zoomCombobox;
+    private javax.swing.JSpinner zoomSpinner;
     // End of variables declaration//GEN-END:variables
     
     public void updateConfig(FlowchartManager men) {
