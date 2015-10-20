@@ -717,7 +717,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             b.shape();
         }
         BufferedImage img=drawImageSrc();
-        File f=new File(url+"/"+docName+"_"+getSignature()+".png");
+        File f=new File(url+"/"+docName+"_"+getSignature()+"png");
         try {
             ImageIO.write(img, "png", f);
         } catch (IOException ex) {
@@ -732,12 +732,12 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                     @Override
                     public boolean accept(File f) 
                     {
-                            return f.isDirectory() || f.getName().toLowerCase().endsWith(".png");
+                            return f.isDirectory() || f.getName().toLowerCase().endsWith("png");
                     }
                     @Override
                     public String getDescription() 
                     {
-                            return ".png";
+                            return "png";
                     }
         },
         new javax.swing.filechooser.FileFilter() 
@@ -2001,11 +2001,12 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         {
             //inConnections+=blocks.size();
             if(block.getType()!= "START")
-            {
-               
+            { 
+                 block.setBorderColor(Color.BLACK);
                 if(block.numOfInConnects()==0)
                 {
-                    System.out.println(block.getType()+" doesn't have in connections");
+                    block.setBorderColor(Color.RED);
+                   //System.out.println(block.getType()+" doesn't have in connections");
                    valid = false;
                 }
             }   
@@ -2014,18 +2015,21 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     }
 
     @Override
-    public boolean validateOut() {
+    public boolean validateOut() 
+    {             
          int outConnections = 0;
         boolean valid = true;
+          
         for(JBlock block : blocks)
         {
-           // outConnections+=block.numOfOutConnects();
+           
+             block.setBorderColor(Color.BLACK);
             if(block.getType()!= "RETURN")  //End block doesnt require an out connection
             {
                
                 if(block.numOfOutConnects()==0)
                 {
-                    System.out.println(block.getType()+" doesn't have out connections");
+                   block.setBorderColor(Color.RED);
                    valid = false;
                 }
             }  
