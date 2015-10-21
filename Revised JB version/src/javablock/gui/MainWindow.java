@@ -311,6 +311,7 @@ public final class MainWindow extends javax.swing.JFrame
                 scriptStepActionPerformed(evt);
             }
         });
+	scriptStep.setEnabled(false);
         scriptTools.add(scriptStep);
 
         scriptRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/run.png"))); // NOI18N
@@ -322,6 +323,7 @@ public final class MainWindow extends javax.swing.JFrame
                 scriptRunActionPerformed(evt);
             }
         });
+	scriptRun.setEnabled(false);
         scriptTools.add(scriptRun);
 
         scriptStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-stop.png"))); // NOI18N
@@ -333,6 +335,7 @@ public final class MainWindow extends javax.swing.JFrame
                 scriptStopActionPerformed(evt);
             }
         });
+	scriptStop.setEnabled(false);
         scriptTools.add(scriptStop);
         scriptTools.add(jSeparator4);
 
