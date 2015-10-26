@@ -286,13 +286,13 @@ public class IOEditor extends javax.swing.JPanel implements BlockEditor, ActionL
                     comment+=": ";
             }
             if (message.getText().length() > 0)
-                comment += "\"" + message.getText() + "\" ";
+                comment += "\"" + message.getText() + " \" ";
             if (message.getText().length() > 0 && variable.getText().length() > 0)
-                comment += "+";
+                comment += " , ";
             if (variable.getText().length() > 0)
                 comment += variable.getText();
             if (outSuffix.getText().length() > 0 && variable.getText().length() > 0)
-                comment += "+";
+                comment += " , ";
             if (outSuffix.getText().length() > 0)
                 comment += " \"" + outSuffix.getText() + "\" ";
         }

@@ -61,14 +61,14 @@ public class IOBlock extends JBlock {
     public void shape(){
         prepareText();
         
-        if(ioType == 1){
+        /*if(ioType == 1){
             displayComment=true;
             comment = "output ";
         }
         else if(ioType == 2){
             displayComment=true;
             comment = "input";
-        }
+        }*/
         
         //if(ioType<=0){
             GeneralPath io=new GeneralPath();

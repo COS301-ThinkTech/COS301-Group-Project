@@ -546,8 +546,8 @@ public abstract class JBlock implements FlowElement{
                     .replaceAll(">", "&gt;")
                     .replaceAll("\n", "<br/>")
                     
-                    .replaceAll("\\\"(.*?)\\\"",
-                        "<i color=\""+Integer.toHexString( stringCol.getRGB() & 0x00ffffff )+"\">$1</i>")
+                    /*.replaceAll("\\\"(.*?)\\\"",
+                        "<i color=\""+Integer.toHexString( stringCol.getRGB() & 0x00ffffff )+"\">$1</i>")*/
                     .replaceAll("num&nbsp;",
                         "<b>num&nbsp;</b>")
                     .replaceAll("string&nbsp;",
