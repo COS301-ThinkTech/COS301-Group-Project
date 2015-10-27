@@ -134,6 +134,7 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
     void makeList(){
         fieldsPane.removeAll();
         //fieldsPane.setPreferredSize(new Dimension(1,1));
+        System.out.println("Size is " + fields.size());
         for(Field field:fields)
             fieldsPane.add(field);
         fieldsPane.add(addButton);
@@ -174,6 +175,7 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
             finishEdit();
         editing=(DeclarationBlock)b;
         fields.clear();
+        
         fieldsPane.removeAll();
         String l[][]=editing.getFields();
         for(String f[]:l){
