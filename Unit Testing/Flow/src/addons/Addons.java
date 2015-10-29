@@ -1,0 +1,183 @@
+package addons;
+
+import javablock.gui.Interpreter;
+import java.io.File;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.script.ScriptEngine;
+import javax.script.ScriptException;
+
+/**
+ *
+ * @author Goodness
+ */
+public class Addons 
+{
+    public ScriptEngine engine;
+    public Interpreter interpreter;
+    public Canvas2d canvas2d(int x, int y)
+    {
+        return new Canvas2d(x,y);
+    }
+    public Logo logo(int x, int y)
+    {
+        return new Logo(x,y);
+    }
+    public Logo logo(int x, int y, int sub)
+    {
+        return new Logo(x,y, sub);
+    }
+
+    public File dir = new File(System.getProperty("user.home") + "/.FlowProject/classes/");
+    public ClassLoader loader = null;
+    public Object load(String name)
+    {
+        if (!dir.exists()) 
+                return null;
+        try
+        {
+            URL[] urls = new URL[]{dir.toURL()};
+            if(loader==null)
+                loader = new URLClassLoader(urls);
+            Class c=loader.loadClass(name);
+            Object o=null;
+            try
+            {
+                Constructor con=c.getConstructor(ScriptEngine.class);
+                o=con.newInstance(engine);
+            } catch (InstantiationException ex) 
+            {
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex)
+            {
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalArgumentException ex) 
+            {
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InvocationTargetException ex) 
+            {
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (NoSuchMethodException ex) 
+            {
+                o=c.newInstance();
+            }
+            return o;
+        }  
+        catch (SecurityException ex)
+        {
+            Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch (InstantiationException ex)
+        {
+            Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        catch (IllegalAccessException ex) 
+        {
+            Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch (ClassNotFoundException ex) 
+        {
+            try 
+            {
+                engine.eval("Println(\"Class '"+name+"' not found\");");
+                interpreter.stop();
+            } 
+            catch (ScriptException ex1) 
+            {
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    public Object load(String jarFile, String name)
+    {
+        File dir=new File(this.dir.getAbsolutePath()+jarFile+".jar");
+        if (!dir.exists()) 
+                return null;
+        try
+        {
+            URL[] urls = new URL[]{dir.toURL()};
+            if(loader==null)
+                loader = new URLClassLoader(urls);
+            Class c=loader.loadClass(name);
+            Object o=null;
+            try
+            {
+                Constructor con=c.getConstructor(ScriptEngine.class);
+                o=con.newInstance(engine);
+            }
+            catch (InstantiationException ex) 
+            {
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            catch (IllegalAccessException ex) 
+            {
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            catch (IllegalArgumentException ex) 
+            {
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            catch (InvocationTargetException ex)
+            {
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            catch (NoSuchMethodException ex) {
+                o=c.newInstance();
+            }
+            return o;
+        } 
+        catch (SecurityException ex)
+        {
+            Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch (InstantiationException ex)
+        {
+            Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        catch (IllegalAccessException ex)
+        {
+            Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        catch (ClassNotFoundException ex) 
+        {
+            try 
+            {
+                engine.eval("Println(\"Class '"+name+"' not found\");");
+                interpreter.stop();
+            }
+            catch (ScriptException ex1) 
+            {
+                Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        }
+        catch (MalformedURLException ex) 
+        {
+            Logger.getLogger(Addons.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public int[] getTime()
+    {
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH-mm-ss");
+        String st[]=sdf.format(cal.getTime()).split("-");
+        int time[]=
+        {
+            Integer.parseInt(st[0]),
+            Integer.parseInt(st[1]),
+            Integer.parseInt(st[2])
+        };
+        return time;
+    }
+}
