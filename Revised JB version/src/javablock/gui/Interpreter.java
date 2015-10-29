@@ -711,6 +711,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
     }
 
     private void StartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButtonActionPerformed
+        
         /* Start Execution Time*/
         Out.setText("");
         //executionFeedBack.setText("");

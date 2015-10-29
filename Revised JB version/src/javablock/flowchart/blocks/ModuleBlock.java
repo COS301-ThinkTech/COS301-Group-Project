@@ -29,6 +29,7 @@ public class ModuleBlock extends JBlock{
    
     public ModuleBlock(Flowchart parent) {
        super(Type.MODULE, parent);
+       comment = "fun(x)";
     }
 
     

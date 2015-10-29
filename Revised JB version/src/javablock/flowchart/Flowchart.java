@@ -1608,25 +1608,28 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
     public void addBlocksGroup(JBlock[] list)
     {
         selected.clear();
-        for(JBlock n: list){
-            System.out.println("t: "+n.type);
-            if(n==null) continue;
-            blocks.add(n);
-            n.shape();
-            selectBlock(n);
-            if(!n.moveWhenAdded())
-                n.translate((float)cur.getX(), (float)cur.getY());
-            else
-            {
-                n.translate((float)cur.getX(), (float)cur.getY());
-                movingSelected=true;
+        
+        if(list != null){
+            for(JBlock n: list){
+                System.out.println("t: "+n.type);
+                if(n==null) continue;
+                blocks.add(n);
+                n.shape();
+                selectBlock(n);
+                if(!n.moveWhenAdded())
+                    n.translate((float)cur.getX(), (float)cur.getY());
+                else
+                {
+                    n.translate((float)cur.getX(), (float)cur.getY());
+                    movingSelected=true;
+                }
+                n.ID=nextBlockID;
+                nextBlockID++;
+                if(n.type==JBlock.Type.GROUP)
+                    ((BlockGroup)n).group();
             }
-            n.ID=nextBlockID;
-            nextBlockID++;
-            if(n.type==JBlock.Type.GROUP)
-                ((BlockGroup)n).group();
+            action.historyAdd();
         }
-        action.historyAdd();
     }
     public void addBlock(JBlock n){addBlock(n,true);}
     public void addBlock(JBlock n, boolean connect)
@@ -1797,17 +1800,17 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
                     System.out.println("Adding " + actionPerformed[1]);
             addBlock(actionPerformed[1]);
         }
-        else if(actionPerformed[0].equals("foraction"))
+        else if(actionPerformed[0].equals("foraction")){
+            System.out.println("Called " + actionPerformed[0]);
             addBlocksGroup(new For().get(this));
+        }
         else if(actionPerformed[0].equals("whileaction"))
             addBlocksGroup(new While().get(this));
         else if(actionPerformed[0].equals("dowhileaction"))
             addBlocksGroup(new DoWhile().get(this));
         else if(actionPerformed[0].equals("moduleaction"))
-        {   
             addBlock(actionPerformed[1]);
             //action.addFlowchart();
-        }
         else if(actionPerformed[0].equals("align"))
             align(actionPerformed[1]);
         else if(actionPerformed[0].equals("history"))

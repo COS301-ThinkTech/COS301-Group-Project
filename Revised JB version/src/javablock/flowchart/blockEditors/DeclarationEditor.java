@@ -157,12 +157,14 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
     @Override
     public void saveBlock() {
         //if(name.getText().indexOf(" ")>=0){ error(true); return;}
+        /*String name, String type, String value*/
         editing.clear();
+        System.out.println("Fields :" + fields.size());
         for(Field field:fields){
-            if(field.name.getText().length()==0) continue;
             editing.addField(field.name.getText(),
                     ((ComboText)field.type.getSelectedItem()).getValue(),field.value.getText());
         }
+        editing.addFieldsToBlock();
         editing.shape();
         //editing.flow.update();
     }
@@ -174,6 +176,7 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
         if(editing!=null)
             finishEdit();
         editing=(DeclarationBlock)b;
+        String code_temp = editing.code;
         fields.clear();
         
         fieldsPane.removeAll();
@@ -190,7 +193,9 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
             }
             fields.add(field);
         }
+        
         editing.addFieldsToBlock();
+        //editing.code = code_temp;
         makeList();
     }
 

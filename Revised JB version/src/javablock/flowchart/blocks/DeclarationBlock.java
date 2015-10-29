@@ -82,27 +82,29 @@ public class DeclarationBlock extends JBlock{
         fields.add(f);
     }
     public String[][] getFields(){
-        String f[][]=new String[fields.size()][3];
-        /*String section[] = code.split("\n");
+        //String f[][]=new String[fields.size()][3];
+        String section[] = code.split("\n");
+        System.out.println("code --> " + code + " and size is " + code.length());
+
+        String f[][]=new String[section.length][3];
+        if(!code.isEmpty()){
+            for(int i = 0; i < section.length; i++){
+                String subsection[] = section[i].split(" ");
+                //System.err.println(i + ". ->>>>>>>>>>size " + section.length + " and " + subsection.length);
+                f[i][0] = subsection[1];
+                f[i][1] = subsection[0];
+                f[i][2] = subsection[3];
+
+            }
+        }
         
-        //String subsection[] = null;
-        for(int i = 0; i < section.length; i++){
-            String subsection[] = section[i].split(" ");
-            System.err.println(i + ". ->>>>>>>>>>size " + section.length);
-            f[i][0] = subsection[1];
-            f[i][1] = subsection[0];
-            f[i][2] = subsection[3];
-                
-        }*/
-        
-        
-        int i=0;
+        /*int i=0;
         for(Field field:fields){
             f[i][0]=field.name;
             f[i][1]=field.type.toString();
             f[i][2]=field.value;
             i++;
-        }
+        }*/
         return f;
     }
     
