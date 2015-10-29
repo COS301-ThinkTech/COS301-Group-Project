@@ -232,10 +232,15 @@ public final class FlowchartManager extends JPanel implements ActionListener{
      public void addFlowchart()
     {
        flow=new javablock.flowchart.Flowchart(this);
-        boolean wait = validateAdd(flow);
-        while(!wait)
+        int wait = validateAdd(flow);
+        if(wait == 2)
+            return;
+        
+        while(wait == 0)
         {
             wait = validateAdd(flow);
+            if(wait == 2)
+                return;
         }
         flows.add(flow); 
         workspace.addSheet(flow);        
@@ -243,58 +248,69 @@ public final class FlowchartManager extends JPanel implements ActionListener{
         workspace.renameSheetName(flow.getName()+"()", workspace.getActive());
     }
     
-    public boolean validateAdd(Flowchart fl)
+    public int validateAdd(Flowchart fl)
     {
-        boolean  valid = true;
+        //boolean  valid = true;
+        int valid = 1;  //true.
         String flowNew = JOptionPane.showInputDialog( translator.get("main.flowcharts.rename.info"),"");
-        fl.setName(flowNew);
-        if(flowNew.equals(""))
-        {
-             JOptionPane.showMessageDialog(MainSplit, translator.get("popup.flowMustNotBeEmpty"),
-                        translator.get("popup.flowMustBeUnique.head"),JOptionPane.WARNING_MESSAGE);
-               return false;
-        }
         
-        for(Sheet f:flows)
-        {
-            String flowInList = f.getName();
-            if(!flowNew.contains("()"))
+        fl.setName(flowNew);
+        
+        if(flowNew != null){
+            
+       
+        
+            if(flowNew.equals(""))
             {
-                flowNew = fl.getName() /*+"()"*/;
+                 JOptionPane.showMessageDialog(MainSplit, translator.get("popup.flowMustNotBeEmpty"),
+                            translator.get("popup.flowMustBeUnique.head"),JOptionPane.WARNING_MESSAGE);
+                   return 0;
             }
-            if(f==fl) continue;
-            if(flowInList.equals(flowNew))
+
+            for(Sheet f:flows)
             {
-                JOptionPane.showMessageDialog(MainSplit, translator.get("popup.flowMustBeUnique"),
-                        translator.get("popup.flowMustBeUnique.head"),JOptionPane.WARNING_MESSAGE);
-               valid = false;
-               break;
+                String flowInList = f.getName();
+                if(!flowNew.contains("()"))
+                {
+                    flowNew = fl.getName() /*+"()"*/;
+                }
+                if(f==fl) continue;
+                if(flowInList.equals(flowNew))
+                {
+                    JOptionPane.showMessageDialog(MainSplit, translator.get("popup.flowMustBeUnique"),
+                            translator.get("popup.flowMustBeUnique.head"),JOptionPane.WARNING_MESSAGE);
+                   valid = 0;
+                   break;
+                }
+                else
+                    valid = 1; 
+            }
+            for(JBlock x:fl.blocks)
+            {
+                System.out.println("Type: " + x.type.toString());
+                if(x.type.toString() == "RETURN")
+                    x.comment = "return";
+                if(x.type.toString() == "START")
+                {   
+                    //(x.textColor = Color.ORANGE;
+                    x.displayComment = true;
+                    //why isn't this working
+                    x.comment = fl.getName();
+
+                }
+            }
+
+            if(fl.getName().contains("()"))
+            {
+                fl.setName(fl.getName());
             }
             else
-                valid = true; 
-        }
-        for(JBlock x:fl.blocks)
-        {
-            System.out.println("Type: " + x.type.toString());
-            if(x.type.toString() == "RETURN")
-                x.comment = "return";
-            if(x.type.toString() == "START")
-            {   
-                //(x.textColor = Color.ORANGE;
-                x.displayComment = true;
-                //why isn't this working
-                x.comment = fl.getName();
-                
+            {
+              fl.setName(fl.getName() /*+ "()"*/);
             }
         }
-        
-        if(fl.getName().contains("()"))
-        {
-            fl.setName(fl.getName());
-        }
-        else
-        {
-          fl.setName(fl.getName() /*+ "()"*/);
+        else{
+            valid = 2;
         }
         
         return valid;
@@ -313,10 +329,29 @@ public final class FlowchartManager extends JPanel implements ActionListener{
     {
         
         do{
-            fl.setName(JOptionPane.showInputDialog(
+            String str = "";
+            do{
+                
+                str = JOptionPane.showInputDialog(
                     translator.get("main.flowcharts.rename.info"),
                     fl.getName()
-                    ));
+                    );
+
+                if(str == null)
+                    return;
+                
+                if(str.equals(""))
+                {
+                     JOptionPane.showMessageDialog(MainSplit, translator.get("popup.flowMustNotBeEmpty"),
+                                translator.get("popup.flowMustBeUnique.head"),JOptionPane.WARNING_MESSAGE);
+                }
+                else{
+                    break;
+                }
+            }
+            while(true);
+            
+            fl.setName(str);
             boolean is=false;
             for(Sheet f:flows)
             {
@@ -713,6 +748,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
     {
         try
         {
+            
             historyArchive=false;
             history.clear();
             historyPos=0;

@@ -40,9 +40,9 @@ public class IOBlock extends JBlock {
     public IOBlock(Flowchart parent){
         super(Type.IO, parent);
         if(currentType == 1)
-            comment = "OUTPUT";
+            comment = "output";
         else
-            comment = "INPUT";
+            comment = "input";
     }
 
 

@@ -33,7 +33,7 @@ public class WhileLoopBlock extends JBlock{
     public void prepareText(){
         displayComment=true;
         if(comment.length()==0)
-            this.comment="WHILE";
+            this.comment="while";
         super.prepareText();
     }
 

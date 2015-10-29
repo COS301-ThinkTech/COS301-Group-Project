@@ -33,7 +33,7 @@ public class ForLoopBlock extends JBlock{
     public void prepareText(){
         displayComment=true;
         if(comment.length()==0)
-            this.comment=" FOR ";
+            this.comment=" for ";
         super.prepareText();
     }
 }
