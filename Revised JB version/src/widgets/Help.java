@@ -41,10 +41,46 @@ public class Help extends javax.swing.JFrame {
         jTextPane1.setBackground(new java.awt.Color(255, 255, 255));
         jTextPane1.setContentType("text/html");
         jTextPane1.setEditable(false);
-        jTextPane1.setText("<html>\n  <head>\n\n  </head>\n  <body>\n    <p style=\"margin-top: 0\">\n      <h1>Basics</h1><hr/>\n\n<h2>Making blocks</h2>\n<p>You can create bloks from \"Block panel\" on the left (when there's no selected blocks), or from Pop-up menu (right click in canvas where are no blocks)</p>\n<p>In flowchart can be only one \"Start\" block.</p>\n<hr/>\n\n<h2>Connecting blocks</h2>\n<p>To connect blocks, select first block, then click next while holding CTRL. If there was other out-connection from first block, it will be removed.</p>\n<p>The exception is Decision block, which has 2 out-connections: \"true\" and \"false\". In this case will be removed oldest connection, where you try to connect third block. To replace \"true\" with \"false\" (and vice versa) select Decision block and press \"r\" (reverse)</p>\n<hr/>\n\n<h2>Group blocks</h2>\n<p>You can group blocks, that mean draw a rounded rectangle under blocks. To do this, select blocks, click right mouse button on one selected and click \"Group\"</p>\n<p>To select the rectangle, do double-click.</p>\n<p>To add or remove blocks from group, select the group and click block while holding CTRL</p>\n<hr/>\n\n<h2>\"var\" keyword</h2>\n<p>\"var\" is used to declare variables in JavaScript, but not in Python. In case of Python JavaBlock removes all \"var\".</p>\n<p>If variable is declared by using \"var\" it will be added to tracked variables in Simulation Panel (right).</p>\n<hr>\n\n<h3>DO NOT USE \";\"!!</h3>\n    </p>\n  </body>\n</html>\n"); // NOI18N
+        jTextPane1.setText("<html>\n" +
+"  <head></head>\n" +
+"   <h1>Flowchart Symbols</h1>\n" +
+"   </br>\n" +
+"   <h2>Declaration Block</h2>\n" +
+"   <p>The declaration block is used to declare variables which will be used in the flowchart. In addition to declaration \n" +
+"          the variables also have to  initialized accordingly e.g string variables can be initialised to an empty string\n" +
+"	string variable = \"\".\n" +
+"   </p>\n" +
+"   </br>\n" +
+"    <h2>Processing Block</h2>\n" +
+"    <p>The processing block is used for  updating the values of the variables used in the flowchart for example calculations.</p>\n" +
+"    </br>\n" +
+"    <h2>Decision Block<h2>\n" +
+"    <p> The decision block is used to specify conditions based on the value of the variable.  Meaning the variables are\n" +
+"          compared to certain values using the following comparison operators:-\n" +
+"	<ul>\n" +
+"	<li>== - is equal</li>\n" +
+"	<li>!= - is not equal</li>\n" +
+"	<li>&lt;- is less than</li>\n" +
+"	<li>> - is greater than</li>\n" +
+"	<li>&lt;= - is less than or equal</li>\n" +
+"	<li>>= - is greater than or equal</li>\n" +
+"     <ul>\n" +
+"    </p>\n" +
+"   </br>\n" +
+"    <h2>Module Block</h2>\n" +
+"    <p>The module block is used to call functions. Specify the function name and also the parameters it requires.\n" +
+"           The function being called should exist i.e. Has a flowchart. \n" +
+"    </p>\n" +
+"    </br>\n" +
+"    <h2>Jump Block</h2>\n" +
+"    <p>The jump block is used to join components in a more structured manner.</p>\n" +
+"    </br>\n" +
+"    <h2>Comment Block</h2>\n" +
+"    <p>The comment block is used for comments in the code. The comment block code is not executed.</p>\n" +
+"</html>"); // NOI18N
         jScrollPane1.setViewportView(jTextPane1);
 
-        jTabbedPane1.addTab("Basic", jScrollPane1);
+        jTabbedPane1.addTab("Flowchart Symbols", jScrollPane1);
 
         jTextPane2.setBackground(new java.awt.Color(255, 255, 255));
         jTextPane2.setContentType("text/html");
