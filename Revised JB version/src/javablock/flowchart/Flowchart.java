@@ -190,6 +190,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             //subPane
             
             //flowPane.add(editorPane, BorderLayout.EAST);
+            
             editorPane.setVisible(false);
         }
         //editorPane = new EditorPane();
@@ -1239,7 +1240,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
         
             if(section[0].contains("add")){
 
-                addBlock(section[1]);
+                //addBlock(section[1]);
                 return;
             }
         }
@@ -2005,15 +2006,18 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             //inConnections+=blocks.size();
             if(block.getType()!= "START")
             { 
-                 block.setBorderColor(Color.BLACK);
-                if(block.numOfInConnects()==0)
-                {
-                    block.setBorderColor(Color.RED);
-                   //System.out.println(block.getType()+" doesn't have in connections");
-                   valid = false;
+                if(block.getType()!= "COMMENT"){
+                    block.setBorderColor(Color.BLACK);
+                   if(block.numOfInConnects()==0)
+                   {
+                       block.setBorderColor(Color.RED);
+                      //System.out.println(block.getType()+" doesn't have in connections");
+                      valid = false;
+                   }
                 }
             }   
         }
+        System.out.println("---->" + valid);
         return valid;
     }
 

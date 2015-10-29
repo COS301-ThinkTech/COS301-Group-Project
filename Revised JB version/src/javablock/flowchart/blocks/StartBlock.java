@@ -30,13 +30,15 @@ public class StartBlock extends JBlock {
         super(Type.START, parent);
         //displayComment=true;
         comment="start";
+        name ="start";
+        moduleStart = false;
     }
     @Override
     public boolean isSwitchable(){return false;}
-    public String name="start";
     public String arguments="";
     public boolean silent=true;
     public boolean displayName=false;
+    
 
 
     @Override

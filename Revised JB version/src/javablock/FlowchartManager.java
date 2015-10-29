@@ -16,6 +16,8 @@ import java.io.*;
 import java.util.logging.*;
 import javablock.flowchart.Flowchart;
 import javablock.flowchart.JBlock;
+import javablock.flowchart.JBlock.Type;
+import javablock.flowchart.blocks.StartBlock;
 import javax.swing.*;
 import javax.swing.text.EditorKit;
 import javax.xml.parsers.*;
@@ -242,10 +244,13 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             if(wait == 2)
                 return;
         }
+        flow.getBlocks().get(0).moduleStart = true;
+        flow.getBlocks().get(0).name = "";
         flows.add(flow); 
-        workspace.addSheet(flow);        
+        workspace.addSheet(flow);
         workspace.setActive(flow.getName());
         workspace.renameSheetName(flow.getName()+"()", workspace.getActive());
+        
     }
     
     public int validateAdd(Flowchart fl)
@@ -378,6 +383,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             }
             
         workspace.renameSheetName(fl.getName()+"()", workspace.getActive());
+      
     }
 
     public Element clipBoard=null;
@@ -917,7 +923,17 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                         }
                     }
                     
-                    editor = selected.getEditor();
+                    if(selected.getType() == "START"){
+                            if(selected.moduleStart)
+                                editor = selected.getEditor();
+                            else
+                                editor = null;
+                    }
+                    else{
+                        editor = selected.getEditor();
+                    }
+                    
+                        //editor = selected.getEditor();
                     if(editor != null)
                     {
                         editor.setEditedBlock(selected);

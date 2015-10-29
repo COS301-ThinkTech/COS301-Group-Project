@@ -181,7 +181,6 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
         
         fieldsPane.removeAll();
         String l[][]=editing.getFields();
-        System.out.println("------>>>>> + " + l.length);
         for(String f[]:l){
             Field field=new Field(this);
             field.name.setText(f[0]);
@@ -199,8 +198,6 @@ public class DeclarationEditor extends javax.swing.JPanel implements BlockEditor
         editing.code = code_temp;
         makeList();
     }
-
-
 
     @Override
     public boolean changes() {

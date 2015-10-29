@@ -19,6 +19,9 @@ public final class StartEditor extends javax.swing.JPanel implements BlockEditor
         initComponents();
         delIcon=new javax.swing.ImageIcon(getClass().getResource("/icons/16/list-remove.png"));
         makeList();
+        displayName.setVisible(false);
+        name.setVisible(false);
+        silent.setVisible(false);
     }
     StartBlock editing;
 
@@ -173,6 +176,7 @@ public final class StartEditor extends javax.swing.JPanel implements BlockEditor
         }
         editing.shape();
         editing.flow.update();
+        System.out.println("Updating now...");
     }
 
     @Override
