@@ -30,10 +30,10 @@ This system does not connect with any network, database or any other systems. Mo
   Since the whole system will be coded using Object-Oriented Programming (OOP), it will be much easy to update, extend and maintain the system. OOP allows the future development of the system.
 
   \item[Availability:]
-  The application is available to all desktops running Linux operating system.
+  The application is available to all users, and can be executed on Windows and Linux machines.
 
   \item[Security:]
-  Security is not a concern.
+  This is a stand-alone application and it does not connect to any networks, so security is not a real concern.
 
   \item[Testability:]
   The GUI will provide a testing environment to the system, this will provide all the functionalities a standard and a complex flowchart can provide. When thorough GUI testing has been conducted, all detected malfunctions can be corrected.
@@ -45,13 +45,22 @@ This system does not connect with any network, database or any other systems. Mo
 \end{description}
 \section{Architecture Constraints}
 %Architecture Constraints to be added - Johan & Latham
-Depending on which programming language best suits the interest of programmers, any language will be suitable. Preferably Java and C++. The system will resemble more or less the same programming styles used in Java and C++.
+%Depending on which programming language best suits the interest of programmers, any language will be suitable. Preferably Java and C++. The system will resemble more or less the same programming styles used in Java and C++.
 
+Because this system is built from an already existing system which was purely coded in Java, it is then highly recommended to implement the new system in Java. There are also numerous reasons for this, i.e., Java is a pure Object-oriented programming language which makes the code more readable and easier to read. This enhances maintainability.\newline
+
+And also, the client specified that he needs an Object-oriented application, Java provides more precise Object-oriented features.
 
 \section{Technologies}
-%Technologies to be added
-For simplicity , Java would be recommended (Java is mostly used in data structures). Otherwise, any other programming language can be used.\\ \\
-Because the flowchart might need to be saved and used at the later stage, storage is another concern. XML will be used for storage. It can be easily parsed in Java and more convenient for serialization.
+
+As previously stated that the system that is being upgraded was coded in Java, this system as well will be coded in Java.
+For testing, JUnit will be used. \newline
+
+To save the current state of a flowchart, all the components of the flowchart will be processed into an XML file, to open the existing file, an XML will be parsed. So, XML will play a central role in managing the files.
+
+% Add other things resemble programming technologies. e.g *** SWING *** ???
+
+
 
 \end{document}
 

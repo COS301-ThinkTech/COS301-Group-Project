@@ -98,17 +98,17 @@
 		
 		\begin{itemize}
 			\item \textbf{Canvas:} This space is provided to design a 			well-formed flowchart. Components will be dragged from the flowchart 				tools menu consisting of available components and dropped onto the 				canvas. See figure below.\newline
-			There are components which are already implemented at start of the system, the 'start' and 'end' blocks are initialised by default on the canvas.\newline \newline
-			\includegraphics[width=11.5cm]{images/Canvas.jpg}
+			There are components which are already implemented at start of the system, the 'start' and 'end' blocks are initialised by default on the canvas.\\ \\
+			\includegraphics[width=14cm]{images/Canvas.jpg}
 			\begin{center}
-		Figure: The Canvas.\newline
+		Figure: The Canvas.\newline \newline 
 		\end{center}
 			
 			\item \textbf{Flowchart Tools:} This contains all the tools required to construct the flowchart. All the components will be dragged and dropped onto the canvas (as illustrated by the the figure below), with the tools on the left and the canvas on the right. All the necessary components to build a flowchart are listed on the left toolbar.\newline
 			
 		The tools are draggable, i.e, from the toolbar hover over the block you want to use and drag it over to the canvas (the white plane on the left - as illustrated above). Under "using the system" is a detailed illustration on how to use these tools. \newline \newline			
 			
-			\includegraphics[width=11.5cm]{images/Tools.jpg}
+			\includegraphics[width=14cm]{images/Tools.jpg}
 			\begin{center}
 		Figure: Flowchart Tool Components.\newline
 		\end{center} 
@@ -123,16 +123,15 @@
 		\item Loading projects: The detailed description of this is given under "Opening existing projects" below.
 \end{itemize}				
 			
-			
-			\includegraphics[width=11.5cm]{images/Menu.jpg}
+			\newpage
+			\includegraphics[width=14cm]{images/Menu.jpg}
 			\begin{center}
-		Figure: Menu Bar.
+		Figure: Menu Bar. \newline \newline \newline
 		\end{center}
 			
 			
 		\end{itemize}
 
-	\newpage
 	
 	
 	
@@ -141,35 +140,140 @@
 	
 	
 \section{Using the System}
-	\subsection{Creating New Project}
+	\subsection{Creating New Flowchart}
 	
-	When the application is opened for the first time, a default project is created with a default flowchart, which compiles and execute without any output generated. The user then will start his/her own building of the flowchart from already generated default flowchart. This is also demonstrated by the figure on general flowchart layout. \newline\newline
-However, the user can create new project from the menu bar. To create a new project select "File" in the menu bar and a drop down menu will appear. Select the "New" option, a pop-up window will appear requesting the desired file name for the project. Enter the file name and press the enter key on the keyboard, then the new project with the default flowchart will be created. \newline
+	When the application is opened for the first time, a default project is created with a default flowchart, which compiles and execute without any output generated. The user then will start building the flowchart from already generated default flowchart. This is also demonstrated by the figure on general flowchart layout. \newline\newline
+However, the user can create new flowchart from the menu bar. To create a new flowchart select "File" in the menu bar (as illustrated by the figure below) and a drop down menu will appear.
+
+		\includegraphics[width=14cm]{images/Menu.jpg}
+		\begin{center}
+			Figure: Creating new flowchart \newline \newline
+		\end{center}
+
+ Select the "New" option, a pop-up window will appear requesting the user to save the current flowchart. After adhering to that request a new flowchart will be created on the canvas with a default flowchart as shown by the figure below.
+ 
+ 		\includegraphics[width=14cm]{images/newFlowchart.jpg}
+		\begin{center}
+			Figure: The newly created flowchart\newline \newline
+		\end{center}
 		
 		
 	\subsection{Adding Components to Canvas}
 	
-	From the created project, construction starts with dragging the components from the tool bar to the canvas. Adding components to the canvas is quite simple, drag the desired component from the tool bar and drop it onto the canvas. The component will be locally saved on the canvas, continue doing so until the building is complete.
+	The component section of Flow is divided into a couple of sections, flowchart symbols, loop structures and input/output blocks.
+	\subsubsection{Flowchart symbols}
 	
+	To add any of these components onto the canvas, click on the component of choice and move it onto the preferred destination on the canvas. To move the selected component, hover over the canvas and right-click the component to drop it. figure below shows the selected block that is to be dropped onto the canvas.\\
+	
+	\includegraphics[width=12cm]{images/addBlock.jpg} \newline
+	
+	After clicking on the block, it is moved to the required position on the canvas. Click on the canvas to place the block.
+	
+	
+	
+	\subsubsection{Loop structures}
+	
+	Loop structures are pre-defined loop components that can be added to the flowchart without any major drawing of the actual components. To add these components, click on the desired block, a pop-up will appear.\\
+	
+	\includegraphics[width=12cm]{images/loops.jpg} \newline
+	
+	On the space provided, the user can initialise the variable that is to be used in the loop, and also provide a loop condition. When all these values have been entered, click Ok to create a loop structure.
+	
+	\subsubsection{Input/Output blocks}	
+	
+	To add the input/output block(s), click on the block highlighted with fading words "input"/"output" inside the block. Then drop it on the position of your own choice by clicking on it again.\\
+	
+	\includegraphics[width=12cm]{images/io.jpg}
+	
+	%\newline \newline
 	\subsection{Editing Component}
 	
-	Editing the component entails manipulation of the features and adding code inside the component. To edit the component click on the component that you want to edit and the a pop-up window will appear on the far left side of the application with the options of changing features or adding code.
+	Editing the component entails manipulation of the features and adding code inside the component. To edit the component click on the component that you want to edit and the a pop-up window will appear on the far right side of the canvas with the option of adding simple code into the component.
+	
+	\subsubsection{Declaration block}
+	
+	To edit a declaration block, click on it, then a pop-up window will appear with an option to add all the declarations that are going to be used throughout the flowchart.\\
+	
+	\includegraphics[width=12cm]{images/editDeclaration.jpg} \newline \newline
+	On the pop-up window, the user can select with a drop-down menu the type of a variable to be declared. See figure below.\\
+	
+	\includegraphics[width=12cm]{images/editDeclaration1.jpg} \newline \newline
+	Then in the box next to the drop-down menu, key in any variable name of your choice and initialise it to the value of your choice, then click on 'Add' button.\\
+	
+	\includegraphics[width=12cm]{images/editDeclaration2.jpg} \newline \newline
+	The declaration block will not be automatically updated, to update the block, click on any blank space on the canvas then click on the block. After that, the block will be updated.
+	
+	\includegraphics[width=12cm]{images/editDeclaration3.jpg}
+	
+	
+	\subsubsection{Processing block}
+	
+	To edit the processing block, click on it then a pop-up window will appear with a plain environment to allow the user to enter the necessary code into the block.\\ \newline
+	\includegraphics[width=12cm]{images/editProcessing.jpg} \newline
+	
+	\subsubsection{Decision block}
+	
+	The process of editing the decision block is similar to that of editing a processing block. \newline
+	
+	\subsubsection{Module block}
+	
+	A module is edited in a similar manner as the processing block, the only difference being that in the code section the user enters the name of the module/function to be called. For example, look at the figure below. \newline \newline
+	
+	\includegraphics[width=12cm]{images/editModule.jpg} \newline
+	
+	\subsubsection{Loop structures}
+	
+	After creating a loop structure, each block that is contained in that structure is editable. That is, by clicking on any of the blocks the user is able to modify them. \newline \newline
+	
+	\includegraphics[width=12cm]{images/editLoop.jpg} \newline
+	
+	Each of these components are editable. Instructions on how to edit them have already been provided above, check for reference.\newline
+	
+	\subsubsection{Input block}
+	
+	By clicking on the input block from the canvas, the pop-up window requires the user to enter a "prefix", the prefix is used to prompt the user with a descriptive message. And also, the pop-up window requires the user to enter a "variable" that the value read is to be assigned to. \newline \newline
+	
+	\includegraphics[width=12cm]{images/editInput.jpg} \newline
+	
+	\subsubsection{Output block}
+	
+	The output block has a couple of components, these components are lifted below:
+	\begin{itemize}
+	\item Prefix: \newline
+	The message to be printed before the variable is being printed out to the console.
+	\item Variable: \newline
+	The variable that the user wants to print to the console.
+	\item Massage suffix: \newline
+	The message to be printed after the variable has been printed out to the console. \newline
+	\end{itemize}
 		
+	\includegraphics[width=12cm]{images/editOutput.jpg} \newline
+				
 	\subsection{Removing Components from Canvas}
 	
-	To remove any component from the canvas right-click on the component and select delete component. To remove multiple components hold the "SHIFT" key and select the components and then right-click and select delete component.
-		
-	\subsection{Saving Project}
+	To remove any component from the canvas right-click on the component and select "Delete Block" as illustrated by the figure below. To remove multiple components hold the "SHIFT" key and select the components and then right-click and select delete component.\newline
 	
-	To save your current progress go to "File" in the menu bar, in the drop down menu select "Save". Enter the name of the file and then the project will be saved in a directory for flowchart projects.
+	Alternatively, the user can select the block that he/she wishes to delete and press the "delete" key on the keyboard. \newline
+	
+	\includegraphics[width=12cm]{images/deleteComponent.jpg} \newline
+		
+	\subsection{Saving The Flowchart}
+	
+	To save your current progress go to "File" in the menu bar, in the drop down menu select "Save". Then a pop-up window will appear, browse the location where you would like to save the file to, enter the name of the file and make sure the file extension is .flow. Click save. \newline \newline
+	
+	\includegraphics[width=14cm]{images/saveFile.jpg}
 	
 	\subsection{Run Simulation}
-	To run the flowchart select the "Run" icon on the flowchart tools window and the the whole flowchart will execute. To run the flowchart step-by-step select the "Step" icon.
+	To run the flowchart select the "Play" icon on the flowchart tools window, this will highlight the other three buttons, execute the whole flowchart, step-by-step execution and the stop icons.
+	
+	\includegraphics[width=14cm]{images/runSimulator.jpg}
 	
 		
-	\subsection{Opening Existing Project}
+	\subsection{Opening an Existing Flowchart}
 	
-	To open an existing project go to the menu bar and select the "File" option and then select the "Open" menu item. Search for an existing flowchart project with the valid extention. The flowchart project will now be loaded onto the canvas and should be able to be updated.
+	To open an existing flowchart go to the menu bar and select the "File" option and then select the "Open" menu item. Browse the files system for the that is to be opened, recall that only files with extension .flow can be opened. \newline
+	
+	\includegraphics[width=14cm]{images/openFlowchart.jpg}
 	
 \section{Troubleshooting}
 

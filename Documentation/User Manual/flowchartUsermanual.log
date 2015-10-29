@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.8.27)  26 OCT 2015 22:51
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.8.27)  29 OCT 2015 00:26
 entering extended mode
 **flowchartUsermanual.tex
 
@@ -270,12 +270,12 @@ File: images/DesktopIcon.jpg Graphic file (type jpg)
 Package pdftex.def Info: images/DesktopIcon.jpg used on input line 81.
 (pdftex.def)             Requested size: 398.33858pt x 49.59424pt.
 
-<images/SystemLayout.jpg, id=23, 1028.34187pt x 578.16pt>
+<images/SystemLayout.jpg, id=23, 447.0885pt x 242.433pt>
 File: images/SystemLayout.jpg Graphic file (type jpg)
 
 <use images/SystemLayout.jpg>
 Package pdftex.def Info: images/SystemLayout.jpg used on input line 93.
-(pdftex.def)             Requested size: 433.62pt x 243.79596pt.
+(pdftex.def)             Requested size: 433.62pt x 235.1412pt.
 
 Overfull \hbox (17.0pt too wide) in paragraph at lines 93--94
 [][] 
@@ -292,11 +292,11 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 100.
 
-<images/Canvas.jpg, id=27, 435.591pt x 124.5015pt>
+<images/Canvas.jpg, id=27, 415.224pt x 122.5305pt>
 File: images/Canvas.jpg Graphic file (type jpg)
  <use images/Canvas.jpg>
 Package pdftex.def Info: images/Canvas.jpg used on input line 102.
-(pdftex.def)             Requested size: 327.20668pt x 93.52786pt.
+(pdftex.def)             Requested size: 398.33858pt x 117.54755pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 100--103
 
@@ -307,54 +307,339 @@ Underfull \hbox (badness 10000) in paragraph at lines 107--108
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
-
- []
-
 [4 <C:/Users/Hlavutello/Documents/Flowchart-planning-and-simulation-tool/Docume
 ntation/User Manual/images/SystemLayout.jpg> <C:/Users/Hlavutello/Documents/Flo
 wchart-planning-and-simulation-tool/Documentation/User Manual/images/Canvas.jpg
->] <images/Tools.jpg, id=32, 444.132pt x 123.8445pt>
+>]
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
+
+ []
+
+<images/Tools.jpg, id=32, 443.475pt x 150.1245pt>
 File: images/Tools.jpg Graphic file (type jpg)
  <use images/Tools.jpg>
 Package pdftex.def Info: images/Tools.jpg used on input line 111.
-(pdftex.def)             Requested size: 327.20668pt x 91.24098pt.
+(pdftex.def)             Requested size: 398.33858pt x 134.84506pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 117--118
 
  []
 
-<images/Menu.jpg, id=33, 448.074pt x 81.1395pt>
+[5 <C:/Users/Hlavutello/Documents/Flowchart-planning-and-simulation-tool/Docume
+ntation/User Manual/images/Tools.jpg>]
+<images/Menu.jpg, id=37, 447.417pt x 77.1975pt>
 File: images/Menu.jpg Graphic file (type jpg)
  <use images/Menu.jpg>
 Package pdftex.def Info: images/Menu.jpg used on input line 127.
-(pdftex.def)             Requested size: 327.20668pt x 59.25237pt.
- [5 <C:/Users/Hlavutello/Documents/Flowchart-planning-and-simulation-tool/Docum
-entation/User Manual/images/Tools.jpg> <C:/Users/Hlavutello/Documents/Flowchart
--planning-and-simulation-tool/Documentation/User Manual/images/Menu.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 146--148
+(pdftex.def)             Requested size: 398.33858pt x 68.73027pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--147
+
+ []
+
+File: images/Menu.jpg Graphic file (type jpg)
+<use images/Menu.jpg>
+Package pdftex.def Info: images/Menu.jpg used on input line 148.
+(pdftex.def)             Requested size: 398.33858pt x 68.73027pt.
+ <images/newFlowchart.jpg, id=38, 448.074pt x 242.1045pt>
+File: images/newFlowchart.jpg Graphic file (type jpg)
+
+<use images/newFlowchart.jpg>
+Package pdftex.def Info: images/newFlowchart.jpg used on input line 155.
+(pdftex.def)             Requested size: 398.33858pt x 215.2359pt.
+ [6 <C:/Users/Hlavutello/Documents/Flowchart-planning-and-simulation-tool/Docum
+entation/User Manual/images/Menu.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
+
+ []
+
+<images/addBlock.jpg, id=42, 170.4915pt x 80.4825pt>
+File: images/addBlock.jpg Graphic file (type jpg)
+ <use images/addBlock.jpg>
+Package pdftex.def Info: images/addBlock.jpg used on input line 168.
+(pdftex.def)             Requested size: 341.43306pt x 161.19789pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
+
+ []
+
+[7 <C:/Users/Hlavutello/Documents/Flowchart-planning-and-simulation-tool/Docume
+ntation/User Manual/images/newFlowchart.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
+
+ []
+
+<images/loops.jpg, id=46, 232.578pt x 56.1735pt>
+File: images/loops.jpg Graphic file (type jpg)
+ <use images/loops.jpg>
+Package pdftex.def Info: images/loops.jpg used on input line 178.
+(pdftex.def)             Requested size: 341.43306pt x 82.46944pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--148
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
 
  []
 
-[6] [7]
+<images/io.jpg, id=47, 226.3365pt x 43.0335pt>
+File: images/io.jpg Graphic file (type jpg)
+ <use images/io.jpg>
+Package pdftex.def Info: images/io.jpg used on input line 186.
+(pdftex.def)             Requested size: 341.43306pt x 64.92302pt.
+ [8 <C:/Users/Hlavutello/Documents/Flowchart-planning-and-simulation-tool/Docum
+entation/User Manual/images/addBlock.jpg> <C:/Users/Hlavutello/Documents/Flowch
+art-planning-and-simulation-tool/Documentation/User Manual/images/loops.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
+
+ []
+
+<images/editDeclaration.jpg, id=51, 226.9935pt x 87.0525pt>
+File: images/editDeclaration.jpg Graphic file (type jpg)
+
+<use images/editDeclaration.jpg>
+Package pdftex.def Info: images/editDeclaration.jpg used on input line 197.
+(pdftex.def)             Requested size: 341.43306pt x 130.95302pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--199
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--199
+
+ []
+
+<images/editDeclaration1.jpg, id=52, 245.718pt x 67.014pt>
+File: images/editDeclaration1.jpg Graphic file (type jpg)
+
+<use images/editDeclaration1.jpg>
+Package pdftex.def Info: images/editDeclaration1.jpg used on input line 200.
+(pdftex.def)             Requested size: 341.43306pt x 93.12872pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--202
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--202
+
+ []
+
+<images/editDeclaration2.jpg, id=53, 231.921pt x 56.502pt>
+File: images/editDeclaration2.jpg Graphic file (type jpg)
+
+<use images/editDeclaration2.jpg>
+Package pdftex.def Info: images/editDeclaration2.jpg used on input line 203.
+(pdftex.def)             Requested size: 341.43306pt x 83.18626pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--205
+
+ []
+
+[9 <C:/Users/Hlavutello/Documents/Flowchart-planning-and-simulation-tool/Docume
+ntation/User Manual/images/io.jpg> <C:/Users/Hlavutello/Documents/Flowchart-pla
+nning-and-simulation-tool/Documentation/User Manual/images/editDeclaration.jpg>
+ <C:/Users/Hlavutello/Documents/Flowchart-planning-and-simulation-tool/Document
+ation/User Manual/images/editDeclaration1.jpg>]
+<images/editDeclaration3.jpg, id=57, 235.5345pt x 81.7965pt>
+File: images/editDeclaration3.jpg Graphic file (type jpg)
+
+<use images/editDeclaration3.jpg>
+Package pdftex.def Info: images/editDeclaration3.jpg used on input line 206.
+(pdftex.def)             Requested size: 341.43306pt x 118.57315pt.
+
+<images/editProcessing.jpg, id=58, 251.9595pt x 91.323pt>
+File: images/editProcessing.jpg Graphic file (type jpg)
+
+<use images/editProcessing.jpg>
+Package pdftex.def Info: images/editProcessing.jpg used on input line 212.
+(pdftex.def)             Requested size: 341.43306pt x 123.76283pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--213
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--213
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
+
+ []
+
+[10 <C:/Users/Hlavutello/Documents/Flowchart-planning-and-simulation-tool/Docum
+entation/User Manual/images/editDeclaration2.jpg> <C:/Users/Hlavutello/Document
+s/Flowchart-planning-and-simulation-tool/Documentation/User Manual/images/editD
+eclaration3.jpg> <C:/Users/Hlavutello/Documents/Flowchart-planning-and-simulati
+on-tool/Documentation/User Manual/images/editProcessing.jpg>]
+<images/editModule.jpg, id=62, 243.09pt x 58.1445pt>
+File: images/editModule.jpg Graphic file (type jpg)
+
+<use images/editModule.jpg>
+Package pdftex.def Info: images/editModule.jpg used on input line 222.
+(pdftex.def)             Requested size: 341.43306pt x 81.67587pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 226--227
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 226--227
+
+ []
+
+<images/editLoop.jpg, id=63, 261.1575pt x 118.917pt>
+File: images/editLoop.jpg Graphic file (type jpg)
+ <use images/editLoop.jpg>
+Package pdftex.def Info: images/editLoop.jpg used on input line 228.
+(pdftex.def)             Requested size: 341.43306pt x 155.47029pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 228--229
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--231
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 234--235
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 234--235
+
+ []
+
+[11 <C:/Users/Hlavutello/Documents/Flowchart-planning-and-simulation-tool/Docum
+entation/User Manual/images/editModule.jpg> <C:/Users/Hlavutello/Documents/Flow
+chart-planning-and-simulation-tool/Documentation/User Manual/images/editLoop.jp
+g>] <images/editInput.jpg, id=68, 247.689pt x 73.9125pt>
+File: images/editInput.jpg Graphic file (type jpg)
+
+<use images/editInput.jpg>
+Package pdftex.def Info: images/editInput.jpg used on input line 236.
+(pdftex.def)             Requested size: 341.43306pt x 101.88655pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--248
+
+ []
+
+<images/editOutput.jpg, id=69, 268.056pt x 46.3185pt>
+File: images/editOutput.jpg Graphic file (type jpg)
+
+<use images/editOutput.jpg>
+Package pdftex.def Info: images/editOutput.jpg used on input line 250.
+(pdftex.def)             Requested size: 341.43306pt x 59.00261pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--251
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
+
+ []
+
+<images/deleteComponent.jpg, id=70, 360.693pt x 146.8395pt>
+File: images/deleteComponent.jpg Graphic file (type jpg)
+
+<use images/deleteComponent.jpg>
+Package pdftex.def Info: images/deleteComponent.jpg used on input line 258.
+(pdftex.def)             Requested size: 341.43306pt x 138.9993pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
+
+ []
+
+[12 <C:/Users/Hlavutello/Documents/Flowchart-planning-and-simulation-tool/Docum
+entation/User Manual/images/editInput.jpg> <C:/Users/Hlavutello/Documents/Flowc
+hart-planning-and-simulation-tool/Documentation/User Manual/images/editOutput.j
+pg>]
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
+
+ []
+
+<images/saveFile.jpg, id=74, 446.4315pt x 242.1045pt>
+File: images/saveFile.jpg Graphic file (type jpg)
+
+<use images/saveFile.jpg>
+Package pdftex.def Info: images/saveFile.jpg used on input line 264.
+(pdftex.def)             Requested size: 398.33858pt x 216.03384pt.
+
+<images/runSimulator.jpg, id=75, 445.7745pt x 241.4475pt>
+File: images/runSimulator.jpg Graphic file (type jpg)
+
+<use images/runSimulator.jpg>
+Package pdftex.def Info: images/runSimulator.jpg used on input line 269.
+(pdftex.def)             Requested size: 398.33858pt x 215.76442pt.
+ [13 <C:/Users/Hlavutello/Documents/Flowchart-planning-and-simulation-tool/Docu
+mentation/User Manual/images/deleteComponent.jpg> <C:/Users/Hlavutello/Document
+s/Flowchart-planning-and-simulation-tool/Documentation/User Manual/images/saveF
+ile.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 274--275
+
+ []
+
+<images/openFlowchart.jpg, id=79, 446.76pt x 241.4475pt>
+File: images/openFlowchart.jpg Graphic file (type jpg)
+
+<use images/openFlowchart.jpg>
+Package pdftex.def Info: images/openFlowchart.jpg used on input line 276.
+(pdftex.def)             Requested size: 398.33858pt x 215.2818pt.
+ [14 <C:/Users/Hlavutello/Documents/Flowchart-planning-and-simulation-tool/Docu
+mentation/User Manual/images/runSimulator.jpg> <C:/Users/Hlavutello/Documents/F
+lowchart-planning-and-simulation-tool/Documentation/User Manual/images/openFlow
+chart.jpg>] [15]
 ("C:\Users\Hlavutello\Documents\Flowchart-planning-and-simulation-tool\Document
 ation\User Manual\flowchartUsermanual.aux") ) 
 Here is how much of TeX's memory you used:
- 1689 strings out of 493921
- 24593 string characters out of 3144861
- 82448 words of memory out of 3000000
- 4991 multiletter control sequences out of 15000+200000
+ 1774 strings out of 493921
+ 26677 string characters out of 3144861
+ 83448 words of memory out of 3000000
+ 5059 multiletter control sequences out of 15000+200000
  8503 words of font info for 30 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  27i,5n,31p,552b,286s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -365,9 +650,9 @@ ts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
 type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
 e1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmsy10.pfb>
-Output written on flowchartUsermanual.pdf (9 pages, 373396 bytes).
+Output written on flowchartUsermanual.pdf (17 pages, 894096 bytes).
 PDF statistics:
- 64 PDF objects out of 1000 (max. 8388607)
+ 106 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
