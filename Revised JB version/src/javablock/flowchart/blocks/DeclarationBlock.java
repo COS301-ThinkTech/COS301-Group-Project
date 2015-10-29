@@ -83,6 +83,10 @@ public class DeclarationBlock extends JBlock{
     }
     public String[][] getFields(){
         //String f[][]=new String[fields.size()][3];
+        
+        if(code.length() == 0)
+            return new String[0][3];
+        
         String section[] = code.split("\n");
         System.out.println("code --> " + code + " and size is " + code.length());
 
@@ -93,7 +97,18 @@ public class DeclarationBlock extends JBlock{
                 //System.err.println(i + ". ->>>>>>>>>>size " + section.length + " and " + subsection.length);
                 f[i][0] = subsection[1];
                 f[i][1] = subsection[0];
-                f[i][2] = subsection[3];
+                
+                System.out.println("The subsection is " + subsection.length);
+                
+                if(subsection.length == 3){
+                    f[i][2] = "";
+                }
+                else
+                {
+                    f[i][2] = subsection[3];
+                }
+                
+                
 
             }
         }
