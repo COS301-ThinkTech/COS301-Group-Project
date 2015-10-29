@@ -52,6 +52,7 @@ public class Interpreter extends javax.swing.JPanel implements ComponentListener
         ValuesPanel.validate();
         init();
         consolePane.remove(2);
+        consolePane.remove(1);
     }
 
     public void setSheet(Sheet flow){

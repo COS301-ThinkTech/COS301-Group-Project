@@ -319,7 +319,9 @@ public final class FlowchartManager extends JPanel implements ActionListener{
     
     public void removeFlowchart()
     {
-        if(flows.size()==1) return ;
+        if(flows.size()==1) return;
+         
+        if(flow.getName().equals("start")) return;
         workspace.removeSheet(flow);
         flows.remove(flow);
         flow=(Flowchart)workspace.getActive();
@@ -327,7 +329,8 @@ public final class FlowchartManager extends JPanel implements ActionListener{
     }
     public void renameFlowchart(Flowchart fl)
     {
-        
+        System.out.println("Flowchart Name: "+ fl.getName());
+        if(fl.getName().equals("start")) return;
         do{
             String str = "";
             do{
@@ -1005,7 +1008,10 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             if(action[1].equals("remove"))
                 this.removeFlowchart();
             if(action[1].equals("rename"))
+            {
+                System.out.println("Flowchart Name: "+this.flow.getName());
                 this.renameFlowchart(this.flow);
+            }
             if(action[1].equals("script"))
                 this.showScript();
         }

@@ -311,7 +311,6 @@ public final class MainWindow extends javax.swing.JFrame
                 scriptStepActionPerformed(evt);
             }
         });
-	scriptStep.setEnabled(false);
         scriptTools.add(scriptStep);
 
         scriptRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/run.png"))); // NOI18N
@@ -323,7 +322,6 @@ public final class MainWindow extends javax.swing.JFrame
                 scriptRunActionPerformed(evt);
             }
         });
-	scriptRun.setEnabled(false);
         scriptTools.add(scriptRun);
 
         scriptStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/media-playback-stop.png"))); // NOI18N
@@ -335,7 +333,6 @@ public final class MainWindow extends javax.swing.JFrame
                 scriptStopActionPerformed(evt);
             }
         });
-	scriptStop.setEnabled(false);
         scriptTools.add(scriptStop);
         scriptTools.add(jSeparator4);
 
@@ -382,6 +379,11 @@ public final class MainWindow extends javax.swing.JFrame
         menuSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/document-save.png"))); // NOI18N
         menuSave.setText(bundle.getString("main.save")); // NOI18N
         menuSave.setActionCommand("manage/save/false");
+        menuSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSaveActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuSave);
         menuSave.addActionListener(this);
 
@@ -389,6 +391,11 @@ public final class MainWindow extends javax.swing.JFrame
         menuSaveAs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/16/document-save-as.png"))); // NOI18N
         menuSaveAs.setText(bundle.getString("main.saveAs")); // NOI18N
         menuSaveAs.setActionCommand("manage/saveas");
+        menuSaveAs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSaveAsActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuSaveAs);
         menuSaveAs.addActionListener(this);
         jMenu1.add(jSeparator6);
@@ -677,9 +684,19 @@ public final class MainWindow extends javax.swing.JFrame
         }
     }//GEN-LAST:event_zoomSpinnerStateChanged
 
-    private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        Manager.saveFileAs();
-    }                                          
+    private void menuSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSaveActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_menuSaveActionPerformed
+
+    private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSaveAsActionPerformed
+        // TODO add your handling code here:
+          Manager.saveFileAs();
+    }//GEN-LAST:event_menuSaveAsActionPerformed
+
+  //  private void menuSaveAsActionPerformed(java.awt.event.ActionEvent evt) {                                           
+       
+    //}                                          
 
                                                        
 
