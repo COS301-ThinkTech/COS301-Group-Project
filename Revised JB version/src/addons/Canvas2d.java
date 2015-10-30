@@ -10,6 +10,9 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+/*
+*The Canvas2D is responsible the canvas and everything related to the canvas and the graphics involved in it
+*/
 public class Canvas2d extends JPanel 
 {
     protected int w, h;

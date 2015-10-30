@@ -11,6 +11,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JEditorPane;
 
+/*
+*The Syntax class is used for the syntax of the code used through out the flowcharts.
+For example of the html code used in the project.
+*/
 public class Syntax {
     public static Object js;
     public static Object py;

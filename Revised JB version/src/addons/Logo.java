@@ -11,6 +11,9 @@ import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
 
+/*
+*The Logo class is used to draw logos and it extends the Canvas2D
+*/
 public class Logo extends Canvas2d
 {    
     public Logo(int width, int height)
@@ -106,6 +109,9 @@ public class Logo extends Canvas2d
     }
     Point2D old=new Point2D.Double(0,0);
     public void forward(double n){fw(n);}
+    /*
+    *The implementation of the foward method. 
+    */
     public void fw(double n){    
         if(!closedCanvas){
             double left=Math.abs(n);
@@ -283,6 +289,9 @@ public class Logo extends Canvas2d
     {
         eval(s);
     }
+    /*
+    *  Used to evaluate the string used to parse the direction to take when drawing the logo
+    */
     public void eval(String s){
         String e[]=s.split(" ");
         if(e.length==0) return ;

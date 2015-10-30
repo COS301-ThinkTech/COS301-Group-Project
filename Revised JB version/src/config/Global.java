@@ -25,8 +25,7 @@ import com.seaglasslookandfeel.SeaGlassLookAndFeel;
 
 
 /**
- *
- * @author Goodness
+ *The Global class is used to define all the variables and functions which are used across all classes.
  */
 public class Global
 {

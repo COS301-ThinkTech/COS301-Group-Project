@@ -1,12 +1,18 @@
 package addons;
 
+/**
+ * The Geometry class is used  to co-ordinate points which are used on the flowchart , 
+ * for instance the points of the blocks on the flowchart.
+ */
 public class Geometry
 {
     public static Point Point(double x, double y){
         return new Point(x, y);
     }
 }
-
+/*
+* This is used to by the Geometry class to create points.
+*/
 class Point{
     public double x=0, y=0;
     Point(double x, double y){

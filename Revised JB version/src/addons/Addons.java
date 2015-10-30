@@ -15,8 +15,8 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 
 /**
- *
- * @author Goodness
+ *The Addons class is used to define all the variables and functions which are used to add helper functionality
+ *  to all classes.
  */
 public class Addons 
 {
@@ -37,6 +37,11 @@ public class Addons
 
     public File dir = new File(System.getProperty("user.home") + "/.FlowProject/classes/");
     public ClassLoader loader = null;
+ /**
+ * Loads the script engine / creates an instance of the script engine
+ *@param name - Name of the class which will be loaded 
+ *@return object - The class which will be loaded 
+ */
     public Object load(String name)
     {
         if (!dir.exists()) 
@@ -166,7 +171,10 @@ public class Addons
         }
         return null;
     }
-
+ /**
+ * getTime() calculates the current time in HH-mm-ss format.
+ * @return  time - The current time is returned in an array .
+ */
     public int[] getTime()
     {
         Calendar cal = Calendar.getInstance();

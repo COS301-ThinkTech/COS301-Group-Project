@@ -35,7 +35,7 @@ public abstract class Sheet extends JComponent
         workspaceInstance=set;
     }
     /**
-     * Method called to close sheet and end working over it<br/>
+     * Method called to close sheet and end working over it
      * Should close all running threads
      */
     public abstract void close();
