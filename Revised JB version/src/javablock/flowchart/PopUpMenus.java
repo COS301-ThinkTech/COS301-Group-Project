@@ -114,11 +114,11 @@ public final class PopUpMenus implements ActionListener, PopupMenuListener {
         blockMenu.addPopupMenuListener(this);
 
         //item=newMenuItem("command.moveUp", "", null, "move/up");
-        item=newMenuItem("connections.connectTo", "", null, "connections/connectTo");
-        blockMenu.add(item);
+        //item=newMenuItem("connections.connectTo", "", null, "connections/connectTo");
+        //blockMenu.add(item);
         //item=newMenuItem("command.moveDown", "", null, "move/down");
         //item=newMenuItem("connections.moveDown", "", null, "move/down");
-        blockMenu.add(item);
+        //blockMenu.add(item);
 
         blockMenu.addSeparator();
         item=newMenuItem("connections.deleteOut", "", null, "connections/deleteOut");
@@ -184,14 +184,12 @@ public final class PopUpMenus implements ActionListener, PopupMenuListener {
         else if(ex[0].equals("delete")){
             if(ex[1].equals("all"))
                 ((Flowchart)action.flow).deleteSelectedBlocks();}
-        /*else if(ex[0].equals("connections"))
-                ((Flowchart)action.flow).deleteConnections(ex[1]);*/
+        else if(ex[0].equals("connections"))
+                ((Flowchart)action.flow).deleteConnections(ex[1]);
         else if(ex[0].equals("connections")){
             if(ex[1].equals("connectTo")){
                 System.out.println("connecting tooooo.....");
                 //((Flowchart)action.flow).addBlock(ex[1]);
-                
-                
             }
         }
         else action.actionPerformed(e);

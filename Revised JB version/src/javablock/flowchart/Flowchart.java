@@ -1573,7 +1573,7 @@ public class Flowchart extends Sheet implements ActionListener, KeyListener,
             return b;
         }
         b=JBlock.make(type, true, this);
-        if(b.type == Type.DECLARATION || b.type == Type.CPU || b.type == Type.DECISION || b.type == Type.COMMENT)
+        if(b.type == Type.DECLARATION || b.type == Type.CPU || b.type == Type.DECISION || b.type == Type.COMMENT || b.type == Type.MODULE)
             b.comment = "";
         
         if(b!=null)

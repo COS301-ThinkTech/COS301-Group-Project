@@ -245,7 +245,7 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                 return;
         }
         flow.getBlocks().get(0).moduleStart = true;
-        flow.getBlocks().get(0).name = "";
+        flow.getBlocks().get(flow.getBlocks().size()-1).moduleStop = true;
         flows.add(flow); 
         workspace.addSheet(flow);
         workspace.setActive(flow.getName());
@@ -383,6 +383,12 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             }
             
         workspace.renameSheetName(fl.getName()+"()", workspace.getActive());
+        workspace.mng.updateFocus();
+        workspace.mng.updateUI();
+        flow.update();
+        updateFocus();
+        updateUI();
+        flow.updateUI();
       
     }
 
@@ -930,7 +936,16 @@ public final class FlowchartManager extends JPanel implements ActionListener{
                                 editor = null;
                     }
                     else{
-                        editor = selected.getEditor();
+                        
+                        if(selected.getType() == "RETURN"){
+                            if(selected.moduleStop)
+                                editor = selected.getEditor();
+                            else
+                                editor = null;
+                        }
+                        else{
+                            editor = selected.getEditor();
+                        }
                     }
                     
                         //editor = selected.getEditor();

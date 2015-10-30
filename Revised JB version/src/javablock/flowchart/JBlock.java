@@ -101,6 +101,7 @@ public abstract class JBlock implements FlowElement{
     public Object extra=null;
     public String name;
     public boolean moduleStart = false;
+    public boolean moduleStop = false;
 
     public Color color, borderColor, textColor;
     protected Paint gradient;

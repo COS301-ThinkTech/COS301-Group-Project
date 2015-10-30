@@ -35,10 +35,10 @@ public class ReturnBlock extends JBlock {
         return true;
     }
     
-     @Override
+     /*@Override
     public BlockEditor getEditor(){
-        return null;
-    }
+        return editor;
+    }*/
 
     @Override
     public JBlock executeCode(ScriptEngine script){
