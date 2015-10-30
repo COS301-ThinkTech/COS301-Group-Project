@@ -386,13 +386,6 @@ public final class FlowchartManager extends JPanel implements ActionListener{
             }
             
         workspace.renameSheetName(fl.getName()+"()", workspace.getActive());
-        workspace.mng.updateFocus();
-        workspace.mng.updateUI();
-        flow.update();
-        updateFocus();
-        updateUI();
-        flow.updateUI();
-      
     }
 
     public Element clipBoard=null;
